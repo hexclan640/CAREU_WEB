@@ -1,0 +1,85 @@
+.header {
+    padding: 20px 15px 0px 15px;
+    background-color: rgb(91, 17, 1, 0.8);
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 5rem;
+}
+
+.name1 {
+    display: inline-block;
+    font-family: sans-serif;
+    color: #FF8C00;
+    margin: 0px;
+    font-size: 300%;
+}
+
+.name2 {
+    display: inline-block;
+    color: #FF8C00;
+    margin: 0px;
+    font-size: 500%;
+}
+
+.coll a {
+    text-shadow: 4px 4px 4px black;
+    text-align: right;
+    text-decoration: none;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 100%;
+    color: white;
+}
+
+.coll a:hover {
+    color: black;
+    background-color: white;
+    text-shadow: none;
+}
+
+.nameLogo {
+    float: left;
+    width: 30%;
+    text-shadow: 4px 4px 4px black;
+}
+
+.title {
+    float: right;
+    width: 70%;
+    font-size: 150%;
+    color: #FF8C00;
+    text-shadow: 4px 4px 4px black;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.coll {
+    float: right;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.row1:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 900px) {
+    .name1,
+    .name2 {
+        display: none;
+        transition: 1s;
+    }
+}

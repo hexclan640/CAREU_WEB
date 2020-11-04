@@ -1,0 +1,98 @@
+body {
+    margin-top: 10.5rem;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-attachment: fixed;
+}
+
+.form {
+    margin: 10px;
+    padding: 25px 25px 25px 25px;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+.breadcrum {
+    color: white;
+    background-color: rgb(128, 0, 0, 0.9);
+    padding: 5px 0px 5px 10px;
+}
+
+.form a {
+    color: white;
+    padding: 20px;
+    height: 300px;
+    width: 70%;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    margin: 30px 30px;
+    cursor: pointer;
+    text-decoration: none;
+    text-shadow: 3px 3px 3px black;
+    box-shadow: 10px 10px 5px black;
+}
+
+.form img {
+    margin: 20px;
+}
+
+.recent {
+    background-color: rgb(255, 0, 0, 0.7);
+}
+
+.recent:hover {
+    background-color: rgb(255, 0, 0, 0.9);
+    color: white;
+}
+
+.all {
+    background-color: rgb(0, 128, 0, 0.7);
+}
+
+.all:hover {
+    background-color: rgb(0, 128, 0, 0.9);
+    color: white;
+}
+
+.profile {
+    background-color: rgb(30, 144, 255, 0.75);
+}
+
+.profile:hover {
+    background-color: rgb(30, 144, 255, 0.95);
+    color: white;
+}
+
+.report {
+    background-color: rgb(255, 69, 0, 0.7);
+}
+
+.report:hover {
+    background-color: rgb(255, 69, 0, 0.9);
+    color: white;
+}
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1200px) {
+    .column {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+    }
+}

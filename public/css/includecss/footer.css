@@ -1,0 +1,41 @@
+.footer{
+	background-color: rgb(192,192,192,0.8);
+	font-family: sans-serif;
+}
+
+.copyright{
+	padding: 0px 0px 10px 0px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 100%;
+}
+
+.company {
+  float: left;
+  width: 28%;
+  padding: 10px;
+}
+
+.contact {
+  float: left;
+  width: 18%;
+  padding: 10px;
+}
+
+.location {
+  float: left;
+  width: 48%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 1020px) {
+  .coopany,.contact,.location {
+    width: 100%;
+  }
+}
