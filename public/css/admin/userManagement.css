@@ -1,0 +1,89 @@
+body {
+    margin-top: 10.5rem;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-attachment: fixed;
+}
+
+.breadcrum {
+    color: white;
+    background-color: rgb(128, 0, 0, 0.9);
+    padding: 5px 0px 5px 10px;
+}
+
+.updates {
+    background-color: rgb(255, 255, 255, 0.6);
+    margin: 10px;
+    padding: 10px 10px 10px 10px;
+}
+
+.column2 a {
+    float: right;
+    text-align: center;
+    width: 40%;
+    background-color: rgb(0, 191, 255, 0.7);
+    border: 1px solid black;
+    text-shadow: none;
+    padding: 11px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.column2 a:hover {
+    background-color: rgb(0, 191, 255, 0.9);
+}
+
+.column .userrow,
+.column .requestrow {
+    background-color: rgb(192, 192, 192, 0.6);
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.updates:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1020px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.column1 {
+    float: left;
+    width: 50%;
+}
+
+.column2 {
+    float: right;
+    width: 50%;
+}
+
+.userrow:after,
+.requestrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1020px) {
+    .column1,
+    .column2 {
+        width: 100%;
+    }
+}

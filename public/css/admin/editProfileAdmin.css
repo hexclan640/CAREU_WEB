@@ -1,0 +1,136 @@
+body {
+    margin-top: 10.5rem;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-attachment: fixed;
+}
+
+.breadcrum {
+    color: white;
+    background-color: rgb(128, 0, 0, 0.9);
+    padding: 5px 0px 5px 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#err {
+    color: white;
+    padding: 3px;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 2px;
+    margin: 0px;
+    transition: 1s;
+    width: 50%;
+    box-shadow: 1px 1px 1px black;
+}
+
+.hide {
+    visibility: hidden;
+    ;
+}
+
+.lab {
+    display: none;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.form {
+    background-color: rgb(255, 255, 255, 0.6);
+    margin: 10px;
+}
+
+.column1 .picture {
+    width: 25vw;
+    height: 25vw;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color: rgb(192, 192, 192, 0.6);
+}
+
+.column2 label {
+    margin: 13px;
+    display: block;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.column3 input {
+    margin: 10px;
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}
+
+.column3 input[type=submit] {
+    width: 20%;
+    background-color: rgb(0, 191, 255, 0.6);
+    border: 1px solid black;
+    padding: 11px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 120%;
+    margin-top: 20px;
+}
+
+.column3 input[type=submit]:hover {
+    background-color: rgb(0, 191, 255, 0.9);
+}
+
+.column1 {
+    float: left;
+    width: 30%;
+    padding: 20px;
+}
+
+.column2 {
+    float: left;
+    width: 20%;
+    margin-top: 40px;
+    padding: 10px;
+    text-align: left;
+}
+
+.column3 {
+    float: left;
+    width: 41%;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1020px) {
+    .column1,
+    .column2,
+    .column3 {
+        width: 100%;
+    }
+    .column2 {
+        display: none;
+    }
+    .lab {
+        display: block;
+        font-size: 110%;
+        font-weight: bold;
+    }
+    .column3 input {
+        width: 50%;
+    }
+}

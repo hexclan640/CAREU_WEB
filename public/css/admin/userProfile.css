@@ -1,0 +1,73 @@
+body{
+	background-image: url("../../img/bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: sans-serif;
+	background-attachment: fixed;
+}
+
+.breadcrum{
+	color: white;
+	background-color: rgb(128,0,0,0.9);
+	padding: 5px 0px 5px 10px;
+}
+
+.user{
+	background-color: rgb(255,255,255,0.6);
+	margin: 10px;
+	padding:10px;
+	height: 300px;
+}
+
+.user h2{
+	margin:10px;
+}
+
+.user .reqHistory h2,.feedHistory h2{
+	margin:30px;
+}
+
+.user table{
+	font-size: 130%;
+	width: 95%;
+	height: 200px;
+}
+
+.user .reqHistory{
+	width: 50%;
+}
+
+.user .feedHistory{
+	width: 50%;
+}
+
+.user .reqHistory div{
+	margin-right: 10px;
+	padding-top: 5px;
+	background-color: rgb(192,192,192,0.7);
+	height: 200px;
+}
+
+.user .feedHistory div{
+	margin-left: 10px;
+	padding-top: 5px;
+	background-color: rgb(192,192,192,0.7);
+	height: 200px;
+}
+
+.user a{
+	text-align: center;
+    background-color: rgb(0,191,255,0.6);
+    border: 1px solid black;
+    padding: 11px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    text-shadow: none;
+    font-size: 100%;
+}
+
+.user a:hover{
+	background-color: rgb(0,191,255,0.9);
+}
