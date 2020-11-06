@@ -16,22 +16,22 @@
 		<center>
 			<div class="row">
 		  		<div class="column">
-		  			<a href="recent" type="submit" class="recent"><p>Recent Requests</p><img src="https://img.icons8.com/color/96/000000/add-user-male--v1.png"/></a>
+		  			<a href="recent" type="submit" class="recent"><p>Recent Requests</p><img src="../img/homeicons/recent.svg"/></a>
 			  	</div>
 		  		<div class="column">
-		  			<a href="all" type="submit" class="all"><p>All Requests</p><img src="https://img.icons8.com/color/96/000000/add-user-male--v1.png"/></a>
+		  			<a href="all" type="submit" class="all"><p>All Requests</p><img src="../img/homeicons/all.svg"/></a>
 		  		</div>
 		  		<div class="column">
-		  			<a href="profile" type="submit" class="profile"><p>Edit Profile</p><img src="https://img.icons8.com/color/96/000000/checked-user-male--v1.png"/></a>
+		  			<a href="profile" type="submit" class="profile"><p>Edit Profile</p><img src="../img/homeicons/profile.svg"/></a>
 				</div>
 		  		<div class="column">
-		  			<a href="reports" type="submit" class="report"><p>Generate Reports</p><img src="https://img.icons8.com/color/96/000000/fine-print.png"/></a>
+		  			<a href="reports" type="submit" class="report"><p>Generate Reports</p><img src="../img/homeicons/reports.svg"/></a>
 		  		</div>
 			</div>
 		</center>
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<!-- <script type="text/javascript" src="../javascript/navigation.js"></script> -->
+	<script type="text/javascript" src="../javascript/headerPolice.js"></script>
 </body>
 </html>

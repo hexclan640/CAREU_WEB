@@ -20,10 +20,10 @@ $(document).ready(function() {
                 $.post("careu/verify",
                     formData,
                     function(data, status) {
-                        if (data == "failed" && status == "success") {
+                        if (data.trim() == "failed" && status.trim() == "success") {
                             error.innerText = "Invalid username or password. Try again!";
                             $("#err").removeClass("hide");
-                        } else {
+                        } else if (data.trim() == "success" && status.trim() == "success") {
                             if (userName.includes("admin")) {
                                 window.location.href = "careuadmin/home";
                             }
@@ -45,18 +45,3 @@ $(document).ready(function() {
         }
     });
 });
-/*const form=document.querySelector("#logIn");
-
-document.getElementById("username").addEventListener("input",validate);
-document.getElementById("password");
-
-function validate(e){
-	if(!e.target.value.substring(0,5).includes("careu"))
-	{
-		$("#username").addClass("inputcolor");
-	}
-	else
-	{
-		$("#username").removeClass("inputcolor");		
-	}
-}*/

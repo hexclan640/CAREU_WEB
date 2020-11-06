@@ -1,5 +1,5 @@
 .header {
-    padding: 20px 15px 0px 15px;
+    padding: 1rem 0rem 0rem 2rem;
     background-color: rgb(91, 17, 1, 0.8);
     overflow: hidden;
     position: fixed;
@@ -8,57 +8,35 @@
     left: 0;
 }
 
-.logo {
-    margin-left: auto;
-    margin-right: auto;
-    width: 5rem;
-}
-
-.name1 {
-    display: inline-block;
-    font-family: sans-serif;
-    color: #FF8C00;
-    margin: 0px;
-    font-size: 300%;
-}
-
-.name2 {
-    display: inline-block;
-    color: #FF8C00;
-    margin: 0px;
-    font-size: 500%;
-}
-
-.coll a {
-    text-shadow: 4px 4px 4px black;
-    text-align: right;
-    text-decoration: none;
-    padding: 1rem 2rem 1rem 2rem;
-    font-size: 100%;
-    color: white;
-}
-
-.coll a:hover {
-    color: black;
-    background-color: white;
-    text-shadow: none;
-}
-
-.nameLogo {
+.headercoll1 {
     float: left;
-    width: 30%;
-    text-shadow: 4px 4px 4px black;
+    width: 50%;
+    margin-bottom: 2.5rem;
+}
+
+.headercoll2 {
+    float: left;
+    width: 50%;
+    margin-bottom: 2.5rem;
+}
+
+.headerrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    width: 15%;
 }
 
 .title {
-    float: right;
+    float: left;
     width: 70%;
-    font-size: 150%;
-    color: #FF8C00;
-    text-shadow: 4px 4px 4px black;
 }
 
-.row:after {
+.namelogo:after {
     content: "";
     display: table;
     clear: both;
@@ -66,20 +44,107 @@
 
 .coll {
     float: right;
-    text-align: center;
-    padding-bottom: 1rem;
+    padding-right: 3rem;
+    padding-top: 3rem;
 }
 
-.row1:after {
+.options:after {
     content: "";
     display: table;
     clear: both;
 }
 
-@media screen and (max-width: 900px) {
-    .name1,
-    .name2 {
-        display: none;
-        transition: 1s;
+.careulogo {
+    width: 5rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+}
+
+.title {
+    padding-left: 1rem;
+    font-size: 2rem;
+    color: #FF8C00;
+    height: 2rem;
+    text-shadow: 4px 4px 4px black;
+}
+
+
+/* #service {
+    float: right;
+} */
+
+.options a {
+    text-shadow: 4px 4px 4px black;
+    border: 2px solid rgb(91, 17, 1, 0);
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 100%;
+    color: white;
+}
+
+.options a:hover {
+    border: 2px solid white;
+    text-shadow: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .headercoll1 {
+        width: 100%;
+        margin-bottom: 0rem;
+    }
+    .headercoll2 {
+        margin-top: 0rem;
+        width: 100%;
+    }
+    .coll {
+        padding-top: 1rem;
+    }
+    body {
+        margin-top: 12.5rem;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .logo {
+        width: 100%;
+        margin-bottom: 0rem;
+        float: none;
+    }
+    .title {
+        margin-top: 0rem;
+        width: 100%;
+        float: none;
+        padding-left: 0rem;
+    }
+    .coll {
+        padding-top: 3rem;
+    }
+    body {
+        margin-top: 19rem;
+    }
+    .logo {
+        float: none;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .title {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.5rem;
+    }
+    .coll {
+        width: 100%;
+    }
+    .coll a {
+        margin-left: 2rem;
+    }
+    body {
+        margin-top: 22.5rem;
     }
 }

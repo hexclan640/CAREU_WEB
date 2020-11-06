@@ -25,14 +25,14 @@ $(document).ready(function() {
             $("#err").removeClass("hide");
         } else if (firstname != "" && lastname != "" && password1 != "" && password2 != "") {
             var formData = $("#editProfile").serialize();
-            $.post("updateprofileoperator119",
+            $.post("updateprofile",
                 formData,
                 function(data, status) {
                     if (data == "failed" && status == "success") {
                         error.innerText = "Something went wrong. Try again!";
                         $("#err").removeClass("hide");
                     } else {
-                        window.location.href = "homepage119";
+                        window.location.href = "home";
                     }
                 }
             );

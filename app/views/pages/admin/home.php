@@ -16,24 +16,24 @@
 		<center>
 			<div class="row">
 		  		<div class="column">
-		  			<a href="../careuadmin/new119" type="submit" class="new119"><p>119 Operator</p><img src="https://img.icons8.com/color/96/000000/add-user-male--v1.png"/></a>
+					<a href="new119" type="submit" class="new119"><p>119 Operator</p><img src="../img/homeicons/adduser119.svg"/></a>
 			  	</div>
 		  		<div class="column">
-		  			<a href="../careuadmin/new1990" type="submit" class="new1990"><p>1990 Operator</p><img src="https://img.icons8.com/color/96/000000/add-user-male--v1.png"/></a>
+					<a href="new1990" type="submit" class="new1990"><p>1990 Operator</p><img src="../img/homeicons/adduser1990.svg"/></a>
 		  		</div>
 		  		<div class="column">
-		  			<a href="../careuadmin/usermanagement" type="submit" class="usermanage"><p>User Management</p><img src="https://img.icons8.com/color/96/000000/checked-user-male--v1.png"/></a>
+					<a href="usermanagement" type="submit" class="usermanage"><p>Users</p><img src="../img/homeicons/users.svg"/></a>
 				</div>
 		  		<div class="column">
-		  			<a href="../careuadmin/reports" type="submit" class="report"><p>Generate Reports</p><img src="https://img.icons8.com/color/96/000000/fine-print.png"/></a>
+					<a href="reports" type="submit" class="report"><p>Reports</p><img src="../img/homeicons/reports.svg"/></a>
 		  		</div>
 			</div>
 		</center>
 	</div>
-	<p class="demo" id="demo"></p>
+	<h1 class="demo" id="demo"></h1>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<button onclick="typeWriter()">Click me</button>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/navigation.js"></script>
+	<script type="text/javascript" src="../javascript/typed.js"></script>
+	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 </body>
 </html>

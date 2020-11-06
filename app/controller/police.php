@@ -3,7 +3,7 @@ class police extends Controller
 {
     public function __construct()
     {
-        $this->userModel = $this->model('data');
+        $this->userModel = $this->model('modelpolice');
     }
 
     public function home()
@@ -44,7 +44,7 @@ class police extends Controller
     public function profile()
     {
         session_start();
-        $operatorInfo=$this->userModel->getOperator119($_SESSION['userName']);
+        $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
         $data = ['admin' => $operatorInfo];
 
         if($operatorInfo)
@@ -63,7 +63,7 @@ class police extends Controller
         $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $userName=$_SESSION['userName'];
         $password=mysqli_real_escape_string($connection,$_POST['password1']);
-        $result=$this->userModel->updateOperator119($firstName,$lastName,$userName,$password);
+        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password);
 
         if($result)
         {
