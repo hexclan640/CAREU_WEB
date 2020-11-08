@@ -22,10 +22,10 @@
 			</div>
 			<div class="loginform">
 				<p class="hide" id="err">Error</p>
-				<form  method="post" id="logIn">
+				<form action="" method="post" id="logIn">
 					<input type="text" id="username" name="username" placeholder="Username"><br>
 					<input type="password" id="password" name="password" placeholder="Password"><br><br>
-	    			<input type="submit" value="LOG IN" name="submit" id="submit"><br><br>
+	    			<input type="submit" value="LOG IN" onclick="myFunction()" name="submit" id="submit"><br><br>
 	    			<a href="verifyController/about" class="forgotpassword">Forgot password?</a><br>
 	 			</form>
 			</div>

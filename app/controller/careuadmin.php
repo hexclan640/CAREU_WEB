@@ -63,9 +63,9 @@ class careuadmin extends Controller
 
     public function usermanagement()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/userManagement');
-        $this->view('pages/includes/footer');
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/error');
+        // $this->view('pages/includes/footer');
     }
 
     public function userrequests()

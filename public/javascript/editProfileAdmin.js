@@ -29,11 +29,14 @@ $(document).ready(function() {
                 formData,
                 function(data, status) {
                     console.log(data);
-                    if (data == "failed" && status == "success") {
+                    if (data.includes("failed") && status.includes("success")) {
                         error.innerText = "Something went wrong. Try again!";
                         $("#err").removeClass("hide");
-                    } else {
+                    } else if (data.includes("success") && status.includes("success")) {
                         window.location.href = "home";
+                    } else {
+                        error.innerText = "Something went wrong. Try again!";
+                        $("#err").removeClass("hide");
                     }
                 }
             );

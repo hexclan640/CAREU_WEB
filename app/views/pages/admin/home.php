@@ -9,6 +9,14 @@
 	<title>Home</title>
 </head>
 <body>
+<!-- <nav id="navbar">
+  <a href="#default" id="logo">CompanyLogo</a>
+  <div id="navbar-right">
+    <a class="active" href="#home">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+</nav> -->
 	<div class="breadcrum">
 		Home
 	</div>
@@ -30,10 +38,8 @@
 			</div>
 		</center>
 	</div>
-	<h1 class="demo" id="demo"></h1>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/typed.js"></script>
 	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 </body>
 </html>

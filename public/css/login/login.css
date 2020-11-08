@@ -9,7 +9,7 @@ body {
 .form {
     background-color: rgb(255, 255, 255, 0.8);
     padding: 20px 0px 20px 0px;
-    width: 50%;
+    width: 70%;
     position: relative;
     left: 50%;
     top: 50%;
@@ -80,14 +80,13 @@ input[type=submit] {
     font-weight: bold;
     color: white;
     cursor: pointer;
-    font-size: 100%;
     border: 2px solid rgb(88, 0, 0);
     font-size: 120%;
 }
 
 input[type=submit]:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(160, 85, 0);
     border: 2px solid black;
 }
 
@@ -99,4 +98,10 @@ input[type=submit]:hover {
 
 .forgotpassword:hover {
     color: #1E90FF;
+}
+
+@media screen and (max-width: 650px) {
+    .form {
+        width: 90%;
+    }
 }

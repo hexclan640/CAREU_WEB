@@ -1,150 +1,73 @@
-.header {
-    padding: 1rem 0rem 0rem 2rem;
-    background-color: rgb(91, 17, 1, 0.8);
+* {
+    box-sizing: border-box;
+}
+
+#navbar {
     overflow: hidden;
-    position: fixed;
+    background-color: rgb(91, 17, 1, 0.8);
+    padding: 0.5rem 0.5rem;
+    transition: 0.4s;
+    position: sticky;
     width: 100%;
     top: 0;
-    left: 0;
-}
-
-.headercoll1 {
-    float: left;
-    width: 50%;
-    margin-bottom: 2.5rem;
-}
-
-.headercoll2 {
-    float: left;
-    width: 50%;
-    margin-bottom: 2.5rem;
-}
-
-.headerrow:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.logo {
-    float: left;
-    width: 15%;
+    z-index: 99;
 }
 
 .title {
-    float: left;
-    width: 70%;
-}
-
-.namelogo:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.coll {
-    float: right;
-    padding-right: 3rem;
-    padding-top: 3rem;
-}
-
-.options:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.careulogo {
-    width: 5rem;
-    padding-top: 1rem;
-    padding-right: 1rem;
-}
-
-.title {
-    padding-left: 1rem;
+    margin-left: 1rem;
     font-size: 2rem;
     color: #FF8C00;
     height: 2rem;
     text-shadow: 4px 4px 4px black;
 }
 
-
-/* #service {
-    float: right;
-} */
-
-.options a {
+#navbar-right a {
+    float: left;
     text-shadow: 4px 4px 4px black;
     border: 2px solid rgb(91, 17, 1, 0);
     text-align: center;
     text-decoration: none;
     padding: 1rem;
-    font-size: 100%;
+    font-size: 110%;
     color: white;
 }
 
-.options a:hover {
+#navbar img {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    float: left;
+}
+
+.careulogo {
+    margin-right: 1rem;
+    width: 5.5rem;
+}
+
+#navbar-right a:hover {
     border: 2px solid white;
     text-shadow: none;
 }
 
-@media screen and (max-width: 1000px) {
-    .headercoll1 {
-        width: 100%;
-        margin-bottom: 0rem;
-    }
-    .headercoll2 {
-        margin-top: 0rem;
-        width: 100%;
-    }
-    .coll {
-        padding-top: 1rem;
-    }
-    body {
-        margin-top: 12.5rem;
-    }
+#navbar-right {
+    float: right;
 }
 
-@media screen and (max-width: 480px) {
-    .logo {
-        width: 100%;
-        margin-bottom: 0rem;
+@media screen and (max-width: 580px) {
+    #navbar {
+        padding: 20px 10px !important;
+    }
+    #navbar a {
         float: none;
+        display: block;
+        text-align: left;
+    }
+    #navbar-right {
+        float: none;
+    }
+    #navbar img {
+        margin-bottom: 5rem;
     }
     .title {
-        margin-top: 0rem;
-        width: 100%;
-        float: none;
-        padding-left: 0rem;
-    }
-    .coll {
-        padding-top: 3rem;
-    }
-    body {
-        margin-top: 12.5rem;
-    }
-    .logo {
-        float: none;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .logo {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .title {
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 1.5rem;
-    }
-    .coll {
-        width: 100%;
-    }
-    .coll a {
-        margin-left: 2rem;
-    }
-    body {
-        margin-top: 27rem;
+        margin-bottom: 6rem;
     }
 }
