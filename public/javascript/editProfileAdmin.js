@@ -45,3 +45,12 @@ $(document).ready(function() {
         }
     });
 });
+
+function showhide1() {
+    var x = document.getElementById("password1");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}

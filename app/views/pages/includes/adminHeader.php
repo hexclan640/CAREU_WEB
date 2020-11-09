@@ -4,8 +4,8 @@
 			<h1 id="service"></h1>
 		</div>
   		<div id="navbar-right">
-    		<a class="" href="../careuadmin/home">HOME</a>
-    		<a href="../careuadmin/profile">PROFILE</a>
+    		<a class="" href="home">HOME</a>
+    		<!-- <a href="profile">PROFILE</a> -->
     		<a href="../../careu-web">LOG OUT</a>
   		</div>
 	</nav>

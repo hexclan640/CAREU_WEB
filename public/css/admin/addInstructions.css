@@ -51,7 +51,7 @@ body {
 
 .column {
     float: left;
-    width: 33.333%;
+    width: 25%;
 }
 
 .row:after {

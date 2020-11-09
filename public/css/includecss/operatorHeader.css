@@ -52,6 +52,13 @@
     float: right;
 }
 
+@media screen and (max-width: 800px) {
+    .title {
+        margin-bottom: 1rem;
+        font-size: 1.75rem;
+    }
+}
+
 @media screen and (max-width: 580px) {
     #navbar {
         padding: 20px 10px !important;
@@ -65,9 +72,11 @@
         float: none;
     }
     #navbar img {
-        margin-bottom: 5rem;
+        margin-bottom: 0rem;
+        width: 4rem;
     }
     .title {
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
+        font-size: 1rem;
     }
 }

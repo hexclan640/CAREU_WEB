@@ -21,6 +21,7 @@
 
             $query="UPDATE 119calloperator SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}' WHERE userName='{$username}'";
             $adminInfo=mysqli_query($connection,$query);
+            mysqli_close($connection);
 
             if($adminInfo> 0)
             {   

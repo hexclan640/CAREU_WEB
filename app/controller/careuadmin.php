@@ -49,6 +49,7 @@ class careuadmin extends Controller
         $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $userName=$_SESSION['userName'];
         $password=mysqli_real_escape_string($connection,$_POST['password1']);
+        mysqli_close($connection);
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password);
 
         if($result)
@@ -58,6 +59,19 @@ class careuadmin extends Controller
         else
         {
             echo "failed";
+        }
+    }
+
+    public function updatedprofilepicture()
+    {
+        $userName=$_SESSION['userName'];
+        $imageName=$_FILES['image']['name'];
+        $tempName=$_FILES['image']['tmp_name'];
+        $result=$this-userModel->updateProPic($userName,$imageName,$tempName);
+
+        if($result)
+        {
+            
         }
     }
 
@@ -117,6 +131,7 @@ class careuadmin extends Controller
         $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $gender=mysqli_real_escape_string($connection,$_POST['gender']);
         $password=mysqli_real_escape_string($connection,$_POST['password1']);
+        mysqli_close($connection);
         $result=$this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
 
         if($result)
@@ -137,6 +152,7 @@ class careuadmin extends Controller
         $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $gender=mysqli_real_escape_string($connection,$_POST['gender']);
         $password=mysqli_real_escape_string($connection,$_POST['password1']);
+        mysqli_close($connection);
         $result=$this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
 
         if($result)
@@ -147,6 +163,69 @@ class careuadmin extends Controller
         {
             echo "failed";
         }
+    }
+
+    public function firstaids()
+    {
+        $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/addInstructions');
+        $this->view('pages/includes/footer');
+    }
+
+    public function instructionform()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/instructionForm');
+        // $this->view('pages/includes/footer');
+    }
+
+    public function cardiacinstructiosns()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/cardiacInstructions');
+        // $this->view('pages/includes/footer');
+    }
+
+    public function bleedinginstructions()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/bleedingInstructions');
+        // $this->view('pages/includes/footer');
+    }
+
+    public function burnsinstructions()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/burnsinstructions');
+        // $this->view('pages/includes/footer');
+    }
+
+    public function fracturesinstructions()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/fracturesInstructions');
+        // $this->view('pages/includes/footer');
+    }
+
+    public function blistersInstructions()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/blistersInstructions');
+        // $this->view('pages/includes/footer');
+    }
+
+    public function sprainsinstructions()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/sprainsInstructions');
+        // $this->view('pages/includes/footer');
+    }
+
+    public function nosebleedsnstructions()
+    {
+        // $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/nodebleedsnstructions');
+        // $this->view('pages/includes/footer');
     }
 
 }

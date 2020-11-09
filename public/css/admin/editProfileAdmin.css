@@ -71,6 +71,7 @@ body {
     box-sizing: border-box;
 }
 
+.column1 input[type=submit],
 .column3 input[type=submit] {
     width: 25%;
     background-color: rgb(88, 0, 0);
@@ -81,6 +82,7 @@ body {
     color: white;
     font-size: 120%;
     margin-top: 20px;
+    border: 2px solid rgb(88, 0, 0);
 }
 
 .column3 input[type=submit]:hover {
@@ -103,9 +105,14 @@ body {
     text-align: left;
 }
 
+.column1 canvas {
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
 .column3 {
     float: left;
-    width: 41%;
+    width: 48%;
     margin-top: 40px;
     padding: 10px;
 }

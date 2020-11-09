@@ -9,14 +9,6 @@
 	<title>Home</title>
 </head>
 <body>
-<!-- <nav id="navbar">
-  <a href="#default" id="logo">CompanyLogo</a>
-  <div id="navbar-right">
-    <a class="active" href="#home">Home</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-  </div>
-</nav> -->
 	<div class="breadcrum">
 		Home
 	</div>
@@ -24,16 +16,22 @@
 		<center>
 			<div class="row">
 		  		<div class="column">
-					<a href="new119" type="submit" class="new119"><p>119 Operator</p><img src="../img/homeicons/adduser119.svg"/></a>
+					<a href="new119" type="submit"><p>119 Operator</p><img src="../img/homeicons/adduser119.svg"/></a>
 			  	</div>
 		  		<div class="column">
-					<a href="new1990" type="submit" class="new1990"><p>1990 Operator</p><img src="../img/homeicons/adduser1990.svg"/></a>
+					<a href="new1990" type="submit"><p>1990 Operator</p><img src="../img/homeicons/adduser1990.svg"/></a>
 		  		</div>
 		  		<div class="column">
-					<a href="usermanagement" type="submit" class="usermanage"><p>Users</p><img src="../img/homeicons/users.svg"/></a>
+					<a href="usermanagement" type="submit"><p>Users</p><img src="../img/homeicons/users.svg"/></a>
+				</div>
+				<div class="column">
+					<a href="firstaids" type="submit"><p>First Aids</p><img src="../img/homeicons/firstaid.svg"/></a>
+				</div>
+				<div class="column">
+					<a href="profile" type="submit"><p>Profile</p><img src="../img/homeicons/profile.svg"/></a>
 				</div>
 		  		<div class="column">
-					<a href="reports" type="submit" class="report"><p>Reports</p><img src="../img/homeicons/reports.svg"/></a>
+					<a href="reports" type="submit"><p>Reports</p><img src="../img/homeicons/reports.svg"/></a>
 		  		</div>
 			</div>
 		</center>

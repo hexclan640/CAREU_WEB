@@ -25,6 +25,7 @@ class careu extends Controller
         $connection = mysqli_connect('localhost','root','','careu');
         $userName=mysqli_real_escape_string($connection,$_POST['username']);
         $password=mysqli_real_escape_string($connection,$_POST['password']);
+        mysqli_close($connection);
           
         if(strpos($userName, "admin"))
         {
