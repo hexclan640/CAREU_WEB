@@ -22,6 +22,10 @@
   						<canvas class="picture" id="picture">
 								
 						</canvas>
+						<form action="" enctype="multipart/form-data">
+							<input type="file" id="propic"><br>
+							<input type="submit" value="Save" class="hide" name="submit" id="proPicSubmit">
+						</form>
   					</div>
   					<div class="column2">
     	  				<label>First Name</label><br>
@@ -50,14 +54,15 @@
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileAdmin.js"></script>
-	<!-- <script type="text/javascript" src="../javascript/navigation.js"></script> -->
+	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script>
 		$(document).ready(function(){
 
 	var $pic = $('#picture'),
 		context = $pic.get(0).getContext('2d');
 
-	$('#img').on('change',function(){
+	$('#propic').on('change',function(){
+		$("#proPicSubmit").removeClass("hide");
 		
 		if (this.files && this.files[0]) {
 

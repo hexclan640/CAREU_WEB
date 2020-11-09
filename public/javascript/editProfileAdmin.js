@@ -29,11 +29,14 @@ $(document).ready(function() {
                 formData,
                 function(data, status) {
                     console.log(data);
-                    if (data == "failed" && status == "success") {
+                    if (data.includes("failed") && status.includes("success")) {
                         error.innerText = "Something went wrong. Try again!";
                         $("#err").removeClass("hide");
-                    } else {
+                    } else if (data.includes("success") && status.includes("success")) {
                         window.location.href = "home";
+                    } else {
+                        error.innerText = "Something went wrong. Try again!";
+                        $("#err").removeClass("hide");
                     }
                 }
             );
@@ -42,3 +45,12 @@ $(document).ready(function() {
         }
     });
 });
+
+function showhide1() {
+    var x = document.getElementById("password1");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}

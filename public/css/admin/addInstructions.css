@@ -1,0 +1,73 @@
+body {
+    /* margin-top: 20rem; */
+    margin: 0;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-attachment: fixed;
+}
+
+.form {
+    margin: 10px;
+    padding: 25px 25px 25px 25px;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+.breadcrum {
+    color: white;
+    background-color: rgb(128, 0, 0, 0.9);
+    padding: 5px 0px 5px 10px;
+}
+
+.form a {
+    box-sizing: border-box;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem;
+    border: 3px solid rgb(255, 255, 255, 0.6);
+}
+
+.form a:hover {
+    border: 3px solid black;
+    box-sizing: border-box;
+    background-color: rgb(245, 245, 255, 0.3);
+}
+
+.hid {
+    visibility: hidden;
+}
+
+.form img {
+    width: 70%;
+    height: auto;
+}
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1200px) {
+    .column {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+    }
+}

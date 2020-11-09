@@ -63,6 +63,7 @@ class suwasariya extends Controller
         $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $userName=$_SESSION['userName'];
         $password=mysqli_real_escape_string($connection,$_POST['password1']);
+        mysqli_close($connection);
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password);
 
         if($result)

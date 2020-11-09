@@ -21,6 +21,7 @@
 
             $query="UPDATE admin SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}' WHERE userName='{$username}'";
             $adminInfo=mysqli_query($connection,$query);
+            mysqli_close($connection);
 
             if($adminInfo> 0)
             {   
@@ -40,6 +41,16 @@
             // {
             //     return false;
             // }
+        }
+
+        public function updateProPic($username,$imagename,$tmpname)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+
+            $query="UPDATE admin SET image='{$imagename}' WHERE userName='{$username}'";
+            $adminInfo=mysqli_query($connection,$query);
+            move_uploaded_file($tmpname,"../img/adminProPics/".$tmpname);
+            mysqli_close($connection);
         }
 
         public function getUserRequest($requestID)
@@ -65,6 +76,7 @@
 
             $query="INSERT INTO 119calloperator (userName,firstName,lastName,gender,password) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}');";
             $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
 
             if($result> 0)
             {   
@@ -92,6 +104,7 @@
 
             $query="INSERT INTO 1990calloperator (userName,firstName,lastName,gender,password) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}');";
             $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
 
             if($result> 0)
             {   

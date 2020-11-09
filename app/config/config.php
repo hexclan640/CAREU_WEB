@@ -9,7 +9,7 @@
     define('APPROOT',dirname(dirname(__FILE__)));
 
     //URLROOT
-    define('URLROOT','localhost/careu');
+    // define('URLROOT','localhost/careu');
 
     define('SITENAME','careU');
 ?>

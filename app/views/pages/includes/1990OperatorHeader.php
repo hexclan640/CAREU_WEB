@@ -1,21 +1,10 @@
-	<nav class="header">
-		<div class="row">
-  			<div class="nameLogo">
-				<img src="../img/appLogo.png" class="logo">
-				<p class="name1"><b>care</b></p><p class="name2"><b>U</b></p>
-  			</div>
-  			<div class="title">
-  				<h1>SUWASARIYA-1990</h1>
-  			</div>
+<nav id="navbar">
+		<a href="home"><img src="../img/appLogo.png" class="careulogo"></a>
+		<div class="title">
+			<h1 id="service"></h1>
 		</div>
-		<div class="row1">
-  			<div class="coll">
-  				<a href="../../careu-web">LOG OUT</a>
-			</div>
-  			<div class="coll">
-  				<a href="../suwasariya/home">HOME</a>
-  			</div>
-		</div>
+  		<div id="navbar-right">
+    		<a class="" href="../suwasariya/home">HOME</a>
+    		<a href="../../careu-web">LOG OUT</a>
+  		</div>
 	</nav>
-	
-	

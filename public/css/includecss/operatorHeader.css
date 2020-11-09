@@ -1,85 +1,82 @@
-.header {
-    padding: 20px 15px 0px 15px;
-    background-color: rgb(91, 17, 1, 0.8);
+* {
+    box-sizing: border-box;
+}
+
+#navbar {
     overflow: hidden;
-    position: fixed;
+    background-color: rgb(91, 17, 1, 0.8);
+    padding: 0.5rem 0.5rem;
+    transition: 0.4s;
+    position: sticky;
     width: 100%;
     top: 0;
-    left: 0;
-}
-
-.logo {
-    margin-left: auto;
-    margin-right: auto;
-    width: 5rem;
-}
-
-.name1 {
-    display: inline-block;
-    font-family: sans-serif;
-    color: #FF8C00;
-    margin: 0px;
-    font-size: 300%;
-}
-
-.name2 {
-    display: inline-block;
-    color: #FF8C00;
-    margin: 0px;
-    font-size: 500%;
-}
-
-.coll a {
-    text-shadow: 4px 4px 4px black;
-    text-align: right;
-    text-decoration: none;
-    padding: 1rem 2rem 1rem 2rem;
-    font-size: 100%;
-    color: white;
-}
-
-.coll a:hover {
-    color: black;
-    background-color: white;
-    text-shadow: none;
-}
-
-.nameLogo {
-    float: left;
-    width: 30%;
-    text-shadow: 4px 4px 4px black;
+    z-index: 99;
 }
 
 .title {
-    float: right;
-    width: 70%;
-    font-size: 150%;
+    margin-left: 1rem;
+    font-size: 2rem;
     color: #FF8C00;
+    height: 2rem;
     text-shadow: 4px 4px 4px black;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.coll {
-    float: right;
+#navbar-right a {
+    float: left;
+    text-shadow: 4px 4px 4px black;
+    border: 2px solid rgb(91, 17, 1, 0);
     text-align: center;
-    padding-bottom: 1rem;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 110%;
+    color: white;
 }
 
-.row1:after {
-    content: "";
-    display: table;
-    clear: both;
+#navbar img {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    float: left;
 }
 
-@media screen and (max-width: 900px) {
-    .name1,
-    .name2 {
-        display: none;
-        transition: 1s;
+.careulogo {
+    margin-right: 1rem;
+    width: 5.5rem;
+}
+
+#navbar-right a:hover {
+    border: 2px solid white;
+    text-shadow: none;
+}
+
+#navbar-right {
+    float: right;
+}
+
+@media screen and (max-width: 800px) {
+    .title {
+        margin-bottom: 1rem;
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #navbar {
+        padding: 20px 10px !important;
+    }
+    #navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    #navbar-right {
+        float: none;
+    }
+    #navbar img {
+        margin-bottom: 0rem;
+        width: 4rem;
+    }
+    .title {
+        margin-bottom: 3rem;
+        font-size: 1rem;
     }
 }
