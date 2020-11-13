@@ -14,49 +14,122 @@ body {
 }
 
 .requests {
-    margin: 20px;
+    margin: 0.6rem;
     padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
-    height: 400px;
-    overflow: auto;
 }
 
-.requests h2 {
-    margin: 10px;
-}
-
-.request {
-    width: 95%;
-    background-color: rgb(192, 192, 192, 0.6);
-    padding: 25px 25px 25px 25px;
-    margin: 10px;
-    height: 200px;
-}
-
-.reqDetails {
-    width: 98.5%;
-    text-align: center;
-    background-color: rgb(255, 255, 255, 0.8);
-    margin: 10px;
-    height: 100px;
-}
-
-.requests a {
-    float: right;
-    text-align: center;
+.userPic {
+    float: left;
     width: 10%;
-    background-color: rgb(0, 191, 255, 0.6);
-    border: 1px solid black;
-    text-shadow: none;
-    padding: 11px 20px;
-    margin-right: 10px;
-    border-radius: 4px;
-    cursor: pointer;
+}
+
+.brief1 {
+    padding-top: 1rem;
     color: black;
-    font-weight: bold;
+    float: left;
+    width: 40%;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.brief2 {
+    float: left;
+    width: 50%;
+    color: black;
+    padding-top: 1rem;
+}
+
+.brief2 p {
     font-size: 100%;
 }
 
-.requests a:hover {
-    background-color: rgb(0, 191, 255, 0.8);
+.requestrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.requestrow {
+    background-color: rgb(245, 245, 255, 0.2);
+    border: 3px solid rgb(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.requestrow:hover {
+    border: 3px solid black;
+    background-color: rgb(245, 245, 255, 0.6);
+}
+
+.patients {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.police {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.time {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.district {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.userPic img {
+    width: 10rem;
+    height: auto;
+    padding: 2rem;
+}
+
+.details img {
+    width: 30%;
+    height: auto;
+}
+
+@media screen and (max-width: 1100px) {
+    .userPic {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .brief1 {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .brief2 {
+        float: none;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brief2 p {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .brief2 p {
+        font-size: 60%;
+    }
 }

@@ -27,19 +27,19 @@
 						<input type="file" name="image" id="propic"><br>
 					</div>
 					<div class="column2">
-						<label>First Name</label><br>
-						<label>Last Name</label><br>
-						<label>Password</label><br>
-						<label>Re-enter Password</label><br>
+						<label for="firstName">First Name</label><br>
+						<label for="lastName">Last Name</label><br>
+						<label for="password1">Password</label><br>
+						<label for="password2">Re-enter Password</label><br>
 					</div>
 					<div class="column3">
-						<label class="lab">First Name</label>
+						<label class="lab" for="firstName">First Name</label>
 						<input type="text" name="firstName" id="firstName" value="<?php echo $operatorInfo->firstName ?>"><br>
-						<label class="lab">Last Name</label>
+						<label class="lab" for="lastName">Last Name</label>
 						<input type="text" name="lastName" id="lastName" value="<?php echo $operatorInfo->lastName ?>"><br>
-						<label class="lab">Password</label>
+						<label class="lab" for="password1">Password</label>
 						<input type="password" name="password1" id="password1"value="<?php echo $operatorInfo->password ?>"><br>
-						<label class="lab">Re-enter Password</label>
+						<label class="lab" for="password2">Re-enter Password</label>
 						<input type="password" name="password2" id="password2" value="<?php echo $operatorInfo->password ?>"><br>
 						<?php } ?>
 						<p class="hide" id="err">Error</p>

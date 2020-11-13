@@ -27,13 +27,18 @@ class suwasariya extends Controller
 
     public function recent()
     {
+        $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/1990Operator/recentRequests');
+        $this->view('pages/includes/footer');
+    }
+
+    public function getrecent()
+    {
         $requestsInfo=$this->userModel->getRecentRequests();
-        $data = ['admin' => $requestsInfo];
+        $data = ['requestsInfo' => $requestsInfo];
         if($requestsInfo)
         {
-            $this->view('pages/includes/1990OperatorHeader');
-            $this->view('pages/1990Operator/requests',$data);
-            $this->view('pages/includes/footer');
+            $this->view('pages/1990Operator/request',$data);
         }
     }
 

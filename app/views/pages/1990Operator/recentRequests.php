@@ -12,16 +12,11 @@
 	<div class="breadcrum">
 		Recent Requests
 	</div>
-	<div class="requests">
-		<div class="request">
-			<h2>Requests 1</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewnewrequest1990?id=1">View</a>
-		</div>
+	<div class="requests" id="requests">
+
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
+	<script type="text/javascript" src="../javascript/recentRequests.js"></script>
 </body>
 </html>

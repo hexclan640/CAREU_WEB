@@ -21,33 +21,35 @@
 										
 						</canvas>
 					</div>
-			  		<div class="column2">
-			  			<label>User Name</label><br>
-						<label>First Name</label><br>
-						<label>Last Name</label><br>
-						<label>Gender</label><br>
-						<label>Password</label><br>
-						<label>Re-enter Password</label><br>
+					<div class="column2">
+			  			<label for="userName">User Name</label><br>
+						<label for="firstName">First Name</label><br>
+						<label for="lastName">Last Name</label><br>
+						<label for="gender">Gender</label><br>
+						<label for="password1">Password</label><br>
+						<label for="password2">Re-enter Password</label><br>
 			  		</div>
 			  		<div class="column3">
-			  			<label class="lab" >User Name</label>
-			  			<input type="text" name="userName" id="userName"><br>
-			  			<label class="lab" >First Name</label>
-						<input type="text" name="firstName" id="firstName"><br>
-						<label class="lab" >Last Name</label>
-						<input type="text" name="lastName" id="lastName"><br>
-						<label class="lab" >Gender</label>
-						<select name="gender" class="gender" id="gender">
-							<option value=""></option>
-							<option value="Male">Male</option>
-							<option value="Female">Female</option>
-						</select>
-						<label class="lab">Password</label>
-						<input type="password" name="password1" id="password1"><br>
-						<label class="lab" >Re-enter Password</label>
-						<input type="text" name="password2" id="password2"><br>
-						<p class="hide" id="err">Error</p>
-						<input type="submit" value="CREATE" name="submit" id="submit">
+						<div class="inputs">
+							<label class="lab" for="userName">User Name</label>
+							<input type="text" name="userName" id="userName"><br>
+							<label class="lab" for="firstName">First Name</label>
+							<input type="text" name="firstName" id="firstName"><br>
+							<label class="lab" for="lastName">Last Name</label>
+							<input type="text" name="lastName" id="lastName"><br>
+							<label class="lab" for="gender">Gender</label>
+							<select name="gender" class="gender" id="gender">
+								<option value=""></option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+							<label class="lab" for="password1">Password</label>
+							<input type="password" name="password1" id="password1"><br>
+							<label class="lab" for="password2">Re-enter Password</label>
+							<input type="password" name="password2" id="password2"><br>
+							<p class="hide" id="err">Error</p>
+							<input type="submit" value="CREATE" name="submit" id="submit">
+						</div>
 			  		</div>
 				</div>
 			</form>

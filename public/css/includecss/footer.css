@@ -14,21 +14,17 @@
 .company {
     float: left;
     width: 100%;
-    /* height: 15rem; */
     margin: 0.5rem;
     padding: 0.5rem;
     box-sizing: border-box;
-    /* border: 0.1rem solid rgba(255, 255, 255, 0.5); */
 }
 
 .contact {
     float: left;
     width: 100%;
-    /* height: 15rem; */
     margin: 0.5rem;
     padding: 0.5rem;
     box-sizing: border-box;
-    /* border: 0.1rem solid rgba(255, 255, 255, 0.5); */
 }
 
 .contact img {
@@ -43,12 +39,11 @@
 
 .location {
     float: left;
-    width: 98.6%;
+    width: 98.65%;
     margin-left: 0.5rem;
     margin-right: 2rem;
     padding: 0.5rem;
     box-sizing: border-box;
-    /* border: 0.1rem solid rgba(255, 255, 255, 0.5); */
 }
 
 .row:after {
