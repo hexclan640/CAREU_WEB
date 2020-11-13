@@ -1,21 +1,22 @@
-<?php 
-	$connection = mysqli_connect('localhost','root','','careu');
-
-	$query1="SELECT userID,firstName,lastName,NIC
-			FROM users ORDER BY userID DESC;";
-	
-	$userInfo=mysqli_query($connection,$query1);
-
-	while($row2 = mysqli_fetch_assoc($userInfo))
-	{
-		echo "<div class='userrow'>";
-	  		echo "<div class='column1'>";
-	    			echo "<h3>".$row2["firstName"]." ".$row2["lastName"]."</h3>";
-					echo $row2["NIC"];
-	  		echo "</div>";
-	  		echo "<div class='column2'>";
-	    			echo '<a href="userprofile?id='.$row2["userID"].'">View</a>';
-	  		echo "</div>";
-		echo "</div>";
-	}
-?>
+<?php foreach($data['usersInfo'] as $usersInfo){ ?>
+	<a href="verifieduser?id=<?php echo $usersInfo->userId; ?>">
+		<div class="userrow">
+			<div class="userPic">
+				<?php if($usersInfo->gender=="Male") { ?>
+					<img src="../img/userManagement/verifiedMale.svg">
+				<?php } else if($usersInfo->gender=="Female") { ?>
+					<img src="../img/userManagement/verifiedFemale.svg">
+				<?php } else {?>
+					<img src="../img/userManagement/verifiedUser.svg">
+				<?php } ?>
+			</div>
+			<div class="column1">
+				<h2><?php echo $usersInfo->firstName." ".$usersInfo->lastName; ?><img src="../img/userManagement/virified.svg" alt=""></h2>
+				<p><img src="../img/footer/envelope.svg"/><?php echo $usersInfo->email; ?></p>
+				<p><img src="../img/footer/call.svg"/><?php echo $usersInfo->phoneNumber; ?></p>
+			</div>
+			<div class='column2'>
+			</div>
+		</div>
+	</a>
+<?php } ?>

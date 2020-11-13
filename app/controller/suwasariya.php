@@ -1,9 +1,21 @@
 <?php
+    session_start();
+?>
+<?php
 class suwasariya extends Controller
 {
     public function __construct()
     {
         $this->userModel = $this->model('modelsuwasariya');
+    }
+
+    public function logout()
+    {
+        if(isset($_SESSION))
+        {
+            session_destroy();
+            header("Location: http://localhost:8080/careu-web");
+        }
     }
 
     public function home()
@@ -15,9 +27,14 @@ class suwasariya extends Controller
 
     public function recent()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/recentRequests');
-        $this->view('pages/includes/footer');
+        $requestsInfo=$this->userModel->getRecentRequests();
+        $data = ['admin' => $requestsInfo];
+        if($requestsInfo)
+        {
+            $this->view('pages/includes/1990OperatorHeader');
+            $this->view('pages/1990Operator/requests',$data);
+            $this->view('pages/includes/footer');
+        }
     }
 
     public function new()
@@ -43,7 +60,6 @@ class suwasariya extends Controller
 
     public function profile()
     {
-        session_start();
         $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
         $data = ['admin' => $operatorInfo];
 
@@ -57,18 +73,16 @@ class suwasariya extends Controller
 
     public function updateprofile()
     {
-        session_start();
-        $connection = mysqli_connect('localhost','root','','careu');
-        $firstName=mysqli_real_escape_string($connection,$_POST['firstName']);
-        $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $userName=$_SESSION['userName'];
-        $password=mysqli_real_escape_string($connection,$_POST['password1']);
-        mysqli_close($connection);
-        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password);
-
+        $firstName=$_POST['firstName'];
+        $lastName=$_POST['lastName'];
+        $password=$_POST['password1'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
-            echo "success";
+            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
         }
         else
         {

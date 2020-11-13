@@ -30,13 +30,14 @@ body {
     text-decoration: none;
     font-weight: bold;
     padding: 1rem;
+    background-color: rgb(245, 245, 255, 0.2);
     border: 3px solid rgb(255, 255, 255, 0.6);
 }
 
 .form a:hover {
     border: 3px solid black;
     box-sizing: border-box;
-    background-color: rgb(245, 245, 255, 0.3);
+    background-color: rgb(245, 245, 255, 0.6);
 }
 
 .form img {

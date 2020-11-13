@@ -17,6 +17,16 @@ body {
     display: none;
 }
 
+.column1 .pPic {
+    width: 25vw;
+    height: 25vw;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    margin-bottom: 1rem;
+    background-color: rgb(192, 192, 192, 0.6);
+}
+
 #err {
     border: 1px solid;
     width: 50%;
@@ -30,7 +40,6 @@ body {
 
 .hide {
     visibility: hidden;
-    ;
 }
 
 .lab {
@@ -44,12 +53,14 @@ body {
     margin: 10px;
 }
 
-.column1 .picture {
+.column1 .picture1,
+.column1 .picture2 {
     width: 25vw;
     height: 25vw;
     border-style: solid;
     border-width: 2px;
     border-color: black;
+    margin-bottom: 1rem;
     background-color: rgb(192, 192, 192, 0.6);
 }
 
@@ -105,11 +116,6 @@ body {
     text-align: left;
 }
 
-.column1 canvas {
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
 .column3 {
     float: left;
     width: 48%;
@@ -138,6 +144,6 @@ body {
         font-weight: bold;
     }
     .column3 input {
-        width: 50%;
+        width: 80%;
     }
 }

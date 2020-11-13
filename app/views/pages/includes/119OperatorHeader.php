@@ -5,6 +5,6 @@
 		</div>
   		<div id="navbar-right">
     		<a class="" href="../police/home">HOME</a>
-    		<a href="../../careu-web">LOG OUT</a>
+    		<a href="logout">LOG OUT</a>
   		</div>
 	</nav>

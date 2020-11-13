@@ -10,36 +10,51 @@
 
         public function getProfile($username)
         {
-            $this->db->query("SELECT firstName,lastName,password FROM 1990calloperator WHERE userName='{$username}'");
+            $this->db->query("SELECT firstName,lastName,password,image FROM 1990calloperator WHERE userName='{$username}'");
             $result = $this->db->resultSet();
             return $result;
         }
 
-        public function updateProfile($firstname,$lastname,$username,$password)
+        public function updateProfile($firstname,$lastname,$username,$password,$imagename,$tmpname)
         {
-            $connection = mysqli_connect('localhost','root','','careu');
-
-            $query="UPDATE 1990calloperator SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}' WHERE userName='{$username}'";
-            $adminInfo=mysqli_query($connection,$query);
-            mysqli_close($connection);
-
-            if($adminInfo> 0)
-            {   
-                return true;
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE 1990calloperator SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}' WHERE userName='{$username}'";
+                $adminInfo=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($adminInfo> 0)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE 1990calloperator SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}',image='{$imagename}' WHERE userName='{$username}'";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                $result2=move_uploaded_file($tmpname,"img/suwasariyaProPics/".$imagename);
+                if($result1 && $result2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-                // if($this->db->query("UPDATE admins SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}' WHERE userName='{$username}'"))
-                // {
-                //     return true;
-                // }
-                // else
-                // {
-                //     return false;
-                // }
-            // }
+        }
+
+        public function getRecentRequests()
+        {
+            $this->db->query("SELECT firstName,lastName,gender,phoneNumber,time,numberOfPatients,policeStation FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId");
+            $result = $this->db->resultSet();
+            return $result;
         }
     }
 ?>

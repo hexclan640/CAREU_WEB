@@ -16,28 +16,28 @@
 		<center>
 			<div class="row">
 		  		<div class="column">
-					<a href="new119" type="submit"><p>Cardiac</p><img src="../img/instructionIcons/cardiac.svg"/></a>
+					<a href="cardiac" type="submit"><p>Cardiac</p><img src="../img/instructionIcons/cardiac.svg"/></a>
 			  	</div>
 		  		<div class="column">
-					<a href="new1990" type="submit"><p>Bleeding</p><img src="../img/instructionIcons/bleeding.svg"/></a>
+					<a href="bleeding" type="submit"><p>Bleeding</p><img src="../img/instructionIcons/bleeding.svg"/></a>
 		  		</div>
 		  		<div class="column">
-					<a href="usermanagement" type="submit"><p>Burns</p><img src="../img/instructionIcons/burns.svg"/></a>
+					<a href="burn" type="submit"><p>Burns</p><img src="../img/instructionIcons/burns.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="firstaids" type="submit"><p>Fractures</p><img src="../img/instructionIcons/fractures.svg"/></a>
+					<a href="fracture" type="submit"><p>Fractures</p><img src="../img/instructionIcons/fractures.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="profile" type="submit"><p>Blisters</p><img src="../img/instructionIcons/blisters.svg"/></a>
+					<a href="blister" type="submit"><p>Blisters</p><img src="../img/instructionIcons/blisters.svg"/></a>
 				</div>
 		  		<div class="column">
-					<a href="reports" type="submit"><p>Sprains</p><img src="../img/instructionIcons/sprain.svg"/></a>
+					<a href="sprain" type="submit"><p>Sprains</p><img src="../img/instructionIcons/sprain.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="reports" type="submit"><p>Nose Bleeds</p><img src="../img/instructionIcons/nosebleeding.svg"/></a>
+					<a href="nosebleed" type="submit"><p>Nose Bleeds</p><img src="../img/instructionIcons/nosebleeding.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="reports" type="submit"><p>Toothaches</p><img src="../img/instructionIcons/toothache.svg"/></a>
+					<a href="toothache" type="submit"><p>Toothaches</p><img src="../img/instructionIcons/toothache.svg"/></a>
 		  		</div>  
 			</div>
 		</center>

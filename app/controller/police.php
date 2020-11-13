@@ -1,9 +1,21 @@
 <?php
+    session_start();
+?>
+<?php
 class police extends Controller
 {
     public function __construct()
     {
         $this->userModel = $this->model('modelpolice');
+    }
+
+    public function logout()
+    {
+        if(isset($_SESSION))
+        {
+            session_destroy();
+            header("Location: http://localhost:8080/careu-web");
+        }
     }
 
     public function home()
@@ -43,7 +55,6 @@ class police extends Controller
 
     public function profile()
     {
-        session_start();
         $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
         $data = ['admin' => $operatorInfo];
 
@@ -57,18 +68,16 @@ class police extends Controller
 
     public function updateprofile()
     {
-        session_start();
-        $connection = mysqli_connect('localhost','root','','careu');
-        $firstName=mysqli_real_escape_string($connection,$_POST['firstName']);
-        $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $userName=$_SESSION['userName'];
-        $password=mysqli_real_escape_string($connection,$_POST['password1']);
-        mysqli_close($connection);
-        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password);
-
+        $firstName=$_POST['firstName'];
+        $lastName=$_POST['lastName'];
+        $password=$_POST['password1'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
-            echo "success";
+            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
         }
         else
         {
