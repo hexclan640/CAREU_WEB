@@ -47,7 +47,7 @@
 						<label class="lab" >Re-enter Password</label>
 						<input type="text" name="password2" id="password2"><br>
 						<p class="hide" id="err">Error</p>
-						<input type="submit" value="Create Account" name="submit" id="submit">
+						<input type="submit" value="CREATE" name="submit" id="submit">
 			  		</div>
 				</div>
 			</form>

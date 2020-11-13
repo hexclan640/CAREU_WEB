@@ -14,13 +14,13 @@
 	</div>
 	<div class="updates">
   		<div class="column" >
-    		<h2>Requests</h2>
+			<div class="category"><h1>Unverified Requests</h1></div>
     		<div class="col" id="col1">
     			
     		</div>
   		</div>
   		<div class="column" >
-    		<h2>Users</h2>
+    		<div class="category"><h1>Verified Users</h1></div>
     		<div class="col" id="col2">
     			
     		</div>

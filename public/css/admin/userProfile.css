@@ -1,73 +1,209 @@
-body{
-	background-image: url("../../img/bg.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	font-family: sans-serif;
-	background-attachment: fixed;
+body {
+    margin: 0;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-attachment: fixed;
 }
 
-.breadcrum{
-	color: white;
-	background-color: rgb(128,0,0,0.9);
-	padding: 5px 0px 5px 10px;
+.breadcrum {
+    color: white;
+    background-color: rgb(128, 0, 0, 0.9);
+    padding: 5px 0px 5px 10px;
 }
 
-.user{
-	background-color: rgb(255,255,255,0.6);
-	margin: 10px;
-	padding:10px;
-	height: 300px;
+.hidden {
+    display: none;
 }
 
-.user h2{
-	margin:10px;
+.hide {
+    visibility: hidden;
 }
 
-.user .reqHistory h2,.feedHistory h2{
-	margin:30px;
-}
-
-.user table{
-	font-size: 130%;
-	width: 95%;
-	height: 200px;
-}
-
-.user .reqHistory{
-	width: 50%;
-}
-
-.user .feedHistory{
-	width: 50%;
-}
-
-.user .reqHistory div{
-	margin-right: 10px;
-	padding-top: 5px;
-	background-color: rgb(192,192,192,0.7);
-	height: 200px;
-}
-
-.user .feedHistory div{
-	margin-left: 10px;
-	padding-top: 5px;
-	background-color: rgb(192,192,192,0.7);
-	height: 200px;
-}
-
-.user a{
-	text-align: center;
-    background-color: rgb(0,191,255,0.6);
-    border: 1px solid black;
-    padding: 11px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: black;
+.lab {
+    display: none;
+    font-size: 110%;
     font-weight: bold;
-    text-shadow: none;
-    font-size: 100%;
 }
 
-.user a:hover{
-	background-color: rgb(0,191,255,0.9);
+.form,
+.form1 {
+    background-color: rgb(255, 255, 255, 0.6);
+    margin: 10px;
+}
+
+.column1 img {
+    width: 80%;
+    height: auto;
+    margin: 1rem;
+    margin-left: 0rem;
+    transition: 0.3s;
+    border: 2px solid rgb(192, 192, 192);
+}
+
+.more1,
+.more2 {
+    display: none;
+}
+
+.column2 label {
+    margin: 1.08rem;
+    display: block;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.column3 input {
+    margin: 0.75rem;
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid black;
+    font-size: 110%;
+    margin-right: 2.5rem;
+    color: black;
+    background-color: rgb(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}
+
+.moreless {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.moreless button {
+    width: 25%;
+    background-color: rgb(88, 0, 0);
+    padding: 11px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    margin-top: 20px;
+    text-decoration: none;
+    border: 2px solid rgb(88, 0, 0);
+}
+
+.moreless button:hover {
+    color: black;
+    background-color: rgb(141, 141, 141);
+    border: 2px solid black;
+}
+
+.column1 {
+    float: left;
+    width: 30%;
+}
+
+.column2 {
+    float: left;
+    width: 20%;
+    margin-top: 40px;
+    padding: 10px;
+    text-align: left;
+}
+
+.column3 {
+    float: left;
+    width: 48%;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.request {
+    float: left;
+    width: 50%;
+}
+
+.feedback {
+    float: left;
+    width: 50%;
+}
+
+.imgdiv {
+    float: left;
+    width: 50%;
+}
+
+.history {
+    margin: 2rem;
+    padding: 1rem;
+    border: 3px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(245, 245, 255, 0.2);
+}
+
+.viewhistory {
+    float: left;
+    width: 50%;
+}
+
+.part1:after,
+.part2:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.viewhistory p {
+    padding-top: 1rem;
+    color: black;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.imgdiv img {
+    float: left;
+    width: 50%;
+    height: auto;
+}
+
+.form1 .history:hover {
+    border: 3px solid black;
+    background-color: rgb(245, 245, 255, 0.6);
+}
+
+@media screen and (max-width: 1020px) {
+    .column1,
+    .column2,
+    .column3 {
+        width: 100%;
+    }
+    .column2 {
+        display: none;
+    }
+    .lab {
+        display: block;
+        font-size: 110%;
+        font-weight: bold;
+    }
+    .column3 input {
+        width: 80%;
+        text-align: center;
+    }
+    .moreless a {
+        width: 80%;
+        display: block;
+    }
+    .request,
+    .feedback {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    .imgdiv,
+    .viewhistory {
+        width: 100%;
+    }
+    .imgdiv img {
+        float: none;
+    }
 }

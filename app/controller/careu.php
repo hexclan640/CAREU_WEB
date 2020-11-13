@@ -9,14 +9,6 @@ class careu extends Controller
 
     public function index()
     {
-        //echo "Home page";
-
-        // $users = $this->userModel->getUsers();
-
-        // $data = [
-        //     'title' => 'Home page',
-        //     'users' => $users
-        // ];
         $this->view('pages/index');
     }
 

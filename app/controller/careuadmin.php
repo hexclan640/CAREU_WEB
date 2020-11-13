@@ -1,9 +1,21 @@
 <?php
+    session_start();
+?>
+<?php
 class careuadmin extends Controller
 {
     public function __construct()
     {
         $this->userModel = $this->model('modeladmin');
+    }
+
+    public function logout()
+    {
+        if(isset($_SESSION))
+        {
+            session_destroy();
+            header("Location: http://localhost:8080/careu-web");
+        }
     }
 
     public function home()
@@ -29,7 +41,6 @@ class careuadmin extends Controller
 
     public function profile()
     {
-        session_start();
         $adminInfo=$this->userModel->getProfile($_SESSION['userName']);
         $data = ['admin' => $adminInfo];
 
@@ -43,18 +54,16 @@ class careuadmin extends Controller
 
     public function updateprofile()
     {
-        session_start();
-        $connection = mysqli_connect('localhost','root','','careu');
-        $firstName=mysqli_real_escape_string($connection,$_POST['firstName']);
-        $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
         $userName=$_SESSION['userName'];
-        $password=mysqli_real_escape_string($connection,$_POST['password1']);
-        mysqli_close($connection);
-        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password);
-
+        $firstName=$_POST['firstName'];
+        $lastName=$_POST['lastName'];
+        $password=$_POST['password1'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
-            echo "success";
+            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
         }
         else
         {
@@ -62,41 +71,57 @@ class careuadmin extends Controller
         }
     }
 
-    public function updatedprofilepicture()
-    {
-        $userName=$_SESSION['userName'];
-        $imageName=$_FILES['image']['name'];
-        $tempName=$_FILES['image']['tmp_name'];
-        $result=$this-userModel->updateProPic($userName,$imageName,$tempName);
-
-        if($result)
-        {
-            
-        }
-    }
-
     public function usermanagement()
     {
-        // $this->view('pages/includes/adminheader');
-        $this->view('pages/error');
-        // $this->view('pages/includes/footer');
+        $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/userManagement');
+        $this->view('pages/includes/footer');
     }
 
     public function userrequests()
     {
-        $this->view('pages/admin/userRequests');
+        $requestInfo=$this->userModel->getRequestBrief();
+        $data = ['requestInfo' => $requestInfo];
+        if($requestInfo)
+        {
+            $this->view('pages/admin/userRequests',$data);
+        }
     }
 
     public function userbrief()
     {
-        $this->view('pages/admin/userBrief');
+        $users=$this->userModel->getUserBrief();
+        $data = ['usersInfo' => $users];
+        if($users)
+        {
+            $this->view('pages/admin/userBrief',$data);
+        }
     }
 
     public function userprofile()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/userProfile');
-        $this->view('pages/includes/footer'); 
+        $userId=$_GET['id'];
+        $user=$this->userModel->getUser($userId);
+        $data = ['userInfo' => $user];
+        if($user)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/viewUserRequest',$data);
+            $this->view('pages/includes/footer'); 
+        }
+    }
+
+    public function verifieduser()
+    {
+        $userId=$_GET['id'];
+        $user=$this->userModel->getVerifiedUser($userId);
+        $data = ['userInfo' => $user];
+        if($user)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/userProfile',$data);
+            $this->view('pages/includes/footer'); 
+        }
     }
 
     public function viewuserrequest()
@@ -110,9 +135,25 @@ class careuadmin extends Controller
             $this->view('pages/admin/viewUserRequest',$data);
             $this->view('pages/includes/footer'); 
         }
-        else
+    }
+
+    public function reject()
+    {
+        $userId=$_GET['id'];
+        $result=$this->userModel->rejectRequest($userId);
+        if($result)
         {
-            echo $_GET['rid'];
+            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
+        }
+    }
+
+    public function accept()
+    {
+        $userId=$_GET['id'];
+        $result=$this->userModel->acceptRequest($userId);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
         }
     }
 
@@ -179,55 +220,233 @@ class careuadmin extends Controller
         // $this->view('pages/includes/footer');
     }
 
-    public function cardiacinstructiosns()
+    public function cardiac()
     {
+        $instructions=$this->userModel->getCardiac();
+        $data = ['instructions' => $instructions];
+        if($instructions)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/cardiacInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function updatecardiac()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->addCardiac($stepNumber,$description,$imageName,$tmpName);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
+        }
+    }
+
+    public function deletecardiac()
+    {
+        $id=$_GET['id'];
+        $result=$this->userModel->deleteCardiac($id);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
+        }
+    }
+
+    public function editcardiac()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editCardiac($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/editCardiacInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function savecardiac()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->saveCardiac($id,$stepNumber,$description,$imageName,$tmpName);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
+        }
+    }
+
+    
+
+    public function bleeding()
+    {
+        $instructions=$this->userModel->getBleeding();
+        $data = ['instructions' => $instructions];
+        if($instructions)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/bleedingInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function updatebleeding()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->addBleeding($stepNumber,$description,$imageName,$tmpName);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
+        }
+    }
+
+    public function deletebleeding()
+    {
+        $id=$_GET['id'];
+        $result=$this->userModel->deleteBleeding($id);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
+        }
+    }
+
+    public function editbleeding()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editBleeding($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/editBleedingInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function savebleeding()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->saveBleeding($id,$stepNumber,$description,$imageName,$tmpName);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
+        }
+    }
+
+    public function burn()
+    {
+        $instructions=$this->userModel->getBurn();
+        $data = ['instructions' => $instructions];
+        if($instructions)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/burnsInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function updateburn()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->addBurn($stepNumber,$description,$imageName,$tmpName);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
+        }
+    }
+
+    public function deleteburn()
+    {
+        $id=$_GET['id'];
+        $result=$this->userModel->deleteBurn($id);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
+        }
+    }
+
+    public function editBurn()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editBurn($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/editBurnsInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function saveBurn()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $result=$this->userModel->saveBurn($id,$stepNumber,$description,$imageName,$tmpName);
+        if($result)
+        {
+            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
+        }
+    }
+
+    public function fracture()
+    {
+        $this->view('pages/error');
         // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/cardiacInstructions');
+        // $this->view('pages/admin/fracturesInstructions');
         // $this->view('pages/includes/footer');
     }
 
-    public function bleedinginstructions()
+    public function blister()
     {
+        $this->view('pages/error');
         // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/bleedingInstructions');
+        // $this->view('pages/admin/blistersInstructions');
         // $this->view('pages/includes/footer');
     }
 
-    public function burnsinstructions()
+    public function sprain()
     {
+        $this->view('pages/error');
         // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/burnsinstructions');
+        // $this->view('pages/admin/sprainsInstructions');
         // $this->view('pages/includes/footer');
     }
 
-    public function fracturesinstructions()
+    public function nosebleed()
     {
+        $this->view('pages/error');
         // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/fracturesInstructions');
+        // $this->view('pages/admin/nodebleedsnstructions');
         // $this->view('pages/includes/footer');
     }
 
-    public function blistersInstructions()
+    public function toothache()
     {
+        $this->view('pages/error');
         // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/blistersInstructions');
+        // $this->view('pages/admin/nodebleedsnstructions');
         // $this->view('pages/includes/footer');
     }
-
-    public function sprainsinstructions()
-    {
-        // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/sprainsInstructions');
-        // $this->view('pages/includes/footer');
-    }
-
-    public function nosebleedsnstructions()
-    {
-        // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/nodebleedsnstructions');
-        // $this->view('pages/includes/footer');
-    }
-
 }
 
 ?>

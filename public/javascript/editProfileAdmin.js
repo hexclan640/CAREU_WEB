@@ -1,56 +1,62 @@
 $(document).ready(function() {
-    $("#submit").click(function(event) {
-        event.preventDefault();
-
-        var firstname = document.getElementById("firstName").value;
-        var lastname = document.getElementById("lastName").value;
-        var password1 = document.getElementById("password1").value;
-        var password2 = document.getElementById("password2").value;
-        var error = document.getElementById("err");
-
-        if (firstname == "" && lastname == "" && password1 == "" && password2 == "") {
-            error.innerText = "Please, fill all the feilds!";
-            $("#err").removeClass("hide");
-        } else if (firstname == "") {
-            error.innerText = "Please, give a first name!";
-            $("#err").removeClass("hide");
-        } else if (lastname == "") {
-            error.innerText = "Please, give a last name!";
-            $("#err").removeClass("hide");
-        } else if (password1 == "" || password2 == "") {
-            error.innerText = "Please, fill the password feilds!";
-            $("#err").removeClass("hide");
-        } else if (password1 != password2) {
-            error.innerText = "Passwords do not match!";
-            $("#err").removeClass("hide");
-        } else if (firstname != "" && lastname != "" && password1 != "" && password2 != "") {
-            var formData = $("#editProfile").serialize();
-            $.post("updateprofile",
-                formData,
-                function(data, status) {
-                    console.log(data);
-                    if (data.includes("failed") && status.includes("success")) {
-                        error.innerText = "Something went wrong. Try again!";
-                        $("#err").removeClass("hide");
-                    } else if (data.includes("success") && status.includes("success")) {
-                        window.location.href = "home";
-                    } else {
-                        error.innerText = "Something went wrong. Try again!";
-                        $("#err").removeClass("hide");
-                    }
-                }
-            );
+    var $pic = $('#picture2'),
+        context = $pic.get(0).getContext('2d');
+    $('#propic').on('change', function() {
+        $("#pPic").addClass("hidden");
+        $("#picture1").addClass("hidden");
+        $("#picture2").removeClass("hidden");
+        if (this.files && this.files[0]) {
+            if (this.files[0].type.match(/^image\//)) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var img = new Image();
+                    img.onload = function() {
+                        context.canvas.width = img.width;
+                        context.canvas.height = img.height;
+                        context.drawImage(img, 0, 0);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(this.files[0]);
+            } else {
+                alert('Invalid file type');
+            }
         } else {
-            $("#err").addClass("hide");
+            alert('Please select a file.');
         }
     });
 });
 
-function showhide1() {
-    var x = document.getElementById("password1");
-    if (x.type === "password") {
-        x.type = "text";
+function check() {
+    var firstname = document.getElementById("firstName").value;
+    var lastname = document.getElementById("lastName").value;
+    var password1 = document.getElementById("password1").value;
+    var password2 = document.getElementById("password2").value;
+    var error = document.getElementById("err");
+
+    if (firstname == "" && lastname == "" && password1 == "" && password2 == "") {
+        error.innerText = "Please, fill all the feilds!";
+        $("#err").removeClass("hide");
+        return false;
+    } else if (firstname == "") {
+        error.innerText = "Please, give a first name!";
+        $("#err").removeClass("hide");
+        return false;
+    } else if (lastname == "") {
+        error.innerText = "Please, give a last name!";
+        $("#err").removeClass("hide");
+        return false;
+    } else if (password1 == "" || password2 == "") {
+        error.innerText = "Please, fill the password feilds!";
+        $("#err").removeClass("hide");
+        return false;
+    } else if (password1 != password2) {
+        error.innerText = "Passwords do not match!";
+        $("#err").removeClass("hide");
+        return false;
+    } else if (firstname != "" && lastname != "" && password1 != "" && password2 != "") {
+        return true;
     } else {
-        x.type = "password";
+        $("#err").addClass("hide");
     }
 }

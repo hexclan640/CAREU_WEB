@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-attachment: fixed;
+}
+
+.breadcrum {
+    color: white;
+    background-color: rgb(128, 0, 0, 0.9);
+    padding: 5px 0px 5px 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#err {
+    border: 1px solid;
+    width: 50%;
+    margin: 0px;
+    padding: 5px 0px 5px 0px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+
+.hide {
+    visibility: hidden;
+    ;
+}
+
+.lab {
+    display: none;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.form {
+    background-color: rgb(255, 255, 255, 0.6);
+    margin: 10px;
+}
+
+.column1 .picture {
+    width: 25vw;
+    height: 25vw;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    margin-bottom: 1rem;
+    background-color: rgb(192, 192, 192, 0.6);
+}
+
+.column2 label {
+    margin: 13px;
+    display: block;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.column3 textarea {
+    margin: 10px;
+    display: block;
+    width: 100%;
+    height: 15rem;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}
+
+.column3 input {
+    margin: 10px;
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}
+
+.column3 input[type=submit] {
+    width: 35%;
+    background-color: rgb(88, 0, 0);
+    padding: 11px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 120%;
+    margin-top: 20px;
+    border: 2px solid rgb(88, 0, 0);
+}
+
+.column3 input[type=submit]:hover {
+    color: black;
+    background-color: rgb(141, 141, 141);
+    border: 2px solid black;
+}
+
+.details a {
+    width: 20%;
+    background-color: rgb(88, 0, 0);
+    padding: 8px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 100%;
+    text-decoration: none;
+    border: 2px solid rgb(88, 0, 0);
+}
+
+.details a:hover {
+    color: black;
+    background-color: rgb(141, 141, 141);
+    border: 2px solid black;
+}
+
+.options {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.column1 {
+    float: left;
+    width: 30%;
+    padding: 20px;
+}
+
+.column2 {
+    float: left;
+    width: 20%;
+    margin-top: 40px;
+    padding: 10px;
+    text-align: left;
+}
+
+.column3 {
+    float: left;
+    width: 41%;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.instructioncol {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+}
+
+.details {
+    box-sizing: border-box;
+    padding: 1rem;
+    font-size: 120%;
+    border-bottom: 0.3rem solid black;
+    border: 3px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(245, 245, 255, 0.3);
+}
+
+.details img {
+    margin: 1rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.stepx {
+    padding: 0.5rem;
+    border: 2px solid black;
+}
+
+.instructionrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1020px) {
+    .column1,
+    .column2,
+    .column3 {
+        width: 100%;
+    }
+    .column2 {
+        display: none;
+    }
+    .lab {
+        display: block;
+        font-size: 110%;
+        font-weight: bold;
+    }
+    .column3 input,
+    .column3 .gender,
+    .column3 textarea {
+        width: 80%;
+    }
+}

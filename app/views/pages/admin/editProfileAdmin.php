@@ -11,31 +11,31 @@
 <body>
 
 	<div class="breadcrum">
-		Edit Profile
+		Profile
 	</div>
 
 	<div class="form">
 		<center>
-			<form method="post" id="editProfile">
-				<div class="row">
-  					<div class="column1">
-  						<canvas class="picture" id="picture">
-								
-						</canvas>
-						<form action="" enctype="multipart/form-data">
-							<input type="file" id="propic"><br>
-							<input type="submit" value="Save" class="hide" name="submit" id="proPicSubmit">
-						</form>
-  					</div>
-  					<div class="column2">
-    	  				<label>First Name</label><br>
+			<div class="row">
+				<form action="updateprofile" method="post" enctype="multipart/form-data">
+					<div class="column1">
+						<?php foreach($data['admin'] as $adminInfo){ ?>
+						<?php if(!empty($adminInfo->image)) { ?>
+							<img src="../img/adminProPics/<?php echo $adminInfo->image; ?>" class="pPic" id="pPic"><br>
+						<?php } else {?>
+							<canvas class="picture1" id="picture1"></canvas><br>
+						<?php }?>
+						<canvas class="picture2 hidden" id="picture2"></canvas><br>
+						<input type="file" name="image" id="propic"><br>
+					</div>
+					<div class="column2">
+						<label>First Name</label><br>
 						<label>Last Name</label><br>
 						<label>Password</label><br>
 						<label>Re-enter Password</label><br>
-    	  			</div>
-    	  			<div class="column3">
-    	  				<?php foreach($data['admin'] as $adminInfo){ ?>
-    	  				<label class="lab">First Name</label>
+					</div>
+					<div class="column3">
+						<label class="lab">First Name</label>
 						<input type="text" name="firstName" id="firstName" value="<?php echo $adminInfo->firstName ?>"><br>
 						<label class="lab">Last Name</label>
 						<input type="text" name="lastName" id="lastName" value="<?php echo $adminInfo->lastName ?>"><br>
@@ -45,53 +45,15 @@
 						<input type="password" name="password2" id="password2" value="<?php echo $adminInfo->password ?>"><br>
 						<?php } ?>
 						<p class="hide" id="err">Error</p>
-						<input type="submit" value="Save" name="submit" id="submit">
-    	  			</div>
-				</div>
-			</form>
+						<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
+					</div>
+				  </form>
+			</div>
 		</center>
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
-	<script>
-		$(document).ready(function(){
-
-	var $pic = $('#picture'),
-		context = $pic.get(0).getContext('2d');
-
-	$('#propic').on('change',function(){
-		$("#proPicSubmit").removeClass("hide");
-		
-		if (this.files && this.files[0]) {
-
-			if ( this.files[0].type.match(/^image\//) ) {
-			
-				var reader = new FileReader();
-
-				reader.onload = function(e){					
-					var img = new Image();
-					img.onload = function() {						
-						context.canvas.width = img.width;
-						context.canvas.height = img.height;
-						context.drawImage(img, 0, 0);
-					};
-					img.src = e.target.result;
-				};
-
-				reader.readAsDataURL(this.files[0]);
-
-
-			} else {
-				alert('Invalid file type');
-			}
-		} else {
-			alert('Please select a file.');
-		}
-	});
-
-});
-	</script>
 </body>
 </html>
