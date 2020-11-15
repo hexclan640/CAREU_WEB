@@ -166,18 +166,16 @@ class careuadmin extends Controller
 
     public function newoperator119()
     {
-        $connection = mysqli_connect('localhost','root','','careu');
-        $userName=mysqli_real_escape_string($connection,$_POST['userName']);
-        $firstName=mysqli_real_escape_string($connection,$_POST['firstName']);
-        $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
-        $gender=mysqli_real_escape_string($connection,$_POST['gender']);
-        $password=mysqli_real_escape_string($connection,$_POST['password1']);
-        mysqli_close($connection);
+        $userName=$_POST['userName'];
+        $firstName=$_POST['firstName'];
+        $lastName=$_POST['lastName'];
+        $gender=$_POST['gender'];
+        $password=$_POST['password1'];
         $result=$this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
 
         if($result)
         {
-            echo "success";
+            header("Location: http://localhost:8080/careu-web/careuadmin/home");
         }
         else
         {
@@ -187,18 +185,16 @@ class careuadmin extends Controller
 
     public function newoperator1990()
     {
-        $connection = mysqli_connect('localhost','root','','careu');
-        $userName=mysqli_real_escape_string($connection,$_POST['userName']);
-        $firstName=mysqli_real_escape_string($connection,$_POST['firstName']);
-        $lastName=mysqli_real_escape_string($connection,$_POST['lastName']);
-        $gender=mysqli_real_escape_string($connection,$_POST['gender']);
-        $password=mysqli_real_escape_string($connection,$_POST['password1']);
-        mysqli_close($connection);
+        $userName=$_POST['userName'];
+        $firstName=$_POST['firstName'];
+        $lastName=$_POST['lastName'];
+        $gender=$_POST['gender'];
+        $password=$_POST['password1'];
         $result=$this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
 
         if($result)
         {
-            echo "success";
+            header("Location: http://localhost:8080/careu-web/careuadmin/home");
         }
         else
         {

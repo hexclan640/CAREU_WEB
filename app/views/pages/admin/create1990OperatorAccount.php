@@ -14,7 +14,7 @@
 	</div>
 	<div class="form">
 		<center>
-			<form action="" method="post" id="formOperator1990">
+			<form action="newoperator1990" method="post" id="formOperator1990">
 				<div class="row">
 			  		<div class="column1">
 			  			<canvas class="picture" id="picture">
@@ -48,7 +48,7 @@
 							<label class="lab" for="password2">Re-enter Password</label>
 							<input type="password" name="password2" id="password2"><br>
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="CREATE" name="submit" id="submit">
+							<input type="submit" value="CREATE" name="submit" id="submit" onclick="return check()">
 						</div>
 			  		</div>
 				</div>

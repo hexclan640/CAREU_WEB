@@ -18,15 +18,14 @@ body {
 }
 
 #err {
-    color: white;
-    padding: 3px;
-    background-color: red;
-    border: 1px solid red;
-    border-radius: 2px;
-    margin: 0px;
-    transition: 1s;
+    border: 1px solid;
     width: 50%;
-    box-shadow: 1px 1px 1px black;
+    margin: 0px;
+    padding: 5px 0px 5px 0px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #D8000C;
+    background-color: #FFBABA;
 }
 
 .hide {

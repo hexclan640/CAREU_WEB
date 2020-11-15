@@ -1,5 +1,5 @@
 <?php foreach($data['requestsInfo'] as $requestsInfo){ ?>
-	<a href="verifieduser?id=<?php echo $requestsInfo->requestId; ?>" class="link">
+	<a href="viewtherequest?id=<?php echo $requestsInfo->requestId; ?>" class="link">
 		<div class="requestrow">
 			<div class="userPic">
 				<?php if($requestsInfo->gender=="Male") { ?>
@@ -11,8 +11,8 @@
                 <?php } ?>
 			</div>
 			<div class="brief1">
-				<h1><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?></h1>
-                <h3><?php echo $requestsInfo->phoneNumber; ?></h3>
+				<p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?></p>
+                <p class="pNumber"><?php echo $requestsInfo->phoneNumber; ?></p>
             </div>
             <div class="brief2">
                 <div class="details">

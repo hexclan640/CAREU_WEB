@@ -77,7 +77,7 @@ class police extends Controller
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
+            header("Location: http://localhost:8080/careu-web/police/profile");
         }
         else
         {

@@ -44,7 +44,7 @@
 						<div class="details">
 							<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
 							<?php if(!empty($instructions->image)) { ?>
-								<img src="../img/images/<?php echo $instructions->image; ?>" alt="">
+								<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
 							<?php } ?>
 							<h3><?php echo $instructions->description; ?></h3>
 							<div class="options">

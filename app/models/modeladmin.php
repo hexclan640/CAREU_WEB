@@ -171,9 +171,10 @@
                 $connection = mysqli_connect('localhost','root','','careu');
                 $query="INSERT INTO instruction1 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
                 $result1=mysqli_query($connection,$query);
-                $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
+                // $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
+                $result3=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
-                if($result1 && $result2)
+                if($result1 && $result3)
                 {   
                     return true;
                 }
@@ -229,7 +230,7 @@
                 $connection = mysqli_connect('localhost','root','','careu');
                 $query="UPDATE instruction1 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
                 $result1=mysqli_query($connection,$query);
-                $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
                 if($result1 && $result2)
                 {   
@@ -271,7 +272,7 @@
                 $connection = mysqli_connect('localhost','root','','careu');
                 $query="INSERT INTO instruction2 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
                 $result1=mysqli_query($connection,$query);
-                $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
                 if($result1 && $result2)
                 {   
@@ -329,7 +330,7 @@
                 $connection = mysqli_connect('localhost','root','','careu');
                 $query="UPDATE instruction1 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
                 $result1=mysqli_query($connection,$query);
-                $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
                 if($result1 && $result2)
                 {   
@@ -372,7 +373,7 @@
                 $connection = mysqli_connect('localhost','root','','careu');
                 $query="INSERT INTO instruction3 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
                 $result1=mysqli_query($connection,$query);
-                $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
                 if($result1 && $result2)
                 {   
@@ -430,7 +431,7 @@
                 $connection = mysqli_connect('localhost','root','','careu');
                 $query="UPDATE instruction3 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
                 $result1=mysqli_query($connection,$query);
-                $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
                 if($result1 && $result2)
                 {   

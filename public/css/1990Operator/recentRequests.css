@@ -21,14 +21,14 @@ body {
 
 .userPic {
     float: left;
-    width: 10%;
+    width: 15%;
 }
 
 .brief1 {
     padding-top: 1rem;
     color: black;
     float: left;
-    width: 40%;
+    width: 30%;
 }
 
 .link {
@@ -37,9 +37,9 @@ body {
 
 .brief2 {
     float: left;
-    width: 50%;
+    width: 55%;
     color: black;
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .brief2 p {
@@ -97,7 +97,7 @@ body {
 .userPic img {
     width: 10rem;
     height: auto;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .details img {
@@ -105,7 +105,16 @@ body {
     height: auto;
 }
 
-@media screen and (max-width: 1100px) {
+.name {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.pNumber {
+    font-size: 140%;
+}
+
+@media screen and (max-width: 1200px) {
     .userPic {
         float: none;
         text-align: center;
@@ -128,7 +137,7 @@ body {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .brief2 p {
         font-size: 60%;
     }

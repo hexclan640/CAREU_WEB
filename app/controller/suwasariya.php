@@ -42,6 +42,19 @@ class suwasariya extends Controller
         }
     }
 
+    public function viewtherequest()
+    {
+        $requestId=$_GET['id'];
+        $requestInfo=$this->userModel->getRecentRequestAll($requestId);
+        $data = ['requestInfo' => $requestInfo];
+        if($requestInfo)
+        {
+            $this->view('pages/includes/1990OperatorHeader');
+            $this->view('pages/1990Operator/viewNewRequest',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
     public function new()
     {
         $this->view('pages/includes/1990OperatorHeader');
@@ -87,7 +100,7 @@ class suwasariya extends Controller
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
+            header("Location: http://localhost:8080/careu-web/suwasariya/profile");
         }
         else
         {
