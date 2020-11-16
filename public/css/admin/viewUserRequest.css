@@ -3,18 +3,33 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
-}
-
-.breadcrum {
-    color: white;
-    background-color: rgb(128, 0, 0, 0.9);
-    padding: 5px 0px 5px 10px;
+    font-family: sans-serif;
 }
 
 .hidden {
     display: none;
+}
+
+.photorow img {
+    width: 50%;
+    height: auto;
+    border: 2px solid black;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    background-color: rgb(192, 192, 192, 0.6);
+}
+
+#err {
+    border: 1px solid;
+    width: 50%;
+    margin: 0px;
+    padding: 5px 0px 5px 0px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #D8000C;
+    background-color: #FFBABA;
 }
 
 .hide {
@@ -28,82 +43,70 @@ body {
 }
 
 .form {
-    background-color: rgb(255, 255, 255, 0.6);
     margin: 10px;
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 1rem;
 }
 
-.column1 img {
-    width: 80%;
-    height: auto;
-    margin: 1rem;
-    margin-left: 0rem;
-    transition: 0.3s;
-    border: 2px solid rgb(192, 192, 192);
+.frame {
+    padding: 1rem;
+    border: 3px solid white;
 }
 
 .column2 label {
-    margin: 1.08rem;
+    margin: 0.975rem;
     display: block;
     font-size: 110%;
     font-weight: bold;
+    text-align: left;
 }
 
 .column3 input {
-    margin: 0.75rem;
+    margin: 10px;
     display: block;
     width: 100%;
+    color: black;
     padding: 12px 20px;
     display: inline-block;
+    text-align: left;
+    font-size: 120%;
     border: 1px solid black;
-    font-size: 110%;
-    margin-right: 2.5rem;
-    color: black;
     background-color: rgb(255, 255, 255, 0.3);
     box-sizing: border-box;
 }
 
-.acceptreject {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-}
-
-.acceptreject a {
-    width: 25%;
+.column3 a {
+    width: 40%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
     font-weight: bold;
     cursor: pointer;
+    border: none;
     color: white;
     font-size: 120%;
-    margin-top: 20px;
+    margin: 1rem;
     text-decoration: none;
     border: 2px solid rgb(88, 0, 0);
 }
 
-.acceptreject a:hover {
-    color: black;
-    background-color: rgb(141, 141, 141);
-    border: 2px solid black;
-}
-
 .column1 {
     float: left;
-    width: 30%;
+    width: 100%;
+    margin-top: 2rem;
 }
 
 .column2 {
     float: left;
     width: 20%;
-    margin-top: 40px;
-    padding: 10px;
-    text-align: left;
+    margin-top: 2.5rem;
+    padding-left: 1rem;
 }
 
 .column3 {
     float: left;
-    width: 48%;
-    margin-top: 40px;
-    padding: 10px;
+    width: 80%;
+    margin-top: 1rem;
+    padding: 2rem;
 }
 
 .row:after {
@@ -112,28 +115,20 @@ body {
     clear: both;
 }
 
-@media screen and (max-width: 1020px) {
-    .column1,
-    .column2,
-    .column3 {
-        width: 100%;
-    }
-    .column2 {
-        display: none;
-    }
-    .lab {
-        display: block;
-        font-size: 110%;
-        font-weight: bold;
-    }
-    .column3 input {
-        width: 80%;
-        text-align: center;
-    }
-    .acceptreject a {
-        width: 80%;
-        display: block;
-    }
+.photo1col {
+    float: left;
+    width: 50%;
+}
+
+.photo2col {
+    float: left;
+    width: 50%;
+}
+
+.photorow:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .zoomImg {
@@ -197,6 +192,38 @@ body {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1020px) {
+    .column1,
+    .column2,
+    .column3 {
+        width: 100%;
+    }
+    .column2 {
+        display: none;
+    }
+    .lab {
+        display: block;
+        font-size: 110%;
+        font-weight: bold;
+    }
+    .column3 input {
+        width: 80%;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .column3 a {
+        display: block;
+        width: 80%;
+    }
+    .column3 {
+        margin-top: 0rem;
+    }
+    .photo1col,
+    .photo2col {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 700px) {

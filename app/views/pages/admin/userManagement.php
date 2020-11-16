@@ -9,20 +9,27 @@
 	<title>User Management</title>
 </head>
 <body>
-	<div class="breadcrum">
-		Manage Users
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+			<li>Users</li>
+		</ul>
 	</div>
 	<div class="updates">
   		<div class="column" >
 			<div class="category"><h1>Unverified Requests</h1></div>
     		<div class="col" id="col1">
-    			
+				<center>
+					<img src="../img/loading.svg" class="loading">
+				</center>
     		</div>
   		</div>
   		<div class="column" >
     		<div class="category"><h1>Verified Users</h1></div>
     		<div class="col" id="col2">
-    			
+				<center>
+					<img src="../img/loading.svg" class="loading">
+				</center>
     		</div>
   		</div>
 	</div>

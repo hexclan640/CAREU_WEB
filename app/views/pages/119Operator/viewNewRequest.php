@@ -9,10 +9,13 @@
 	<title>Request <?php echo $_GET['id']; ?></title>
 </head>
 <body>
-	<div class="breadcrum">
-		Request <?php echo $_GET['id']; ?>
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+			<li><a href="recent">Recent</a></li>
+  			<li>Request</li>
+		</ul>
 	</div>
-
 	<div class="reqDetails">
 		<table>
 			<tr>

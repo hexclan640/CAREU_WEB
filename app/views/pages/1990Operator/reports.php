@@ -9,10 +9,12 @@
 	<title>Reports</title>
 </head>
 <body>
-	<div class="breadcrum">
-		Reports
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+  			<li>Reports</li>
+		</ul>
 	</div>
-
 	<div class="reports">
 		<div class="report">
 			<img src="../img/report.png">

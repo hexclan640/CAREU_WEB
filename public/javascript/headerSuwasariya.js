@@ -24,5 +24,5 @@ $(document).ready(function() {
             document.getElementById("service").innerHTML = "";
             i = 0;
         }
-    }, 3099);
+    }, 4099);
 });

@@ -7,11 +7,16 @@ $(document).ready(function() {
         } else {
             document.getElementById("navbar").style.top = "-400px";
         }
+
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("breadcrum").style.top = "129px";
+        } else {
+            document.getElementById("breadcrum").style.top = "-400px";
+        }
         prevScrollpos = currentScrollPos;
     }
     var i = 0;
     var txt = "ADMIN PANEL";
-    var speed = 50;
     setInterval(function() {
         if (i < txt.length) {
             document.getElementById("service").innerHTML += txt.charAt(i);

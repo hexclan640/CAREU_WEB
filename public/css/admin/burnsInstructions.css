@@ -3,14 +3,9 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
-}
-
-.breadcrum {
-    color: white;
-    background-color: rgb(128, 0, 0, 0.9);
-    padding: 5px 0px 5px 10px;
+    font-family: sans-serif;
 }
 
 .hidden {
@@ -42,6 +37,17 @@ body {
 .form {
     background-color: rgb(255, 255, 255, 0.6);
     margin: 10px;
+}
+
+.form1 {
+    margin: 10px;
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 1rem;
+}
+
+.frame {
+    padding: 1rem;
+    border: 3px solid white;
 }
 
 .column1 .picture {
@@ -116,15 +122,15 @@ body {
     border: 2px solid rgb(88, 0, 0);
 }
 
+.options {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
 .details a:hover {
     color: black;
     background-color: rgb(141, 141, 141);
     border: 2px solid black;
-}
-
-.options {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
 }
 
 .column1 {
@@ -157,7 +163,7 @@ body {
 .instructioncol {
     float: left;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .details {

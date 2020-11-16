@@ -9,11 +9,16 @@
 	<title>Recenet Requests</title>
 </head>
 <body>
-	<div class="breadcrum">
-		Recent Requests
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+  			<li>Recent</li>
+		</ul>
 	</div>
 	<div class="requests" id="requests">
-
+		<center>
+			<img src="../img/loading.svg" class="loading">
+		</center>
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>

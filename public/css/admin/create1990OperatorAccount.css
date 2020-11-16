@@ -3,8 +3,9 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
+    font-family: sans-serif;
 }
 
 .breadcrum {
@@ -40,8 +41,14 @@ body {
 }
 
 .form {
-    background-color: rgb(255, 255, 255, 0.6);
     margin: 10px;
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 1rem;
+}
+
+.frame {
+    padding: 1rem;
+    border: 3px solid white;
 }
 
 .column1 .picture {

@@ -6,5 +6,5 @@
   		<div id="navbar-right">
     		<a class="" href="home">HOME</a>
     		<a href="logout">LOG OUT</a>
-  		</div>
+		</div>
 	</nav>

@@ -9,58 +9,63 @@
 	<title>Edit Profile</title>
 </head>
 <body>
-
-	<div class="breadcrum">
-		User Profile
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+			<li><a href="usermanagement">Users</a></li>
+			<li>User Profile</li>
+		</ul>
 	</div>
-	<div class="form">
-		<center>
-			<div class="row">
-				<div class="column1">
-					<img src="../img/unknown.jpg"><br>
-				</div>
-				<div class="column2" id="column2">
-					<label>First Name</label><br>
-					<label>Last Name</label><br>
-					<label>Username</label><br>
-					<label>NIC</label><br>
-					<label>E-mail</label><br>
-					<div class="more1" id="more1">
-						<label>Phone Number</label><br>
-						<label>Gender</label><br>
-						<label>Date of Birth</label><br>
-						<label>Address</label><br>
+	<div class="formuser">
+		<div class="frame">
+			<center>
+				<div class="row">
+					<div class="column1">
+						<img src="../img/unknown.jpg"><br>
+					</div>
+					<div class="column2" id="column2">
+						<label>First Name</label><br>
+						<label>Last Name</label><br>
+						<label>Username</label><br>
+						<label>NIC</label><br>
+						<label>E-mail</label><br>
+						<div class="more1" id="more1">
+							<label>Phone Number</label><br>
+							<label>Gender</label><br>
+							<label>Date of Birth</label><br>
+							<label>Address</label><br>
+						</div>
+					</div>
+					<div class="column3">
+						<?php foreach($data['userInfo'] as $userInfo){ ?>
+							<label class="lab">First Name</label>
+							<input type="text" value="<?php echo $userInfo->firstName; ?>" disabled><br>
+							<label class="lab">Last Name</label>
+							<input type="text" value="<?php echo $userInfo->lastName; ?>" disabled><br>
+							<label class="lab">Username</label>
+							<input type="text"value="<?php echo $userInfo->userName; ?>" disabled><br>
+							<label class="lab">NIC</label>
+							<input type="text" value="<?php echo $userInfo->nicNumber; ?>" disabled><br>
+							<label class="lab">E-mail</label>
+							<input type="text" value="<?php echo $userInfo->email; ?>" disabled><br>
+							<div class="more2" id="more2">
+								<label class="lab">Phone Number</label>
+								<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
+								<label class="lab">Gender</label>
+								<input type="text" value="<?php echo $userInfo->gender; ?>" disabled><br>
+								<label class="lab">Date of Birth</label>
+								<input type="text" value="<?php echo $userInfo->dateOfBirth; ?>" disabled><br>
+								<label class="lab">Address</label>
+								<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
+							</div>
+							<div class="moreless">
+								<button onclick="moreless()" id="more">MORE</button>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
-				<div class="column3">
-					<?php foreach($data['userInfo'] as $userInfo){ ?>
-						<label class="lab">First Name</label>
-						<input type="text" value="<?php echo $userInfo->firstName; ?>" disabled><br>
-						<label class="lab">Last Name</label>
-						<input type="text" value="<?php echo $userInfo->lastName; ?>" disabled><br>
-						<label class="lab">Username</label>
-						<input type="text"value="<?php echo $userInfo->userName; ?>" disabled><br>
-						<label class="lab">NIC</label>
-						<input type="text" value="<?php echo $userInfo->nicNumber; ?>" disabled><br>
-						<label class="lab">E-mail</label>
-						<input type="text" value="<?php echo $userInfo->email; ?>" disabled><br>
-						<div class="more2" id="more2">
-							<label class="lab">Phone Number</label>
-							<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
-							<label class="lab">Gender</label>
-							<input type="text" value="<?php echo $userInfo->gender; ?>" disabled><br>
-							<label class="lab">Date of Birth</label>
-							<input type="text" value="<?php echo $userInfo->dateOfBirth; ?>" disabled><br>
-							<label class="lab">Address</label>
-							<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
-						</div>
-						<div class="moreless">
-							<button onclick="moreless()" id="more">MORE</button>
-						</div>
-					<?php } ?>
-				</div>
-			</div>
-		</center>
+			</center>
+		</div>
 	</div>
 	<div class="form1">
 		<center>

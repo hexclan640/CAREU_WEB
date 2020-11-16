@@ -3,14 +3,9 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
-}
-
-.breadcrum {
-    color: white;
-    background-color: rgb(128, 0, 0, 0.9);
-    padding: 5px 0px 5px 10px;
+    font-family: sans-serif;
 }
 
 .hidden {
@@ -43,8 +38,14 @@ body {
 }
 
 .form {
-    background-color: rgb(255, 255, 255, 0.6);
     margin: 10px;
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 1rem;
+}
+
+.frame {
+    padding: 1rem;
+    border: 3px solid white;
 }
 
 .picture1,

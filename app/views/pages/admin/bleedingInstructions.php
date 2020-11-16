@@ -9,32 +9,38 @@
 	<title>Bleeding First Aids</title>
 </head>
 <body>
-	<div class="breadcrum">
-		Bleeding First Aids
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+			<li><a href="firstaids">First Aids</a></li>
+			<li>Bleeding</li>
+		</ul>
 	</div>
-	<div class="form">
-		<center>
-			<form action="updatebleeding" method="post" id="bleedingForm" name="bleedingForm" enctype="multipart/form-data">
-				<div class="row">
-			  		<div class="column1">
-						<canvas class="picture" id="picture"></canvas><br>
-						<input type="file" name="image" id="instructionPicture">
+	<div class="form1">
+		<div class="frame">
+			<center>
+				<form action="updatebleeding" method="post" id="bleedingForm" name="bleedingForm" enctype="multipart/form-data">
+					<div class="row">
+						<div class="column1">
+							<canvas class="picture" id="picture"></canvas><br>
+							<input type="file" name="image" id="instructionPicture">
+						</div>
+						<div class="column2">
+							<label>Step No</label><br>
+							<label>Add Description</label><br>
+						</div>
+						<div class="column3">
+							<label class="lab" >Step No</label>
+							<input type="text" name="stepNumber" id="stepNumber"><br>
+							<label class="lab" >Add Description</label>
+							<textarea class="description" type="text" name="description" id="description"></textarea><br>
+							<p class="hide" id="err">Error</p>
+							<input type="submit" value="ADD" name="submit" id="submit" onclick="return check()">
+						</div>
 					</div>
-			  		<div class="column2">
-			  			<label>Step No</label><br>
-						<label>Add Description</label><br>
-			  		</div>
-			  		<div class="column3">
-			  			<label class="lab" >Step No</label>
-			  			<input type="text" name="stepNumber" id="stepNumber"><br>
-			  			<label class="lab" >Add Description</label>
-						<textarea class="description" type="text" name="description" id="description"></textarea><br>
-						<p class="hide" id="err">Error</p>
-						<input type="submit" value="ADD" name="submit" id="submit" onclick="return check()">
-			  		</div>
-				</div>
-			</form>
-		</center>
+				</form>
+			</center>
+		</div>
 	</div>
 	<div class="form">
 		<center>

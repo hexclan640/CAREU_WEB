@@ -1,6 +1,6 @@
 var modal = document.getElementById("zoomImg");
-var img1 = document.getElementById("myImg1");
-var img2 = document.getElementById("myImg2");
+var img1 = document.getElementById("idImg1");
+var img2 = document.getElementById("idImg2");
 var modalImg = document.getElementById("img");
 var nav = document.getElementById("navbar")
 

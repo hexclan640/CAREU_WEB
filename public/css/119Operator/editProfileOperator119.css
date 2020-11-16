@@ -3,8 +3,9 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
+    font-family: sans-serif;
 }
 
 .breadcrum {
@@ -50,8 +51,14 @@ body {
 }
 
 .form {
-    background-color: rgb(255, 255, 255, 0.6);
     margin: 10px;
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 1rem;
+}
+
+.frame {
+    padding: 1rem;
+    border: 3px solid white;
 }
 
 .column1 .picture1,
@@ -62,7 +69,6 @@ body {
     border-width: 2px;
     border-color: black;
     margin-bottom: 1rem;
-    /* display: block; */
     background-color: rgb(192, 192, 192, 0.6);
 }
 
@@ -113,7 +119,7 @@ body {
 .column2 {
     float: left;
     width: 20%;
-    margin-top: 40px;
+    margin-top: 1rem;
     padding: 10px;
     text-align: left;
 }
@@ -121,7 +127,7 @@ body {
 .column3 {
     float: left;
     width: 48%;
-    margin-top: 40px;
+    margin-top: 1rem;
     padding: 10px;
 }
 
