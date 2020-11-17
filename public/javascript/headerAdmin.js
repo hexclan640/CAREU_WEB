@@ -9,7 +9,7 @@ $(document).ready(function() {
         }
 
         if (prevScrollpos > currentScrollPos) {
-            document.getElementById("breadcrum").style.top = "129px";
+            document.getElementById("breadcrum").style.top = "112px";
         } else {
             document.getElementById("breadcrum").style.top = "-400px";
         }

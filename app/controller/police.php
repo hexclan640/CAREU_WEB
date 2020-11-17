@@ -91,6 +91,16 @@ class police extends Controller
         $this->view('pages/1990Operator/reports');
         $this->view('pages/includes/footer');
     }
+
+    public function getrecent()
+    {
+        $requestsInfo=$this->userModel->getRecentRequests();
+        $data = ['requestsInfo' => $requestsInfo];
+        if($requestsInfo)
+        {
+            $this->view('pages/1990Operator/request',$data);
+        }
+    }
 }
 
 ?>
