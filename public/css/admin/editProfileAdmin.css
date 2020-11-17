@@ -86,20 +86,19 @@ body {
 .column1 input[type=submit],
 .column3 input[type=submit] {
     width: 25%;
-    background-color: rgb(88, 0, 0);
     padding: 11px 20px;
-    font-weight: bold;
     cursor: pointer;
     border: none;
     color: white;
     font-size: 120%;
     margin-top: 20px;
+    background-color: rgb(88, 0, 0);
     border: 2px solid rgb(88, 0, 0);
 }
 
 .column3 input[type=submit]:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 

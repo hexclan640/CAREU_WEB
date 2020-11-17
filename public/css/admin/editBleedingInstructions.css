@@ -40,6 +40,12 @@ body {
 .form {
     background-color: rgb(255, 255, 255, 0.6);
     margin: 10px;
+    padding: 1rem;
+}
+
+.frame {
+    padding: 1rem;
+    border: 3px solid white;
 }
 
 .picture1,
@@ -88,7 +94,6 @@ body {
     width: 35%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
-    font-weight: bold;
     cursor: pointer;
     border: none;
     color: white;
@@ -99,7 +104,7 @@ body {
 
 .column3 input[type=submit]:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 

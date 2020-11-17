@@ -19,7 +19,6 @@ body {
     border-width: 2px;
     border-color: black;
     margin-bottom: 1rem;
-    /* display: none; */
     background-color: rgb(192, 192, 192, 0.6);
 }
 
@@ -89,7 +88,6 @@ body {
     width: 25%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
-    font-weight: bold;
     cursor: pointer;
     border: none;
     color: white;
@@ -100,7 +98,7 @@ body {
 
 .column3 input[type=submit]:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 

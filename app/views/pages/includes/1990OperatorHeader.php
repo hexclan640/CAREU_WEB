@@ -4,7 +4,7 @@
 			<h1 id="service"></h1>
 		</div>
   		<div id="navbar-right">
-    		<a class="" href="../suwasariya/home">HOME</a>
-    		<a href="logout">LOG OUT</a>
+    		<a class="" href="../suwasariya/home">Home</a>
+    		<a href="logout">Log Out</a>
   		</div>
 	</nav>

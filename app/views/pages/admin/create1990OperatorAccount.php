@@ -52,7 +52,7 @@
 								<label class="lab" for="password2">Re-enter Password</label>
 								<input type="password" name="password2" id="password2"><br>
 								<p class="hide" id="err">Error</p>
-								<input type="submit" value="CREATE" name="submit" id="submit" onclick="return check()">
+								<input type="submit" value="Create" name="submit" id="submit" onclick="return check()">
 							</div>
 						</div>
 					</div>

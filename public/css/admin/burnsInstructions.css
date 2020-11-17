@@ -94,7 +94,6 @@ body {
     width: 35%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
-    font-weight: bold;
     cursor: pointer;
     border: none;
     color: white;
@@ -105,7 +104,7 @@ body {
 
 .column3 input[type=submit]:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 
@@ -113,7 +112,6 @@ body {
     width: 20%;
     background-color: rgb(88, 0, 0);
     padding: 8px 10px;
-    font-weight: bold;
     cursor: pointer;
     border: none;
     color: white;
@@ -129,7 +127,7 @@ body {
 
 .details a:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 

@@ -94,7 +94,6 @@ body {
     width: 35%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
-    font-weight: bold;
     cursor: pointer;
     border: none;
     color: white;
@@ -105,20 +104,18 @@ body {
 
 .column3 input[type=submit]:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 
-.details a {
+.options a {
     width: 20%;
-    background-color: rgb(88, 0, 0);
     padding: 8px 10px;
-    font-weight: bold;
     cursor: pointer;
-    border: none;
     color: white;
     font-size: 100%;
     text-decoration: none;
+    background-color: rgb(88, 0, 0);
     border: 2px solid rgb(88, 0, 0);
 }
 
@@ -127,9 +124,9 @@ body {
     margin-bottom: 1rem;
 }
 
-.details a:hover {
+.options a:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 

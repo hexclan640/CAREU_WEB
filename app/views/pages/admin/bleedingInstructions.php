@@ -35,7 +35,7 @@
 							<label class="lab" >Add Description</label>
 							<textarea class="description" type="text" name="description" id="description"></textarea><br>
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="ADD" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Add" name="submit" id="submit" onclick="return check()">
 						</div>
 					</div>
 				</form>
@@ -54,8 +54,8 @@
 							<?php } ?>
 							<h3><?php echo $instructions->description; ?></h3>
 							<div class="options">
-								<a href="editBleeding?id=<?php echo $instructions->id; ?>">EDIT</a>
-								<a href="deletebleeding?id=<?php echo $instructions->id; ?>">DELETE</a>
+								<a href="editBleeding?id=<?php echo $instructions->id; ?>">Edit</a>
+								<a href="deletebleeding?id=<?php echo $instructions->id; ?>">Delete</a>
 							</div>
 						</div>
 					</div>
