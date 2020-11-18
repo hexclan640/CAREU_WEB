@@ -8,12 +8,6 @@ body {
     font-family: sans-serif;
 }
 
-.breadcrum {
-    color: white;
-    background-color: rgb(128, 0, 0, 0.9);
-    padding: 5px 0px 5px 10px;
-}
-
 .hidden {
     display: none;
 }
@@ -101,22 +95,19 @@ body {
 .column1 {
     float: left;
     width: 30%;
-    padding: 20px;
 }
 
 .column2 {
     float: left;
     width: 20%;
-    margin-top: 40px;
-    padding: 10px;
+    margin-top: 1rem;
     text-align: left;
 }
 
 .column3 {
     float: left;
     width: 50%;
-    margin-top: 40px;
-    padding: 10px;
+    margin-top: 1rem;
 }
 
 .row:after {
@@ -147,5 +138,65 @@ body {
     .column3 input,
     .column3 .gender {
         width: 80%;
+    }
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 50px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.titleconfirm {
+    float: left;
+    width: 100%;
+    color: white;
+    background-color: rgb(88, 0, 0);
+}
+
+.confirm {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+}
+
+.confirm p {
+    font-size: 150%;
+}
+
+.confirm img {
+    width: 3rem;
+    height: auto;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.message {
+    width: 60%;
+    margin: 5% auto 15% auto;
+    background-color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 300px) {
+    .cancelbtn,
+    .deletebtn {
+        width: 100%;
     }
 }

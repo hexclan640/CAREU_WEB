@@ -7,7 +7,6 @@
     background-color: rgb(91, 17, 1, 0.8);
     padding: 0rem 0rem;
     transition: 0.4s;
-    position: sticky;
     width: 100%;
     top: 0;
     z-index: 99;
@@ -89,7 +88,6 @@
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
 .breadcrum {
-    position: sticky;
     color: white;
     background-color: rgb(91, 17, 1, 0.8);
     padding: 0.1px;
@@ -97,6 +95,12 @@
     transition: 0.4s;
     z-index: 99;
     border-top: 2px solid white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
 }
 
 .breadcrumb {

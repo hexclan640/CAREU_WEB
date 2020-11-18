@@ -49,16 +49,16 @@ function closeconfirm1() {
     document.getElementById('modal1').style.display = 'none';
     var nav = document.getElementById("navbar");
     var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
+    nav.style.display = "block";
+    breadcrumb.style.display = "block";
 }
 
 function closeconfirm2() {
     document.getElementById('modal2').style.display = 'none';
     var nav = document.getElementById("navbar");
     var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
+    nav.style.display = "block";
+    breadcrumb.style.display = "block";
 }
 var modal1 = document.getElementById('modal1');
 var modal2 = document.getElementById('modal2');

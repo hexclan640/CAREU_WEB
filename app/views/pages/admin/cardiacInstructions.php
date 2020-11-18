@@ -48,18 +48,22 @@
 				<?php foreach($data['instructions'] as $instructions){ ?>
 					<div class="instructioncol">
 						<div class="details">
-							<div>
-							<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
+							<div class="step">
+								<div class="stepname">
+									<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
+								</div>
 							</div>
-							<div>
-							<?php if(!empty($instructions->image)) { ?>
+							<div class="stepimage">
+								<?php if(!empty($instructions->image)) { ?>
 								<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
-							<?php } ?>
+								<?php } ?>
 							</div>
-							<h3><?php echo $instructions->description; ?></h3>
+							<div class="stepdescription">
+								<p><?php echo $instructions->description; ?></p>
+							</div>
 							<div class="options">
-								<a href="editCardiac?id=<?php echo $instructions->id; ?>">Edit</a>
-								<a href="deletecardiac?id=<?php echo $instructions->id; ?>">Delete</a>
+								<a href="deletecardiac?id=<?php echo $instructions->id; ?>" class="edit"><img src="../img/instructionIcons/delete.svg" alt=""></a>
+								<a href="editcardiac?id=<?php echo $instructions->id; ?>" class="delete"><img src="../img/instructionIcons/edit.svg" alt=""></a>
 							</div>
 						</div>
 					</div>
@@ -67,6 +71,68 @@
 			</div>	
 		</center>
 	</div>	
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Saved!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/newOperator/success.svg" alt="">
+					<p>Changes saved successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal2" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/newOperator/success.svg" alt="">
+					<p>Added successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal3" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Confirm !</h1>
+				</div>
+				<div class="confirm">
+					<p>Are you satisfied with the details?</p>
+				</div>
+				<div class="clearfix">
+					<div class="clicks">
+						<div class="btns">
+							<?php foreach($data['userInfo'] as $userInfo){ ?>
+							<a href="accept?id=<?php echo $userInfo->userId; ?>" class="yes">Yes</a>
+							<?php } ?>
+						</div>
+						<div class="btns">
+							<a onclick="closeconfirm1()" class="no">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if(isset($_SESSION['instruction'])){?>
+		<script>
+			document.getElementById('modal1').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['instruction']);} ?>
+	<?php if(isset($_SESSION['newinstruction'])){?>
+		<script>
+			document.getElementById('modal2').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['newinstruction']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>

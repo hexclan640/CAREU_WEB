@@ -37,7 +37,7 @@
 							<label>Add Description</label><br>
 						</div>
 						<div class="column3">
-							<input type="text" id="idd" name="id" value="<?php echo $instruction->id; ?>">
+							<input type="text" id="id" name="id" value="<?php echo $instruction->id; ?>">
 							<label class="lab" >Step No</label>
 							<input type="text" name="stepNumber" value="<?php echo $instruction->step; ?>" id="stepNumber"><br>
 							<label class="lab" >Add Description</label>

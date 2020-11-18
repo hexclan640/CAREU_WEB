@@ -175,7 +175,8 @@ class careuadmin extends Controller
 
         if($result)
         {
-            header("Location: http://localhost:8080/careu-web/careuadmin/home");
+            $_SESSION['user']=$userName;
+            header("Location: http://localhost:8080/careu-web/careuadmin/new119");
         }
         else
         {
@@ -194,7 +195,8 @@ class careuadmin extends Controller
 
         if($result)
         {
-            header("Location: http://localhost:8080/careu-web/careuadmin/home");
+            $_SESSION['user']=$userName;
+            header("Location: http://localhost:8080/careu-web/careuadmin/new1990");
         }
         else
         {
@@ -237,6 +239,7 @@ class careuadmin extends Controller
         $result=$this->userModel->addCardiac($stepNumber,$description,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['newinstruction']=$stepNumber;
             header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
         }
     }
@@ -274,6 +277,7 @@ class careuadmin extends Controller
         $result=$this->userModel->saveCardiac($id,$stepNumber,$description,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['instruction']=$id;
             header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
         }
     }
@@ -301,6 +305,7 @@ class careuadmin extends Controller
         $result=$this->userModel->addBleeding($stepNumber,$description,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['newinstruction']=$stepNumber;
             header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
         }
     }
@@ -338,6 +343,7 @@ class careuadmin extends Controller
         $result=$this->userModel->saveBleeding($id,$stepNumber,$description,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['instruction']=$id;
             header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
         }
     }
@@ -363,6 +369,7 @@ class careuadmin extends Controller
         $result=$this->userModel->addBurn($stepNumber,$description,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['newinstruction']=$stepNumber;
             header("Location: http://localhost:8080/careu-web/careuadmin/burn");
         }
     }
@@ -400,6 +407,7 @@ class careuadmin extends Controller
         $result=$this->userModel->saveBurn($id,$stepNumber,$description,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['instruction']=$id;
             header("Location: http://localhost:8080/careu-web/careuadmin/burn");
         }
     }

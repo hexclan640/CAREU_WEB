@@ -46,23 +46,69 @@
 		<center>
 			<div class="instructionrow">
 				<?php foreach($data['instructions'] as $instructions){ ?>
-					<div class="instructioncol">
-						<div class="details">
-							<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
-							<?php if(!empty($instructions->image)) { ?>
-								<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
-							<?php } ?>
-							<h3><?php echo $instructions->description; ?></h3>
-							<div class="options">
-								<a href="editBurn?id=<?php echo $instructions->id; ?>">Edit</a>
-								<a href="deleteburn?id=<?php echo $instructions->id; ?>">Delete</a>
+				<div class="instructioncol">
+					<div class="details">
+						<div class="step">
+							<div class="stepname">
+								<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
 							</div>
 						</div>
+						<div class="stepimage">
+							<?php if(!empty($instructions->image)) { ?>
+							<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
+							<?php } ?>
+						</div>
+						<div class="stepdescription">
+							<p><?php echo $instructions->description; ?></p>
+						</div>
+						<div class="options">
+							<a href="deleteburn?id=<?php echo $instructions->id; ?>"><img src="../img/instructionIcons/delete.svg" alt=""></a>
+							<a href="editBurn?id=<?php echo $instructions->id; ?>"><img src="../img/instructionIcons/edit.svg" alt=""></a>
+						</div>
 					</div>
+				</div>
 				<?php } ?>	
 			</div>	
 		</center>
-	</div>	
+	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Saved!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/newOperator/success.svg" alt="">
+					<p>Changes saved successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal2" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/newOperator/success.svg" alt="">
+					<p>Added successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if(isset($_SESSION['instruction'])){?>
+		<script>
+			document.getElementById('modal1').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['instruction']);} ?>
+	<?php if(isset($_SESSION['newinstruction'])){?>
+		<script>
+			document.getElementById('modal2').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['newinstruction']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>

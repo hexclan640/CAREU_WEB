@@ -1,6 +1,6 @@
 	<nav id="navbar">
-		<a href="home"><img src="../img/appLogo.png" class="careulogo"></a>
-		<div class="title">
+		<a href="home"><img src="../img/appLogo.png" class="careulogo" id="careulogo"></a>
+		<div class="title" id="title">
 			<h1 id="service"></h1>
 		</div>
   		<div id="navbar-right">

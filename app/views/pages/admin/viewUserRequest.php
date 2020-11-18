@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/viewUserRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
-	<title>Edit Profile</title>
+	<title>User Profile</title>
 </head>
 <body>
 	<div class="breadcrum" id="breadcrum">
@@ -68,13 +68,12 @@
 						<?php } ?>
 						<p class="hide" id="err">Error</p>
 						<a onclick="confirm1()">Accept</a>
-						<a onclick="confirm2()">Cancel</a>
+						<a onclick="confirm2()">Reject</a>
 					</div>
 				</div>
 			</center>
 		</div>
 	</div>
-
 	<div id="modal1" class="modal">
 		<div class="message">
 			<div class="container">
@@ -92,14 +91,13 @@
 							<?php } ?>
 						</div>
 						<div class="btns">
-							<a onclick="closeconfirm1()" class="no">No</a>
+							<a onclick="closeconfirm1()" class="no">Cancel</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div id="modal2" class="modal">
 		<div class="message">
 			<div class="container">
@@ -107,7 +105,7 @@
 					<h1>Confirm !</h1>
 				</div>
 				<div class="confirm">
-					<p>Are you sure you want to cancel the request?</p>
+					<p>Are you sure you want to reject the request?</p>
 				</div>
 				<div class="clearfix">
 					<div class="clicks">
@@ -117,7 +115,7 @@
 							<?php } ?>
 						</div>
 						<div class="btns">
-							<a onclick="closeconfirm2()" class="no">No</a>
+							<a onclick="closeconfirm2()" class="no">Cancel</a>
 						</div>
 					</div>
 				</div>

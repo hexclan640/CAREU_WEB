@@ -12,16 +12,6 @@ body {
     display: none;
 }
 
-.column1 .pPic {
-    width: 25vw;
-    height: 25vw;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
-    margin-bottom: 1rem;
-    background-color: rgb(192, 192, 192, 0.6);
-}
-
 #err {
     border: 1px solid;
     width: 50%;
@@ -35,6 +25,7 @@ body {
 
 .hide {
     visibility: hidden;
+    ;
 }
 
 .lab {
@@ -54,14 +45,15 @@ body {
     border: 3px solid white;
 }
 
-.column1 .picture1,
-.column1 .picture2 {
+.column1 img,
+.picture1,
+#picture2 {
     width: 25vw;
     height: 25vw;
     border-style: solid;
     border-width: 2px;
     border-color: black;
-    margin-bottom: 1rem;
+    /* margin-top: 1.5rem; */
     background-color: rgb(192, 192, 192, 0.6);
 }
 
@@ -72,10 +64,11 @@ body {
     font-weight: bold;
 }
 
-.column3 input {
+.column3 input,
+.column3 .gender {
     margin: 10px;
     display: block;
-    width: 100%;
+    width: 95%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid black;
@@ -83,16 +76,15 @@ body {
     box-sizing: border-box;
 }
 
-.column1 input[type=submit],
 .column3 input[type=submit] {
-    width: 25%;
+    width: 35%;
+    background-color: rgb(88, 0, 0);
     padding: 11px 20px;
     cursor: pointer;
     border: none;
     color: white;
     font-size: 120%;
     margin-top: 20px;
-    background-color: rgb(88, 0, 0);
     border: 2px solid rgb(88, 0, 0);
 }
 
@@ -105,29 +97,28 @@ body {
 .column1 {
     float: left;
     width: 30%;
-    padding: 20px;
-    margin-top: 1;
 }
 
 .column2 {
     float: left;
     width: 20%;
-    margin-top: 1rem;
-    padding: 10px;
     text-align: left;
 }
 
 .column3 {
     float: left;
-    width: 48%;
-    margin-top: 1rem;
-    padding: 10px;
+    width: 50%;
 }
 
 .row:after {
     content: "";
     display: table;
     clear: both;
+}
+
+.inputs {
+    width: 100%;
+    padding-right: 2rem;
 }
 
 @media screen and (max-width: 1020px) {
@@ -145,7 +136,7 @@ body {
         font-weight: bold;
     }
     .column3 input,
-    .column3 input[type=submit] {
+    .column3 .gender {
         width: 80%;
     }
 }

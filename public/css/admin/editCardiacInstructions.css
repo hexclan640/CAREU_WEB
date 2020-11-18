@@ -75,7 +75,7 @@ body {
 .column3 textarea {
     margin: 10px;
     display: block;
-    width: 100%;
+    width: 98%;
     height: 15rem;
     padding: 12px 20px;
     display: inline-block;
@@ -87,7 +87,7 @@ body {
 .column3 input {
     margin: 10px;
     display: block;
-    width: 100%;
+    width: 98%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid black;
@@ -121,22 +121,20 @@ body {
 .column1 {
     float: left;
     width: 30%;
-    padding: 20px;
+    padding: 1rem;
 }
 
 .column2 {
     float: left;
     width: 20%;
-    margin-top: 40px;
-    padding: 10px;
+    padding: 1rem;
     text-align: left;
 }
 
 .column3 {
     float: left;
-    width: 41%;
-    margin-top: 40px;
-    padding: 10px;
+    width: 50%;
+    padding: 1rem;
 }
 
 .row:after {

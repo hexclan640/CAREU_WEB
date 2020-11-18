@@ -60,6 +60,25 @@
 			</center>
 		</div>
 	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/newOperator/success.svg" alt="">
+					<p>Operator added sussecfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if(isset($_SESSION['user'])){?>
+		<script>
+			document.getElementById('modal1').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['user']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
