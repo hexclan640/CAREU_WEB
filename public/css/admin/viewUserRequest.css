@@ -51,6 +51,17 @@ body {
 .frame {
     padding: 1rem;
     border: 3px solid white;
+    background-color: rgb(255, 255, 255, 0.3);
+}
+
+.idImg1 {
+    float: right;
+    margin: 1rem;
+}
+
+.idImg2 {
+    float: left;
+    margin: 1rem;
 }
 
 .column2 label {
@@ -75,42 +86,72 @@ body {
     box-sizing: border-box;
 }
 
-.column3 a {
-    width: 40%;
+.column4 button {
+    width: 20%;
+    float: right;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
     cursor: pointer;
     color: white;
     font-size: 120%;
-    margin: 1rem;
+    margin: 0.5rem;
     text-decoration: none;
     border: 2px solid rgb(88, 0, 0);
 }
 
-.column3 a:hover {
+.column5 button,
+.column6 button {
+    width: 77%;
+    background-color: rgb(88, 0, 0);
+    padding: 11px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    margin: 0.5rem;
+    text-decoration: none;
+    border: 2px solid rgb(88, 0, 0);
+}
+
+.column4 button:hover,
+.column5 button:hover,
+.column6 button:hover {
     color: black;
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 
-.column1 {
+.column5 .column1 {
     float: left;
     width: 100%;
-    margin-top: 2rem;
 }
 
 .column2 {
     float: left;
-    width: 20%;
-    margin-top: 2.5rem;
-    padding-left: 1rem;
+    width: 15%;
 }
 
 .column3 {
     float: left;
-    width: 80%;
-    margin-top: 1rem;
-    padding: 2rem;
+    width: 35%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.column4 {
+    float: left;
+    width: 100%;
+}
+
+.column5 {
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.column6 {
+    float: left;
+    width: 100%;
+    display: none
 }
 
 .row:after {
@@ -224,9 +265,20 @@ body {
     .column3 {
         margin-top: 0rem;
     }
+    .column4 {
+        display: none;
+    }
+    .column5,
+    .column6 {
+        display: block;
+    }
     .photo1col,
     .photo2col {
         width: 100%;
+    }
+    .idImg1,
+    .idImg2 {
+        float: none;
     }
 }
 
@@ -237,7 +289,7 @@ body {
 }
 
 
-/*-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------*/
 
 .modal {
     display: none;
@@ -269,6 +321,11 @@ body {
 
 .confirm p {
     font-size: 150%;
+}
+
+.confirm img {
+    width: 3rem;
+    height: auto;
 }
 
 .clearfix {

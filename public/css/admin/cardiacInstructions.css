@@ -48,6 +48,7 @@ body {
 .frame {
     padding: 1rem;
     border: 3px solid white;
+    background-color: rgb(255, 255, 255, 0.3);
 }
 
 .column1 .picture {
@@ -97,6 +98,7 @@ body {
     cursor: pointer;
     border: none;
     color: white;
+    float: right;
     font-size: 120%;
     margin-top: 20px;
     border: 2px solid rgb(88, 0, 0);
@@ -133,35 +135,39 @@ body {
     clear: both;
 }
 
-.stepimage img {
+.stepname img {
     margin: 1rem;
     width: 10rem;
     height: 10rem;
+    border: 2px solid gray;
+}
+
+.stepname h2 {
+    margin: 1rem;
+    padding: 0.5rem;
+    color: white;
+    background-color: rgb(88, 0, 0, 0.9);
 }
 
 .step {
     float: left;
-    width: 100%;
-}
-
-.stepname {
-    margin: 1rem;
-    border: 2px solid black;
+    width: 40%;
 }
 
 .setpimage {
     float: left;
-    width: 100%;
+    width: 25%;
 }
 
 .stepdescription {
     float: left;
-    width: 100%;
+    width: 50%;
+    padding: 1rem;
 }
 
 .options {
     float: left;
-    width: 100%;
+    width: 10%;
 }
 
 .options img {
@@ -220,6 +226,18 @@ body {
     .column3 textarea {
         width: 80%;
     }
+    .column3 input[type=submit] {
+        width: 80%;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .step,
+    .stepdescription,
+    .options {
+        width: 100%;
+    }
 }
 
 
@@ -255,6 +273,11 @@ body {
 
 .confirm p {
     font-size: 150%;
+}
+
+.confirm img {
+    width: 3rem;
+    height: auto;
 }
 
 .clearfix {

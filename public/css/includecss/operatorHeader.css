@@ -4,12 +4,12 @@
 
 #navbar {
     overflow: hidden;
-    background-color: rgb(91, 17, 1, 0.8);
     padding: 0rem 0rem;
     transition: 0.4s;
     width: 100%;
     top: 0;
     z-index: 99;
+    background-color: rgb(88, 0, 0);
 }
 
 .title {
@@ -89,7 +89,7 @@
 
 .breadcrum {
     color: white;
-    background-color: rgb(91, 17, 1, 0.8);
+    background-color: rgb(91, 17, 1, 0.9);
     padding: 0.1px;
     margin: 0;
     transition: 0.4s;

@@ -94,6 +94,22 @@
             }
         }
 
+        public function blockUser($userid)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="UPDATE servicerequester SET status=3 WHERE userId='{$userid}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result> 0)
+            {   
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public function acceptRequest($userid)
         {
             $connection = mysqli_connect('localhost','root','','careu');
@@ -144,7 +160,7 @@
 
         public function getCardiac()
         {
-            $this->db->query("SELECT id,step,description,image FROM instruction1");
+            $this->db->query("SELECT id,step,description,image FROM instruction1 ORDER BY id ASC");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -171,7 +187,6 @@
                 $connection = mysqli_connect('localhost','root','','careu');
                 $query="INSERT INTO instruction1 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
                 $result1=mysqli_query($connection,$query);
-                // $result2=move_uploaded_file($tmpname,"img/images/".$imagename);
                 $result3=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
                 if($result1 && $result3)
@@ -245,7 +260,7 @@
 
         public function getBleeding()
         {
-            $this->db->query("SELECT id,step,description,image FROM instruction2");
+            $this->db->query("SELECT id,step,description,image FROM instruction2 ORDER BY id ASC");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -346,7 +361,7 @@
 
         public function getBurn()
         {
-            $this->db->query("SELECT id,step,description,image FROM instruction3");
+            $this->db->query("SELECT id,step,description,image FROM instruction3 ORDER BY id ASC");
             $result = $this->db->resultSet();
             return $result;
         }

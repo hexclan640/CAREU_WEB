@@ -72,11 +72,15 @@ window.onclick = function(event) {
 window.onclick = function(event) {
     if (event.target == modal2) {
         modal2.style.display = "none";
+        nav.style.display = "block";
+        breadcrumb.style.display = "block";
     }
 }
 
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        nav.style.display = "block";
+        breadcrumb.style.display = "block";
     }
 }

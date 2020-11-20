@@ -18,15 +18,18 @@
 	<div class="form">
 		<div class="frame">
 			<center>
-				<form action="newoperator119" method="post" id="formOperator119">
-					<div class="row">
+				<div class="row">
+					<form action="newoperator119" method="post" id="formOperator119">
+						<div class="namediv">
+							<h1>New Operator - 119</h1>
+						</div>
 						<div class="column1">
 							<canvas class="picture" id="picture">
 											
 							</canvas>
 						</div>
 						<div class="column2">
-							<label for="userName">User Name</label><br>
+						<label for="userName">User Name</label><br>
 							<label for="firstName">First Name</label><br>
 							<label for="lastName">Last Name</label><br>
 							<label for="gender">Gender</label><br>
@@ -34,29 +37,27 @@
 							<label for="password2">Re-enter Password</label><br>
 						</div>
 						<div class="column3">
-							<div class="inputs">
-								<label class="lab" for="userName">User Name</label>
-								<input type="text" name="userName" id="userName"><br>
-								<label class="lab" for="firstName">First Name</label>
-								<input type="text" name="firstName" id="firstName"><br>
-								<label class="lab" for="lastName">Last Name</label>
-								<input type="text" name="lastName" id="lastName"><br>
-								<label class="lab" for="gender">Gender</label>
-								<select name="gender" class="gender" id="gender">
-									<option value=""></option>
-									<option value="Male">Male</option>
-									<option value="Female">Female</option>
-								</select>
-								<label class="lab" for="password1">Password</label>
-								<input type="password" name="password1" id="password1"><br>
-								<label class="lab" for="password2">Re-enter Password</label>
-								<input type="password" name="password2" id="password2"><br>
-								<p class="hide" id="err">Error</p>
-								<input type="submit" value="Create" name="submit" id="submit" onclick="return check()">
-							</div>
+							<label class="lab" for="userName">User Name</label>
+							<input type="text" name="userName" id="userName"><br>
+							<label class="lab" for="firstName">First Name</label>
+							<input type="text" name="firstName" id="firstName"><br>
+							<label class="lab" for="lastName">Last Name</label>
+							<input type="text" name="lastName" id="lastName"><br>
+							<label class="lab" for="gender">Gender</label>
+							<select name="gender" class="gender" id="gender">
+								<option value=""></option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+							<label class="lab" for="password1">Password</label>
+							<input type="password" name="password1" id="password1"><br>
+							<label class="lab" for="password2">Re-enter Password</label>
+							<input type="password" name="password2" id="password2"><br>
+							<p class="hide" id="err">Error</p>
+							<input type="submit" value="Create" name="submit" id="submit" onclick="return check()">
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</center>
 		</div>
 	</div>
@@ -67,7 +68,7 @@
 					<h1>Success!</h1>
 				</div>
 				<div class="confirm">
-					<img src="../img/newOperator/success.svg" alt="">
+					<img src="../img/modelicons/success.svg" alt="">
 					<p>Operator added sussecfuly!</p>
 				</div>
 			</div>

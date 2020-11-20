@@ -63,6 +63,7 @@ class careuadmin extends Controller
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['profile']=$userName;
             header("Location: http://localhost:8080/careu-web/careuadmin/profile");
         }
         else
@@ -111,6 +112,17 @@ class careuadmin extends Controller
         }
     }
 
+    public function block()
+    {
+        $userId=$_GET['id'];
+        $result=$this->userModel->blockUser($userId);
+        if($result)
+        {
+            $_SESSION['blockuser']=$userId;
+            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
+        }
+    }
+
     public function verifieduser()
     {
         $userId=$_GET['id'];
@@ -143,6 +155,7 @@ class careuadmin extends Controller
         $result=$this->userModel->rejectRequest($userId);
         if($result)
         {
+            $_SESSION['rejectuser']=$userId;
             header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
         }
     }
@@ -153,6 +166,7 @@ class careuadmin extends Controller
         $result=$this->userModel->acceptRequest($userId);
         if($result)
         {
+            $_SESSION['acceptuser']=$userId;
             header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
         }
     }
@@ -250,6 +264,7 @@ class careuadmin extends Controller
         $result=$this->userModel->deleteCardiac($id);
         if($result)
         {
+            $_SESSION['deleteinstruction']=$id;
             header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
         }
     }
@@ -316,6 +331,7 @@ class careuadmin extends Controller
         $result=$this->userModel->deleteBleeding($id);
         if($result)
         {
+            $_SESSION['deleteinstruction']=$id;
             header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
         }
     }
@@ -380,6 +396,7 @@ class careuadmin extends Controller
         $result=$this->userModel->deleteBurn($id);
         if($result)
         {
+            $_SESSION['deleteinstruction']=$id;
             header("Location: http://localhost:8080/careu-web/careuadmin/burn");
         }
     }

@@ -23,10 +23,10 @@
 					<div col=column1>
 						<div class="photorow">
 							<div class="photo1col">
-								<img src="../img/unknown.jpg" id="idImg1">
+								<img src="../img/unknown.jpg" class="idImg1" id="idImg1">
 							</div>
 							<div class="photo2col">
-								<img src="../img/unknown.jpg" id="idImg2">
+								<img src="../img/unknown.jpg" class="idImg2" id="idImg2">
 							</div>
 							<div id="zoomImg" class="zoomImg">
 								<span class="close">&times;</span>
@@ -40,10 +40,6 @@
 						<label>Username</label><br>
 						<label>NIC</label><br>
 						<label>E-mail</label><br>
-						<label>Phone Number</label><br>
-						<label>Gender</label><br>
-						<label>Date of Birth</label><br>
-						<label>Address</label><br>
 					</div>
 					<div class="column3">
 						<?php foreach($data['userInfo'] as $userInfo){ ?>
@@ -57,6 +53,19 @@
 						<input type="text" value="<?php echo $userInfo->nicNumber; ?>" disabled><br>
 						<label class="lab">E-mail</label>
 						<input type="text" value="<?php echo $userInfo->email; ?>" disabled><br>
+						<?php } ?>
+						<!-- <p class="hide" id="err">Error</p>
+						<a onclick="confirm1()">Accept</a>
+						<a onclick="confirm2()">Reject</a> -->
+					</div>
+					<div class="column2">
+						<label>Phone</label><br>
+						<label>Gender</label><br>
+						<label>Birthday</label><br>
+						<label>Address</label><br>
+					</div>
+					<div class="column3">
+						<?php foreach($data['userInfo'] as $userInfo){ ?>
 						<label class="lab">Phone Number</label>
 						<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
 						<label class="lab">Gender</label>
@@ -66,9 +75,16 @@
 						<label class="lab">Address</label>
 						<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
 						<?php } ?>
-						<p class="hide" id="err">Error</p>
-						<a onclick="confirm1()">Accept</a>
-						<a onclick="confirm2()">Reject</a>
+					</div>
+					<div class="column4">
+						<button href="" onclick="confirm1()">Accept</button>
+						<button href="" onclick="confirm2()">Reject</button>
+					</div>
+					<div class="column5">
+						<button href="" onclick="confirm1()">Accept</button>
+					</div>
+					<div class="column6">
+						<button href="" onclick="confirm2()">Reject</button>
 					</div>
 				</div>
 			</center>

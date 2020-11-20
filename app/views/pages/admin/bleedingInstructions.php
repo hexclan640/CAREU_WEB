@@ -51,18 +51,16 @@
 						<div class="step">
 							<div class="stepname">
 								<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
+								<?php if(!empty($instructions->image)) { ?>
+								<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
+								<?php } ?>
 							</div>
-						</div>
-						<div class="stepimage">
-							<?php if(!empty($instructions->image)) { ?>
-							<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
-							<?php } ?>
 						</div>
 						<div class="stepdescription">
 							<p><?php echo $instructions->description; ?></p>
 						</div>
 						<div class="options">
-							<a href="deletebleeding?id=<?php echo $instructions->id; ?>"><img src="../img/instructionIcons/delete.svg" alt=""></a>
+							<a onclick="confirm(<?php echo $instructions->id; ?>)" class="edit"><img src="../img/instructionIcons/delete.svg" alt=""></a>
 							<a href="editBleeding?id=<?php echo $instructions->id; ?>"><img src="../img/instructionIcons/edit.svg" alt=""></a>
 						</div>
 					</div>
@@ -78,7 +76,7 @@
 					<h1>Saved!</h1>
 				</div>
 				<div class="confirm">
-					<img src="../img/newOperator/success.svg" alt="">
+					<img src="../img/modelicons/success.svg" alt="">
 					<p>Changes saved successfuly!</p>
 				</div>
 			</div>
@@ -91,8 +89,43 @@
 					<h1>Success!</h1>
 				</div>
 				<div class="confirm">
-					<img src="../img/newOperator/success.svg" alt="">
+					<img src="../img/modelicons/success.svg" alt="">
 					<p>Added successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal3" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Confirm !</h1>
+				</div>
+				<div class="confirm">
+					<p>Are you sure you want to delete?</p>
+				</div>
+				<div class="clearfix">
+					<div class="clicks">
+						<div class="btns">
+							<a href="" class="yes" id="yes">Yes</a>
+						</div>
+						<div class="btns">
+							<a onclick="closeconfirm()" class="no">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal4" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Deleted successfuly!</p>
 				</div>
 			</div>
 		</div>
@@ -109,9 +142,16 @@
 			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
 		</script>
 	<?php unset($_SESSION['newinstruction']);} ?>
+	<?php if(isset($_SESSION['deleteinstruction'])){?>
+		<script>
+			document.getElementById('modal4').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal4').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['deleteinstruction']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
+	<script type="text/javascript" src="../javascript/bleedingInstructions.js"></script>
 </body>
 </html>

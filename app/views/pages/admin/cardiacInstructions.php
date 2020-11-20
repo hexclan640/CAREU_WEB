@@ -46,27 +46,25 @@
 		<center>
 			<div class="instructionrow">
 				<?php foreach($data['instructions'] as $instructions){ ?>
-					<div class="instructioncol">
-						<div class="details">
-							<div class="step">
-								<div class="stepname">
-									<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
-								</div>
-							</div>
-							<div class="stepimage">
+				<div class="instructioncol">
+					<div class="details">
+						<div class="step">
+							<div class="stepname">
+								<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
 								<?php if(!empty($instructions->image)) { ?>
 								<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
 								<?php } ?>
-							</div>
-							<div class="stepdescription">
-								<p><?php echo $instructions->description; ?></p>
-							</div>
-							<div class="options">
-								<a href="deletecardiac?id=<?php echo $instructions->id; ?>" class="edit"><img src="../img/instructionIcons/delete.svg" alt=""></a>
-								<a href="editcardiac?id=<?php echo $instructions->id; ?>" class="delete"><img src="../img/instructionIcons/edit.svg" alt=""></a>
-							</div>
+								</div>
+						</div>
+						<div class="stepdescription">
+							<p><?php echo $instructions->description; ?></p>
+						</div>
+						<div class="options">
+							<a onclick="confirm(<?php echo $instructions->id; ?>)" class="edit"><img src="../img/instructionIcons/delete.svg" alt=""></a>
+							<a href="editcardiac?id=<?php echo $instructions->id; ?>" class="delete"><img src="../img/instructionIcons/edit.svg" alt=""></a>
 						</div>
 					</div>
+				</div>
 				<?php } ?>	
 			</div>	
 		</center>
@@ -78,7 +76,7 @@
 					<h1>Saved!</h1>
 				</div>
 				<div class="confirm">
-					<img src="../img/newOperator/success.svg" alt="">
+					<img src="../img/modelicons/success.svg" alt="">
 					<p>Changes saved successfuly!</p>
 				</div>
 			</div>
@@ -91,7 +89,7 @@
 					<h1>Success!</h1>
 				</div>
 				<div class="confirm">
-					<img src="../img/newOperator/success.svg" alt="">
+					<img src="../img/modelicons/success.svg" alt="">
 					<p>Added successfuly!</p>
 				</div>
 			</div>
@@ -104,19 +102,30 @@
 					<h1>Confirm !</h1>
 				</div>
 				<div class="confirm">
-					<p>Are you satisfied with the details?</p>
+					<p>Are you sure you want to delete?</p>
 				</div>
 				<div class="clearfix">
 					<div class="clicks">
 						<div class="btns">
-							<?php foreach($data['userInfo'] as $userInfo){ ?>
-							<a href="accept?id=<?php echo $userInfo->userId; ?>" class="yes">Yes</a>
-							<?php } ?>
+							<a href="" class="yes" id="yes">Yes</a>
 						</div>
 						<div class="btns">
-							<a onclick="closeconfirm1()" class="no">Cancel</a>
+							<a onclick="closeconfirm()" class="no">Cancel</a>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal4" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Deleted successfuly!</p>
 				</div>
 			</div>
 		</div>
@@ -133,9 +142,16 @@
 			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
 		</script>
 	<?php unset($_SESSION['newinstruction']);} ?>
+	<?php if(isset($_SESSION['deleteinstruction'])){?>
+		<script>
+			document.getElementById('modal4').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal4').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['deleteinstruction']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
+	<script type="text/javascript" src="../javascript/cardiacInstructions.js"></script>
 </body>
 </html>

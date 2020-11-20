@@ -20,8 +20,11 @@
 			<center>
 				<div class="row">
 					<form action="updateprofile" method="post" enctype="multipart/form-data">
+						<?php foreach($data['admin'] as $adminInfo){ ?>
+						<div class="namediv">
+							<h1><?php echo $adminInfo->firstName." ".$adminInfo->lastName; ?></h1>
+						</div>
 						<div class="column1">
-							<?php foreach($data['admin'] as $adminInfo){ ?>
 							<?php if(!empty($adminInfo->image)) { ?>
 								<img src="../img/adminProPics/<?php echo $adminInfo->image; ?>" class="pPic" id="pPic"><br>
 							<?php } else {?>
@@ -45,15 +48,34 @@
 							<input type="password" name="password1" id="password1"value="<?php echo $adminInfo->password ?>"><br>
 							<label class="lab">Re-enter Password</label>
 							<input type="password" name="password2" id="password2" value="<?php echo $adminInfo->password ?>"><br>
-							<?php } ?>
 							<p class="hide" id="err">Error</p>
 							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
 						</div>
+						<?php } ?>
 					</form>
 				</div>
 			</center>
 		</div>
 	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Changes Saved!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if(isset($_SESSION['profile'])){?>
+		<script>
+			document.getElementById('modal1').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['profile']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileAdmin.js"></script>

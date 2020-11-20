@@ -56,7 +56,7 @@ class police extends Controller
     public function profile()
     {
         $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
-        $data = ['admin' => $operatorInfo];
+        $data = ['operatorInfo' => $operatorInfo];
 
         if($operatorInfo)
         {
@@ -77,6 +77,7 @@ class police extends Controller
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
+            $_SESSION['profile']=$userName;
             header("Location: http://localhost:8080/careu-web/police/profile");
         }
         else
