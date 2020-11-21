@@ -70,11 +70,10 @@ body {
 
 .column3 textarea {
     margin: 10px;
-    display: block;
     width: 98%;
     height: 15rem;
     padding: 12px 20px;
-    display: inline-block;
+    color: black;
     border: 1px solid black;
     background-color: rgb(255, 255, 255, 0.3);
     box-sizing: border-box;
@@ -146,7 +145,7 @@ body {
     margin: 1rem;
     padding: 0.5rem;
     color: white;
-    background-color: rgb(88, 0, 0, 0.9);
+    background-color: rgb(88, 0, 0);
 }
 
 .step {
