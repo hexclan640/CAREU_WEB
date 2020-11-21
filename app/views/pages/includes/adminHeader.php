@@ -4,7 +4,7 @@
 			<h1 id="service">ADMIN PANEL</h1>
 		</div>
   		<div id="navbar-right">
-    		<a class="" href="home">Home</a>
-    		<a href="logout">Log Out</a>
+    		<!-- <a class="" href="home">Home</a>
+    		<a href="logout">Log Out</a> -->
 		</div>
 	</nav>

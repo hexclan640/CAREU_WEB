@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/editBurnsInstructions.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Edit Instructions</title>
 </head>
 <body>
@@ -33,10 +35,6 @@
 							<input type="file" name="image" id="instructionPicture"><br>
 						</div>
 						<div class="column2">
-							<label>Step No</label><br>
-							<label>Add Description</label><br>
-						</div>
-						<div class="column3">
 							<input type="text" id="id" name="id" value="<?php echo $instruction->id; ?>">
 							<label class="lab" >Step No</label>
 							<input type="text" name="stepNumber" value="<?php echo $instruction->step; ?>" id="stepNumber"><br>
@@ -52,8 +50,6 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/editInstructions.js"></script>
 </body>
 </html>

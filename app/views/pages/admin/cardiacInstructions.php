@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/cardiacInstructions.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Cardiac First Aids</title>
 </head>
 <body>
@@ -26,13 +28,9 @@
 							<input type="file" name="image" id="instructionPicture">
 						</div>
 						<div class="column2">
-							<label>Step No</label><br>
-							<label>Add Description</label><br>
-						</div>
-						<div class="column3">
-							<label class="lab" >Step No</label>
+							<label >Step No</label>
 							<input type="text" name="stepNumber" id="stepNumber"><br>
-							<label class="lab" >Add Description</label>
+							<label >Add Description</label>
 							<textarea class="description" type="text" name="description" id="description"></textarea><br>
 							<p class="hide" id="err">Error</p>
 							<input type="submit" value="Add" name="submit" id="submit" onclick="return check()">
@@ -149,8 +147,6 @@
 		</script>
 	<?php unset($_SESSION['deleteinstruction']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
 	<script type="text/javascript" src="../javascript/cardiacInstructions.js"></script>
 </body>

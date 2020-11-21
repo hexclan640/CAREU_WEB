@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/bleedingInstructions.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Bleeding First Aids</title>
 </head>
 <body>
@@ -26,10 +28,6 @@
 							<input type="file" name="image" id="instructionPicture">
 						</div>
 						<div class="column2">
-							<label>Step No</label><br>
-							<label>Add Description</label><br>
-						</div>
-						<div class="column3">
 							<label class="lab" >Step No</label>
 							<input type="text" name="stepNumber" id="stepNumber"><br>
 							<label class="lab" >Add Description</label>
@@ -148,9 +146,6 @@
 			setTimeout(function(){document.getElementById('modal4').style.display = 'none'; }, 2000);
 		</script>
 	<?php unset($_SESSION['deleteinstruction']);} ?>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
 	<script type="text/javascript" src="../javascript/bleedingInstructions.js"></script>
 </body>

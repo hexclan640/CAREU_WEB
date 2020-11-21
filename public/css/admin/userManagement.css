@@ -14,8 +14,9 @@ body {
 }
 
 .form {
-    padding: 1rem;
-    margin: 0.6rem;
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
 }
 
@@ -58,12 +59,6 @@ body {
     content: "";
     display: table;
     clear: both;
-}
-
-@media screen and (max-width: 1020px) {
-    .column {
-        width: 100%;
-    }
 }
 
 .column1 img {
@@ -114,6 +109,12 @@ body {
     margin: 10rem;
 }
 
+@media screen and (max-width: 1300px) {
+    .column {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .userPic,
     .column1,
@@ -124,6 +125,22 @@ body {
     .userPic img {
         width: 30%;
         float: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .column {
+        width: 100%;
+    }
+    .form {
+        margin-top: 228px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form {
+        margin-top: 128px;
     }
 }
 

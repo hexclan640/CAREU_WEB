@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/editProfileAdmin.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Edit Profile</title>
 </head>
 <body>
@@ -34,20 +36,18 @@
 							<input type="file" name="image" id="propic"><br>
 						</div>
 						<div class="column2">
-							<label>First Name</label><br>
-							<label>Last Name</label><br>
-							<label>Password</label><br>
-							<label>Re-enter Password</label><br>
+							<label>First Name</label>
+							<input type="text" name="firstName" id="firstName" value="<?php echo $adminInfo->firstName ?>"><br>
+							<label>Last Name</label>
+							<input type="text" name="lastName" id="lastName" value="<?php echo $adminInfo->lastName ?>"><br>
+						</div>
+						<div class="column2">
+							<label>Password</label>
+							<input type="password" name="password1" id="password1"value="<?php echo $adminInfo->password ?>"><br>
+							<label>Re-enter Password</label>
+							<input type="password" name="password2" id="password2" value="<?php echo $adminInfo->password ?>"><br>
 						</div>
 						<div class="column3">
-							<label class="lab">First Name</label>
-							<input type="text" name="firstName" id="firstName" value="<?php echo $adminInfo->firstName ?>"><br>
-							<label class="lab">Last Name</label>
-							<input type="text" name="lastName" id="lastName" value="<?php echo $adminInfo->lastName ?>"><br>
-							<label class="lab">Password</label>
-							<input type="password" name="password1" id="password1"value="<?php echo $adminInfo->password ?>"><br>
-							<label class="lab">Re-enter Password</label>
-							<input type="password" name="password2" id="password2" value="<?php echo $adminInfo->password ?>"><br>
 							<p class="hide" id="err">Error</p>
 							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
 						</div>
@@ -77,8 +77,6 @@
 		</script>
 	<?php unset($_SESSION['profile']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileAdmin.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 </body>
 </html>

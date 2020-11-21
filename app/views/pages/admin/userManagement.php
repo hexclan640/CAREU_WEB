@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/userManagement.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>User Management</title>
 </head>
 <body>
@@ -94,7 +96,6 @@
 	<?php unset($_SESSION['rejectuser']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/userManagement.js"></script>
 </body>
 </html>

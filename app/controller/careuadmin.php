@@ -21,6 +21,7 @@ class careuadmin extends Controller
     public function home()
     {
         $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/adminSidebar');
         $this->view('pages/admin/home');
         $this->view('pages/includes/footer');
     }
@@ -28,6 +29,7 @@ class careuadmin extends Controller
     public function new119()
     {
         $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/adminSidebar');
         $this->view('pages/admin/create119OperatorAccount');
         $this->view('pages/includes/footer');
     }
@@ -35,6 +37,7 @@ class careuadmin extends Controller
     public function new1990()
     {
         $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/adminSidebar');
         $this->view('pages/admin/create1990OperatorAccount');
         $this->view('pages/includes/footer');
     }
@@ -47,6 +50,7 @@ class careuadmin extends Controller
         if($adminInfo)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/editProfileAdmin',$data);
             $this->view('pages/includes/footer');
         }
@@ -75,6 +79,7 @@ class careuadmin extends Controller
     public function usermanagement()
     {
         $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/adminSidebar');
         $this->view('pages/admin/userManagement');
         $this->view('pages/includes/footer');
     }
@@ -107,6 +112,7 @@ class careuadmin extends Controller
         if($user)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/viewUserRequest',$data);
             $this->view('pages/includes/footer'); 
         }
@@ -131,6 +137,7 @@ class careuadmin extends Controller
         if($user)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/userProfile',$data);
             $this->view('pages/includes/footer'); 
         }
@@ -144,6 +151,7 @@ class careuadmin extends Controller
         if($requestInfo)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/viewUserRequest',$data);
             $this->view('pages/includes/footer'); 
         }
@@ -174,6 +182,7 @@ class careuadmin extends Controller
     public function reports()
     {
         $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/adminSidebar');
         $this->view('pages/admin/reports');
         $this->view('pages/includes/footer');
     }
@@ -221,6 +230,7 @@ class careuadmin extends Controller
     public function firstaids()
     {
         $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/adminSidebar');
         $this->view('pages/admin/addInstructions');
         $this->view('pages/includes/footer');
     }
@@ -239,6 +249,7 @@ class careuadmin extends Controller
         if($instructions)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/cardiacInstructions',$data);
             $this->view('pages/includes/footer');
         }
@@ -277,6 +288,7 @@ class careuadmin extends Controller
         if($instruction)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/editCardiacInstructions',$data);
             $this->view('pages/includes/footer');
         }
@@ -306,6 +318,7 @@ class careuadmin extends Controller
         if($instructions)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/bleedingInstructions',$data);
             $this->view('pages/includes/footer');
         }
@@ -344,6 +357,7 @@ class careuadmin extends Controller
         if($instruction)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/editBleedingInstructions',$data);
             $this->view('pages/includes/footer');
         }
@@ -371,6 +385,7 @@ class careuadmin extends Controller
         if($instructions)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/burnsInstructions',$data);
             $this->view('pages/includes/footer');
         }
@@ -409,6 +424,7 @@ class careuadmin extends Controller
         if($instruction)
         {
             $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
             $this->view('pages/admin/editBurnsInstructions',$data);
             $this->view('pages/includes/footer');
         }

@@ -9,7 +9,8 @@ body {
 }
 
 .form {
-    margin: 10px;
+    margin-top: 128px;
+    margin-left: 200px;
     padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
 }
@@ -61,8 +62,21 @@ body {
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
     .column {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .form {
+        margin-top: 228px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form {
+        margin-top: 128px;
     }
 }

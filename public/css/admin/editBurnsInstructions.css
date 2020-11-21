@@ -31,16 +31,11 @@ body {
     visibility: hidden;
 }
 
-.lab {
-    display: none;
-    font-size: 110%;
-    font-weight: bold;
-}
-
 .form {
-    margin: 10px;
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
-    padding: 1rem;
 }
 
 .frame {
@@ -62,42 +57,35 @@ body {
     border-style: solid;
     border-width: 2px;
     border-color: black;
-    margin-bottom: 1rem;
     background-color: rgb(192, 192, 192, 0.6);
 }
 
-.column2 label {
-    margin: 13px;
-    display: block;
-    font-size: 110%;
-    font-weight: bold;
-}
-
-.column3 textarea {
-    margin: 10px;
-    display: block;
-    width: 98%;
+.column2 textarea {
+    width: 100%;
     height: 15rem;
     padding: 12px 20px;
-    display: inline-block;
+    color: black;
     border: 1px solid black;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     background-color: rgb(255, 255, 255, 0.3);
     box-sizing: border-box;
 }
 
-.column3 input {
-    margin: 10px;
+.column2 input {
     display: block;
-    width: 98%;
+    width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid black;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     background-color: rgb(255, 255, 255, 0.3);
     box-sizing: border-box;
 }
 
-.column3 input[type=submit] {
-    width: 35%;
+.column2 input[type=submit] {
+    width: 30%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
     cursor: pointer;
@@ -108,34 +96,23 @@ body {
     border: 2px solid rgb(88, 0, 0);
 }
 
-.column3 input[type=submit]:hover {
+.column2 input[type=submit]:hover {
     color: black;
     background-color: rgb(141, 141, 141);
     border: 2px solid black;
 }
 
-.options {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-}
-
 .column1 {
     float: left;
-    width: 30%;
+    width: 100%;
     padding: 1rem;
 }
 
 .column2 {
     float: left;
-    width: 20%;
-    padding: 1rem;
+    width: 100%;
+    padding: 0;
     text-align: left;
-}
-
-.column3 {
-    float: left;
-    width: 50%;
-    padding: 1rem;
 }
 
 .row:after {
@@ -144,33 +121,26 @@ body {
     clear: both;
 }
 
-.instructioncol {
-    float: left;
-    width: 100%;
-    padding: 2rem;
+@media screen and (max-width: 1020px) {
+    .column2 input[type=submit] {
+        width: 100%;
+        float: none;
+    }
 }
 
-@media screen and (max-width: 1020px) {
-    .column1,
-    .column2,
-    .column3 {
-        width: 100%;
+@media screen and (max-width: 700px) {
+    .form {
+        margin-top: 228px;
+        margin-left: 0;
     }
-    .column2 {
-        display: none;
+}
+
+@media screen and (max-width: 425px) {
+    .form {
+        margin-top: 128px;
     }
-    .lab {
-        display: block;
-        font-size: 110%;
-        font-weight: bold;
-    }
-    .column3 input,
-    .column3 .gender,
-    .column3 textarea {
-        width: 80%;
-    }
-    .column3 input[type=submit] {
-        width: 80%;
-        float: none;
+    .column1 canvas {
+        width: 30vh;
+        height: 30vh;
     }
 }

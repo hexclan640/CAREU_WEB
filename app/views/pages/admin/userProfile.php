@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/userProfile.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Verified User Profile</title>
 </head>
 <body>
@@ -27,38 +29,26 @@
 					<div class="column1">
 						<img src="../img/unknown.jpg"><br>
 					</div>
-					<div class="column2" id="column2">
-						<label>Username</label><br>
-						<label>NIC</label><br>
-						<label>E-mail</label><br>
-						<label>Phone Number</label><br>
-						<div class="more1" id="more1">
-							<label>Gender</label><br>
-							<label>Date of Birth</label><br>
-							<label>Address</label><br>
-						</div>
+					<div class="column2">
+						<label>Username</label>
+						<input type="text"value="<?php echo $userInfo->userName; ?>" disabled><br>
+						<label>NIC</label>
+						<input type="text" value="<?php echo $userInfo->nicNumber; ?>" disabled><br>
+						<label>E-mail</label>
+						<input type="text" value="<?php echo $userInfo->email; ?>" disabled><br>
+						<label>Phone Number</label>
+						<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
+					</div>
+					<div class="column2">
+						<label>Gender</label>
+						<input type="text" value="<?php echo $userInfo->gender; ?>" disabled><br>
+						<label>Date of Birth</label>
+						<input type="text" value="<?php echo $userInfo->dateOfBirth; ?>" disabled><br>
+						<label>Address</label>
+						<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
 					</div>
 					<div class="column3">
-						<label class="lab">Username</label>
-						<input type="text"value="<?php echo $userInfo->userName; ?>" disabled><br>
-						<label class="lab">NIC</label>
-						<input type="text" value="<?php echo $userInfo->nicNumber; ?>" disabled><br>
-						<label class="lab">E-mail</label>
-						<input type="text" value="<?php echo $userInfo->email; ?>" disabled><br>
-						<label class="lab">Phone Number</label>
-						<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
-						<div class="more2" id="more2">
-							<label class="lab">Gender</label>
-							<input type="text" value="<?php echo $userInfo->gender; ?>" disabled><br>
-							<label class="lab">Date of Birth</label>
-							<input type="text" value="<?php echo $userInfo->dateOfBirth; ?>" disabled><br>
-							<label class="lab">Address</label>
-							<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
-						</div>
-						<div class="moreless">
-							<a onclick="moreless()"><img src="../img/down.svg" alt="" id="morelessbtn"></a><br>
-							<button onclick="confirm()">Block</button>
-						</div>
+						<button onclick="confirm()">Block</button>
 					</div>
 				</div>
 				<?php } ?>
@@ -124,7 +114,6 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/userProfile.js"></script>
 </body>
 </html>
