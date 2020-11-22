@@ -137,17 +137,20 @@
     .column4 {
         float: left;
         width: 100%;
+        padding: 1rem;
     }
     
     .column5 {
         float: left;
         width: 100%;
+        padding: 1rem;
         display: none
     }
     
     .column6 {
         float: left;
         width: 100%;
+        padding: 1rem;
         display: none
     }
     
@@ -240,7 +243,6 @@
         .column2,
         .column3 {
             width: 100%;
-            padding: 0;
         }
         .column4 {
             display: none;

@@ -52,7 +52,7 @@
 								<?php if(!empty($instructions->image)) { ?>
 								<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
 								<?php } ?>
-								</div>
+							</div>
 						</div>
 						<div class="stepdescription">
 							<p><?php echo $instructions->description; ?></p>

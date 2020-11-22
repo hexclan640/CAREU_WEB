@@ -9,8 +9,9 @@ body {
 }
 
 .reqInfomations {
-    margin: 0.6rem;
-    padding: 1rem;
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
 }
 
@@ -177,5 +178,24 @@ body {
 @media screen and (max-width: 450px) {
     .brief2 p {
         font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .reqInfomations {
+        margin-top: 177px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .reqInfomations {
+        margin-top: 228px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .reqInfomations {
+        margin-top: 128px;
     }
 }

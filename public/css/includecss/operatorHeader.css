@@ -4,19 +4,18 @@
 
 #navbar {
     overflow: hidden;
-    padding: 0rem 0rem;
     transition: 0.4s;
     width: 100%;
     top: 0;
     z-index: 99;
     background-color: rgb(88, 0, 0);
+    position: fixed;
 }
 
 .title {
     margin-left: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: #FF8C00;
-    height: 1.5rem;
     text-shadow: 4px 4px 4px black;
 }
 
@@ -36,12 +35,13 @@
 #navbar img {
     margin-left: 1rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     float: left;
 }
 
 .careulogo {
     margin-right: 1rem;
-    width: 4rem;
+    width: 3.5rem;
 }
 
 #navbar-right a:hover {
@@ -51,79 +51,4 @@
 
 #navbar-right {
     float: right;
-}
-
-@media screen and (max-width: 800px) {
-    .title {
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-        height: 1.25rem;
-    }
-}
-
-@media screen and (max-width: 580px) {
-    #navbar {
-        padding: 20px 10px !important;
-    }
-    #navbar a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-    #navbar-right {
-        float: none;
-    }
-    #navbar img {
-        margin-bottom: 0rem;
-        width: 4rem;
-    }
-    .title {
-        margin-bottom: 3rem;
-        font-size: 1rem;
-        height: 1rem;
-    }
-}
-
-
-/*-----------------------------------------------------------------------------------------------------------------------*/
-
-.breadcrum {
-    color: white;
-    background-color: rgb(91, 17, 1, 0.9);
-    padding: 0.1px;
-    margin: 0;
-    transition: 0.4s;
-    z-index: 99;
-    border-top: 2px solid white;
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%
-}
-
-.breadcrumb {
-    list-style: none;
-    margin: 0.5rem;
-    margin-left: 0;
-}
-
-.breadcrumb li {
-    display: inline;
-    font-size: 17.5px;
-}
-
-.breadcrumb li+li:before {
-    color: white;
-    content: "› ";
-}
-
-.breadcrumb li a {
-    color: white;
-    text-decoration: none;
-}
-
-.breadcrumb li a:hover {
-    text-decoration: underline;
 }

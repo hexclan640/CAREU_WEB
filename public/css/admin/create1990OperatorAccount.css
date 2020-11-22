@@ -71,6 +71,7 @@ body {
     cursor: pointer;
     color: white;
     font-size: 120%;
+    float: right;
     border: 2px solid rgb(88, 0, 0);
 }
 
@@ -111,6 +112,7 @@ body {
 .column4 {
     float: left;
     width: 100%;
+    padding: 1rem;
 }
 
 .row:after {
@@ -129,7 +131,12 @@ body {
     .column2,
     .column3 {
         width: 100%;
-        padding: 0;
+    }
+    .column3 {
+        padding-top: 0;
+    }
+    .column2 {
+        padding-bottom: 0;
     }
     .column4 input[type=submit] {
         width: 100%;

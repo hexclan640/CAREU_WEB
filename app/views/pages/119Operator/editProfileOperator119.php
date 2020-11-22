@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/119Operator/editProfileOperator119.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Edit Profile</title>
 </head>
 <body>
@@ -34,20 +36,18 @@
 							<input type="file" name="image" id="propic"><br>
 						</div>
 						<div class="column2">
-							<label for="firstName">First Name</label><br>
-							<label for="lastName">Last Name</label><br>
-							<label for="password1">Password</label><br>
-							<label for="password2">Re-enter Password</label><br>
+							<label for="firstName">First Name</label>
+							<input type="text" name="firstName" id="firstName" value="<?php echo $operatorInfo->firstName ?>"><br>
+							<label for="lastName">Last Name</label>
+							<input type="text" name="lastName" id="lastName" value="<?php echo $operatorInfo->lastName ?>"><br>
 						</div>
 						<div class="column3">
-							<label class="lab" for="firstName">First Name</label>
-							<input type="text" name="firstName" id="firstName" value="<?php echo $operatorInfo->firstName ?>"><br>
-							<label class="lab" for="lastName">Last Name</label>
-							<input type="text" name="lastName" id="lastName" value="<?php echo $operatorInfo->lastName ?>"><br>
-							<label class="lab" for="password1">Password</label>
+							<label for="password1">Password</label>
 							<input type="password" name="password1" id="password1"value="<?php echo $operatorInfo->password ?>"><br>
-							<label class="lab" for="password2">Re-enter Password</label>
+							<label for="password2">Re-enter Password</label>
 							<input type="password" name="password2" id="password2" value="<?php echo $operatorInfo->password ?>"><br>
+						</div>
+						<div class="column4">
 							<p class="hide" id="err">Error</p>
 							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
 						</div>
@@ -77,8 +77,6 @@
 		</script>
 	<?php unset($_SESSION['profile']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerPolice.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileOperator119.js"></script>
 </body>
 </html>

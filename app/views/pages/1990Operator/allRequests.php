@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/1990Operator/allRequests.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>All Requests</title>
 </head>
 <body>
@@ -73,8 +75,5 @@
 			<a href="viewrequest1990?id=8">View</a>
 		</div>
 	</div>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 </body>
 </html>

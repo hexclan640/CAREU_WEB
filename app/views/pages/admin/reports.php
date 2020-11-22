@@ -23,8 +23,6 @@
 			<div id="piechart"></div>
 		</div>
 	</div>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="../javascript/reports.js"></script>
 </body>

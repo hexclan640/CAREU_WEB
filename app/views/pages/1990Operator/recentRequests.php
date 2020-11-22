@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/1990Operator/recentRequests.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Recenet Requests</title>
 </head>
 <body>
@@ -21,7 +23,6 @@
 		</center>
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="../javascript/recentRequests.js"></script>
 </body>
 </html>

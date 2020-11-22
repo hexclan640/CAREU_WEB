@@ -146,6 +146,7 @@
 			setTimeout(function(){document.getElementById('modal4').style.display = 'none'; }, 2000);
 		</script>
 	<?php unset($_SESSION['deleteinstruction']);} ?>
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
 	<script type="text/javascript" src="../javascript/bleedingInstructions.js"></script>
 </body>

@@ -1,14 +1,14 @@
 .breadcrum {
     color: white;
-    background-color: rgb(91, 17, 1);
+    background-color: rgb(88, 0, 0);
     padding: 0.1px;
     margin: 0;
     transition: 0.4s;
     z-index: 99;
-    border-bottom: 2px solid white;
+    border-bottom: 3px solid white;
     position: fixed;
     width: 100%;
-    top: 90px;
+    top: 88px;
 }
 
 .sticky {

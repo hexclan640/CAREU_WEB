@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/119Operator/viewNewRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Request <?php echo $_GET['id']; ?></title>
 </head>
 <body>
@@ -40,7 +42,5 @@
 		</table>
 	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerPolice.js"></script>
 </body>
 </html>

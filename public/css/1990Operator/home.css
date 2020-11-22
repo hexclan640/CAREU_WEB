@@ -9,7 +9,8 @@ body {
 }
 
 .form {
-    margin: 10px;
+    margin-top: 128px;
+    margin-left: 200px;
     padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
 }
@@ -51,32 +52,33 @@ body {
     clear: both;
 }
 
-@media screen and (max-width: 1350px) {
-    .form a {
-        font-size: 1.5rem;
-    }
-}
-
 @media screen and (max-width: 1200px) {
     .column {
         width: 50%;
     }
-    .form a {
-        font-size: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+    .column {
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .form a {
-        font-size: 1.5rem;
+    .form {
+        margin-top: 177px;
+        margin-left: 0;
     }
 }
 
-@media screen and (max-width: 650px) {
-    .column {
-        width: 100%;
+@media screen and (max-width: 605px) {
+    .form {
+        margin-top: 228px;
     }
-    .form a {
-        font-size: 2rem;
+}
+
+@media screen and (max-width: 425px) {
+    .form {
+        margin-top: 128px;
     }
 }

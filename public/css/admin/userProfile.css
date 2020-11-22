@@ -55,7 +55,8 @@ body {
     background-color: rgb(192, 192, 192, 0.6);
 }
 
-.column2 input {
+.column2 input,
+.column3 input {
     display: block;
     width: 100%;
     padding: 12px 20px;
@@ -69,7 +70,7 @@ body {
     box-sizing: border-box;
 }
 
-.column3 button {
+.column4 button {
     width: 30%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
@@ -81,7 +82,7 @@ body {
     border: 2px solid rgb(88, 0, 0);
 }
 
-.column3 button:hover {
+.column4 button:hover {
     color: black;
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
@@ -110,7 +111,15 @@ body {
 
 .column3 {
     float: left;
+    width: 50%;
+    padding: 1rem;
+    text-align: left;
+}
+
+.column4 {
+    float: left;
     width: 100%;
+    padding: 1rem;
     margin-top: 1rem;
     text-align: left;
 }
@@ -176,12 +185,13 @@ body {
 @media screen and (max-width: 1020px) {
     .column2 {
         width: 100%;
-        padding: 0;
+        padding-bottom: 0;
     }
-    .column2 input {
+    .column3 {
         width: 100%;
+        padding-top: 0;
     }
-    .column3 button {
+    .column4 button {
         width: 100%;
         float: none;
     }

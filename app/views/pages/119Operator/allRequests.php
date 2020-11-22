@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/119Operator/allRequests.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>All Requests</title>
 </head>
 <body>

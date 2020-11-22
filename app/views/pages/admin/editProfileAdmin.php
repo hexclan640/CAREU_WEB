@@ -41,13 +41,13 @@
 							<label>Last Name</label>
 							<input type="text" name="lastName" id="lastName" value="<?php echo $adminInfo->lastName ?>"><br>
 						</div>
-						<div class="column2">
+						<div class="column3">
 							<label>Password</label>
 							<input type="password" name="password1" id="password1"value="<?php echo $adminInfo->password ?>"><br>
 							<label>Re-enter Password</label>
 							<input type="password" name="password2" id="password2" value="<?php echo $adminInfo->password ?>"><br>
 						</div>
-						<div class="column3">
+						<div class="column4">
 							<p class="hide" id="err">Error</p>
 							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
 						</div>

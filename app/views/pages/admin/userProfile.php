@@ -39,7 +39,7 @@
 						<label>Phone Number</label>
 						<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
 					</div>
-					<div class="column2">
+					<div class="column3">
 						<label>Gender</label>
 						<input type="text" value="<?php echo $userInfo->gender; ?>" disabled><br>
 						<label>Date of Birth</label>
@@ -47,7 +47,7 @@
 						<label>Address</label>
 						<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
 					</div>
-					<div class="column3">
+					<div class="column4">
 						<button onclick="confirm()">Block</button>
 					</div>
 				</div>

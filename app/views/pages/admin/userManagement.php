@@ -95,7 +95,6 @@
 		</script>
 	<?php unset($_SESSION['rejectuser']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/userManagement.js"></script>
 </body>
 </html>
