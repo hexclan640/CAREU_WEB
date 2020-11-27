@@ -1,106 +1,201 @@
-body{
-	background-image: url("../../img/bg.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	font-family: sans-serif;
-	background-attachment: fixed;
+body {
+    margin: 0;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: sans-serif;
 }
 
-.breadcrum{
-	color: white;
-	background-color: rgb(128,0,0,0.9);
-	padding: 5px 0px 5px 10px;
+.reqInfomations {
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
+    background-color: rgb(255, 255, 255, 0.6);
 }
 
-.reqDetails{
-	width: 97.5%;
-	height: 475px;
-	background-color: rgb(255,255,255,0.6);
-	margin: 20px;
+.reqDetails {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 3px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(245, 245, 255, 0.3);
 }
 
-.reqDetails table{
-	width: 100%;
+.userPic {
+    float: left;
+    width: 15%;
 }
 
-.request{
-	margin: 20px;
-	padding: 25px 25px 25px 25px;
-	background-color: rgb(255,255,255,0.6);
-}
-
-.details{
-	width: 97.2%;
-	text-align: center;
-	background-color: rgb(255,255,255,0.8);
-	margin: 20px;
-	height: 220px;
-}
-
-.message{
-	width: 96.8%;
-	background-color: rgb(255,255,255,0.8);
-	margin: 20px;
-	height: 50px;
-}
-
-.send{
-	float: right;
-	text-align: center;
-    width: 5%;
-    background-color: rgb(0,191,255,0.7);
-    border: 1px solid black;
-    text-shadow: none;
-    padding: 8px 10px;
-    margin-right: 20px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    cursor: pointer;
+.brief1 {
+    padding-top: 1rem;
     color: black;
-    font-weight: bold;
+    float: left;
+    width: 35%;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.brief2 {
+    float: left;
+    width: 50%;
+    color: black;
+    padding-top: 1rem;
+}
+
+.brief2 p {
     font-size: 100%;
 }
 
-.send:hover{
-	background-color: rgb(0,191,255,0.9);
+.requestrow:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
-.reqDetails .accept{
-	float: right;
-	text-align: center;
-    width: 10%;
-    background-color: rgb(0,128,0,0.7);
-    border: 1px solid black;
-    text-shadow: none;
-    padding: 11px 20px;
-    margin-right: 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: black;
+.requestrow {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgb(245, 245, 255, 0.3);
+    border: 3px solid rgb(255, 255, 255, 0.7);
+}
+
+.patients {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.police {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.time {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.district {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.userPic img {
+    width: 10rem;
+    height: auto;
+    padding: 1rem;
+}
+
+.details img {
+    width: 30%;
+    height: auto;
+}
+
+.name {
+    font-size: 200%;
     font-weight: bold;
-    font-size: 100%;
 }
 
-.reqDetails .reject{
-	float: right;
-	text-align: center;
-    width: 10%;
-    background-color: rgb(255,0,0,0.7);
-    border: 1px solid black;
-    text-shadow: none;
-    padding: 11px 20px;
-    margin-right: 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: black;
+.pNumber {
+    font-size: 140%;
+}
+
+.description {
+    float: left;
+    width: 50%;
+    padding: 1rem;
+}
+
+.emergencylocation {
+    float: left;
+    width: 50%;
+}
+
+.reqDetails:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.note {
+    font-size: 150%;
     font-weight: bold;
-    font-size: 100%;
 }
 
-.reqDetails .accept:hover{
-	background-color: rgb(0,128,0,0.9);
+.description textarea {
+    width: 100%;
+    font-size: 120%;
+    color: black;
 }
 
-.reqDetails .reject:hover{
-	background-color: rgb(255,0,0,0.9);
+.emelocation {
+    width: 100%;
+    height: 50%;
+    border: 1px solid rgb(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width: 1100px) {
+    .userPic {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .brief1 {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .brief2 {
+        float: none;
+        width: 100%;
+    }
+    .description {
+        width: 100%;
+    }
+    .emergencylocation {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brief2 p {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .brief2 p {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .reqInfomations {
+        margin-top: 177px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .reqInfomations {
+        margin-top: 228px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .reqInfomations {
+        margin-top: 128px;
+    }
 }

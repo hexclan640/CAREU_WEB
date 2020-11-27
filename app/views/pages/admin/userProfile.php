@@ -6,61 +6,54 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/userProfile.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
-	<title>Edit Profile</title>
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<title>Verified User Profile</title>
 </head>
 <body>
-
-	<div class="breadcrum">
-		User Profile
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+			<li><a href="usermanagement">Users</a></li>
+			<li>User Profile</li>
+		</ul>
 	</div>
-	<div class="form">
-		<center>
-			<div class="row">
-				<div class="column1">
-					<img src="../img/unknown.jpg"><br>
-				</div>
-				<div class="column2" id="column2">
-					<label>First Name</label><br>
-					<label>Last Name</label><br>
-					<label>Username</label><br>
-					<label>NIC</label><br>
-					<label>E-mail</label><br>
-					<div class="more1" id="more1">
-						<label>Phone Number</label><br>
-						<label>Gender</label><br>
-						<label>Date of Birth</label><br>
-						<label>Address</label><br>
+	<div class="formuser">
+		<div class="frame">
+			<center>
+				<?php foreach($data['userInfo'] as $userInfo){ ?>
+				<div class="row">
+					<div class="namediv">
+						<h1><?php echo $userInfo->firstName." ".$userInfo->lastName; ?></h1>
+					</div>
+					<div class="column1">
+						<img src="../img/unknown.jpg"><br>
+					</div>
+					<div class="column2">
+						<label>Username</label>
+						<input type="text"value="<?php echo $userInfo->userName; ?>" disabled><br>
+						<label>NIC</label>
+						<input type="text" value="<?php echo $userInfo->nicNumber; ?>" disabled><br>
+						<label>E-mail</label>
+						<input type="text" value="<?php echo $userInfo->email; ?>" disabled><br>
+						<label>Phone Number</label>
+						<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
+					</div>
+					<div class="column3">
+						<label>Gender</label>
+						<input type="text" value="<?php echo $userInfo->gender; ?>" disabled><br>
+						<label>Date of Birth</label>
+						<input type="text" value="<?php echo $userInfo->dateOfBirth; ?>" disabled><br>
+						<label>Address</label>
+						<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
+					</div>
+					<div class="column4">
+						<button onclick="confirm()">Block</button>
 					</div>
 				</div>
-				<div class="column3">
-					<?php foreach($data['userInfo'] as $userInfo){ ?>
-						<label class="lab">First Name</label>
-						<input type="text" value="<?php echo $userInfo->firstName; ?>" disabled><br>
-						<label class="lab">Last Name</label>
-						<input type="text" value="<?php echo $userInfo->lastName; ?>" disabled><br>
-						<label class="lab">Username</label>
-						<input type="text"value="<?php echo $userInfo->userName; ?>" disabled><br>
-						<label class="lab">NIC</label>
-						<input type="text" value="<?php echo $userInfo->nicNumber; ?>" disabled><br>
-						<label class="lab">E-mail</label>
-						<input type="text" value="<?php echo $userInfo->email; ?>" disabled><br>
-						<div class="more2" id="more2">
-							<label class="lab">Phone Number</label>
-							<input type="text" value="<?php echo $userInfo->phoneNumber; ?>" disabled><br>
-							<label class="lab">Gender</label>
-							<input type="text" value="<?php echo $userInfo->gender; ?>" disabled><br>
-							<label class="lab">Date of Birth</label>
-							<input type="text" value="<?php echo $userInfo->dateOfBirth; ?>" disabled><br>
-							<label class="lab">Address</label>
-							<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
-						</div>
-						<div class="moreless">
-							<button onclick="moreless()" id="more">MORE</button>
-						</div>
-					<?php } ?>
-				</div>
-			</div>
-		</center>
+				<?php } ?>
+			</center>
+		</div>
 	</div>
 	<div class="form1">
 		<center>
@@ -96,8 +89,31 @@
 			</div>
 		</center>
 	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Confirm !</h1>
+				</div>
+				<div class="confirm">
+					<p>Are you sure you want to block the user?</p>
+				</div>
+				<div class="clearfix">
+					<div class="clicks">
+						<div class="btns">
+						<?php foreach($data['userInfo'] as $userInfo){ ?>
+							<a href="block?id=<?php echo $userInfo->userId; ?>" class="yes">Yes</a>
+							<?php } ?>
+						</div>
+						<div class="btns">
+							<a onclick="closeconfirm()" class="no">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/userProfile.js"></script>
 </body>
 </html>

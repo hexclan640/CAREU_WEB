@@ -3,20 +3,27 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
-}
-
-.breadcrum {
-    color: white;
-    background-color: rgb(128, 0, 0, 0.9);
-    padding: 5px 0px 5px 10px;
+    font-family: sans-serif;
 }
 
 .updates {
+    border: 3px solid white;
+    background-color: rgb(255, 255, 255, 0.3);
+}
+
+.form {
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
-    margin: 10px;
-    padding: 10px 10px 10px 10px;
+}
+
+.category h1 {
+    color: white;
+    padding: 0.5rem;
+    background-color: rgb(88, 0, 0);
 }
 
 .col a {
@@ -29,8 +36,8 @@ body {
 .column .requestrow {
     text-align: left;
     padding: 10px;
-    margin: 10px;
-    border: 3px solid rgb(255, 255, 255, 0.6);
+    margin: 1rem;
+    border: 3px solid rgb(255, 255, 255, 0.8);
     background-color: rgb(245, 245, 255, 0.2);
 }
 
@@ -54,12 +61,6 @@ body {
     clear: both;
 }
 
-@media screen and (max-width: 1020px) {
-    .column {
-        width: 100%;
-    }
-}
-
 .column1 img {
     width: 1rem;
     height: auto;
@@ -72,7 +73,7 @@ body {
 }
 
 .userPic img {
-    width: 100%;
+    width: 7rem;
     height: auto;
     margin-top: 0.5rem;
 }
@@ -103,6 +104,17 @@ body {
     clear: both;
 }
 
+.loading {
+    width: 6rem;
+    margin: 10rem;
+}
+
+@media screen and (max-width: 1300px) {
+    .column {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .userPic,
     .column1,
@@ -113,5 +125,119 @@ body {
     .userPic img {
         width: 30%;
         float: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .column {
+        width: 100%;
+    }
+    .form {
+        margin-top: 228px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form {
+        margin-top: 128px;
+    }
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 50px;
+    text-align: center;
+}
+
+.titleconfirm {
+    float: left;
+    width: 100%;
+    color: white;
+    background-color: rgb(88, 0, 0);
+}
+
+.confirm {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+}
+
+.confirm p {
+    font-size: 150%;
+}
+
+.confirm img {
+    width: 3rem;
+    height: auto;
+}
+
+.clearfix {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.message {
+    width: 60%;
+    margin: 5% auto 15% auto;
+    background-color: rgb(255, 255, 255);
+}
+
+.btns {
+    float: left;
+    width: 50%;
+}
+
+.clicks:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.yes,
+.no {
+    float: left;
+    width: 98%;
+    padding: 11px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    margin: 0.5rem;
+    text-decoration: none;
+    background-color: rgb(88, 0, 0);
+    border: 2px solid rgb(88, 0, 0);
+}
+
+.yes:hover,
+.no:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+}
+
+@media screen and (max-width: 300px) {
+    .cancelbtn,
+    .deletebtn {
+        width: 100%;
     }
 }

@@ -3,8 +3,9 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
+    font-family: sans-serif;
 }
 
 .breadcrum {
@@ -53,7 +54,6 @@ body {
     border-radius: 4px;
     cursor: pointer;
     color: black;
-    font-weight: bold;
     font-size: 100%;
 }
 

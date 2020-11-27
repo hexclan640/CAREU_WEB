@@ -3,8 +3,9 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
+    font-family: sans-serif;
 }
 
 .breadcrum {
@@ -27,89 +28,100 @@ body {
     font-weight: bold;
 }
 
-.form,
 .form1 {
+    margin-left: 200px;
     background-color: rgb(255, 255, 255, 0.6);
-    margin: 10px;
+}
+
+.formuser {
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+.frame {
+    padding: 1rem;
+    border: 3px solid white;
+    background-color: rgb(255, 255, 255, 0.3);
 }
 
 .column1 img {
-    width: 80%;
-    height: auto;
-    margin: 1rem;
-    margin-left: 0rem;
-    transition: 0.3s;
-    border: 2px solid rgb(192, 192, 192);
+    width: 25vw;
+    height: 25vw;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color: rgb(192, 192, 192, 0.6);
 }
 
-.more1,
-.more2 {
-    display: none;
-}
-
-.column2 label {
-    margin: 1.08rem;
-    display: block;
-    font-size: 110%;
-    font-weight: bold;
-}
-
+.column2 input,
 .column3 input {
-    margin: 0.75rem;
     display: block;
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid black;
     font-size: 110%;
-    margin-right: 2.5rem;
     color: black;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     background-color: rgb(255, 255, 255, 0.3);
     box-sizing: border-box;
 }
 
-.moreless {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.moreless button {
-    width: 25%;
+.column4 button {
+    width: 30%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
-    font-weight: bold;
     cursor: pointer;
     color: white;
     font-size: 120%;
-    margin-top: 20px;
+    float: right;
     text-decoration: none;
     border: 2px solid rgb(88, 0, 0);
 }
 
-.moreless button:hover {
+.column4 button:hover {
     color: black;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
+}
+
+.namediv {
+    float: left;
+    width: 100%;
+    color: white;
+    margin-bottom: 2rem;
+    background-color: rgb(88, 0, 0, 0.9);
 }
 
 .column1 {
     float: left;
-    width: 30%;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .column2 {
     float: left;
-    width: 20%;
-    margin-top: 40px;
-    padding: 10px;
+    width: 50%;
+    padding: 1rem;
     text-align: left;
 }
 
 .column3 {
     float: left;
-    width: 48%;
-    margin-top: 40px;
-    padding: 10px;
+    width: 50%;
+    padding: 1rem;
+    text-align: left;
+}
+
+.column4 {
+    float: left;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: left;
 }
 
 .row:after {
@@ -134,7 +146,7 @@ body {
 }
 
 .history {
-    margin: 2rem;
+    margin: 1rem;
     padding: 1rem;
     border: 3px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(245, 245, 255, 0.2);
@@ -171,26 +183,17 @@ body {
 }
 
 @media screen and (max-width: 1020px) {
-    .column1,
-    .column2,
+    .column2 {
+        width: 100%;
+        padding-bottom: 0;
+    }
     .column3 {
         width: 100%;
+        padding-top: 0;
     }
-    .column2 {
-        display: none;
-    }
-    .lab {
-        display: block;
-        font-size: 110%;
-        font-weight: bold;
-    }
-    .column3 input {
-        width: 80%;
-        text-align: center;
-    }
-    .moreless a {
-        width: 80%;
-        display: block;
+    .column4 button {
+        width: 100%;
+        float: none;
     }
     .request,
     .feedback {
@@ -205,5 +208,117 @@ body {
     }
     .imgdiv img {
         float: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .column {
+        width: 100%;
+    }
+    .formuser {
+        margin-top: 228px;
+        margin-left: 0;
+    }
+    .form1 {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .formuser {
+        margin-top: 128px;
+    }
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 50px;
+    text-align: center;
+}
+
+.titleconfirm {
+    float: left;
+    width: 100%;
+    color: white;
+    background-color: rgb(88, 0, 0);
+}
+
+.confirm {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+}
+
+.confirm p {
+    font-size: 150%;
+}
+
+.clearfix {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.message {
+    width: 60%;
+    margin: 5% auto 15% auto;
+    background-color: rgb(255, 255, 255);
+}
+
+.btns {
+    float: left;
+    width: 50%;
+}
+
+.clicks:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.yes,
+.no {
+    float: left;
+    width: 98%;
+    padding: 11px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    margin: 0.5rem;
+    text-decoration: none;
+    background-color: rgb(88, 0, 0);
+    border: 2px solid rgb(88, 0, 0);
+}
+
+.yes:hover,
+.no:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+}
+
+@media screen and (max-width: 300px) {
+    .cancelbtn,
+    .deletebtn {
+        width: 100%;
     }
 }

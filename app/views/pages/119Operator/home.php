@@ -6,11 +6,15 @@
 	<link rel="stylesheet" type="text/css" href="../css/119Operator/home.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Home</title>
 </head>
 <body>
-	<div class="breadcrum">
-		Home
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+  			<li>Home</li>
+		</ul>
 	</div>
 	<div class="form">
 		<center>
@@ -30,8 +34,5 @@
 			</div>
 		</center>
 	</div>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerPolice.js"></script>
 </body>
 </html>

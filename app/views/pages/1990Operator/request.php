@@ -1,22 +1,40 @@
-<?php foreach($data['usersInfo'] as $usersInfo){ ?>
-	<a href="verifieduser?id=<?php echo $usersInfo->userId; ?>">
-		<div class="userrow">
+<?php foreach($data['requestsInfo'] as $requestsInfo){ ?>
+	<a href="viewtherequest?id=<?php echo $requestsInfo->requestId; ?>" class="link">
+		<div class="requestrow">
 			<div class="userPic">
-				<?php if($usersInfo->gender=="Male") { ?>
-					<img src="../img/userManagement/verifiedMale.svg">
-				<?php } else if($usersInfo->gender=="Female") { ?>
-					<img src="../img/userManagement/verifiedFemale.svg">
+				<?php if($requestsInfo->gender=="Male") { ?>
+					<img src="../img/recentRequests/profileMale.svg">
+				<?php } else if($requestsInfo->gender=="Female") { ?>
+					<img src="../img/recentRequests/profileFemale.svg">
 				<?php } else {?>
-					<img src="../img/userManagement/verifiedUser.svg">
+					<img src="../img/recentRequests/user.svg">
                 <?php } ?>
 			</div>
-			<div class="column1">
-				<h2><?php echo $usersInfo->firstName." ".$usersInfo->lastName; ?><img src="../img/userManagement/virified.svg" alt=""></h2>
-				<p><?php echo $usersInfo->email; ?></p>
-				<p><?php echo $usersInfo->phoneNumber; ?></p>
-			</div>
-			<div class='column2'>
-			</div>
+			<div class="brief1">
+				<p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?></p>
+                <p class="pNumber"><?php echo $requestsInfo->phoneNumber; ?></p>
+            </div>
+            <div class="brief2">
+                <div class="details">
+                    <div class="patients">
+                        <img src="../img/recentRequests/patients.svg" alt="">
+                        <p><?php echo $requestsInfo->numberOfPatients; ?></p>
+                    </div>
+                    <div class="police">
+                        <img src="../img/recentRequests/police.svg" alt="">
+                        <p><?php echo $requestsInfo->policeStation; ?></p>
+                    </div>
+                    <div class="time">
+                        <img src="../img/recentRequests/datetime.svg" alt="">
+                        <p><?php echo $requestsInfo->time; ?></p>
+                        <p><?php echo $requestsInfo->date; ?></p>
+                    </div>
+                    <div class="district">
+                        <img src="../img/recentRequests/district.svg" alt="">
+                        <p><?php echo $requestsInfo->district; ?></p>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</a>
 <?php } ?>

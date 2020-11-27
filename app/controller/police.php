@@ -21,6 +21,7 @@ class police extends Controller
     public function home()
     {
         $this->view('pages/includes/119OperatorHeader');
+        $this->view('pages/119Operator/policeSidebar');
         $this->view('pages/119Operator/home');
         $this->view('pages/includes/footer');
     }
@@ -28,6 +29,7 @@ class police extends Controller
     public function recent()
     {
         $this->view('pages/includes/119OperatorHeader');
+        $this->view('pages/119Operator/policeSidebar');
         $this->view('pages/119Operator/recentRequests');
         $this->view('pages/includes/footer');
     }
@@ -35,6 +37,7 @@ class police extends Controller
     public function new()
     {
         $this->view('pages/includes/119OperatorHeader');
+        $this->view('pages/119Operator/policeSidebar');
         $this->view('pages/119Operator/viewNewRequest');
         $this->view('pages/includes/footer');
     }
@@ -42,6 +45,7 @@ class police extends Controller
     public function all()
     {
         $this->view('pages/includes/119OperatorHeader');
+        $this->view('pages/119Operator/policeSidebar');
         $this->view('pages/119Operator/allrequests');
         $this->view('pages/includes/footer');
     }
@@ -49,6 +53,7 @@ class police extends Controller
     public function viewrequest()
     {
         $this->view('pages/includes/119OperatorHeader');
+        $this->view('pages/119Operator/policeSidebar');
         $this->view('pages/119Operator/viewRequest');
         $this->view('pages/includes/footer');
     }
@@ -56,11 +61,12 @@ class police extends Controller
     public function profile()
     {
         $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
-        $data = ['admin' => $operatorInfo];
+        $data = ['operatorInfo' => $operatorInfo];
 
         if($operatorInfo)
         {
             $this->view('pages/includes/119OperatorHeader');
+            $this->view('pages/119Operator/policeSidebar');
             $this->view('pages/119Operator/editProfileOperator119',$data);
             $this->view('pages/includes/footer');
         }
@@ -77,7 +83,8 @@ class police extends Controller
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
+            $_SESSION['profile']=$userName;
+            header("Location: http://localhost:8080/careu-web/police/profile");
         }
         else
         {
@@ -88,8 +95,19 @@ class police extends Controller
     public function reports()
     {
         $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/119Operator/policeSidebar');
         $this->view('pages/1990Operator/reports');
         $this->view('pages/includes/footer');
+    }
+
+    public function getrecent()
+    {
+        $requestsInfo=$this->userModel->getRecentRequests();
+        $data = ['requestsInfo' => $requestsInfo];
+        if($requestsInfo)
+        {
+            $this->view('pages/1990Operator/request',$data);
+        }
     }
 }
 

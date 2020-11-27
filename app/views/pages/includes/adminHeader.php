@@ -1,10 +1,10 @@
 	<nav id="navbar">
-		<a href="home"><img src="../img/appLogo.png" class="careulogo"></a>
-		<div class="title">
-			<h1 id="service"></h1>
+		<a href="home"><img src="../img/appLogo.png" class="careulogo" id="careulogo"></a>
+		<div class="title" id="title">
+			<h1 id="service">ADMIN PANEL</h1>
 		</div>
   		<div id="navbar-right">
-    		<a class="" href="home">HOME</a>
-    		<a href="logout">LOG OUT</a>
-  		</div>
+    		<!-- <a class="" href="home">Home</a>
+    		<a href="logout">Log Out</a> -->
+		</div>
 	</nav>

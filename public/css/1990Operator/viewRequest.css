@@ -1,40 +1,42 @@
-body{
-	background-image: url("../../img/bg.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	font-family: sans-serif;
-	background-attachment: fixed;
-}
-
-.breadcrum{
-	color: white;
-	background-color: rgb(128,0,0,0.9);
-	padding: 5px 0px 5px 10px;
-}
-
-.reqDetails{
-	width: 97.5%;
-	height: 410px;
-	background-color: rgb(255,255,255,0.6);
-	margin: 20px;
-}
-
-.reqDetails table{
-	width: 100%;
-}
-
-.details{
-	width: 97.2%;
-	text-align: center;
-	background-color: rgb(255,255,255,0.8);
-	margin: 20px;
-	height: 220px;
-}
-
-.feedback{
-	width: 97.2%;
-	text-align: center;
-	background-color: rgb(255,255,255,0.8);
-	margin: 20px;
-	height: 100px;
-}
+    body {
+        margin: 0;
+        background-image: url("../../img/bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        font-family: sans-serif;
+    }
+    
+    .breadcrum {
+        color: white;
+        background-color: rgb(128, 0, 0, 0.9);
+        padding: 5px 0px 5px 10px;
+    }
+    
+    .reqDetails {
+        width: 97.5%;
+        height: 410px;
+        background-color: rgb(255, 255, 255, 0.6);
+        margin: 20px;
+    }
+    
+    .reqDetails table {
+        width: 100%;
+    }
+    
+    .details {
+        width: 97.2%;
+        text-align: center;
+        background-color: rgb(255, 255, 255, 0.8);
+        margin: 20px;
+        height: 220px;
+    }
+    
+    .feedback {
+        width: 97.2%;
+        text-align: center;
+        background-color: rgb(255, 255, 255, 0.8);
+        margin: 20px;
+        height: 100px;
+    }

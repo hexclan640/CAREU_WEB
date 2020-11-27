@@ -3,60 +3,161 @@ body {
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
-}
-
-.breadcrum {
-    color: white;
-    background-color: rgb(128, 0, 0, 0.9);
-    padding: 5px 0px 5px 10px;
+    font-family: sans-serif;
 }
 
 .requests {
-    margin: 20px;
+    margin-top: 128px;
+    margin-left: 200px;
     padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
-    height: 400px;
-    overflow: auto;
 }
 
-.requests h2 {
-    margin: 10px;
+.userPic {
+    float: left;
+    width: 15%;
 }
 
-.request {
-    width: 95%;
-    background-color: rgb(192, 192, 192, 0.6);
-    padding: 25px 25px 25px 25px;
-    margin: 10px;
-    height: 200px;
-}
-
-.reqDetails {
-    width: 98.5%;
-    text-align: center;
-    background-color: rgb(255, 255, 255, 0.8);
-    margin: 10px;
-    height: 100px;
-}
-
-.requests a {
-    float: right;
-    text-align: center;
-    width: 10%;
-    background-color: rgb(0, 191, 255, 0.6);
-    border: 1px solid black;
-    text-shadow: none;
-    padding: 11px 20px;
-    margin-right: 10px;
-    border-radius: 4px;
-    cursor: pointer;
+.brief1 {
+    padding-top: 1rem;
     color: black;
-    font-weight: bold;
+    float: left;
+    width: 30%;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.brief2 {
+    float: left;
+    width: 55%;
+    color: black;
+    padding-top: 2rem;
+}
+
+.brief2 p {
     font-size: 100%;
 }
 
-.requests a:hover {
-    background-color: rgb(0, 191, 255, 0.8);
+.requestrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.requestrow {
+    background-color: rgb(245, 245, 255, 0.2);
+    border: 3px solid rgb(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.requestrow:hover {
+    border: 3px solid black;
+    background-color: rgb(245, 245, 255, 0.6);
+}
+
+.patients {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.police {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.time {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.district {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.userPic img {
+    width: 10rem;
+    height: auto;
+    padding: 1rem;
+}
+
+.details img {
+    width: 30%;
+    height: auto;
+}
+
+.name {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.pNumber {
+    font-size: 140%;
+}
+
+.loading {
+    margin: 10rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .userPic {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .brief1 {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .brief2 {
+        float: none;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brief2 p {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .brief2 p {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .requests {
+        margin-top: 177px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .requests {
+        margin-top: 228px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .requests {
+        margin-top: 128px;
+    }
 }

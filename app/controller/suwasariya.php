@@ -21,18 +21,39 @@ class suwasariya extends Controller
     public function home()
     {
         $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/1990Operator/suwasariyaSidebar');
         $this->view('pages/1990Operator/home');
         $this->view('pages/includes/footer');
     }
 
     public function recent()
     {
+        $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/1990Operator/suwasariyaSidebar');
+        $this->view('pages/1990Operator/recentRequests');
+        $this->view('pages/includes/footer');
+    }
+
+    public function getrecent()
+    {
         $requestsInfo=$this->userModel->getRecentRequests();
-        $data = ['admin' => $requestsInfo];
+        $data = ['requestsInfo' => $requestsInfo];
         if($requestsInfo)
         {
+            $this->view('pages/1990Operator/request',$data);
+        }
+    }
+
+    public function viewtherequest()
+    {
+        $requestId=$_GET['id'];
+        $requestInfo=$this->userModel->getRecentRequestAll($requestId);
+        $data = ['requestInfo' => $requestInfo];
+        if($requestInfo)
+        {
             $this->view('pages/includes/1990OperatorHeader');
-            $this->view('pages/1990Operator/requests',$data);
+            $this->view('pages/1990Operator/suwasariyaSidebar');
+            $this->view('pages/1990Operator/viewNewRequest',$data);
             $this->view('pages/includes/footer');
         }
     }
@@ -40,6 +61,7 @@ class suwasariya extends Controller
     public function new()
     {
         $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/1990Operator/suwasariyaSidebar');
         $this->view('pages/1990Operator/viewNewRequest');
         $this->view('pages/includes/footer');
     }
@@ -47,6 +69,7 @@ class suwasariya extends Controller
     public function all()
     {
         $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/1990Operator/suwasariyaSidebar');
         $this->view('pages/1990Operator/allrequests');
         $this->view('pages/includes/footer');
     }
@@ -54,6 +77,7 @@ class suwasariya extends Controller
     public function viewrequest()
     {
         $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/1990Operator/suwasariyaSidebar');
         $this->view('pages/1990Operator/viewRequest');
         $this->view('pages/includes/footer');
     }
@@ -61,11 +85,12 @@ class suwasariya extends Controller
     public function profile()
     {
         $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
-        $data = ['admin' => $operatorInfo];
+        $data = ['operatorInfo' => $operatorInfo];
 
         if($operatorInfo)
         {
             $this->view('pages/includes/1990OperatorHeader');
+            $this->view('pages/1990Operator/suwasariyaSidebar');
             $this->view('pages/1990Operator/editProfileOperator1990',$data);
             $this->view('pages/includes/footer');
         }
@@ -82,7 +107,8 @@ class suwasariya extends Controller
         $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
         if($result)
         {
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
+            $_SESSION['profile']=$userName;
+            header("Location: http://localhost:8080/careu-web/suwasariya/profile");
         }
         else
         {
@@ -93,6 +119,7 @@ class suwasariya extends Controller
     public function reports()
     {
         $this->view('pages/includes/1990OperatorHeader');
+        $this->view('pages/1990Operator/suwasariyaSidebar');
         $this->view('pages/1990Operator/reports');
         $this->view('pages/includes/footer');
     } 

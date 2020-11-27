@@ -1,23 +1,18 @@
 body {
-    /* margin-top: 20rem; */
     margin: 0;
     background-image: url("../../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    background-position: center center;
     background-attachment: fixed;
+    font-family: sans-serif;
 }
 
 .form {
-    margin: 10px;
+    margin-top: 128px;
+    margin-left: 200px;
     padding: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255, 0.6);
-}
-
-.breadcrum {
-    color: white;
-    background-color: rgb(128, 0, 0, 0.9);
-    padding: 5px 0px 5px 10px;
 }
 
 .form a {
@@ -25,7 +20,7 @@ body {
     color: black;
     text-align: center;
     display: inline-block;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     margin: 0.5rem;
     text-decoration: none;
@@ -62,13 +57,29 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
+    .form a {
+        font-size: 2rem;
+    }
     .column {
         width: 50%;
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
     .column {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .form {
+        margin-top: 228px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form {
+        margin-top: 128px;
     }
 }

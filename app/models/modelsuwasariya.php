@@ -52,7 +52,15 @@
 
         public function getRecentRequests()
         {
-            $this->db->query("SELECT firstName,lastName,gender,phoneNumber,time,numberOfPatients,policeStation FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId");
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getRecentRequestAll($requestid)
+        {
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            // $this->db->query("SELECT time,date,numberOfPatients,policeStation,district,description FROM 1990ambulancerequest WHERE 1990ambulancerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }

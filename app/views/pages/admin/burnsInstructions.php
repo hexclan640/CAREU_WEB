@@ -6,60 +6,148 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/burnsInstructions.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>Burn First Aids</title>
 </head>
 <body>
-	<div class="breadcrum">
-		Burn First Aids
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+			<li><a href="firstaids">First Aids</a></li>
+			<li>Burn</li>
+		</ul>
 	</div>
-	<div class="form">
-		<center>
-			<form action="updateburn" method="post" id="burnsForm" name="burnsForm" enctype="multipart/form-data">
-				<div class="row">
-			  		<div class="column1">
-						<canvas class="picture" id="picture"></canvas><br>
-						<input type="file" name="image" id="instructionPicture">
+	<div class="form1">
+		<div class="frame">
+			<center>
+				<form action="updateburn" method="post" id="burnsForm" name="burnsForm" enctype="multipart/form-data">
+					<div class="row">
+						<div class="column1">
+							<canvas class="picture" id="picture"></canvas><br>
+							<input type="file" name="image" id="instructionPicture">
+						</div>
+						<div class="column2">
+							<label class="lab" >Step No</label>
+							<input type="text" name="stepNumber" id="stepNumber"><br>
+							<label class="lab" >Add Description</label>
+							<textarea class="description" type="text" name="description" id="description"></textarea><br>
+							<p class="hide" id="err">Error</p>
+							<input type="submit" value="Add" name="submit" id="submit" onclick="return check()">
+						</div>
 					</div>
-			  		<div class="column2">
-			  			<label>Step No</label><br>
-						<label>Add Description</label><br>
-			  		</div>
-			  		<div class="column3">
-			  			<label class="lab" >Step No</label>
-			  			<input type="text" name="stepNumber" id="stepNumber"><br>
-			  			<label class="lab" >Add Description</label>
-						<textarea class="description" type="text" name="description" id="description"></textarea><br>
-						<p class="hide" id="err">Error</p>
-						<input type="submit" value="ADD" name="submit" id="submit" onclick="return check()">
-			  		</div>
-				</div>
-			</form>
-		</center>
+				</form>
+			</center>
+		</div>
 	</div>
 	<div class="form">
 		<center>
 			<div class="instructionrow">
 				<?php foreach($data['instructions'] as $instructions){ ?>
-					<div class="instructioncol">
-						<div class="details">
-							<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
-							<?php if(!empty($instructions->image)) { ?>
-								<img src="../img/images/<?php echo $instructions->image; ?>" alt="">
-							<?php } ?>
-							<h3><?php echo $instructions->description; ?></h3>
-							<div class="options">
-								<a href="editBurn?id=<?php echo $instructions->id; ?>">EDIT</a>
-								<a href="deleteburn?id=<?php echo $instructions->id; ?>">DELETE</a>
+				<div class="instructioncol">
+					<div class="details">
+						<div class="step">
+							<div class="stepname">
+								<h2 class="stepx"><?php echo $instructions->step; ?></h2><br>
+								<?php if(!empty($instructions->image)) { ?>
+								<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
+								<?php } ?>
 							</div>
 						</div>
+						<div class="stepdescription">
+							<p><?php echo $instructions->description; ?></p>
+						</div>
+						<div class="options">
+							<a onclick="confirm(<?php echo $instructions->id; ?>)" class="edit"><img src="../img/instructionIcons/delete.svg" alt=""></a>
+							<a href="editBurn?id=<?php echo $instructions->id; ?>"><img src="../img/instructionIcons/edit.svg" alt=""></a>
+						</div>
 					</div>
+				</div>
 				<?php } ?>	
 			</div>	
 		</center>
-	</div>	
+	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Saved!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Changes saved successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal2" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Added successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal3" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Confirm !</h1>
+				</div>
+				<div class="confirm">
+					<p>Are you sure you want to delete?</p>
+				</div>
+				<div class="clearfix">
+					<div class="clicks">
+						<div class="btns">
+							<a href="" class="yes" id="yes">Yes</a>
+						</div>
+						<div class="btns">
+							<a onclick="closeconfirm()" class="no">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modal4" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Deleted successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if(isset($_SESSION['instruction'])){?>
+		<script>
+			document.getElementById('modal1').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['instruction']);} ?>
+	<?php if(isset($_SESSION['newinstruction'])){?>
+		<script>
+			document.getElementById('modal2').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['newinstruction']);} ?>
+	<?php if(isset($_SESSION['deleteinstruction'])){?>
+		<script>
+			document.getElementById('modal4').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal4').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['deleteinstruction']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
+	<script type="text/javascript" src="../javascript/burnInstructions.js"></script>
 </body>
 </html>

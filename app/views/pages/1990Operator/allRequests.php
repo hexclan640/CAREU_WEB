@@ -6,11 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="../css/1990Operator/allRequests.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<title>All Requests</title>
 </head>
 <body>
-	<div class="breadcrum">
-		All Requests
+	<div class="breadcrum" id="breadcrum">
+		<ul class="breadcrumb">
+			<li><a href="home">Home</a></li>
+  			<li>All requests</li>
+		</ul>
 	</div>
 	<div class="requests">
 		<div class="request">
@@ -70,8 +75,5 @@
 			<a href="viewrequest1990?id=8">View</a>
 		</div>
 	</div>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 </body>
 </html>
