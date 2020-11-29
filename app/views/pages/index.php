@@ -25,7 +25,7 @@
 					<input type="text" id="username" name="username" placeholder="Username"><br>
 					<input type="password" id="password" name="password" placeholder="Password"><br><br>
 	    			<input type="submit" value="LOG IN" onclick="myFunction()" name="submit" id="submit"><br><br>
-	    			<a href="verifyController/about" class="forgotpassword">Forgot password?</a><br>
+	    			<a href="careu/forget" class="forgotpassword">Forgot password?</a><br>
 	 			</form>
 			</div>
 		</center>

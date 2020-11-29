@@ -15,7 +15,7 @@
             return $result;
         }
 
-        public function updateProfile($firstname,$lastname,$username,$password,$imagename,$tmpname)
+        public function updateProfile($firstname,$lastname,$username,$imagename,$tmpname)
         {
             if(empty($imagename))
             {
@@ -47,6 +47,31 @@
                 {
                     return false;
                 }
+            }
+        }
+
+        public function changePassword($username,$oldpassword,$password)
+        {
+            $this->db->query("SELECT userName,password FROM 119calloperator WHERE userName='{$username}' AND password='{$oldpassword}'");
+            $result = $this->db->resultSet();
+            if(!empty($result))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE 119calloperator SET password='{$password}' WHERE userName='{$username}'";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 

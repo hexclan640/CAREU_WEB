@@ -23,6 +23,9 @@
 			<center>
 				<form action="updatecardiac" method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">
 					<div class="row">
+						<div class="namediv">
+							<h1>Cardiac Instructions</h1>
+						</div>
 						<div class="column1">
 							<canvas class="picture" id="picture"></canvas><br>
 							<input type="file" name="image" id="instructionPicture">

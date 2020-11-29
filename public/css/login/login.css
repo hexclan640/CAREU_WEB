@@ -14,7 +14,7 @@ body {
     position: relative;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, 15%);
+    transform: translate(-50%, 17%);
 }
 
 #err {

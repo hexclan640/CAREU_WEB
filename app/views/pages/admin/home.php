@@ -29,14 +29,14 @@
 					<a href="usermanagement" type="submit"><p>Users</p><img src="../img/homeicons/users.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="firstaids" type="submit"><p>First Aids</p><img src="../img/homeicons/firstaid.svg"/></a>
+					<a href="operators" type="submit"><p>Operators</p><img src="../img/homeicons/profile.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="profile" type="submit"><p>Profile</p><img src="../img/homeicons/profile.svg"/></a>
+					<a href="firstaids" type="submit"><p>First Aids</p><img src="../img/homeicons/firstaid.svg"/></a>
 				</div>
 		  		<div class="column">
 					<a href="reports" type="submit"><p>Reports</p><img src="../img/homeicons/reports.svg"/></a>
-		  		</div>
+				</div>
 			</div>
 		</center>
 	</div>

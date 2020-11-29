@@ -151,7 +151,7 @@ body {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 460px) {
     .form {
         margin-top: 128px;
     }
@@ -174,7 +174,7 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
-    padding-top: 50px;
+    padding-top: 80px;
     text-align: center;
     transition: 0.4s;
 }

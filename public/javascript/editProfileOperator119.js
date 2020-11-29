@@ -30,11 +30,9 @@ $(document).ready(function() {
 function check() {
     var firstname = document.getElementById("firstName").value;
     var lastname = document.getElementById("lastName").value;
-    var password1 = document.getElementById("password1").value;
-    var password2 = document.getElementById("password2").value;
     var error = document.getElementById("err");
 
-    if (firstname == "" && lastname == "" && password1 == "" && password2 == "") {
+    if (firstname == "" && lastname == "") {
         error.innerText = "Please, fill all the feilds!";
         $("#err").removeClass("hide");
         return false;
@@ -46,15 +44,7 @@ function check() {
         error.innerText = "Please, give a last name!";
         $("#err").removeClass("hide");
         return false;
-    } else if (password1 == "" || password2 == "") {
-        error.innerText = "Please, fill the password feilds!";
-        $("#err").removeClass("hide");
-        return false;
-    } else if (password1 != password2) {
-        error.innerText = "Passwords do not match!";
-        $("#err").removeClass("hide");
-        return false;
-    } else if (firstname != "" && lastname != "" && password1 != "" && password2 != "") {
+    } else if (firstname != "" && lastname != "") {
         return true;
     } else {
         $("#err").addClass("hide");

@@ -24,6 +24,9 @@
 			<center>
 				<form action="savecardiac" method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">
 					<div class="row">
+						<div class="namediv">
+							<h1>Cardiac Instructions</h1>
+						</div>
 						<div class="column1">
 							<?php foreach($data['instruction'] as $instruction){ ?>
 							<?php if(!empty($instruction->image)) { ?>

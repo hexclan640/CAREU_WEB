@@ -75,7 +75,7 @@ body {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 460px) {
     .form {
         margin-top: 128px;
     }

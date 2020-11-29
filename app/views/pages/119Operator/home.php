@@ -29,7 +29,7 @@
 		  			<a href="profile" type="submit" class="profile"><p>Edit Profile</p><img src="../img/homeicons/profile.svg"/></a>
 				</div>
 		  		<div class="column">
-		  			<a href="reports" type="submit" class="report"><p>Generate Reports</p><img src="../img/homeicons/reports.svg"/></a>
+		  			<a href="reports" type="submit" class="report"><p>Reports</p><img src="../img/homeicons/reports.svg"/></a>
 		  		</div>
 			</div>
 		</center>

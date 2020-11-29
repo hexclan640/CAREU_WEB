@@ -77,14 +77,47 @@ class police extends Controller
         $userName=$_SESSION['userName'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
-        $password=$_POST['password1'];
         $imageName=$_FILES['image']['name'];
         $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$password,$imageName,$tmpName);
+        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$imageName,$tmpName);
         if($result)
         {
             $_SESSION['profile']=$userName;
             header("Location: http://localhost:8080/careu-web/police/profile");
+        }
+        else
+        {
+            $_SESSION['update']="failed";
+            header("Location: http://localhost:8080/careu-web/police/profile");
+        }
+    }
+
+    public function changePassword()
+    {
+        $this->view('pages/includes/119OperatorHeader');
+        $this->view('pages/119Operator/policeSidebar');
+        $this->view('pages/119Operator/changePassword');
+        $this->view('pages/includes/footer');
+    }
+
+    public function passwordchange()
+    {
+        $userName=$_POST['username'];
+        $currentpassword=md5($_POST['currentpassword']);
+        $password=md5($_POST['password1']);
+        
+        if($userName==$_SESSION['userName'])
+        {
+            $result=$this->userModel->changePassword($userName,$currentpassword,$password);
+            if($result)
+            {
+                $_SESSION['changeapplied']="success";
+                echo "success";
+            }
+            else
+            {
+               echo "failed";
+            }
         }
         else
         {

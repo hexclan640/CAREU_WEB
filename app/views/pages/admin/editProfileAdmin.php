@@ -38,17 +38,16 @@
 						<div class="column2">
 							<label>First Name</label>
 							<input type="text" name="firstName" id="firstName" value="<?php echo $adminInfo->firstName ?>"><br>
+						</div>
+						<div class="column3">
 							<label>Last Name</label>
 							<input type="text" name="lastName" id="lastName" value="<?php echo $adminInfo->lastName ?>"><br>
 						</div>
-						<div class="column3">
-							<label>Password</label>
-							<input type="password" name="password1" id="password1"value="<?php echo $adminInfo->password ?>"><br>
-							<label>Re-enter Password</label>
-							<input type="password" name="password2" id="password2" value="<?php echo $adminInfo->password ?>"><br>
-						</div>
 						<div class="column4">
 							<p class="hide" id="err">Error</p>
+							<a href="changepassword" class="cpwd">Change Password ››</a>
+						</div>
+						<div class="column5">
 							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
 						</div>
 						<?php } ?>
@@ -70,12 +69,31 @@
 			</div>
 		</div>
 	</div>
+	<div id="modal2" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Password Changed!</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php if(isset($_SESSION['profile'])){?>
 		<script>
 			document.getElementById('modal1').style.display = 'block';
 			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
 		</script>
 	<?php unset($_SESSION['profile']);} ?>
+	<?php if(isset($_SESSION['changeapplied'])){?>
+		<script>
+			document.getElementById('modal2').style.display = 'block';
+			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
+		</script>
+	<?php unset($_SESSION['changeapplied']);} ?>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileAdmin.js"></script>
 </body>

@@ -24,6 +24,9 @@
 			<center>
 				<form action="savebleeding" method="post" id="bleedingForm" name="bleedingForm" enctype="multipart/form-data">
 					<div class="row">
+						<div class="namediv">
+							<h1>Bleeding Instructions</h1>
+						</div>
 						<div class="column1">
 							<?php foreach($data['instruction'] as $instruction){ ?>
 							<?php if(!empty($instruction->image)) { ?>
