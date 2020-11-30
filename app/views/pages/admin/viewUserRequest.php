@@ -26,11 +26,8 @@
 						<div class="photorow">
 							<?php foreach($data['idphoto'] as $idphoto){ ?>
 							<div class="photo1col">
-								<img src="../../../../../careu-php/upload/<?php echo $idphoto->idPhoto; ?>" class="idImg1" id="idImg1">
+								<center><img src="../../careu-php/upload/<?php echo $idphoto->idPhoto; ?>.jpg" class="idImg1" id="idImg1"></center>
 							</div>
-							<!-- <div class="photo2col">
-								<img src="../img/unknown.jpg" class="idImg2" id="idImg2">
-							</div> -->
 							<?php } ?>
 							<div id="zoomImg" class="zoomImg">
 								<span class="close">&times;</span>

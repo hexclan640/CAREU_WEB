@@ -1,18 +1,17 @@
 var modal = document.getElementById("zoomImg");
-var img1 = document.getElementById("idImg1");
-var img2 = document.getElementById("idImg2");
+var elements = document.getElementsByClassName("idImg1");
 var modalImg = document.getElementById("img");
 var nav = document.getElementById("navbar");
 var breadcrumb = document.getElementById("breadcrum");
 
-img1.onclick = function() {
+elements[0].onclick = function() {
     modal.style.display = "block";
     modalImg.src = this.src;
     nav.style.display = "none";
     breadcrumb.style.display = "none";
 }
 
-img2.onclick = function() {
+elements[1].onclick = function() {
     modal.style.display = "block";
     modalImg.src = this.src;
     nav.style.display = "none";

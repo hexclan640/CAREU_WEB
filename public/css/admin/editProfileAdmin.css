@@ -83,19 +83,20 @@ body {
     color: rgb(3, 0, 0);
     font-size: 120%;
     float: right;
+    transition: 0.5s;
     text-decoration: none;
 }
 
 .column4 a:hover {
-    color: gray;
+    padding-left: 30px;
+    transition: 0.5s;
 }
 
 .cpwd {
     margin-right: 0.5rem;
 }
 
-.column4 input[type=submit]:hover,
-.column6 input[type=submit]:hover,
+.column5 input[type=submit]:hover,
 .column5 a:hover {
     color: black;
     background-color: rgb(255, 255, 255);

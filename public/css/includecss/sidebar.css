@@ -25,11 +25,18 @@
     margin: 1rem;
 }
 
+.sidebar img:hover {
+    border: 4px solid white;
+}
+
 .profilelink2 {
     display: none;
 }
 
-.sidebar .links:hover:not(.active) {
+.sidebar .links:hover:not(.active),
+.sidebar .profilelink2:hover:not(.active) {
+    padding-left: 30px;
+    transition: 0.5s;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }

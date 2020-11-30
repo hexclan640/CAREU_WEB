@@ -165,10 +165,14 @@
         width: 50%;
     }
     
-    .photo2col {
+    .photo1col img {
+        float: none;
+    }
+    /* .photo2col {
         float: left;
         width: 50%;
     }
+     */
     
     .photorow:after {
         content: "";
