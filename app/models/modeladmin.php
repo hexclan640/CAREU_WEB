@@ -161,7 +161,7 @@
         public function createOperator119($username,$firstname,$lastname,$gender,$password)
         {
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="INSERT INTO 119calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',0);";
+            $query="INSERT INTO 119calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',1);";
             $result=mysqli_query($connection,$query);
             mysqli_close($connection);
             if($result> 0)
@@ -177,7 +177,7 @@
         public function createOperator1990($username,$firstname,$lastname,$gender,$password)
         {
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="INSERT INTO 1990calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',0);";
+            $query="INSERT INTO 1990calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',1);";
             $result=mysqli_query($connection,$query);
             mysqli_close($connection);
             if($result> 0)

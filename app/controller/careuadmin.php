@@ -261,7 +261,7 @@ class careuadmin extends Controller
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
-        $password=$_POST['password1'];
+        $password=md5($_POST['password1']);
         $result=$this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
 
         if($result)
@@ -281,7 +281,7 @@ class careuadmin extends Controller
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
-        $password=$_POST['password1'];
+        $password=md5($_POST['password1']);
         $result=$this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
 
         if($result)
