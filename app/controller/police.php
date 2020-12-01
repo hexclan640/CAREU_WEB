@@ -46,8 +46,24 @@ class police extends Controller
     {
         $this->view('pages/includes/119OperatorHeader');
         $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/allrequests');
+        // $this->view('pages/119Operator/allrequests');
+        $this->view('pages/119Operator/recentRequests');
         $this->view('pages/includes/footer');
+    }
+
+    public function viewtherequest()
+    {
+        // $requestId=$_GET['id'];
+        // $requestInfo=$this->userModel->getRecentRequestAll($requestId);
+        // $data = ['requestInfo' => $requestInfo];
+        // if($requestInfo)
+        // {
+        //     $this->view('pages/includes/1990OperatorHeader');
+        //     $this->view('pages/1990Operator/suwasariyaSidebar');
+        //     $this->view('pages/1990Operator/viewNewRequest',$data);
+        //     $this->view('pages/includes/footer');
+        // }
+        $this->view('pages/error');
     }
 
     public function viewrequest()

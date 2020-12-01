@@ -10,10 +10,13 @@ class Core {
     {
         // print_r($this->getUrl());
         $url = $this->getUrl();
-        if(file_exists('../app/controller/'.ucwords($url[0]).'.php'))
+        if(isset($url[0]))
         {
-            $this->currentController = ucwords($url[0]);
-            unset($url[0]);
+            if(file_exists('../app/controller/'.ucwords($url[0]).'.php'))
+            {
+                $this->currentController = ucwords($url[0]);
+                unset($url[0]);
+            }
         }
 
         require_once '../app/controller/'.$this->currentController.'.php';

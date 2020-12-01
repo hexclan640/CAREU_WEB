@@ -70,7 +70,8 @@ class suwasariya extends Controller
     {
         $this->view('pages/includes/1990OperatorHeader');
         $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/allrequests');
+        // $this->view('pages/1990Operator/allrequests');
+        $this->view('pages/1990Operator/recentRequests');
         $this->view('pages/includes/footer');
     }
 
