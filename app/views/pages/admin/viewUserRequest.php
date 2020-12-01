@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>User Profile</title>
 </head>
 <body>
@@ -24,12 +25,11 @@
 				<div class="row">
 					<div col=column1>
 						<div class="photorow">
+							<?php foreach($data['idphoto'] as $idphoto){ ?>
 							<div class="photo1col">
-								<img src="../img/unknown.jpg" class="idImg1" id="idImg1">
+								<center><img src="../../careu-php/upload/<?php echo $idphoto->idPhoto; ?>.jpg" class="idImg1" id="idImg1"></center>
 							</div>
-							<div class="photo2col">
-								<img src="../img/unknown.jpg" class="idImg2" id="idImg2">
-							</div>
+							<?php } ?>
 							<div id="zoomImg" class="zoomImg">
 								<span class="close">&times;</span>
 								<img class="idImg" id="img">
@@ -124,6 +124,8 @@
 			</div>
 		</div>
 	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/viewUserRequest.js"></script>
 </body>

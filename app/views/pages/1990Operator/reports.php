@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Reports</title>
 </head>
 <body>
@@ -24,6 +25,8 @@
 			<div id="piechart"></div>
 		</div>
 	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="../javascript/reports.js"></script>

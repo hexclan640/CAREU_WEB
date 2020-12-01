@@ -50,6 +50,10 @@ body {
     width: 33.333%;
 }
 
+.column:hover {
+    opacity: 0.8;
+}
+
 .row:after {
     content: "";
     display: table;
@@ -75,7 +79,7 @@ body {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 460px) {
     .form {
         margin-top: 128px;
     }

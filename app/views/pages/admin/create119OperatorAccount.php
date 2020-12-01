@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>119 Operator Account</title>
 </head>
 <body>
@@ -78,6 +79,8 @@
 			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
 		</script>
 	<?php unset($_SESSION['user']);} ?>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/newOperator119.js"></script>
 </body>

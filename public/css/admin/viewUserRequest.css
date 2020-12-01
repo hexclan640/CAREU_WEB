@@ -165,10 +165,14 @@
         width: 50%;
     }
     
-    .photo2col {
+    .photo1col img {
+        float: none;
+    }
+    /* .photo2col {
         float: left;
         width: 50%;
     }
+     */
     
     .photorow:after {
         content: "";
@@ -272,7 +276,7 @@
     @media screen and (max-width: 850px) {
         .column5 button,
         .column6 button {
-            width: 80%;
+            width: 100%;
         }
     }
     
@@ -289,7 +293,7 @@
         }
     }
     
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 460px) {
         .form {
             margin-top: 128px;
         }
@@ -306,7 +310,7 @@
         height: 100%;
         overflow: auto;
         background-color: rgba(0, 0, 0, 0.8);
-        padding-top: 50px;
+        padding-top: 80px;
         text-align: center;
     }
     

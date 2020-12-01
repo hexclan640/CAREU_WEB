@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Home</title>
 </head>
 <body>
@@ -29,16 +30,18 @@
 					<a href="usermanagement" type="submit"><p>Users</p><img src="../img/homeicons/users.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="firstaids" type="submit"><p>First Aids</p><img src="../img/homeicons/firstaid.svg"/></a>
+					<a href="operators" type="submit"><p>Operators</p><img src="../img/homeicons/profile.svg"/></a>
 				</div>
 				<div class="column">
-					<a href="profile" type="submit"><p>Profile</p><img src="../img/homeicons/profile.svg"/></a>
+					<a href="firstaids" type="submit"><p>First Aids</p><img src="../img/homeicons/firstaid.svg"/></a>
 				</div>
 		  		<div class="column">
 					<a href="reports" type="submit"><p>Reports</p><img src="../img/homeicons/reports.svg"/></a>
-		  		</div>
+				</div>
 			</div>
 		</center>
 	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
 </body>
 </html>

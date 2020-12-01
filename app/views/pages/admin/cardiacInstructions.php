@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Cardiac First Aids</title>
 </head>
 <body>
@@ -23,6 +24,9 @@
 			<center>
 				<form action="updatecardiac" method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">
 					<div class="row">
+						<div class="namediv">
+							<h1>Cardiac Instructions</h1>
+						</div>
 						<div class="column1">
 							<canvas class="picture" id="picture"></canvas><br>
 							<input type="file" name="image" id="instructionPicture">
@@ -146,6 +150,8 @@
 			setTimeout(function(){document.getElementById('modal4').style.display = 'none'; }, 2000);
 		</script>
 	<?php unset($_SESSION['deleteinstruction']);} ?>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
 	<script type="text/javascript" src="../javascript/cardiacInstructions.js"></script>

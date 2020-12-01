@@ -15,17 +15,17 @@ body {
 #err {
     border: 1px solid;
     width: 50%;
-    margin: 0px;
     padding: 5px 0px 5px 0px;
     background-repeat: no-repeat;
     background-position: 10px center;
     color: #D8000C;
     background-color: #FFBABA;
+    margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 .hide {
     visibility: hidden;
-    ;
 }
 
 .form {
@@ -65,7 +65,7 @@ body {
     box-sizing: border-box;
 }
 
-.column4 input[type=submit] {
+.column5 input[type=submit] {
     width: 30%;
     background-color: rgb(88, 0, 0);
     padding: 11px 20px;
@@ -74,9 +74,30 @@ body {
     font-size: 120%;
     float: right;
     border: 2px solid rgb(88, 0, 0);
+    text-decoration: none;
 }
 
-.column4 input[type=submit]:hover {
+.column4 a {
+    width: 30%;
+    cursor: pointer;
+    color: rgb(3, 0, 0);
+    font-size: 120%;
+    float: right;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.column4 a:hover {
+    padding-left: 30px;
+    transition: 0.5s;
+}
+
+.cpwd {
+    margin-right: 0.5rem;
+}
+
+.column5 input[type=submit]:hover,
+.column5 a:hover {
     color: black;
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
@@ -113,6 +134,12 @@ body {
 .column4 {
     float: left;
     width: 100%;
+    padding: 0.5rem;
+}
+
+.column5 {
+    float: left;
+    width: 100%;
     padding: 1rem;
 }
 
@@ -128,7 +155,8 @@ body {
 }
 
 @media screen and (max-width: 1020px) {
-    .column4 input[type=submit] {
+    .column5 input[type=submit],
+    .column4 a {
         width: 100%;
         float: none;
     }
@@ -149,7 +177,7 @@ body {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 460px) {
     .form {
         margin-top: 128px;
     }
@@ -172,7 +200,7 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
-    padding-top: 50px;
+    padding-top: 80px;
     text-align: center;
     transition: 0.4s;
 }
