@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Home</title>
 </head>
 <body>
@@ -20,13 +21,13 @@
 		<center>
 			<div class="row">
 		  		<div class="column">
-		  			<a href="recent" type="submit" class="recent"><p>Recent Requests</p><img src="../img/homeicons/recent.svg"/></a>
+		  			<a href="recent" type="submit" class="recent"><p>New Requests</p><img src="../img/homeicons/recent.svg"/></a>
 			  	</div>
 		  		<div class="column">
 		  			<a href="all" type="submit" class="all"><p>All Requests</p><img src="../img/homeicons/all.svg"/></a>
 		  		</div>
 		  		<div class="column">
-		  			<a href="profile" type="submit" class="profile"><p>Edit Profile</p><img src="../img/homeicons/profile.svg"/></a>
+		  			<a href="profile" type="submit" class="profile"><p>Profile</p><img src="../img/homeicons/profile.svg"/></a>
 				</div>
 		  		<div class="column">
 		  			<a href="reports" type="submit" class="report"><p>Reports</p><img src="../img/homeicons/reports.svg"/></a>
@@ -34,5 +35,7 @@
 			</div>
 		</center>
 	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
 </body>
 </html>

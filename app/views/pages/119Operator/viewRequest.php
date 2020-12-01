@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/119Operator/viewRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Request <?php echo $_GET['id']; ?></title>
 </head>
 <body>
@@ -35,6 +36,8 @@
 			</tr>
 		</table>
 	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/headerPolice.js"></script>

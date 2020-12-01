@@ -50,6 +50,10 @@ body {
     width: 33.333%;
 }
 
+.column:hover {
+    opacity: 0.8;
+}
+
 .row:after {
     content: "";
     display: table;

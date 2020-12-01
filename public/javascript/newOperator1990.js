@@ -36,7 +36,7 @@ function check() {
         $("#err").removeClass("hide");
         return false;
     } else if (username != "" && firstname != "" && lastname != "" && password1 != "" && password2 != "") {
-        if (username.includes("careu_119_")) {
+        if (username.includes("careu_1990_")) {
             return true;
         } else {
             error.innerText = "Invalid type of username!";
