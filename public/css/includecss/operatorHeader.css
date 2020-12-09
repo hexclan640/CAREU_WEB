@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+#navbar {
+    overflow: hidden;
+    transition: 0.4s;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+    background-color: rgb(88, 0, 0);
+    position: fixed;
+}
+
+.title {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+    color: #FF8C00;
+    text-shadow: 4px 4px 4px black;
+}
+
+#navbar-right a {
+    float: left;
+    text-shadow: 4px 4px 4px black;
+    border: 2px solid rgb(91, 17, 1, 0);
+    text-align: center;
+    text-decoration: none;
+    padding: 0.8rem;
+    font-size: 120%;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+#navbar img {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    float: left;
+}
+
+.careulogo {
+    margin-right: 1rem;
+    width: 3.5rem;
+}
+
+#navbar-right a:hover {
+    border: 2px solid white;
+    text-shadow: none;
+}
+
+#navbar-right {
+    float: right;
+}

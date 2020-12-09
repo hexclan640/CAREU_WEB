@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+.form {
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+.form a {
+    box-sizing: border-box;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem;
+    border: 3px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(245, 245, 255, 0.2);
+}
+
+.form a:hover {
+    border: 3px solid black;
+    box-sizing: border-box;
+    background-color: rgb(245, 245, 255, 0.6);
+}
+
+.hid {
+    visibility: hidden;
+}
+
+.form img {
+    width: 70%;
+    height: auto;
+}
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 1200px) {
+    .form a {
+        font-size: 2rem;
+    }
+    .column {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .column {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .form {
+        margin-top: 228px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .form {
+        margin-top: 128px;
+    }
+}
