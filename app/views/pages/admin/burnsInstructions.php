@@ -155,5 +155,6 @@
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
 	<script type="text/javascript" src="../javascript/burnInstructions.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
 </body>
 </html>

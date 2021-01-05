@@ -99,5 +99,6 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileAdmin.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
 </body>
 </html>

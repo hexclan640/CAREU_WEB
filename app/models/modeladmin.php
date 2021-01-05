@@ -89,6 +89,13 @@
             return $result;
         }
 
+        public function getRequestCount()
+        {
+            $this->db->query("SELECT userId FROM servicerequester WHERE status=0");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getUser($userid)
         {
             $this->db->query("SELECT * FROM servicerequester WHERE userId='{$userid}'");

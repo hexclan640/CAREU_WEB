@@ -19,18 +19,17 @@
     text-shadow: 4px 4px 4px black;
 }
 
-#navbar-right a {
+/* #navbar-right a {
     float: left;
     text-shadow: 4px 4px 4px black;
     border: 2px solid rgb(91, 17, 1, 0);
     text-align: center;
     text-decoration: none;
-    padding: 0.8rem;
     font-size: 120%;
     margin-right: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
     color: white;
-}
+} */
 
 #navbar img {
     margin-left: 1rem;
@@ -43,12 +42,29 @@
     margin-right: 1rem;
     width: 3.5rem;
 }
-
-#navbar-right a:hover {
-    border: 2px solid white;
-    text-shadow: none;
-}
-
+ 
 #navbar-right {
+    color: rgb(0, 0, 0);
+    top: -50px;
+    text-decoration: none;
+    position: relative;
+    margin-right: 2rem;
+    display: inline-block;
+    border-radius: 2px;
     float: right;
 }
+
+  #navbar-right img{
+      width: 2rem;
+      margin: 0;
+  }
+  
+  #navbar-right .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 3px 6px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+  }
