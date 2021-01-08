@@ -39,7 +39,7 @@
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
 	<script type="text/javascript" src="../javascript/headerPolice.js"></script>
+	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
 </body>
 </html>

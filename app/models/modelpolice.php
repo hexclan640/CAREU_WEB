@@ -81,5 +81,12 @@
             $result = $this->db->resultSet();
             return $result;
         }
+
+        public function getRequestCount()
+        {
+            $this->db->query("SELECT requestId FROM 1990ambulancerequest WHERE flag=0");
+            $result = $this->db->resultSet();
+            return $result;
+        }
     }
 ?>

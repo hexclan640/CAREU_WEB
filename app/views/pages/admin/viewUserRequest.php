@@ -63,14 +63,9 @@
 						<?php } ?>
 					</div>
 					<div class="column4">
-						<button href="" onclick="confirm1()">Accept</button>
-						<button href="" onclick="confirm2()">Reject</button>
-					</div>
-					<div class="column5">
-						<button href="" onclick="confirm1()">Accept</button>
-					</div>
-					<div class="column6">
-						<button href="" onclick="confirm2()">Reject</button>
+						<p><strong>Note</strong> : When you click on <strong>Accept</strong> or <strong>Reject</strong> buttons, it will sends relevant acknowledgement messages to requesters.</p>
+						<button href="" class="accept" onclick="confirm1()">Accept</button>
+						<button href="" class="reject" onclick="confirm2()">Reject</button>
 					</div>
 				</div>
 			</center>

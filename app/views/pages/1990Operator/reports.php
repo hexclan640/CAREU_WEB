@@ -30,5 +30,6 @@
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="../javascript/reports.js"></script>
+	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
 </body>
 </html>

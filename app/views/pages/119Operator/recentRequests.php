@@ -27,5 +27,6 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/recentRequests.js"></script>
+	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
 </body>
 </html>

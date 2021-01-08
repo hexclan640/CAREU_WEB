@@ -4,7 +4,7 @@
 			<h1 id="service">ADMIN PANEL</h1>
 		</div>
   		<div id="navbar-right">
-    		<a href="#">
+    		<a href="usermanagement">
   				<span><img src="../img/header/users.svg" alt=""></span>
   				<span class="badge" id="badge">|</span>
 			</a>

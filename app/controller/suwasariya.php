@@ -53,7 +53,7 @@ class suwasariya extends Controller
         {
             $this->view('pages/includes/1990OperatorHeader');
             $this->view('pages/1990Operator/suwasariyaSidebar');
-            $this->view('pages/1990Operator/viewNewRequest',$data);
+            $this->view('pages/1990Operator/viewRequest',$data);
             $this->view('pages/includes/footer');
         }
     }
@@ -70,9 +70,33 @@ class suwasariya extends Controller
     {
         $this->view('pages/includes/1990OperatorHeader');
         $this->view('pages/1990Operator/suwasariyaSidebar');
-        // $this->view('pages/1990Operator/allrequests');
-        $this->view('pages/1990Operator/recentRequests');
+        $this->view('pages/1990Operator/allrequests');
+        // $this->view('pages/1990Operator/recentRequests');
         $this->view('pages/includes/footer');
+    }
+
+    public function getall()
+    {
+        $requestsInfo=$this->userModel->getAllRequests();
+        $data = ['requestsInfo' => $requestsInfo];
+        if($requestsInfo)
+        {
+            $this->view('pages/1990Operator/oldrequest',$data);
+        }
+    }
+
+    public function allrequests(){
+        $requestId=$_GET['id'];
+        $requestInfo=$this->userModel->getAllRequestAll($requestId);
+        $feedbackInfo=$this->userModel->getFeedback($requestId);
+        $data = ['requestInfo' => $requestInfo,'feedbackInfo' => $feedbackInfo];
+        if($requestInfo)
+        {
+            $this->view('pages/includes/1990OperatorHeader');
+            $this->view('pages/1990Operator/suwasariyaSidebar');
+            $this->view('pages/1990Operator/viewOldRequest',$data);
+            $this->view('pages/includes/footer');
+        }
     }
 
     public function viewrequest()
@@ -81,6 +105,15 @@ class suwasariya extends Controller
         $this->view('pages/1990Operator/suwasariyaSidebar');
         $this->view('pages/1990Operator/viewRequest');
         $this->view('pages/includes/footer');
+    }
+
+    public function requestscount(){
+        $requestCount=$this->userModel->getRequestCount();
+        $data = ['requestCount' => $requestCount];
+        if($requestCount)
+        {
+            $this->view('pages/includes/badge',$data);
+        }
     }
 
     public function profile()

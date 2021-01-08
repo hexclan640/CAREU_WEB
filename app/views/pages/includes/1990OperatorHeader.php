@@ -3,4 +3,10 @@
 		<div class="title">
 			<h1 id="service">SUWASARIYA-1990</h1>
 		</div>
+		<div id="navbar-right">
+    		<a href="recent">
+  				<span><img src="../img/header/bell.svg" alt=""></span>
+  				<span class="badge" id="badge">|</span>
+			</a>
+		</div>
 	</nav>

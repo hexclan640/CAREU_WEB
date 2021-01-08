@@ -52,5 +52,6 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/changePasswordPolice.js"></script>
+	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
 </body>
 </html>

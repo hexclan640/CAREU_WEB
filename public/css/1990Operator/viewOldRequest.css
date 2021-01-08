@@ -22,7 +22,7 @@ body {
     background-color: rgb(245, 245, 255, 0.3);
 }
 
-.reply {
+.feedback {
     margin-top: 1rem;
     padding: 1rem;
     border: 3px solid rgb(255, 255, 255, 0.6);
@@ -164,7 +164,7 @@ body {
     padding-left: 1rem;
 }
 
-.reply textarea {
+.feedback textarea {
     width: 100%;
     font-size: 120%;
     color: black;
@@ -197,13 +197,39 @@ body {
     text-decoration: none;
 }
 
-.reply button:hover {
+.feedback button:hover {
     color: black;
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 
-.reply::after {
+.feedback::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.fkbox {
+    width: 100%;
+    float: left;
+}
+
+.ftime {
+    width: 100%;
+    float: left;
+}
+
+.ftime p {
+    float: right;
+}
+
+.fdiv {
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.fdiv::after {
     content: "";
     display: table;
     clear: both;

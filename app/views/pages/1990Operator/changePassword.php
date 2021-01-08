@@ -52,5 +52,6 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/changePasswordSuwasariya.js"></script>
+	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
 </body>
 </html>

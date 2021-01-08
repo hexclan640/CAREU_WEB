@@ -78,7 +78,21 @@
 
         public function getRecentRequests()
         {
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId AND 1990ambulancerequest.flag=0 ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getAllRequests()
+        {
             $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getRequestCount()
+        {
+            $this->db->query("SELECT requestId FROM 1990ambulancerequest WHERE flag=0");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -87,6 +101,21 @@
         {
             $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
             // $this->db->query("SELECT time,date,numberOfPatients,policeStation,district,description FROM 1990ambulancerequest WHERE 1990ambulancerequest.requestId='{$requestid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getAllRequestAll($requestid)
+        {
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            // $this->db->query("SELECT time,date,numberOfPatients,policeStation,district,description FROM 1990ambulancerequest WHERE 1990ambulancerequest.requestId='{$requestid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getFeedback($requestid)
+        {
+            $this->db->query("SELECT feedback.comment,feedback.feedbackTime FROM give,feedback WHERE give.requestId={$requestid} AND give.feedbackId=feedback.feedbackId");
             $result = $this->db->resultSet();
             return $result;
         }

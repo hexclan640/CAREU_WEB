@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
-	<title>Request <?php echo $_GET['id']; ?></title>
+	<title>Request Details</title>
 </head>
 <body>
 	<div class="breadcrum" id="breadcrum">
@@ -67,9 +67,48 @@
 				</div>
 			</div>
 		<?php } ?>
+		<div class="reply">
+			<div class="cusmessage">
+				<p class="note">Send a Message</p>
+				<form action="" method="post">
+					<textarea name="specialnote" cols="30" rows="5"></textarea>
+					<input type="submit" value="Send">
+				</form>
+			</div>
+			<div class="sendbtns">
+				<p><strong>Note</strong> : When you click on <strong>Accept</strong> or <strong>Reject</strong> buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
+				<button class="accept">Accept</button>
+				<button class="reject" onclick="confirm()">Reject</button>
+			</div>
+		</div>
+	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Confirm !</h1>
+				</div>
+				<div class="confirm">
+					<p>Are you sure you want to reject the request?</p>
+				</div>
+				<div class="clearfix">
+					<div class="clicks">
+						<div class="btns">
+							<a href="#" class="yes" onclick="closeconfirm()">Yes</a>
+						</div>
+						<div class="btns">
+							<a onclick="closeconfirm()" class="no">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/viewNewRequest.js"></script>
 </body>
 </html>

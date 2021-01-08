@@ -4,6 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/jpg" href="../img/appLogo.png"/>
 	<link rel="stylesheet" type="text/css" href="../css/1990Operator/recentRequests.css">
+	<link rel="stylesheet" type="text/css" href="../css/1990Operator/viewNewRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
@@ -27,5 +28,6 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/recentRequests.js"></script>
+	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
 </body>
 </html>
