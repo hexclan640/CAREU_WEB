@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/jpg" href="../img/appLogo.png"/>
-	<link rel="stylesheet" type="text/css" href="../css/1990Operator/viewOldRequest.css">
+	<link rel="stylesheet" type="text/css" href="../css/119Operator/viewOldRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
@@ -38,8 +38,8 @@
 				<div class="brief2">
 					<div class="details">
 						<div class="patients">
-							<img src="../img/recentRequests/patients.svg" alt="">
-							<p><?php echo $requestInfo->numberOfPatients; ?></p>
+							<img src="../img/recentRequests/category.svg" alt="">
+							<p><?php echo $requestInfo->complainCategory; ?></p>
 						</div>
 						<div class="police">
 							<img src="../img/recentRequests/police.svg" alt="">
@@ -63,7 +63,7 @@
 					<textarea name="specialnote" cols="30" rows="10" disabled><?php echo $requestInfo->description; ?></textarea>
 				</div>
 				<div class="emergencylocation">
-					<div id="googleMap" style="width:100%;height:400px;"></div>
+				<div id="googleMap" style="width:100%;height:400px;"></div>
 					<script>
 						function myMap() {
 							var mapProp= {

@@ -18,8 +18,8 @@
                 <div class="brief2">
                     <div class="details">
                         <div class="patients">
-                            <img src="../img/recentRequests/patients.svg" alt="">
-                            <p><?php echo $requestsInfo->numberOfPatients; ?></p>
+                            <img src="../img/recentRequests/category.svg" alt="">
+                            <p><?php echo $requestsInfo->complainCategory; ?></p>
                         </div>
                         <div class="police">
                             <img src="../img/recentRequests/police.svg" alt="">

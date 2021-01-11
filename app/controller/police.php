@@ -34,36 +34,50 @@ class police extends Controller
         $this->view('pages/includes/footer');
     }
 
-    public function new()
-    {
-        $this->view('pages/includes/119OperatorHeader');
-        $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/viewNewRequest');
-        $this->view('pages/includes/footer');
-    }
-
     public function all()
     {
         $this->view('pages/includes/119OperatorHeader');
         $this->view('pages/119Operator/policeSidebar');
-        // $this->view('pages/119Operator/allrequests');
-        $this->view('pages/119Operator/recentRequests');
+        $this->view('pages/119Operator/allrequests');
         $this->view('pages/includes/footer');
+    }
+
+    public function getall()
+    {
+        $requestsInfo=$this->userModel->getAllRequests();
+        $data = ['requestsInfo' => $requestsInfo];
+        if($requestsInfo)
+        {
+            $this->view('pages/119Operator/oldrequest',$data);
+        }
     }
 
     public function viewtherequest()
     {
-        // $requestId=$_GET['id'];
-        // $requestInfo=$this->userModel->getRecentRequestAll($requestId);
-        // $data = ['requestInfo' => $requestInfo];
-        // if($requestInfo)
-        // {
-        //     $this->view('pages/includes/1990OperatorHeader');
-        //     $this->view('pages/1990Operator/suwasariyaSidebar');
-        //     $this->view('pages/1990Operator/viewNewRequest',$data);
-        //     $this->view('pages/includes/footer');
-        // }
-        $this->view('pages/error');
+        $requestId=$_GET['id'];
+        $requestInfo=$this->userModel->getRecentRequestAll($requestId);
+        $data = ['requestInfo' => $requestInfo];
+        if($requestInfo)
+        {
+            $this->view('pages/includes/119OperatorHeader');
+            $this->view('pages/119Operator/policeSidebar');
+            $this->view('pages/119Operator/viewRequest',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function allrequests(){
+        $requestId=$_GET['id'];
+        $requestInfo=$this->userModel->getAllRequestAll($requestId);
+        $feedbackInfo=$this->userModel->getFeedback($requestId);
+        $data = ['requestInfo' => $requestInfo,'feedbackInfo' => $feedbackInfo];
+        if($requestInfo)
+        {
+            $this->view('pages/includes/119OperatorHeader');
+            $this->view('pages/119Operator/policeSidebar');
+            $this->view('pages/119Operator/viewOldRequest',$data);
+            $this->view('pages/includes/footer');
+        }
     }
 
     public function requestscount(){
@@ -162,10 +176,7 @@ class police extends Controller
     {
         $requestsInfo=$this->userModel->getRecentRequests();
         $data = ['requestsInfo' => $requestsInfo];
-        if($requestsInfo)
-        {
-            $this->view('pages/1990Operator/request',$data);
-        }
+        $this->view('pages/119Operator/request',$data);
     }
 }
 

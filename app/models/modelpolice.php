@@ -75,9 +75,23 @@
             }
         }
 
+        public function getAllRequests()
+        {
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district FROM 119policerequest,request,servicerequester WHERE request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getRecentRequests()
         {
-            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district FROM 119policerequest,request,servicerequester WHERE request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId AND 119policerequest.flag=0 ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getFeedback($requestid)
+        {
+            $this->db->query("SELECT feedback.comment,feedback.feedbackTime FROM give,feedback WHERE give.requestId={$requestid} AND give.feedbackId=feedback.feedbackId");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -85,6 +99,20 @@
         public function getRequestCount()
         {
             $this->db->query("SELECT requestId FROM 1990ambulancerequest WHERE flag=0");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getRecentRequestAll($requestid)
+        {
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,description,latitude,longitude FROM 119policerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 119policerequest.requestId='{$requestid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getAllRequestAll($requestid)
+        {
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,description,latitude,longitude FROM 119policerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 119policerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
-	<title>Recenet Requests</title>
+	<title>All Requests</title>
 </head>
 <body>
 	<div class="breadcrum" id="breadcrum">

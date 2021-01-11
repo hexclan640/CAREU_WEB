@@ -219,6 +219,11 @@ body {
     float: left;
 }
 
+.fbox p {
+    margin-left: 1rem;
+    font-size: 150%;
+}
+
 .ftime p {
     float: right;
 }

@@ -5,7 +5,7 @@
 		</div>
   		<div id="navbar-right">
     		<a href="usermanagement">
-  				<span><img src="../img/header/users.svg" alt=""></span>
+  				<span><img src="../img/header/users.png" alt=""></span>
   				<span class="badge" id="badge">|</span>
 			</a>
 		</div>

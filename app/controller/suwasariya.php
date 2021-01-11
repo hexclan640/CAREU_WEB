@@ -38,10 +38,7 @@ class suwasariya extends Controller
     {
         $requestsInfo=$this->userModel->getRecentRequests();
         $data = ['requestsInfo' => $requestsInfo];
-        if($requestsInfo)
-        {
-            $this->view('pages/1990Operator/request',$data);
-        }
+        $this->view('pages/1990Operator/request',$data);
     }
 
     public function viewtherequest()
@@ -58,20 +55,11 @@ class suwasariya extends Controller
         }
     }
 
-    public function new()
-    {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/viewNewRequest');
-        $this->view('pages/includes/footer');
-    }
-
     public function all()
     {
         $this->view('pages/includes/1990OperatorHeader');
         $this->view('pages/1990Operator/suwasariyaSidebar');
         $this->view('pages/1990Operator/allrequests');
-        // $this->view('pages/1990Operator/recentRequests');
         $this->view('pages/includes/footer');
     }
 

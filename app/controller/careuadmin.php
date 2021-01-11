@@ -121,10 +121,7 @@ class careuadmin extends Controller
     {
         $requestInfo=$this->userModel->getRequestBrief();
         $data = ['requestInfo' => $requestInfo];
-        if($requestInfo)
-        {
-            $this->view('pages/admin/userRequests',$data);
-        }
+        $this->view('pages/admin/userRequests',$data);
     }
 
     public function userrequestscount(){
@@ -140,10 +137,7 @@ class careuadmin extends Controller
     {
         $users=$this->userModel->getUserBrief();
         $data = ['usersInfo' => $users];
-        if($users)
-        {
-            $this->view('pages/admin/userBrief',$data);
-        }
+        $this->view('pages/admin/userBrief',$data);
     }
 
     public function userprofile()

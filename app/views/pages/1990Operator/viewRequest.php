@@ -63,7 +63,16 @@
 					<textarea name="specialnote" cols="30" rows="10" disabled><?php echo $requestInfo->description; ?></textarea>
 				</div>
 				<div class="emergencylocation">
-					<iframe class="emelocation" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9029322875867!2d79.8589642146052!3d6.902210820560061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2sUniversity%20of%20Colombo%20School%20of%20Computing!5e0!3m2!1sen!2slk!4v1601711662840!5m2!1sen!2slk" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+					<div id="googleMap" style="width:100%;height:400px;"></div>
+					<script>
+						function myMap() {
+							var mapProp= {
+								center:new google.maps.LatLng(<?php echo $requestInfo->latitude;?>,<?php echo $requestInfo->longitude;?>),
+								zoom:5,
+							};
+							var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+						}
+					</script>
 				</div>
 			</div>
 		<?php } ?>
@@ -82,10 +91,34 @@
 			</div>
 		</div>
 	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Confirm !</h1>
+				</div>
+				<div class="confirm">
+					<p>Are you sure you want to reject the request?</p>
+				</div>
+				<div class="clearfix">
+					<div class="clicks">
+						<div class="btns">
+							<a href="#" class="yes" onclick="closeconfirm()">Yes</a>
+						</div>
+						<div class="btns">
+							<a onclick="closeconfirm()" class="no">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/viewRequest.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuUFIqw6r-ifKemRUTI9obFZghDIrcNHE&callback=myMap"></script>
 </body>
 </html>
