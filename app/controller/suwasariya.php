@@ -41,6 +41,30 @@ class suwasariya extends Controller
         $this->view('pages/1990Operator/request',$data);
     }
 
+    public function rejectrequest(){
+        $requestId=$_POST["requestId"];
+        $rejectInfo=$this->userModel->requestReject($requestId);
+        if($rejectInfo){
+            echo "success";
+        }
+        else
+        {
+            echo "failed";
+        }
+    }
+
+    public function acceptrequest(){
+        $requestId=$_POST["requestId"];
+        $rejectInfo=$this->userModel->requestAccept($requestId);
+        if($rejectInfo){
+            echo "success";
+        }
+        else
+        {
+            echo "failed";
+        }
+    }
+
     public function viewtherequest()
     {
         $requestId=$_GET['id'];

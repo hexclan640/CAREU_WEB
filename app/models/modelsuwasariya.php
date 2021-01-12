@@ -83,6 +83,38 @@
             return $result;
         }
 
+        public function requestReject($requestid)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="UPDATE 1990ambulancerequest SET flag=2 WHERE requestId='{$requestid}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public function requestAccept($requestid)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="UPDATE 1990ambulancerequest SET flag=1 WHERE requestId='{$requestid}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public function getAllRequests()
         {
             $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
@@ -99,7 +131,7 @@
 
         public function getRecentRequestAll($requestid)
         {
-            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }

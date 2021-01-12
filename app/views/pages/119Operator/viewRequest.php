@@ -75,7 +75,6 @@
 					</script>
 				</div>
 			</div>
-		<?php } ?>
 		<div class="reply">
 			<div class="cusmessage">
 				<p class="note">Send a Message</p>
@@ -84,10 +83,22 @@
 					<input type="submit" value="Send">
 				</form>
 			</div>
-			<div class="sendbtns">
-				<p><strong>Note</strong> : When you click on <strong>Accept</strong> or <strong>Reject</strong> buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
-				<button class="accept">Accept</button>
-				<button class="reject" onclick="confirm()">Reject</button>
+			<div class="sendbtns" id="sendbtns">
+				<?php if($requestInfo->flag==0){?>
+					<img src="../img/loading.svg" class="loading hide" id="loading">
+					<p>Note : When you click on <strong>Accept</strong> or <strong>Reject</strong> buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
+					<form action="" id="acceptform" method="post">
+						<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId1" hidden>
+						<input type="submit" id="accept" class="accept" value="Accept">
+					</form>
+					<button class="reject" onclick="confirm()" id="rejectbtn">Reject</button>
+				<?php }?>
+			</div>
+			<div class="accepted" id="accepted">
+					<h1 id="status">Accepted</h1>
+			</div>
+			<div class="rejected" id="rejected">
+					<h1 id="status">Rejected</h1>
 			</div>
 		</div>
 	</div>
@@ -103,7 +114,10 @@
 				<div class="clearfix">
 					<div class="clicks">
 						<div class="btns">
-							<a href="#" class="yes" onclick="closeconfirm()">Yes</a>
+							<form action="" id="rejectform" method="post">
+								<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId2" hidden>
+								<input type="submit" id="reject" class="yes" value="Yes">
+							</form>
 						</div>
 						<div class="btns">
 							<a onclick="closeconfirm()" class="no">Cancel</a>
@@ -113,6 +127,7 @@
 			</div>
 		</div>
 	</div>
+	<?php } ?>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>

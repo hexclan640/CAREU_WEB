@@ -52,6 +52,37 @@ class police extends Controller
         }
     }
 
+    public function getrecent()
+    {
+        $requestsInfo=$this->userModel->getRecentRequests();
+        $data = ['requestsInfo' => $requestsInfo];
+        $this->view('pages/119Operator/request',$data);
+    }
+
+    public function rejectrequest(){
+        $requestId=$_POST["requestId"];
+        $rejectInfo=$this->userModel->requestReject($requestId);
+        if($rejectInfo){
+            echo "success";
+        }
+        else
+        {
+            echo "failed";
+        }
+    }
+
+    public function acceptrequest(){
+        $requestId=$_POST["requestId"];
+        $rejectInfo=$this->userModel->requestAccept($requestId);
+        if($rejectInfo){
+            echo "success";
+        }
+        else
+        {
+            echo "failed";
+        }
+    }
+
     public function viewtherequest()
     {
         $requestId=$_GET['id'];
@@ -170,13 +201,6 @@ class police extends Controller
         $this->view('pages/119Operator/policeSidebar');
         $this->view('pages/1990Operator/reports');
         $this->view('pages/includes/footer');
-    }
-
-    public function getrecent()
-    {
-        $requestsInfo=$this->userModel->getRecentRequests();
-        $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/119Operator/request',$data);
     }
 }
 
