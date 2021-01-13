@@ -32,7 +32,13 @@
 					<?php } ?>
 				</div>
 				<div class="brief1">
-					<h1><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?></h1>
+					<?php if($requestInfo->flag==1){ ?>
+						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="acceptspan">Accepted</span></p>
+					<?php }else if($requestInfo->flag==2){ ?>
+						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="rejectspan">Rejected</span></p>
+					<?php } else if($requestInfo->flag==0){?>
+						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
+					<?php } ?>
 					<h3><?php echo $requestInfo->phoneNumber; ?></h3>
 				</div>
 				<div class="brief2">

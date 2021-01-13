@@ -12,7 +12,7 @@
                     <?php } ?>
                 </div>
                 <div class="brief1">
-                    <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?></p>
+                    <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
                     <p class="pNumber"><?php echo $requestsInfo->phoneNumber; ?></p>
                 </div>
                 <div class="brief2">
