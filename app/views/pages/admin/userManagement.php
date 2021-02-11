@@ -22,6 +22,10 @@
 		<div class="updates">
 			<div class="column" >
 				<div class="category"><h1>Unverified Requests</h1></div>
+				<div class="searchdiv">
+					<input type="text" class="search" name="search1" id="search1" placeholder="Search by name, email or phone">
+				</div>
+				<div id="result1"></div>
 				<div class="col" id="col1">
 					<center>
 						<img src="../img/loading.svg" class="loading">
@@ -30,6 +34,10 @@
 			</div>
 			<div class="column" >
 				<div class="category"><h1>Verified Users</h1></div>
+				<div class="searchdiv">
+					<input type="text" class="search" name="search2" id="search2" placeholder="Search by name, email or phone">
+				</div>
+				<div id="result2"></div>
 				<div class="col" id="col2">
 					<center>
 						<img src="../img/loading.svg" class="loading">

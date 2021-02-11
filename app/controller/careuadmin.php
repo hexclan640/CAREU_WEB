@@ -117,6 +117,28 @@ class careuadmin extends Controller
         $this->view('pages/includes/footer');
     }
 
+    public function searchunverified(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $requestInfo=$this->userModel->unverifiedSearch($search);
+            $data = ['requestInfo' => $requestInfo];
+            $this->view('pages/admin/unverifiedSearch',$data);
+        }
+    }
+
+    public function searchverified(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $usersInfo=$this->userModel->verifiedSearch($search);
+            $data = ['usersInfo' => $usersInfo];
+            $this->view('pages/admin/verifiedSearch',$data);
+        }
+    }
+
     public function userrequests()
     {
         $requestInfo=$this->userModel->getRequestBrief();

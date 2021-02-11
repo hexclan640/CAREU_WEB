@@ -22,7 +22,7 @@
 		<div class="frame">
 			<center>
 				<div class="row">
-					<form action="updateprofile" method="post" enctype="multipart/form-data">
+					<form action="updateprofile" method="post" enctype="multipart/form-data" id="updateprofile">
 						<?php foreach($data['admin'] as $adminInfo){ ?>
 						<div class="namediv">
 							<h1><?php echo $adminInfo->firstName." ".$adminInfo->lastName; ?></h1>

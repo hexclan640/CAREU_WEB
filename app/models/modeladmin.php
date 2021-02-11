@@ -89,6 +89,22 @@
             return $result;
         }
 
+        public function unverifiedSearch($search)
+        {
+           
+            $this->db->query("SELECT userId,firstName,lastName,email,phoneNumber,gender FROM servicerequester WHERE (firstName LIKE '%".$search."%' OR lastName LIKE '%".$search."%' OR email LIKE '%".$search."%' OR phoneNumber LIKE '%".$search."%') AND status=0");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function verifiedSearch($search)
+        {
+           
+            $this->db->query("SELECT userId,firstName,lastName,email,phoneNumber,gender FROM servicerequester WHERE (firstName LIKE '%".$search."%' OR lastName LIKE '%".$search."%' OR email LIKE '%".$search."%' OR phoneNumber LIKE '%".$search."%') AND status=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getRequestCount()
         {
             $this->db->query("SELECT userId FROM servicerequester WHERE status=0");
