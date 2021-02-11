@@ -11,6 +11,7 @@ $(document).ready(function() {
             success: function(data) {
                 $("#result").empty();
                 $('#result').html(data);
+                $("#requestcol").hide();
             }
         });
     }
@@ -21,6 +22,18 @@ $(document).ready(function() {
             load_data(search);
         } else {
             $("#result").empty();
+            var search1 = $("#option").val();
+            if (search1 == "All") {
+                $("#result").empty();
+                $("#requestcol").show();
+            } else if (search1 == "NotViewed") {
+                load_data_notviewed();
+            } else if (search1 == "Accepted") {
+                load_data_accepted();
+            } else if (search1 == "Rejected") {
+                load_data_rejected();
+            }
+            $("#requestcol").show();
         }
     });
 
@@ -32,6 +45,7 @@ $(document).ready(function() {
             success: function(data) {
                 $("#result").empty();
                 $('#result').html(data);
+                $("#requestcol").hide();
             }
         });
     }
@@ -44,6 +58,7 @@ $(document).ready(function() {
             success: function(data) {
                 $("#result").empty();
                 $('#result').html(data);
+                $("#requestcol").hide();
             }
         });
     }
@@ -56,6 +71,7 @@ $(document).ready(function() {
             success: function(data) {
                 $("#result").empty();
                 $('#result').html(data);
+                $("#requestcol").hide();
             }
         });
     }
@@ -64,6 +80,7 @@ $(document).ready(function() {
         var search = $(this).val();
         if (search == "All") {
             $("#result").empty();
+            $("#requestcol").show();
         } else if (search == "NotViewed") {
             load_data_notviewed();
         } else if (search == "Accepted") {
