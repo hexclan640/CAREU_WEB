@@ -87,6 +87,35 @@ class suwasariya extends Controller
         $this->view('pages/includes/footer');
     }
 
+    public function searchrequests(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $requestsInfo=$this->userModel->requestsSearch($search);
+            $data = ['requestsInfo' => $requestsInfo];
+            $this->view('pages/1990operator/searchRequests',$data);
+        }
+    }
+
+    public function notviewed(){
+        $requestsInfo=$this->userModel->notviewedSearch();
+        $data = ['requestsInfo' => $requestsInfo];
+        $this->view('pages/1990operator/searchRequests',$data);
+    }
+
+    public function accepted(){
+        $requestsInfo=$this->userModel->acceptedSearch();
+        $data = ['requestsInfo' => $requestsInfo];
+        $this->view('pages/1990operator/searchRequests',$data);
+    }
+
+    public function rejected(){
+        $requestsInfo=$this->userModel->rejectedSearch();
+        $data = ['requestsInfo' => $requestsInfo];
+        $this->view('pages/1990operator/searchRequests',$data);
+    }
+
     public function getall()
     {
         $requestsInfo=$this->userModel->getAllRequests();

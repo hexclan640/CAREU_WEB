@@ -77,7 +77,7 @@
 
         public function getAllRequests()
         {
-            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
+            $this->db->query("SELECT request.requestId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -119,6 +119,38 @@
             {
                 return false;
             }
+        }
+
+        public function requestsSearch($search)
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE (request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId) AND (firstName LIKE '%".$search."%' OR lastName LIKE '%".$search."%' OR email LIKE '%".$search."%' OR phoneNumber LIKE '%".$search."%')");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function notviewedSearch()
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE (request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId) AND flag=0");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function acceptedSearch()
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE (request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId) AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function rejectedSearch()
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE (request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId) AND flag=2");
+            $result = $this->db->resultSet();
+            return $result;
         }
 
         public function getFeedback($requestid)

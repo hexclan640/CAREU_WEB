@@ -19,10 +19,24 @@
   			<li>All</li>
 		</ul>
 	</div>
-	<div class="requests" id="requests">
-		<center>
-			<img src="../img/loading.svg" class="loading">
-		</center>
+	<div class="requests">
+		<div class="searchdiv">
+			<input type="text" class="search" name="search" id="search" placeholder="Search by name, email or phone">
+			<div class="searchoptions">
+				<select class="options" name="option" id="option">
+					<option value="All">All</option>
+ 	 				<option value="NotViewed">Not Viewed</option>
+  					<option value="Accepted">Accepted</option>
+  					<option value="Rejected">Rejected</option>
+				</select>
+			</div>
+		</div>
+		<div id="result"></div>
+		<div class="requestcol" id="requestcol">
+			<center>
+				<img src="../img/loading.svg" class="loading">
+			</center>
+		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>

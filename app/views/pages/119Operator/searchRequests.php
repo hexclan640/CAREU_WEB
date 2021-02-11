@@ -19,14 +19,14 @@
                     <?php } else if($requestsInfo->flag==0){?>
                         <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
                     <?php } ?>
-                    <p class="email"><?php echo $requestsInfo->email; ?></p>
+                    <p class="pNumber"><?php echo $requestsInfo->email; ?></p>
                     <p class="pNumber"><?php echo $requestsInfo->phoneNumber; ?></p>
                 </div>
                 <div class="brief2">
                     <div class="details">
                         <div class="patients">
                             <img src="../img/recentRequests/patients.svg" alt="">
-                            <p><?php echo $requestsInfo->numberOfPatients; ?></p>
+                            <p><?php echo $requestsInfo->complainCategory; ?></p>
                         </div>
                         <div class="police">
                             <img src="../img/recentRequests/police.svg" alt="">
@@ -48,7 +48,7 @@
     <?php } }else{?>
     <div class="alert" id="alert">
 		<center>
-			<p>-No recent requests-</p>
+			<p>-No recent found-</p>
 		</center>
     </div>
 <?php } ?>

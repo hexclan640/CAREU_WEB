@@ -19,7 +19,7 @@
                     <?php } else if($requestsInfo->flag==0){?>
                         <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
                     <?php } ?>
-                    <p class="email"><?php echo $requestsInfo->email; ?></p>
+                    <p class="pNumber"><?php echo $requestsInfo->email; ?></p>
                     <p class="pNumber"><?php echo $requestsInfo->phoneNumber; ?></p>
                 </div>
                 <div class="brief2">
@@ -48,7 +48,7 @@
     <?php } }else{?>
     <div class="alert" id="alert">
 		<center>
-			<p>-No recent requests-</p>
+			<p>-No requests found-</p>
 		</center>
     </div>
 <?php } ?>

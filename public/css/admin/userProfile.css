@@ -146,8 +146,9 @@ body {
 }
 
 .history {
-    margin: 1rem;
+    margin: 1.5rem;
     padding: 1rem;
+    transition: 0.5s;
     border: 3px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(245, 245, 255, 0.2);
 }
@@ -179,6 +180,8 @@ body {
 
 .form1 .history:hover {
     border: 3px solid black;
+    transition: 0.5s;
+    transform: scale(1.05, 1.05);
     background-color: rgb(245, 245, 255, 0.6);
 }
 
