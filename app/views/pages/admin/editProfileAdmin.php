@@ -22,7 +22,7 @@
 		<div class="frame">
 			<center>
 				<div class="row">
-					<form action="updateprofile" method="post" enctype="multipart/form-data" id="updateprofile">
+					<form method="post" enctype="multipart/form-data" id="updateprofile">
 						<?php foreach($data['admin'] as $adminInfo){ ?>
 						<div class="namediv">
 							<h1><?php echo $adminInfo->firstName." ".$adminInfo->lastName; ?></h1>
@@ -49,7 +49,7 @@
 							<a href="changepassword" class="cpwd">Change Password ››</a>
 						</div>
 						<div class="column5">
-							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Save" name="submit" id="submit">
 						</div>
 						<?php } ?>
 					</form>
@@ -83,18 +83,7 @@
 			</div>
 		</div>
 	</div>
-	<?php if(isset($_SESSION['profile'])){?>
-		<script>
-			document.getElementById('modal1').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['profile']);} ?>
-	<?php if(isset($_SESSION['changeapplied'])){?>
-		<script>
-			document.getElementById('modal2').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['changeapplied']);} ?>
+	<!-- s -->
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>

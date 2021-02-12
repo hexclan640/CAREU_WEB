@@ -22,14 +22,13 @@
 		<div class="frame">
 			<center>
 				<div class="row">
-					<form action="newoperator119" method="post" id="formOperator119">
+					<form method="post" id="formOperator119">
 						<div class="namediv">
 							<h1>New Operator - 119</h1>
 						</div>
 						<div class="column1">
-							<canvas class="picture" id="picture">
-											
-							</canvas>
+							<input type="text" class="search" name="search" id="search" placeholder="Search by username..">
+							<div id="result"></div>
 						</div>
 						<div class="column2">
 							<label for="userName">User Name</label>
@@ -53,7 +52,7 @@
 						</div>
 						<div class="column4">
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="Create" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Create" name="submit" id="submit">
 						</div>
 					</form>
 				</div>
@@ -73,12 +72,6 @@
 			</div>
 		</div>
 	</div>
-	<?php if(isset($_SESSION['user'])){?>
-		<script>
-			document.getElementById('modal1').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['user']);} ?>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>

@@ -105,6 +105,34 @@
             return $result;
         }
 
+        public function checkOperator119($search)
+        {
+            $this->db->query("SELECT username FROM 119calloperator WHERE username LIKE '%".$search."%' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function checkUsername119($search)
+        {
+            $this->db->query("SELECT userName FROM 119calloperator WHERE userName='{$search}' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function checkOperator1990($search)
+        {
+            $this->db->query("SELECT username FROM 1990calloperator WHERE username LIKE '%".$search."%' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function checkUsername1990($search)
+        {
+            $this->db->query("SELECT userName FROM 1990calloperator WHERE userName='{$search}' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getRequestCount()
         {
             $this->db->query("SELECT userId FROM servicerequester WHERE status=0");

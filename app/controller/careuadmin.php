@@ -59,21 +59,13 @@ class careuadmin extends Controller
     public function updateprofile()
     {
         $userName=$_SESSION['userName'];
+        print_r($_POST);
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['profile']=$userName;
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
-        }
-        else
-        {
-            $_SESSION['update']="failed";
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        echo $imageName;
+        $this->userModel->updateProfile($firstName,$lastName,$userName,$imageName,$tmpName);
     }
 
     public function changePassword()
@@ -287,16 +279,33 @@ class careuadmin extends Controller
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
         $password=md5($_POST['password1']);
-        $result=$this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
+        $this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
+    }
 
-        if($result)
-        {
-            $_SESSION['user']=$userName;
-            header("Location: http://localhost:8080/careu-web/careuadmin/new119");
+    public function operatorchecker119(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkOperator119($search);
+            $data = ['operatorInfo' => $operatorInfo];
+            $this->view('pages/admin/usernamelist',$data);
         }
-        else
-        {
-            echo "failed";
+    }
+
+    public function usernamechecker119(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["userName"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkUsername119($search);
+            if(empty($operatorInfo)){
+                echo "true";
+            }
+            else
+            {
+                echo "false";
+            }
         }
     }
 
@@ -307,16 +316,33 @@ class careuadmin extends Controller
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
         $password=md5($_POST['password1']);
-        $result=$this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
+        $this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
+    }
 
-        if($result)
-        {
-            $_SESSION['user']=$userName;
-            header("Location: http://localhost:8080/careu-web/careuadmin/new1990");
+    public function operatorchecker1990(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkOperator1990($search);
+            $data = ['operatorInfo' => $operatorInfo];
+            $this->view('pages/admin/usernamelist',$data);
         }
-        else
-        {
-            echo "failed";
+    }
+
+    public function usernamechecker1990(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["userName"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkUsername1990($search);
+            if(empty($operatorInfo)){
+                echo "true";
+            }
+            else
+            {
+                echo "false";
+            }
         }
     }
 

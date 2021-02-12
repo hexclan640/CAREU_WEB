@@ -25,28 +25,51 @@ $(document).ready(function() {
             alert('Please select a file.');
         }
     });
+
+    $("#submit").click(function(event) {
+        event.preventDefault();
+
+        var firstname = $("#firstName").val();
+        var lastname = $("#lastName").val();
+        var error = document.getElementById("err");
+
+        if (firstname == "" && lastname == "") {
+            error.innerText = "Please, fill all the feilds!";
+            $("#err").removeClass("hide");
+            return false;
+        } else if (firstname == "") {
+            error.innerText = "Please, give a first name!";
+            $("#err").removeClass("hide");
+            return false;
+        } else if (lastname == "") {
+            error.innerText = "Please, give a last name!";
+            $("#err").removeClass("hide");
+            return false;
+        } else if (firstname != "" && lastname != "") {
+            var data = $("#updateprofile")[0];
+            var formData = new FormData(data);
+            var files = $('#propic')[0].files;
+            formData.append('file', files[0]);
+            $.ajax({
+                url: 'updateprofile',
+                type: 'post',
+                data: formData,
+                enctype: 'multipart/form-data',
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    // if (response != 0) {
+                    //     $("#img").attr("src", response);
+                    //     $(".preview img").show(); // Display image element
+                    // } else {
+                    //     alert('file not uploaded');
+                    // }
+                    document.getElementById('modal1').style.display = 'block';
+                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
+                },
+            });
+        } else {
+            $("#err").addClass("hide");
+        }
+    });
 });
-
-function check() {
-    var firstname = document.getElementById("firstName").value;
-    var lastname = document.getElementById("lastName").value;
-    var error = document.getElementById("err");
-
-    if (firstname == "" && lastname == "") {
-        error.innerText = "Please, fill all the feilds!";
-        $("#err").removeClass("hide");
-        return false;
-    } else if (firstname == "") {
-        error.innerText = "Please, give a first name!";
-        $("#err").removeClass("hide");
-        return false;
-    } else if (lastname == "") {
-        error.innerText = "Please, give a last name!";
-        $("#err").removeClass("hide");
-        return false;
-    } else if (firstname != "" && lastname != "") {
-        return true;
-    } else {
-        $("#err").addClass("hide");
-    }
-}

@@ -21,7 +21,7 @@
 	</div>
 	<div class="requests">
 		<div class="searchdiv">
-			<input type="text" class="search" name="search" id="search" placeholder="Search by name, email or phone">
+			<input type="text" class="search" name="search" id="search" placeholder="Search by name, email or phone..">
 			<div class="searchoptions">
 				<select class="options" name="option" id="option">
 					<option value="All">All</option>
