@@ -23,7 +23,7 @@
 	<div class="form">
 		<div class="frame">
 			<center>
-				<form action="saveburn" method="post" id="bleedingForm" name="bleedingForm" enctype="multipart/form-data">
+				<form method="post" id="burnForm" name="burnForm" enctype="multipart/form-data">
 					<div class="row">
 						<div class="namediv">
 							<h1>Burn Instructions</h1>
@@ -31,7 +31,7 @@
 						<div class="column1">
 							<?php foreach($data['instruction'] as $instruction){ ?>
 							<?php if(!empty($instruction->image)) { ?>
-								<img src="../img/images/<?php echo $instruction->image; ?>" class="iPic" id="iPic"><br>
+								<img src="../../careu-php/images/<?php echo $instruction->image; ?>" class="iPic" id="iPic"><br>
 							<?php } else {?>
 								<canvas class="picture1" id="picture1"></canvas><br>
 							<?php }?>
@@ -46,17 +46,30 @@
 							<textarea class="description" type="text" name="description" id="description"><?php echo $instruction->description; ?></textarea><br>
 							<?php } ?>
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Save" name="submit" id="submit">
 						</div>
 					</div>
 				</form>
 			</center>
 		</div>
 	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Saved!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Changes saved successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/editInstructions.js"></script>
+	<script type="text/javascript" src="../javascript/editBurnInstructions.js"></script>
 	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
 </body>
 </html>

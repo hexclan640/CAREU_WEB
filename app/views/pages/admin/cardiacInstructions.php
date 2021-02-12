@@ -122,7 +122,6 @@
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<!-- <script type="text/javascript" src="../javascript/instructions.js"></script> -->
 	<script type="text/javascript" src="../javascript/cardiacInstructions.js"></script>
 	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
 </body>

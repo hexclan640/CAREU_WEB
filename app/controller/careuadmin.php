@@ -377,8 +377,8 @@ class careuadmin extends Controller
     {
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
         $this->userModel->addCardiac($stepNumber,$description,$imageName,$tmpName);
     }
 
@@ -387,11 +387,7 @@ class careuadmin extends Controller
         $connection = mysqli_connect("localhost", "root", "", "careu");
         $id=mysqli_real_escape_string($connection, $_POST["id"]);
         mysqli_close($connection);
-        $result=$this->userModel->deleteCardiac($id);
-        if($result)
-        {
-            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
-        }
+        $this->userModel->deleteCardiac($id);
     }
 
     public function editcardiac()
@@ -413,14 +409,9 @@ class careuadmin extends Controller
         $id=$_POST['id'];
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->saveCardiac($id,$stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['instruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->saveCardiac($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     
@@ -442,25 +433,17 @@ class careuadmin extends Controller
     {
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->addBleeding($stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['newinstruction']=$stepNumber;
-            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addBleeding($stepNumber,$description,$imageName,$tmpName);
     }
 
     public function deletebleeding()
     {
-        $id=$_GET['id'];
-        $result=$this->userModel->deleteBleeding($id);
-        if($result)
-        {
-            $_SESSION['deleteinstruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
-        }
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $this->userModel->deleteBleeding($id);
     }
 
     public function editbleeding()
@@ -482,14 +465,9 @@ class careuadmin extends Controller
         $id=$_POST['id'];
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->saveBleeding($id,$stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['instruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->saveBleeding($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     public function burn()
@@ -509,25 +487,17 @@ class careuadmin extends Controller
     {
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->addBurn($stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['newinstruction']=$stepNumber;
-            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addBurn($stepNumber,$description,$imageName,$tmpName);
     }
 
     public function deleteburn()
     {
-        $id=$_GET['id'];
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
         $result=$this->userModel->deleteBurn($id);
-        if($result)
-        {
-            $_SESSION['deleteinstruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
-        }
     }
 
     public function editBurn()

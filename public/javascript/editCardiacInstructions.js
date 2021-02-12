@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var $pic = $('#picture'),
+    var $pic = $('#picture2'),
         context = $pic.get(0).getContext('2d');
     $('#instructionPicture').on('change', function() {
         $("#iPic").addClass("hidden");
@@ -29,8 +29,8 @@ $(document).ready(function() {
     $("#submit").click(function(event) {
         event.preventDefault();
 
-        var stepNumber = $("stepNumber").val();
-        var description = $("description").val();
+        var stepNumber = $("#stepNumber").val();
+        var description = $("#description").val();
         var error = document.getElementById("err");
 
         if (stepNumber == "" && description == "") {
@@ -46,69 +46,26 @@ $(document).ready(function() {
             $("#err").removeClass("hide");
             return false;
         } else if (stepNumber != "" && description != "") {
-            var data = $("#bleedingForm")[0];
+            var data = $("#cardiacForm")[0];
             var formData = new FormData(data);
             var files = $('#instructionPicture')[0].files;
             formData.append('file', files[0]);
             $.ajax({
-                url: 'updatebleeding',
+                url: 'savecardiac',
                 type: 'post',
                 data: formData,
                 enctype: 'multipart/form-data',
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    document.getElementById('modal2').style.display = 'block';
+                    document.getElementById('modal1').style.display = 'block';
                     setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
-                    setTimeout(function() { window.location = "bleeding"; }, 2000);
+                    setTimeout(function() { window.location = "cardiac"; }, 2000);
                 },
             });
         } else {
             $("#err").addClass("hide");
         }
+
     });
 });
-
-
-function confirm(id) {
-    document.getElementById('modal3').style.display = 'block';
-    var nav = document.getElementById("navbar");
-    var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
-
-    $("#yes").click(function(event) {
-        event.preventDefault();
-
-        $.ajax({
-            url: "deletebleeding",
-            method: "post",
-            data: { id: id },
-            success: function(data) {
-                document.getElementById('modal3').style.display = 'none';
-                document.getElementById('modal4').style.display = 'block';
-                nav.style.display = "block";
-                breadcrumb.style.display = "block";
-                setTimeout(function() { document.getElementById('modal4').style.display = 'none'; }, 2000);
-                setTimeout(function() { window.location = "bleeding"; }, 2000);
-            }
-        });
-    });
-
-}
-
-function closeconfirm() {
-    document.getElementById('modal3').style.display = 'none';
-    var nav = document.getElementById("navbar");
-    var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "block";
-    breadcrumb.style.display = "block";
-}
-
-var modal3 = document.getElementById('modal3');
-
-window.onclick = function(event) {
-    if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
-}

@@ -23,7 +23,7 @@
 	<div class="form">
 		<div class="frame">
 			<center>
-				<form action="savecardiac" method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">
+				<form method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">
 					<div class="row">
 						<div class="namediv">
 							<h1>Cardiac Instructions</h1>
@@ -31,7 +31,7 @@
 						<div class="column1">
 							<?php foreach($data['instruction'] as $instruction){ ?>
 							<?php if(!empty($instruction->image)) { ?>
-								<img src="../img/images/<?php echo $instruction->image; ?>" class="iPic" id="iPic"><br>
+								<img src="../../careu-php/images/<?php echo $instruction->image; ?>" class="iPic" id="iPic"><br>
 							<?php } else {?>
 								<canvas class="picture1" id="picture1"></canvas><br>
 							<?php }?>
@@ -46,7 +46,7 @@
 							<textarea class="description" type="text" name="description" id="description"><?php echo $instruction->description; ?></textarea><br>
 							<?php } ?>
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Save" name="submit" id="submit">
 						</div>
 					</div>
 				</form>
@@ -69,7 +69,7 @@
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/editInstructions.js"></script>
+	<script type="text/javascript" src="../javascript/editCardiacInstructions.js"></script>
 	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
 </body>
 </html>

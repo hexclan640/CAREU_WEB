@@ -472,7 +472,7 @@
             else
             {
                 $connection = mysqli_connect('localhost','root','','careu');
-                $query="UPDATE instruction1 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
+                $query="UPDATE instruction2 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
                 $result1=mysqli_query($connection,$query);
                 $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);
