@@ -46,11 +46,24 @@
 							<textarea class="description" type="text" name="description" id="description"><?php echo $instruction->description; ?></textarea><br>
 							<?php } ?>
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="SAVE" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Save" name="submit" id="submit" onclick="return check()">
 						</div>
 					</div>
 				</form>
 			</center>
+		</div>
+	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Saved!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Changes saved successfuly!</p>
+				</div>
+			</div>
 		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>

@@ -379,21 +379,17 @@ class careuadmin extends Controller
         $description=$_POST['description'];
         $imageName=$_FILES['image']['name'];
         $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->addCardiac($stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['newinstruction']=$stepNumber;
-            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
-        }
+        $this->userModel->addCardiac($stepNumber,$description,$imageName,$tmpName);
     }
 
     public function deletecardiac()
     {
-        $id=$_GET['id'];
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
         $result=$this->userModel->deleteCardiac($id);
         if($result)
         {
-            $_SESSION['deleteinstruction']=$id;
             header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
         }
     }

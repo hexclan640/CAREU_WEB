@@ -201,7 +201,6 @@ class police extends Controller
             $result=$this->userModel->changePassword($userName,$currentpassword,$password);
             if($result)
             {
-                $_SESSION['changeapplied']="success";
                 echo "success";
             }
             else

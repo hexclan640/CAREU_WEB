@@ -178,17 +178,7 @@ class suwasariya extends Controller
         $lastName=$_POST['lastName'];
         $imageName=$_FILES['image']['name'];
         $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['profile']=$userName;
-            header("Location: http://localhost:8080/careu-web/suwasariya/profile");
-        }
-        else
-        {
-            $_SESSION['update']="failed";
-            header("Location: http://localhost:8080/careu-web/suwasariya/profile");
-        }
+        $this->userModel->updateProfile($firstName,$lastName,$userName,$imageName,$tmpName);
     }
 
     public function changePassword()
@@ -210,7 +200,6 @@ class suwasariya extends Controller
             $result=$this->userModel->changePassword($userName,$currentpassword,$password);
             if($result)
             {
-                $_SESSION['changeapplied']="success";
                 echo "success";
             }
             else
