@@ -22,10 +22,10 @@
 		<div class="frame">
 			<center>
 				<div class="row">
-					<form action="updateprofile" method="post" enctype="multipart/form-data">
+					<form action="updateprofile" method="post" id="updateprofile" enctype="multipart/form-data">
 						<?php foreach($data['operatorInfo'] as $operatorInfo){ ?>
 							<div class="namediv">
-							<h1><?php echo $operatorInfo->firstName." ".$operatorInfo->lastName; ?></h1>
+							<h1 id="headname"><?php echo $operatorInfo->firstName." ".$operatorInfo->lastName; ?></h1>
 						</div>
 						<div class="column1">
 							<?php if(!empty($operatorInfo->image)) { ?>
@@ -83,12 +83,6 @@
 			</div>
 		</div>
 	</div>
-	<?php if(isset($_SESSION['profile'])){?>
-		<script>
-			document.getElementById('modal1').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['profile']);} ?>
 	<?php if(isset($_SESSION['changeapplied'])){?>
 		<script>
 			document.getElementById('modal2').style.display = 'block';

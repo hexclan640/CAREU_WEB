@@ -20,7 +20,7 @@
             if(empty($imagename))
             {
                 $connection = mysqli_connect('localhost','root','','careu');
-                $query="UPDATE 119calloperator SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}' WHERE userName='{$username}'";
+                $query="UPDATE 119calloperator SET firstName='{$firstname}',lastName='{$lastname}' WHERE userName='{$username}'";
                 $adminInfo=mysqli_query($connection,$query);
                 mysqli_close($connection);
                 if($adminInfo> 0)
@@ -35,7 +35,7 @@
             else
             {
                 $connection = mysqli_connect('localhost','root','','careu');
-                $query="UPDATE 119calloperator SET firstName='{$firstname}',lastName='{$lastname}',password='{$password}',image='{$imagename}' WHERE userName='{$username}'";
+                $query="UPDATE 119calloperator SET firstName='{$firstname}',lastName='{$lastname}',image='{$imagename}' WHERE userName='{$username}'";
                 $result1=mysqli_query($connection,$query);
                 mysqli_close($connection);
                 $result2=move_uploaded_file($tmpname,"img/policeProPics/".$imagename);

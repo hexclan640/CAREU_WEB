@@ -22,10 +22,10 @@
 		<div class="frame">
 			<center>
 				<div class="row">
-					<form action="updateprofile" method="post" enctype="multipart/form-data">
+					<form action="updateprofile" id="updateprofile" method="post" enctype="multipart/form-data">
 						<?php foreach($data['operatorInfo'] as $operatorInfo){ ?>
 						<div class="namediv">
-							<h1><?php echo $operatorInfo->firstName." ".$operatorInfo->lastName; ?></h1>
+							<h1 id="headname"><?php echo $operatorInfo->firstName." ".$operatorInfo->lastName; ?></h1>
 						</div>
 						<div class="column1">
 							<?php if(!empty($operatorInfo->image)) { ?>

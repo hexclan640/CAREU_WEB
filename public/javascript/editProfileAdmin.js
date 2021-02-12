@@ -58,12 +58,7 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    // if (response != 0) {
-                    //     $("#img").attr("src", response);
-                    //     $(".preview img").show(); // Display image element
-                    // } else {
-                    //     alert('file not uploaded');
-                    // }
+                    document.getElementById('headname').innerText = firstname + " " + lastname;
                     document.getElementById('modal1').style.display = 'block';
                     setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
                 },

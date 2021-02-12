@@ -25,7 +25,7 @@
 					<form method="post" enctype="multipart/form-data" id="updateprofile">
 						<?php foreach($data['admin'] as $adminInfo){ ?>
 						<div class="namediv">
-							<h1><?php echo $adminInfo->firstName." ".$adminInfo->lastName; ?></h1>
+							<h1 id="headname"><?php echo $adminInfo->firstName." ".$adminInfo->lastName; ?></h1>
 						</div>
 						<div class="column1">
 							<?php if(!empty($adminInfo->image)) { ?>

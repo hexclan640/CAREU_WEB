@@ -59,7 +59,6 @@ class careuadmin extends Controller
     public function updateprofile()
     {
         $userName=$_SESSION['userName'];
-        print_r($_POST);
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
         $imageName=$_FILES['file']['name'];
