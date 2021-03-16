@@ -13,6 +13,7 @@
                 </div>
                 <div class="brief1">
                     <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?></p>
+                    <p class="pNumber"><?php echo $requestsInfo->email; ?></p>
                     <p class="pNumber"><?php echo $requestsInfo->phoneNumber; ?></p>
                 </div>
                 <div class="brief2">

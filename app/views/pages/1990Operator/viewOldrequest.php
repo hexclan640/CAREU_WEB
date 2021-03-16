@@ -72,11 +72,17 @@
 					<div id="googleMap" style="width:100%;height:400px;"></div>
 					<script>
 						function myMap() {
+							var latitude='<?php echo $requestInfo->latitude; ?>';
+							var longitude='<?php echo $requestInfo->longitude; ?>';
 							var mapProp= {
-								center:new google.maps.LatLng(<?php echo $requestInfo->latitude;?>,<?php echo $requestInfo->longitude;?>),
-								zoom:5,
-							};
+								center:new google.maps.LatLng(latitude,longitude),
+								zoom:18,
+								};
 							var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+							var marker = new google.maps.Marker({
+								position: new google.maps.LatLng(latitude,longitude),
+								map:map
+							});
 						}
 					</script>
 				</div>
