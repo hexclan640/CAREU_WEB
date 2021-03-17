@@ -161,6 +161,25 @@
             return $result;
         }
 
+        public function getPoliceHistory($userid){
+            $this->db->query("SELECT request.requestId,119policerequest.flag,request.time,request.date,complainCategory,policeStation,district FROM 119policerequest,request WHERE request.userId='{$userid}' AND request.requestId=119policerequest.requestId ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getSuwasariyaHistory($userid){
+            $this->db->query("SELECT request.requestId,1990ambulancerequest.flag,request.time,request.date,numberOfPatients,policeStation,district FROM 1990ambulancerequest,request WHERE request.userId='{$userid}' AND request.requestId=1990ambulancerequest.requestId ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getFeedbackHistory($userid)
+        {
+            $this->db->query("SELECT feedback.comment,feedback.feedbackTime FROM give,feedback WHERE give.userId={$userid} AND give.feedbackId=feedback.feedbackId");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function rejectRequest($userid)
         {
             $connection = mysqli_connect('localhost','root','','careu');

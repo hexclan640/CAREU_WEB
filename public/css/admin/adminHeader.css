@@ -7,7 +7,7 @@
     transition: 0.4s;
     width: 100%;
     top: 0;
-    z-index: 99;
+    z-index: 90;
     background-color: rgb(88, 0, 0);
     position: fixed;
 }
@@ -30,7 +30,7 @@
     margin-right: 1rem;
     width: 3.5rem;
 }
- 
+
 #navbar-right {
     color: rgb(0, 0, 0);
     top: -50px;
@@ -42,12 +42,12 @@
     float: right;
 }
 
-  #navbar-right img{
-      width: 2rem;
-      margin: 0;
-  }
-  
-  #navbar-right .badge {
+#navbar-right img {
+    width: 2rem;
+    margin: 0;
+}
+
+#navbar-right .badge {
     position: absolute;
     top: -10px;
     right: -10px;
@@ -55,4 +55,4 @@
     border-radius: 50%;
     background-color: red;
     color: white;
-  }
+}

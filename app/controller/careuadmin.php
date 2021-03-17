@@ -182,6 +182,7 @@ class careuadmin extends Controller
     public function verifieduser()
     {
         $userId=$_GET['id'];
+        $_SESSION["id"]=$userId;
         $user=$this->userModel->getVerifiedUser($userId);
         $data = ['userInfo' => $user];
         if($user)
@@ -191,6 +192,24 @@ class careuadmin extends Controller
             $this->view('pages/admin/userProfile',$data);
             $this->view('pages/includes/footer'); 
         }
+    }
+    
+    public function getpolicerequesthistory(){
+        $userId=$_SESSION["id"];
+        $policerequests=$this->userModel->getPoliceHistory($userId);
+        $suwasariyarequests=$this->userModel->getSuwasariyaHistory($userId);
+        $data = [
+            'policeInfo' => $policerequests,
+            'suwasariyaInfo' => $suwasariyarequests
+        ];
+        $this->view('pages/admin/requestHistory',$data);
+    }
+
+    public function getfeedbackhistory(){
+        $userId=$_SESSION["id"];
+        $feedbacks=$this->userModel->getFeedbackHistory($userId);
+        $data = ['feedbackInfo' => $feedbacks];
+        $this->view('pages/admin/feedbackHistory',$data);
     }
 
     public function operators()
