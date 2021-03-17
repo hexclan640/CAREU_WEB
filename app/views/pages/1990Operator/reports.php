@@ -24,7 +24,6 @@
 	</div>
 	<div class="form">
 		<div class="report">
-			<!-- <img src="../img/loading.svg" class="loading">		 -->
 			<div id = "chart_div"></div>
 			<div id="piechart"></div>
 		</div>
@@ -35,6 +34,7 @@
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="../javascript/reports.js"></script>
 	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>
