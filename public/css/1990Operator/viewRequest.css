@@ -161,6 +161,14 @@ body {
     width: 50%;
 }
 
+.sendbtns p {
+    margin: 0.5rem;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 0, 0);
+}
+
 .accepted {
     display: none;
     float: left;
@@ -200,11 +208,6 @@ body {
     display: none;
 }
 
-.sendbtns p {
-    color: rgb(71, 71, 71);
-    padding-left: 1rem;
-}
-
 .reply textarea {
     width: 100%;
     font-size: 120%;
@@ -232,7 +235,6 @@ body {
     color: white;
     font-size: 120%;
     float: right;
-    margin-top: 0.5rem;
     margin-right: 0.5rem;
     border: 2px solid rgb(182, 1, 1);
     text-decoration: none;

@@ -43,7 +43,7 @@
 <?php } else{?>
     <div class="alert" id="alert">
 		<center>
-			<p>-No recent requests-</p>
+			<p>-No requests-</p>
 		</center>
     </div>
 <?php } ?>

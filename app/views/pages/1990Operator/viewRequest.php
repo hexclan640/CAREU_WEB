@@ -96,7 +96,7 @@
 			<div class="sendbtns" id="sendbtns">
 				<?php if($requestInfo->flag==0){?>
 					<img src="../img/loading.svg" class="loading hide" id="loading">
-					<p>Note : When you click on <strong>Accept</strong> or <strong>Reject</strong> buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
+					<p><strong>Note :</strong> When you click on Accept or Reject buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
 					<form action="" id="acceptform" method="post">
 						<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId1" hidden>
 						<input type="submit" id="accept" class="accept" value="Accept">

@@ -14,6 +14,8 @@ class careu extends Controller
 
     public function verify()
     {
+        session_start();
+        $_SESSION["count"]=0;
         $connection = mysqli_connect('localhost','root','','careu');
         $userName=mysqli_real_escape_string($connection,$_POST['username']);
         $password=md5(mysqli_real_escape_string($connection,$_POST['password']));
@@ -24,7 +26,6 @@ class careu extends Controller
             $userInfo=$this->userModel->getUserAdmin($userName,$password);
             if($userInfo)
             {
-                session_start();
                 $_SESSION['userName']=$userName;
                 echo "success";
             }
@@ -38,7 +39,6 @@ class careu extends Controller
             $userInfo=$this->userModel->getUser119($userName,$password);
             if($userInfo)
             {
-                session_start();
                 $_SESSION['userName']=$userName;
                 echo "success";
             }
@@ -53,7 +53,6 @@ class careu extends Controller
             $userInfo=$this->userModel->getUser1990($userName,$password);
             if($userInfo)
             {
-                session_start();
                 $_SESSION['userName']=$userName;
                 echo "success";
             }

@@ -35,7 +35,7 @@ body {
     border: 3px solid black;
     box-sizing: border-box;
     transition: 0.5s;
-    transform: scale(1.1,1.1);
+    transform: scale(1.1, 1.1);
     background-color: rgb(245, 245, 255, 0.6);
 }
 
@@ -45,9 +45,9 @@ body {
     height: auto;
 }
 
-.form img:hover{
+.form img:hover {
     transition: 1s;
-    transform: scale(1.1,1.1);
+    transform: scale(1.05, 1.05);
 }
 
 .column {

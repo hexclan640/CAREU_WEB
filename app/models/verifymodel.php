@@ -10,7 +10,7 @@
 
         public function getUserAdmin($userName,$password)
         {
-            $this->db->query("SELECT userName,password FROM admin WHERE userName='{$userName}' AND password='{$password}'");
+            $this->db->query("SELECT userName,password,firstName FROM admin WHERE userName='{$userName}' AND password='{$password}'");
             $result = $this->db->resultSet();
             return $result;
         }
