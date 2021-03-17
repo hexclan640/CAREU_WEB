@@ -8,10 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Change Password</title>
 </head>
 <body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
   			<li><a href="home">Home</a></li>
@@ -48,9 +52,24 @@
 			</center>
 		</div>
 	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Success!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Password Changed!</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/changePasswordPolice.js"></script>
+	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

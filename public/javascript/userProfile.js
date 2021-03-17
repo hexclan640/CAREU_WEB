@@ -14,3 +14,21 @@ function closeconfirm() {
     nav.style.display = "block";
     breadcrumb.style.display = "block";
 }
+
+function loadrequests() {
+    document.getElementById("requestHistory").innerHTML = "";
+    document.getElementById("history2").style.border = "3px solid rgb(255, 255, 255, 0.6)";
+    document.getElementById("history2").style.background = "rgb(245, 245, 255, 0.2)";
+    document.getElementById("history1").style.border = "3px solid black";
+    document.getElementById("history1").style.background = "rgb(245, 245, 255, 0.6)";
+    $("#requestHistory").load('getpolicerequesthistory');
+}
+
+function loadfeedbacks() {
+    document.getElementById("requestHistory").innerHTML = "";
+    document.getElementById("history1").style.border = "3px solid rgb(255, 255, 255, 0.6)";
+    document.getElementById("history1").style.background = "rgb(245, 245, 255, 0.2)";
+    document.getElementById("history2").style.border = "3px solid black";
+    document.getElementById("history2").style.background = "rgb(245, 245, 255, 0.6)";
+    $("#requestHistory").load('getfeedbackhistory');
+}

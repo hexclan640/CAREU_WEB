@@ -1,5 +1,5 @@
 <div class="sidebar">
-	<center><a href="profile" class="profilelink1"><img src="../img/user.svg" alt=""></a></center>
+	<center><a href="profile" class="profilelink1"><img src="../img/user.png" alt=""></a></center>
 	<a href="home" class="links">Home</a>
   	<a href="new119" class="links">119 Operator</a>
  	<a href="new1990" class="links">1990 Operator</a>

@@ -8,10 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>User Profile</title>
 </head>
 <body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
@@ -63,14 +67,9 @@
 						<?php } ?>
 					</div>
 					<div class="column4">
-						<button href="" onclick="confirm1()">Accept</button>
-						<button href="" onclick="confirm2()">Reject</button>
-					</div>
-					<div class="column5">
-						<button href="" onclick="confirm1()">Accept</button>
-					</div>
-					<div class="column6">
-						<button href="" onclick="confirm2()">Reject</button>
+						<p>Note : When you click on <strong>Accept</strong> or <strong>Reject</strong> buttons, it will sends relevant acknowledgement messages to requesters.</p>
+						<button href="" class="accept" onclick="confirm1()">Accept</button>
+						<button href="" class="reject" onclick="confirm2()">Reject</button>
 					</div>
 				</div>
 			</center>
@@ -128,5 +127,7 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/viewUserRequest.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

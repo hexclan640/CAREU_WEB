@@ -8,10 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Burn First Aids</title>
 </head>
 <body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
@@ -22,7 +26,7 @@
 	<div class="form1">
 		<div class="frame">
 			<center>
-				<form action="updateburn" method="post" id="burnsForm" name="burnsForm" enctype="multipart/form-data">
+				<form action="updateburn" method="post" id="burnForm" name="burnsForm" enctype="multipart/form-data">
 					<div class="row">
 						<div class="namediv">
 							<h1>Burn Instructions</h1>
@@ -70,19 +74,6 @@
 				<?php } ?>	
 			</div>	
 		</center>
-	</div>
-	<div id="modal1" class="modal">
-		<div class="message">
-			<div class="container">
-				<div class="titleconfirm">
-					<h1>Saved!</h1>
-				</div>
-				<div class="confirm">
-					<img src="../img/modelicons/success.svg" alt="">
-					<p>Changes saved successfuly!</p>
-				</div>
-			</div>
-		</div>
 	</div>
 	<div id="modal2" class="modal">
 		<div class="message">
@@ -132,28 +123,12 @@
 			</div>
 		</div>
 	</div>
-	<?php if(isset($_SESSION['instruction'])){?>
-		<script>
-			document.getElementById('modal1').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['instruction']);} ?>
-	<?php if(isset($_SESSION['newinstruction'])){?>
-		<script>
-			document.getElementById('modal2').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['newinstruction']);} ?>
-	<?php if(isset($_SESSION['deleteinstruction'])){?>
-		<script>
-			document.getElementById('modal4').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal4').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['deleteinstruction']);} ?>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/instructions.js"></script>
 	<script type="text/javascript" src="../javascript/burnInstructions.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

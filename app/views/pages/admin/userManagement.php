@@ -8,10 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>User Management</title>
 </head>
 <body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
@@ -22,6 +26,10 @@
 		<div class="updates">
 			<div class="column" >
 				<div class="category"><h1>Unverified Requests</h1></div>
+				<div class="searchdiv">
+					<input type="text" class="search" name="search1" id="search1" placeholder="Search by name, email or phone..">
+				</div>
+				<div id="result1"></div>
 				<div class="col" id="col1">
 					<center>
 						<img src="../img/loading.svg" class="loading">
@@ -30,6 +38,10 @@
 			</div>
 			<div class="column" >
 				<div class="category"><h1>Verified Users</h1></div>
+				<div class="searchdiv">
+					<input type="text" class="search" name="search2" id="search2" placeholder="Search by name, email or phone..">
+				</div>
+				<div id="result2"></div>
 				<div class="col" id="col2">
 					<center>
 						<img src="../img/loading.svg" class="loading">
@@ -99,5 +111,7 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/userManagement.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

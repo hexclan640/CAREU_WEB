@@ -61,19 +61,10 @@ class careuadmin extends Controller
         $userName=$_SESSION['userName'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->updateProfile($firstName,$lastName,$userName,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['profile']=$userName;
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
-        }
-        else
-        {
-            $_SESSION['update']="failed";
-            header("Location: http://localhost:8080/careu-web/careuadmin/profile");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        echo $imageName;
+        $this->userModel->updateProfile($firstName,$lastName,$userName,$imageName,$tmpName);
     }
 
     public function changePassword()
@@ -117,13 +108,41 @@ class careuadmin extends Controller
         $this->view('pages/includes/footer');
     }
 
+    public function searchunverified(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $requestInfo=$this->userModel->unverifiedSearch($search);
+            $data = ['requestInfo' => $requestInfo];
+            $this->view('pages/admin/unverifiedSearch',$data);
+        }
+    }
+
+    public function searchverified(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $usersInfo=$this->userModel->verifiedSearch($search);
+            $data = ['usersInfo' => $usersInfo];
+            $this->view('pages/admin/verifiedSearch',$data);
+        }
+    }
+
     public function userrequests()
     {
         $requestInfo=$this->userModel->getRequestBrief();
         $data = ['requestInfo' => $requestInfo];
-        if($requestInfo)
+        $this->view('pages/admin/userRequests',$data);
+    }
+
+    public function userrequestscount(){
+        $requestCount=$this->userModel->getRequestCount();
+        $data = ['requestCount' => $requestCount];
+        if($requestCount)
         {
-            $this->view('pages/admin/userRequests',$data);
+            $this->view('pages/includes/badge',$data);
         }
     }
 
@@ -131,10 +150,7 @@ class careuadmin extends Controller
     {
         $users=$this->userModel->getUserBrief();
         $data = ['usersInfo' => $users];
-        if($users)
-        {
-            $this->view('pages/admin/userBrief',$data);
-        }
+        $this->view('pages/admin/userBrief',$data);
     }
 
     public function userprofile()
@@ -166,6 +182,7 @@ class careuadmin extends Controller
     public function verifieduser()
     {
         $userId=$_GET['id'];
+        $_SESSION["id"]=$userId;
         $user=$this->userModel->getVerifiedUser($userId);
         $data = ['userInfo' => $user];
         if($user)
@@ -175,6 +192,24 @@ class careuadmin extends Controller
             $this->view('pages/admin/userProfile',$data);
             $this->view('pages/includes/footer'); 
         }
+    }
+    
+    public function getpolicerequesthistory(){
+        $userId=$_SESSION["id"];
+        $policerequests=$this->userModel->getPoliceHistory($userId);
+        $suwasariyarequests=$this->userModel->getSuwasariyaHistory($userId);
+        $data = [
+            'policeInfo' => $policerequests,
+            'suwasariyaInfo' => $suwasariyarequests
+        ];
+        $this->view('pages/admin/requestHistory',$data);
+    }
+
+    public function getfeedbackhistory(){
+        $userId=$_SESSION["id"];
+        $feedbacks=$this->userModel->getFeedbackHistory($userId);
+        $data = ['feedbackInfo' => $feedbacks];
+        $this->view('pages/admin/feedbackHistory',$data);
     }
 
     public function operators()
@@ -262,16 +297,33 @@ class careuadmin extends Controller
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
         $password=md5($_POST['password1']);
-        $result=$this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
+        $this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
+    }
 
-        if($result)
-        {
-            $_SESSION['user']=$userName;
-            header("Location: http://localhost:8080/careu-web/careuadmin/new119");
+    public function operatorchecker119(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkOperator119($search);
+            $data = ['operatorInfo' => $operatorInfo];
+            $this->view('pages/admin/usernamelist',$data);
         }
-        else
-        {
-            echo "failed";
+    }
+
+    public function usernamechecker119(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["userName"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkUsername119($search);
+            if(empty($operatorInfo)){
+                echo "true";
+            }
+            else
+            {
+                echo "false";
+            }
         }
     }
 
@@ -282,16 +334,33 @@ class careuadmin extends Controller
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
         $password=md5($_POST['password1']);
-        $result=$this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
+        $this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
+    }
 
-        if($result)
-        {
-            $_SESSION['user']=$userName;
-            header("Location: http://localhost:8080/careu-web/careuadmin/new1990");
+    public function operatorchecker1990(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["query"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkOperator1990($search);
+            $data = ['operatorInfo' => $operatorInfo];
+            $this->view('pages/admin/usernamelist',$data);
         }
-        else
-        {
-            echo "failed";
+    }
+
+    public function usernamechecker1990(){
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $search=mysqli_real_escape_string($connection, $_POST["userName"]);
+        mysqli_close($connection);
+        if(isset($search)){
+            $operatorInfo=$this->userModel->checkUsername1990($search);
+            if(empty($operatorInfo)){
+                echo "true";
+            }
+            else
+            {
+                echo "false";
+            }
         }
     }
 
@@ -327,25 +396,17 @@ class careuadmin extends Controller
     {
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->addCardiac($stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['newinstruction']=$stepNumber;
-            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addCardiac($stepNumber,$description,$imageName,$tmpName);
     }
 
     public function deletecardiac()
     {
-        $id=$_GET['id'];
-        $result=$this->userModel->deleteCardiac($id);
-        if($result)
-        {
-            $_SESSION['deleteinstruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
-        }
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $this->userModel->deleteCardiac($id);
     }
 
     public function editcardiac()
@@ -367,14 +428,9 @@ class careuadmin extends Controller
         $id=$_POST['id'];
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->saveCardiac($id,$stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['instruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/cardiac");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->saveCardiac($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     
@@ -396,25 +452,17 @@ class careuadmin extends Controller
     {
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->addBleeding($stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['newinstruction']=$stepNumber;
-            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addBleeding($stepNumber,$description,$imageName,$tmpName);
     }
 
     public function deletebleeding()
     {
-        $id=$_GET['id'];
-        $result=$this->userModel->deleteBleeding($id);
-        if($result)
-        {
-            $_SESSION['deleteinstruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
-        }
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $this->userModel->deleteBleeding($id);
     }
 
     public function editbleeding()
@@ -436,14 +484,9 @@ class careuadmin extends Controller
         $id=$_POST['id'];
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->saveBleeding($id,$stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['instruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/bleeding");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->saveBleeding($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     public function burn()
@@ -463,25 +506,17 @@ class careuadmin extends Controller
     {
         $stepNumber=$_POST['stepNumber'];
         $description=$_POST['description'];
-        $imageName=$_FILES['image']['name'];
-        $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->addBurn($stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['newinstruction']=$stepNumber;
-            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
-        }
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addBurn($stepNumber,$description,$imageName,$tmpName);
     }
 
     public function deleteburn()
     {
-        $id=$_GET['id'];
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
         $result=$this->userModel->deleteBurn($id);
-        if($result)
-        {
-            $_SESSION['deleteinstruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
-        }
     }
 
     public function editBurn()

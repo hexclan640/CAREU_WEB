@@ -80,7 +80,7 @@
         box-sizing: border-box;
     }
     
-    .column4 button {
+    .column4 .accept {
         width: 30%;
         float: right;
         background-color: rgb(88, 0, 0);
@@ -93,25 +93,27 @@
         border: 2px solid rgb(88, 0, 0);
     }
     
-    .column5 button,
-    .column6 button {
-        width: 100%;
-        background-color: rgb(88, 0, 0);
+    .column4 .reject {
+        width: 30%;
+        float: right;
+        background-color: rgb(182, 1, 1);
         padding: 11px 20px;
         cursor: pointer;
         color: white;
         font-size: 120%;
-        margin-bottom: 1rem;
+        margin: 0.5rem;
         text-decoration: none;
-        border: 2px solid rgb(88, 0, 0);
+        border: 2px solid rgb(182, 1, 1);
     }
     
-    .column4 button:hover,
-    .column5 button:hover,
-    .column6 button:hover {
+    .column4 button:hover {
         color: black;
         background-color: rgb(255, 255, 255);
         border: 2px solid black;
+    }
+    
+    .column4 p {
+        color: rgb(71, 71, 71);
     }
     
     .column1 {
@@ -168,11 +170,6 @@
     .photo1col img {
         float: none;
     }
-    /* .photo2col {
-        float: left;
-        width: 50%;
-    }
-     */
     
     .photorow:after {
         content: "";
@@ -248,9 +245,6 @@
         .column3 {
             width: 100%;
         }
-        .column4 {
-            display: none;
-        }
         .column3 {
             margin-bottom: 1rem;
         }
@@ -270,6 +264,10 @@
         .idImg1,
         .idImg2 {
             float: none;
+        }
+        .column4 .accept,
+        .column4 .reject {
+            width: 100%;
         }
     }
     

@@ -8,10 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Verified User Profile</title>
 </head>
 <body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
@@ -60,8 +64,8 @@
 		<center>
 			<div class="row">
 				<div class="request">
-					<a href="">
-						<div class="history">
+					<a onclick='loadrequests()'>
+						<div class="history" id="history1">
 							<div class="part1">
 								<div class="imgdiv">
 									<img src="../img/userManagement/requests.svg">
@@ -74,8 +78,8 @@
 					</a>
 				</div>
 				<div class="feedback">
-					<a href="">
-						<div class="history">
+					<a onclick="loadfeedbacks()">
+						<div class="history" id="history2">
 							<div class="part2">
 								<div class="imgdiv">
 									<img src="../img/userManagement/feedback.svg">
@@ -89,6 +93,9 @@
 				</div>
 			</div>
 		</center>
+		<div class="requestHistory" id="requestHistory">
+			
+		</div>
 	</div>
 	<div id="modal1" class="modal">
 		<div class="message">
@@ -118,5 +125,7 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/userProfile.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

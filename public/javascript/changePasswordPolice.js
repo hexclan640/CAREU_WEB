@@ -31,7 +31,9 @@ $(document).ready(function() {
                         error.innerText = "Invalid username or password. Try again!";
                         $("#err").removeClass("hide");
                     } else if (data.includes("success") && status.includes("success")) {
-                        window.location = "profile";
+                        document.getElementById('modal1').style.display = 'block';
+                        setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
+                        setTimeout(function() { window.location = "profile"; }, 2000);
                     }
                 });
         }

@@ -8,10 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Edit Instructions</title>
 </head>
 <body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
@@ -23,7 +27,7 @@
 	<div class="form">
 		<div class="frame">
 			<center>
-				<form action="savecardiac" method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">
+				<form method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">
 					<div class="row">
 						<div class="namediv">
 							<h1>Cardiac Instructions</h1>
@@ -31,7 +35,7 @@
 						<div class="column1">
 							<?php foreach($data['instruction'] as $instruction){ ?>
 							<?php if(!empty($instruction->image)) { ?>
-								<img src="../img/images/<?php echo $instruction->image; ?>" class="iPic" id="iPic"><br>
+								<img src="../../careu-php/images/<?php echo $instruction->image; ?>" class="iPic" id="iPic"><br>
 							<?php } else {?>
 								<canvas class="picture1" id="picture1"></canvas><br>
 							<?php }?>
@@ -46,16 +50,31 @@
 							<textarea class="description" type="text" name="description" id="description"><?php echo $instruction->description; ?></textarea><br>
 							<?php } ?>
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="SAVE" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Save" name="submit" id="submit">
 						</div>
 					</div>
 				</form>
 			</center>
 		</div>
 	</div>
+	<div id="modal1" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Saved!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Changes saved successfuly!</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/editInstructions.js"></script>
+	<script type="text/javascript" src="../javascript/editCardiacInstructions.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

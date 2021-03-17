@@ -4,82 +4,49 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/jpg" href="../img/appLogo.png"/>
 	<link rel="stylesheet" type="text/css" href="../css/119Operator/allRequests.css">
+	<link rel="stylesheet" type="text/css" href="../css/119Operator/viewNewRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>All Requests</title>
 </head>
 <body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
-  			<li>All Requests</li>
+  			<li>All</li>
 		</ul>
 	</div>
 	<div class="requests">
-		<div class="request">
-			<h2>Requests 1</h2>
-			<div class="reqDetails">
-				Requests Details
+		<div class="searchdiv">
+			<input type="text" class="search" name="search" id="search" placeholder="Search by name, email or phone..">
+			<div class="searchoptions">
+				<select class="options" name="option" id="option">
+					<option value="All">All</option>
+ 	 				<option value="NotViewed">Not Viewed</option>
+  					<option value="Accepted">Accepted</option>
+  					<option value="Rejected">Rejected</option>
+				</select>
 			</div>
-			<a href="viewrequest119?id=1">View</a>
 		</div>
-		<div class="request">
-			<h2>Requests 2</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewrequest119?id=2">View</a>
-		</div>
-		<div class="request">
-			<h2>Requests 3</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewrequest119?id=3">View</a>
-		</div>
-		<div class="request">
-			<h2>Requests 4</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewrequest119?id=4">View</a>
-		</div>
-		<div class="request">
-			<h2>Requests 5</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewrequest119?id=5">View</a>
-		</div>
-		<div class="request">
-			<h2>Requests 6</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewrequest119?id=6">View</a>
-		</div>
-		<div class="request">
-			<h2>Requests 7</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewrequest119?id=7">View</a>
-		</div>
-		<div class="request">
-			<h2>Requests 8</h2>
-			<div class="reqDetails">
-				Requests Details
-			</div>
-			<a href="viewrequest119?id=8">View</a>
+		<div id="result"></div>
+		<div class="requestcol" id="requestcol">
+			<center>
+				<img src="../img/loading.svg" class="loading">
+			</center>
 		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.sticky.js"></script>
-	<script type="text/javascript" src="../javascript/headerPolice.js"></script>
+	<script type="text/javascript" src="../javascript/allRequests.js"></script>
+	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

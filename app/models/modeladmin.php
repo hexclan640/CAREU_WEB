@@ -89,6 +89,57 @@
             return $result;
         }
 
+        public function unverifiedSearch($search)
+        {
+           
+            $this->db->query("SELECT userId,firstName,lastName,email,phoneNumber,gender FROM servicerequester WHERE (firstName LIKE '%".$search."%' OR lastName LIKE '%".$search."%' OR email LIKE '%".$search."%' OR phoneNumber LIKE '%".$search."%') AND status=0");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function verifiedSearch($search)
+        {
+           
+            $this->db->query("SELECT userId,firstName,lastName,email,phoneNumber,gender FROM servicerequester WHERE (firstName LIKE '%".$search."%' OR lastName LIKE '%".$search."%' OR email LIKE '%".$search."%' OR phoneNumber LIKE '%".$search."%') AND status=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function checkOperator119($search)
+        {
+            $this->db->query("SELECT username FROM 119calloperator WHERE username LIKE '%".$search."%' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function checkUsername119($search)
+        {
+            $this->db->query("SELECT userName FROM 119calloperator WHERE userName='{$search}' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function checkOperator1990($search)
+        {
+            $this->db->query("SELECT username FROM 1990calloperator WHERE username LIKE '%".$search."%' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function checkUsername1990($search)
+        {
+            $this->db->query("SELECT userName FROM 1990calloperator WHERE userName='{$search}' AND flag=1");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getRequestCount()
+        {
+            $this->db->query("SELECT userId FROM servicerequester WHERE status=0");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getUser($userid)
         {
             $this->db->query("SELECT * FROM servicerequester WHERE userId='{$userid}'");
@@ -106,6 +157,25 @@
         public function getVerifiedUser($userid)
         {
             $this->db->query("SELECT * FROM servicerequester WHERE userId='{$userid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getPoliceHistory($userid){
+            $this->db->query("SELECT request.requestId,119policerequest.flag,request.time,request.date,complainCategory,policeStation,district FROM 119policerequest,request WHERE request.userId='{$userid}' AND request.requestId=119policerequest.requestId ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getSuwasariyaHistory($userid){
+            $this->db->query("SELECT request.requestId,1990ambulancerequest.flag,request.time,request.date,numberOfPatients,policeStation,district FROM 1990ambulancerequest,request WHERE request.userId='{$userid}' AND request.requestId=1990ambulancerequest.requestId ORDER BY requestId DESC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getFeedbackHistory($userid)
+        {
+            $this->db->query("SELECT feedback.comment,feedback.feedbackTime FROM give,feedback WHERE give.userId={$userid} AND give.feedbackId=feedback.feedbackId");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -421,7 +491,7 @@
             else
             {
                 $connection = mysqli_connect('localhost','root','','careu');
-                $query="UPDATE instruction1 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
+                $query="UPDATE instruction2 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
                 $result1=mysqli_query($connection,$query);
                 $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
                 mysqli_close($connection);

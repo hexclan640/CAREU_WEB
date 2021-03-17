@@ -1,42 +1,431 @@
-    body {
-        margin: 0;
-        background-image: url("../../img/bg.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        font-family: sans-serif;
-    }
-    
-    .breadcrum {
-        color: white;
-        background-color: rgb(128, 0, 0, 0.9);
-        padding: 5px 0px 5px 10px;
-    }
-    
-    .reqDetails {
-        width: 97.5%;
-        height: 410px;
-        background-color: rgb(255, 255, 255, 0.6);
-        margin: 20px;
-    }
-    
-    .reqDetails table {
+body {
+    margin: 0;
+    background-image: url("../../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+.reqInfomations {
+    margin-top: 128px;
+    margin-left: 200px;
+    padding: 25px 25px 25px 25px;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+.reqDetails {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 3px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(245, 245, 255, 0.3);
+}
+
+.reply {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 3px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(245, 245, 255, 0.3);
+}
+
+.userPic {
+    float: left;
+    width: 15%;
+}
+
+.brief1 {
+    padding-top: 1rem;
+    color: black;
+    float: left;
+    width: 35%;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.brief2 {
+    float: left;
+    width: 50%;
+    color: black;
+    padding-top: 1rem;
+}
+
+.brief2 p {
+    font-size: 100%;
+}
+
+.requestrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.requestrow {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgb(245, 245, 255, 0.3);
+    border: 3px solid rgb(255, 255, 255, 0.7);
+}
+
+.patients {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.police {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.time {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.district {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.userPic img {
+    width: 10rem;
+    height: auto;
+    padding: 1rem;
+}
+
+.details img {
+    width: 30%;
+    height: auto;
+}
+
+.name {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.pNumber {
+    font-size: 140%;
+}
+
+.description {
+    float: left;
+    width: 50%;
+    padding: 1rem;
+}
+
+.emergencylocation {
+    float: left;
+    width: 50%;
+}
+
+.cusmessage {
+    float: left;
+    width: 50%;
+}
+
+.cusmessage input[type=submit] {
+    width: 20%;
+    background-color: #074377;
+    padding: 11px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    float: right;
+    margin-top: 0.5rem;
+    border: 2px solid #074377;
+    text-decoration: none;
+}
+
+.cusmessage input[type=submit]:hover,
+.accept:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid black;
+}
+
+.sendbtns {
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+.accepted {
+    display: none;
+    float: left;
+    width: 48%;
+    margin-left: 1rem;
+    background-color: rgba(139, 245, 112, 0.637);
+    border: 2px solid rgb(0, 122, 31);
+    transition: 1s;
+}
+
+.accepted h1 {
+    color: rgb(0, 122, 31);
+    text-align: center;
+    font-weight: bold;
+}
+
+.rejected {
+    display: none;
+    float: left;
+    width: 48%;
+    margin-left: 1rem;
+    background-color: rgba(192, 34, 34, 0.589);
+    border: 2px solid rgb(146, 0, 0);
+    transition: 1s;
+}
+
+.rejected h1 {
+    color: rgb(95, 3, 3);
+    text-align: center;
+    font-weight: bold;
+}
+
+.loading {
+    top: 0;
+    left: 35%;
+    position: absolute;
+    display: none;
+}
+
+.sendbtns p {
+    color: rgb(71, 71, 71);
+    padding-left: 1rem;
+}
+
+.reply textarea {
+    width: 100%;
+    font-size: 120%;
+    color: black;
+}
+
+.accept {
+    width: 48%;
+    background-color: rgb(88, 0, 0);
+    padding: 11px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    float: right;
+    margin-top: 0.5rem;
+    border: 2px solid rgb(88, 0, 0);
+    text-decoration: none;
+}
+
+.reject {
+    width: 48%;
+    background-color: rgb(182, 1, 1);
+    padding: 11px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    float: right;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    border: 2px solid rgb(182, 1, 1);
+    text-decoration: none;
+}
+
+.reply button:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+}
+
+.reply::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.reqDetails:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.note {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.description textarea {
+    width: 100%;
+    font-size: 120%;
+    color: black;
+}
+
+.emelocation {
+    width: 100%;
+    height: 50%;
+    border: 1px solid rgb(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width: 1100px) {
+    .userPic {
+        float: none;
+        text-align: center;
         width: 100%;
     }
-    
-    .details {
-        width: 97.2%;
+    .brief1 {
+        float: none;
         text-align: center;
-        background-color: rgb(255, 255, 255, 0.8);
-        margin: 20px;
-        height: 220px;
+        width: 100%;
     }
-    
-    .feedback {
-        width: 97.2%;
-        text-align: center;
-        background-color: rgb(255, 255, 255, 0.8);
-        margin: 20px;
-        height: 100px;
+    .brief2 {
+        float: none;
+        width: 100%;
     }
+    .description,
+    .emergencylocation,
+    .cusmessage,
+    .sendbtns {
+        width: 100%;
+    }
+    .accept,
+    .reject {
+        width: 100%;
+    }
+    .reject {
+        margin-right: 0;
+    }
+    .sendbtns p {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brief2 p {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .brief2 p {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .reqInfomations {
+        margin-top: 177px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .reqInfomations {
+        margin-top: 228px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .reqInfomations {
+        margin-top: 128px;
+    }
+}
+
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 80px;
+    text-align: center;
+}
+
+.titleconfirm {
+    float: left;
+    width: 100%;
+    color: white;
+    background-color: rgb(88, 0, 0);
+}
+
+.confirm {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+}
+
+.confirm p {
+    font-size: 150%;
+}
+
+.clearfix {
+    float: left;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.message {
+    width: 60%;
+    margin: 5% auto 15% auto;
+    background-color: rgb(255, 255, 255);
+}
+
+.btns {
+    float: left;
+    width: 50%;
+}
+
+.clicks:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.yes,
+.no {
+    float: left;
+    width: 98%;
+    padding: 11px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 120%;
+    margin: 0.5rem;
+    text-decoration: none;
+    background-color: rgb(88, 0, 0);
+    border: 2px solid rgb(88, 0, 0);
+}
+
+.yes:hover,
+.no:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+}
+
+@media screen and (max-width: 300px) {
+    .cancelbtn,
+    .deletebtn {
+        width: 100%;
+    }
+}

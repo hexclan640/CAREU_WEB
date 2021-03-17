@@ -8,11 +8,15 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>1990 Operator Account</title>
 </head>
 <body>
-<div class="breadcrum" id="breadcrum">
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
 			<li>New Suwasariya Operator</li>
@@ -22,14 +26,13 @@
 		<div class="frame">
 			<center>
 				<div class="row">
-					<form action="newoperator1990" method="post" id="formOperator1990">
+					<form method="post" id="formOperator1990">
 						<div class="namediv">
 							<h1>New Operator - 1990</h1>
 						</div>
 						<div class="column1">
-							<canvas class="picture" id="picture">
-											
-							</canvas>
+							<input type="text" class="search" name="search" id="search" placeholder="Search by username..">
+							<div id="result"></div>
 						</div>
 						<div class="column2">
 							<label for="userName">User Name</label>
@@ -53,7 +56,7 @@
 						</div>
 						<div class="column4">
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="Create" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="Create" name="submit" id="submit">
 						</div>
 					</form>
 				</div>
@@ -73,15 +76,11 @@
 			</div>
 		</div>
 	</div>
-	<?php if(isset($_SESSION['user'])){?>
-		<script>
-			document.getElementById('modal1').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['user']);} ?>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/newOperator1990.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>
