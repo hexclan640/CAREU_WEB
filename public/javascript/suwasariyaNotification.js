@@ -1,5 +1,6 @@
 $(document).ready(function() {
     setInterval(function() {
-        $("#badge").load('requestscount')
+        $("#badge1").load('requestscount');
+        $("#badge2").load('requestscount');
     }, 2000);
 });

@@ -151,10 +151,7 @@ class suwasariya extends Controller
     public function requestscount(){
         $requestCount=$this->userModel->getRequestCount();
         $data = ['requestCount' => $requestCount];
-        if($requestCount)
-        {
-            $this->view('pages/includes/badge',$data);
-        }
+        $this->view('pages/includes/badge',$data);
     }
 
     public function profile()

@@ -140,10 +140,7 @@ class careuadmin extends Controller
     public function userrequestscount(){
         $requestCount=$this->userModel->getRequestCount();
         $data = ['requestCount' => $requestCount];
-        if($requestCount)
-        {
-            $this->view('pages/includes/badge',$data);
-        }
+        $this->view('pages/includes/badge',$data);
     }
 
     public function userbrief()
