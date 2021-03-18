@@ -93,8 +93,7 @@
 				</div>
 			</div>
 		</center>
-		<div class="requestHistory" id="requestHistory">
-			
+		<div class="requestHistory" id="requestHistory">	
 		</div>
 	</div>
 	<div id="modal1" class="modal">

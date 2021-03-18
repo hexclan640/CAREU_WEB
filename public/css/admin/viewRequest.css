@@ -22,7 +22,7 @@ body {
     background-color: rgb(245, 245, 255, 0.3);
 }
 
-.feedback {
+.reply {
     margin-top: 1rem;
     padding: 1rem;
     border: 3px solid rgb(255, 255, 255, 0.6);
@@ -39,35 +39,6 @@ body {
     color: black;
     float: left;
     width: 35%;
-}
-
-.brief1 p {
-    position: relative;
-}
-
-.brief1 span {
-    top: -5px;
-    position: absolute;
-    font-size: 30%;
-    padding: 2px;
-}
-
-.acceptspan {
-    color: rgb(0, 122, 31);
-    background-color: rgba(139, 245, 112, 0.637);
-    border: 2px solid rgb(0, 122, 31);
-}
-
-.rejectspan {
-    color: rgb(95, 3, 3);
-    background-color: rgba(192, 34, 34, 0.589);
-    border: 2px solid rgb(146, 0, 0);
-}
-
-.notviewedspan {
-    color: rgb(14, 13, 121);
-    background-color: rgba(34, 89, 192, 0.589);
-    border: 2px solid rgb(14, 13, 121)
 }
 
 .link {
@@ -177,23 +148,67 @@ body {
     text-decoration: none;
 }
 
-.cusmessage input[type=submit]:hover {
+.cusmessage input[type=submit]:hover,
+.accept:hover {
     color: black;
     background-color: rgba(255, 255, 255, 0.8);
     border: 2px solid black;
 }
 
 .sendbtns {
+    position: relative;
     float: left;
     width: 50%;
 }
 
 .sendbtns p {
-    color: rgb(71, 71, 71);
-    padding-left: 1rem;
+    margin: 0.5rem;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 0, 0);
 }
 
-.feedback textarea {
+.accepted {
+    display: none;
+    float: left;
+    width: 48%;
+    margin-left: 1rem;
+    background-color: rgba(139, 245, 112, 0.637);
+    border: 2px solid rgb(0, 122, 31);
+    transition: 1s;
+}
+
+.accepted h1 {
+    color: rgb(0, 122, 31);
+    text-align: center;
+    font-weight: bold;
+}
+
+.rejected {
+    display: none;
+    float: left;
+    width: 48%;
+    margin-left: 1rem;
+    background-color: rgba(192, 34, 34, 0.589);
+    border: 2px solid rgb(146, 0, 0);
+    transition: 1s;
+}
+
+.rejected h1 {
+    color: rgb(95, 3, 3);
+    text-align: center;
+    font-weight: bold;
+}
+
+.loading {
+    top: 0;
+    left: 35%;
+    position: absolute;
+    display: none;
+}
+
+.reply textarea {
     width: 100%;
     font-size: 120%;
     color: black;
@@ -220,49 +235,18 @@ body {
     color: white;
     font-size: 120%;
     float: right;
-    margin-top: 0.5rem;
     margin-right: 0.5rem;
     border: 2px solid rgb(182, 1, 1);
     text-decoration: none;
 }
 
-.feedback button:hover {
+.reply button:hover {
     color: black;
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 
-.feedback::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.fkbox {
-    width: 100%;
-    float: left;
-}
-
-.ftime {
-    width: 100%;
-    float: left;
-}
-
-.fbox p {
-    margin-left: 1rem;
-    font-size: 150%;
-}
-
-.ftime p {
-    float: right;
-}
-
-.fdiv {
-    padding: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.fdiv::after {
+.reply::after {
     content: "";
     display: table;
     clear: both;

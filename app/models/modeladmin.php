@@ -161,6 +161,20 @@
             return $result;
         }
 
+        public function getPoliceRequestAll($requestid)
+        {
+            $this->db->query("SELECT request.requestId,request.userId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,description,latitude,longitude,flag FROM 119policerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 119policerequest.requestId='{$requestid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function getSuwasariyaRequestAll($requestid)
+        {
+            $this->db->query("SELECT request.requestId,request.userId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getPoliceHistory($userid){
             $this->db->query("SELECT request.requestId,119policerequest.flag,request.time,request.date,complainCategory,policeStation,district FROM 119policerequest,request WHERE request.userId='{$userid}' AND request.requestId=119policerequest.requestId ORDER BY requestId DESC");
             $result = $this->db->resultSet();

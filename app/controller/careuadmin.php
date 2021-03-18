@@ -190,8 +190,37 @@ class careuadmin extends Controller
             $this->view('pages/includes/footer'); 
         }
     }
+
+    public function policerequest()
+    {
+        $requestId=$_GET['id'];
+        $requestInfo=$this->userModel->getPoliceRequestAll($requestId);
+        $data = ['requestInfo' => $requestInfo];
+        if($requestInfo)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/viewPoliceRequest',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+
+    public function suwasariyarequest()
+    {
+        $requestId=$_GET['id'];
+        $requestInfo=$this->userModel->getSuwasariyaRequestAll($requestId);
+        $data = ['requestInfo' => $requestInfo];
+        if($requestInfo)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/viewSuwasariyaRequest',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
     
-    public function getpolicerequesthistory(){
+    public function getrequesthistory(){
         $userId=$_SESSION["id"];
         $policerequests=$this->userModel->getPoliceHistory($userId);
         $suwasariyarequests=$this->userModel->getSuwasariyaHistory($userId);

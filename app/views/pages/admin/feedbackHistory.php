@@ -21,3 +21,5 @@
 		</center>
     </div>
 <?php } ?>
+
+<center><button onclick="closebtn()"><img src="../img/up.png" alt="" class="upbutton"></button></center>
