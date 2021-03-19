@@ -566,52 +566,277 @@ class careuadmin extends Controller
         $description=$_POST['description'];
         $imageName=$_FILES['image']['name'];
         $tmpName=$_FILES['image']['tmp_name'];
-        $result=$this->userModel->saveBurn($id,$stepNumber,$description,$imageName,$tmpName);
-        if($result)
-        {
-            $_SESSION['instruction']=$id;
-            header("Location: http://localhost:8080/careu-web/careuadmin/burn");
-        }
+        $this->userModel->saveBurn($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     public function fracture()
     {
-        $this->view('pages/error');
-        // $this->view('pages/includes/adminheader');
-        // $this->view('pages/admin/fracturesInstructions');
-        // $this->view('pages/includes/footer');
+        $instructions=$this->userModel->getFracture();
+        $data = ['instructions' => $instructions];
+        // if($instructions)
+        // {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/fractureInstructions',$data);
+            $this->view('pages/includes/footer');
+        // }
+    }
+
+    public function updatefracture()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addFracture($stepNumber,$description,$imageName,$tmpName);
+    }
+
+    public function deletefracture()
+    {
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $result=$this->userModel->deleteFracture($id);
+    }
+
+    public function editfracture()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editFracture($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/editFractureInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function savefracture()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $this->userModel->saveFracture($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     public function blister()
     {
-        $this->view('pages/error');
-        // $this->view('pages/includes/adminheader');
-        // $this->view('pages/admin/blistersInstructions');
-        // $this->view('pages/includes/footer');
+        $instructions=$this->userModel->getBlister();
+        $data = ['instructions' => $instructions];
+        // if($instructions)
+        // {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/blisterInstructions',$data);
+            $this->view('pages/includes/footer');
+        // }
+    }
+
+    public function updateblister()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addBlister($stepNumber,$description,$imageName,$tmpName);
+    }
+
+    public function deleteblister()
+    {
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $result=$this->userModel->deleteBlister($id);
+    }
+
+    public function editblister()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editBlister($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/editBlisterInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function saveblister()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $this->userModel->saveBlister($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     public function sprain()
     {
-        $this->view('pages/error');
-        // $this->view('pages/includes/adminheader');
-        // $this->view('pages/admin/sprainsInstructions');
-        // $this->view('pages/includes/footer');
+        $instructions=$this->userModel->getSprain();
+        $data = ['instructions' => $instructions];
+        // if($instructions)
+        // {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/sprainInstructions',$data);
+            $this->view('pages/includes/footer');
+        // }
+    }
+
+    public function updatesprain()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addSprain($stepNumber,$description,$imageName,$tmpName);
+    }
+
+    public function deletesprain()
+    {
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $this->userModel->deleteSprain($id);
+    }
+
+    public function editsprain()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editSprain($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/editSprainInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function savesprain()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $this->userModel->saveSprain($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     public function nosebleed()
     {
-        $this->view('pages/error');
-        // $this->view('pages/includes/adminheader');
-        // $this->view('pages/admin/nodebleedsnstructions');
-        // $this->view('pages/includes/footer');
+        $instructions=$this->userModel->getNosebleed();
+        $data = ['instructions' => $instructions];
+        // if($instructions)
+        // {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/nosebleedInstructions',$data);
+            $this->view('pages/includes/footer');
+        // }
+    }
+
+    public function updatenosebleed()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addNosebleed($stepNumber,$description,$imageName,$tmpName);
+    }
+
+    public function deletenosebleed()
+    {
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $this->userModel->deleteNosebleed($id);
+    }
+
+    public function editnosebleed()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editNosebleed($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/editNosebleedInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function savenosebleed()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $this->userModel->saveNosebleed($id,$stepNumber,$description,$imageName,$tmpName);
     }
 
     public function toothache()
     {
-        $this->view('pages/error');
-        // $this->view('pages/includes/adminheader');
-        // $this->view('pages/admin/nodebleedsnstructions');
-        // $this->view('pages/includes/footer');
+        $instructions=$this->userModel->getToothache();
+        $data = ['instructions' => $instructions];
+        // if($instructions)
+        // {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/toothacheInstructions',$data);
+            $this->view('pages/includes/footer');
+        // }
+    }
+
+    public function updatetoothache()
+    {
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['file']['name'];
+        $tmpName=$_FILES['file']['tmp_name'];
+        $this->userModel->addToothache($stepNumber,$description,$imageName,$tmpName);
+    }
+
+    public function deletetoothache()
+    {
+        $connection = mysqli_connect("localhost", "root", "", "careu");
+        $id=mysqli_real_escape_string($connection, $_POST["id"]);
+        mysqli_close($connection);
+        $this->userModel->deleteToothache($id);
+    }
+
+    public function edittoothache()
+    {
+        $id=$_GET['id'];
+        $instruction=$this->userModel->editToothache($id);
+        $data = ['instruction' => $instruction];
+        if($instruction)
+        {
+            $this->view('pages/includes/adminheader');
+            $this->view('pages/admin/adminSidebar');
+            $this->view('pages/admin/editToothacheInstructions',$data);
+            $this->view('pages/includes/footer');
+        }
+    }
+
+    public function savetoothache()
+    {
+        $id=$_POST['id'];
+        $stepNumber=$_POST['stepNumber'];
+        $description=$_POST['description'];
+        $imageName=$_FILES['image']['name'];
+        $tmpName=$_FILES['image']['tmp_name'];
+        $this->userModel->saveToothache($id,$stepNumber,$description,$imageName,$tmpName);
     }
 }
 

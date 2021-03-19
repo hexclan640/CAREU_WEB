@@ -620,5 +620,505 @@
                 }
             }
         }
+
+        public function getFracture()
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction4 ORDER BY id ASC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function addFracture($stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction4 (step,description) VALUES ('{$stepnumber}','{$description}');";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction4 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
+                $result1=mysqli_query($connection,$query);
+                $result3=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result3)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function deleteFracture($id)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="DELETE FROM instruction4 WHERE id='{$id}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result)
+            {   
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public function editFracture($id)
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction4 WHERE id='{$id}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function saveFracture($id,$stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction4 SET step='{$stepnumber}',description='{$description}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction4 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result2)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function getBlister()
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction5 ORDER BY id ASC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function addBlister($stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction5 (step,description) VALUES ('{$stepnumber}','{$description}');";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction5 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
+                $result1=mysqli_query($connection,$query);
+                $result3=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result3)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function deleteBlister($id)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="DELETE FROM instruction5 WHERE id='{$id}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result)
+            {   
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public function editBlister($id)
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction5 WHERE id='{$id}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function saveBlister($id,$stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction5 SET step='{$stepnumber}',description='{$description}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction5 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result2)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function getSprain()
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction6 ORDER BY id ASC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function addSprain($stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction6 (step,description) VALUES ('{$stepnumber}','{$description}');";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction6 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
+                $result1=mysqli_query($connection,$query);
+                $result3=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result3)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function deleteSprain($id)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="DELETE FROM instruction6 WHERE id='{$id}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result)
+            {   
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public function editSprain($id)
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction6 WHERE id='{$id}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function saveSprain($id,$stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction6 SET step='{$stepnumber}',description='{$description}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction6 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result2)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function getNosebleed()
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction7 ORDER BY id ASC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function addNosebleed($stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction7 (step,description) VALUES ('{$stepnumber}','{$description}');";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction7 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
+                $result1=mysqli_query($connection,$query);
+                $result3=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result3)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function deleteNosebleed($id)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="DELETE FROM instruction7 WHERE id='{$id}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result)
+            {   
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public function editNosebleed($id)
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction7 WHERE id='{$id}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function saveNosebleed($id,$stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction7 SET step='{$stepnumber}',description='{$description}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction7 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result2)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function getToothache()
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction8 ORDER BY id ASC");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function addToothache($stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction8 (step,description) VALUES ('{$stepnumber}','{$description}');";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="INSERT INTO instruction8 (step,description,image) VALUES ('{$stepnumber}','{$description}','{$imagename}');";
+                $result1=mysqli_query($connection,$query);
+                $result3=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result3)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public function deleteToothache($id)
+        {
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query="DELETE FROM instruction8 WHERE id='{$id}'";
+            $result=mysqli_query($connection,$query);
+            mysqli_close($connection);
+            if($result)
+            {   
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public function editToothache($id)
+        {
+            $this->db->query("SELECT id,step,description,image FROM instruction8 WHERE id='{$id}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function saveToothache($id,$stepnumber,$description,$imagename,$tmpname)
+        {
+            if(empty($imagename))
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction8 SET step='{$stepnumber}',description='{$description}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                mysqli_close($connection);
+                if($result1)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                $connection = mysqli_connect('localhost','root','','careu');
+                $query="UPDATE instruction8 SET step='{$stepnumber}',description='{$description}',image='{$imagename}' WHERE id='{$id}'";
+                $result1=mysqli_query($connection,$query);
+                $result2=move_uploaded_file($tmpname,"../../careu-php/images/".$imagename);
+                mysqli_close($connection);
+                if($result1 && $result2)
+                {   
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 ?>
