@@ -29,8 +29,8 @@ $(document).ready(function() {
     $("#submit").click(function(event) {
         event.preventDefault();
 
-        var stepNumber = $("#stepNumber").val();
-        var description = $("#description").val();
+        var stepNumber = document.getElementById("stepNumber").value;
+        var description = document.getElementById("description").value;
         var error = document.getElementById("err");
 
         if (stepNumber == "" && description == "") {
@@ -59,8 +59,10 @@ $(document).ready(function() {
                 processData: false,
                 success: function(response) {
                     document.getElementById('modal1').style.display = 'block';
-                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
-                    setTimeout(function() { window.location = "fracture"; }, 2000);
+                    setTimeout(function() {
+                        document.getElementById('modal1').style.display = 'none';
+                        window.location = "fracture";
+                    }, 1000);
                 },
             });
         } else {

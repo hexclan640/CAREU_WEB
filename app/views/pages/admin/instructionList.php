@@ -8,8 +8,8 @@
 	    				<img src="../../careu-php/images/<?php echo $instructions->image; ?>" alt="">
 					<?php } ?>
 				</div>
-			</div>
-       		<div class="stepdescription">
+				</div>
+	   		<div class="stepdescription">
 	    		<p><?php echo $instructions->description; ?></p>
 			</div>
 			<div class="options">

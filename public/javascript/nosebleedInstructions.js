@@ -29,8 +29,8 @@ $(document).ready(function() {
     $("#submit").click(function(event) {
         event.preventDefault();
 
-        var stepNumber = $("stepNumber").val();
-        var description = $("description").val();
+        var stepNumber = document.getElementById("stepNumber").value;
+        var description = document.getElementById("description").value;
         var error = document.getElementById("err");
 
         if (stepNumber == "" && description == "") {
@@ -62,6 +62,7 @@ $(document).ready(function() {
                     setTimeout(function() {
                         document.getElementById('modal2').style.display = 'none';
                         $("#instructionrow").load('nosebleedinstructionlist');
+                        $("#nosebleedForm").trigger("reset");
                     }, 1000);
                 },
             });
