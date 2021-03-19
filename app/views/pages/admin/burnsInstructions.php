@@ -40,7 +40,7 @@
 							<input type="text" name="stepNumber" id="stepNumber"><br>
 							<label class="lab" >Add Description</label>
 							<textarea class="description" type="text" name="description" id="description"></textarea><br>
-							<p class="hide" id="err">Error</p>
+							<center><p class="hide" id="err">Error</p></center>
 							<input type="submit" value="Add" name="submit" id="submit" onclick="return check()">
 						</div>
 					</div>

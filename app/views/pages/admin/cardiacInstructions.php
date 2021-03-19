@@ -23,7 +23,7 @@
   			<li>Cardiac</li>
 		</ul>
 	</div>
-	<div class="form1">
+	<div class="form1" id="form1">
 		<div class="frame">
 			<center>
 				<form method="post" id="cardiacForm" name="cardiacForm" enctype="multipart/form-data">

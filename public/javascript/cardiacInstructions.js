@@ -28,23 +28,21 @@ $(document).ready(function() {
 
     $("#submit").click(function(event) {
         event.preventDefault();
-
-        var stepNumber = $("stepNumber").val();
-        var description = $("description").val();
+        var stepNumber = document.getElementById("stepNumber").value;
+        var description = document.getElementById("description").value;
         var error = document.getElementById("err");
+
+        console.log(stepNumber);
 
         if (stepNumber == "" && description == "") {
             error.innerText = "Please, fill all the feilds!";
             $("#err").removeClass("hide");
-            return false;
         } else if (stepNumber == "") {
             error.innerText = "Please, fill step number feild!";
             $("#err").removeClass("hide");
-            return false;
         } else if (description == "") {
             error.innerText = "Please, fill description feild!";
             $("#err").removeClass("hide");
-            return false;
         } else if (stepNumber != "" && description != "") {
             var data = $("#cardiacForm")[0];
             var formData = new FormData(data);
@@ -62,6 +60,7 @@ $(document).ready(function() {
                     setTimeout(function() {
                         document.getElementById('modal2').style.display = 'none';
                         $("#instructionrow").load('cardiacinstructionlist');
+                        $("#cardiacForm").trigger("reset");
                     }, 1000);
                 },
             });

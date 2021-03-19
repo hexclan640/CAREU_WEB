@@ -20,12 +20,12 @@ body {
     background-repeat: no-repeat;
     background-position: 10px center;
     color: #D8000C;
+    text-align: center;
     background-color: #FFBABA;
 }
 
 .hide {
     visibility: hidden;
-    ;
 }
 
 .form1 {
