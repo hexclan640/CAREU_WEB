@@ -3,7 +3,7 @@
     position: fixed;
     bottom: 20px;
     right: 10px;
-    z-index: 99;
+    z-index: 90;
     font-size: 18px;
     outline: none;
     background-color: rgb(88, 0, 0);

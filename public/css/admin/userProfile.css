@@ -148,9 +148,9 @@ body {
 .history {
     margin: 1.5rem;
     padding: 1rem;
-    transition: 0.3s;
     border: 3px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(245, 245, 255, 0.2);
+    cursor: pointer;
 }
 
 .viewhistory {
@@ -359,7 +359,6 @@ body {
 }
 
 .fdiv {
-    border-radius: 5px;
     padding: 0.5rem;
     background-color: rgba(255, 255, 255, 0.6);
 }
@@ -368,6 +367,10 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.upbutton {
+    width: 1rem;
 }
 
 @media screen and (max-width: 1200px) {

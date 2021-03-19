@@ -1,7 +1,7 @@
 <?php if($data['policeInfo']){ ?>
     <h1 class="heading">Police Requests</h1>
     <?php foreach($data['policeInfo'] as $policeInfo){ ?>
-        <a href="viewtherequest?id=<?php echo $policeInfo->requestId; ?>" class="link">
+        <a href="policerequest?id=<?php echo $policeInfo->requestId; ?>" class="link">
             <div class="requestrow">
                 <div class="brief2">
                     <div class="details">
@@ -48,7 +48,7 @@
 <?php if($data['suwasariyaInfo']){ ?>
     <h1 class="heading">Suwasariya Requests</h1>
     <?php foreach($data['suwasariyaInfo'] as $suwasariyaInfo){ ?>
-        <a href="viewtherequest?id=<?php echo $suwasariyaInfo->requestId; ?>" class="link">
+        <a href="suwasariyarequest?id=<?php echo $suwasariyaInfo->requestId; ?>" class="link">
             <div class="requestrow">
                 <div class="brief2">
                     <div class="details">
@@ -91,3 +91,5 @@
 		</center>
     </div>
 <?php } ?>
+
+<center><button onclick="closebtn()"><img src="../img/up.png" alt="" class="upbutton"></button></center>
