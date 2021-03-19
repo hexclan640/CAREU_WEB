@@ -59,8 +59,10 @@ $(document).ready(function() {
                 processData: false,
                 success: function(response) {
                     document.getElementById('modal2').style.display = 'block';
-                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
-                    setTimeout(function() { window.location = "bleeding"; }, 2000);
+                    setTimeout(function() {
+                        document.getElementById('modal2').style.display = 'none';
+                        $("#instructionrow").load('bleedinginstructionlist');
+                    }, 1000);
                 },
             });
         } else {
@@ -89,12 +91,21 @@ function confirm(id) {
                 document.getElementById('modal4').style.display = 'block';
                 nav.style.display = "block";
                 breadcrumb.style.display = "block";
-                setTimeout(function() { document.getElementById('modal4').style.display = 'none'; }, 2000);
-                setTimeout(function() { window.location = "bleeding"; }, 2000);
+                setTimeout(function() {
+                    document.getElementById('modal4').style.display = 'none';
+                    $("#instructionrow").load('bleedinginstructionlist');
+                }, 1000);
             }
         });
     });
+}
 
+$(document).ready(function() {
+    $("#instructionrow").load('bleedinginstructionlist');
+});
+
+function edit(id) {
+    window.location = "editbleeding?id=" + id;
 }
 
 function closeconfirm() {

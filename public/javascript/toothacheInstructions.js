@@ -59,14 +59,20 @@ $(document).ready(function() {
                 processData: false,
                 success: function(response) {
                     document.getElementById('modal2').style.display = 'block';
-                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
-                    setTimeout(function() { window.location = "toothache"; }, 2000);
+                    setTimeout(function() {
+                        document.getElementById('modal2').style.display = 'none';
+                        $("#instructionrow").load('toothacheinstructionlist');
+                    }, 1000);
                 },
             });
         } else {
             $("#err").addClass("hide");
         }
     });
+});
+
+$(document).ready(function() {
+    $("instructionrow").load('instructionlist');
 });
 
 
@@ -89,12 +95,21 @@ function confirm(id) {
                 document.getElementById('modal4').style.display = 'block';
                 nav.style.display = "block";
                 breadcrumb.style.display = "block";
-                setTimeout(function() { document.getElementById('modal4').style.display = 'none'; }, 2000);
-                setTimeout(function() { window.location = "toothache"; }, 2000);
+                setTimeout(function() {
+                    document.getElementById('modal4').style.display = 'none';
+                    $("#instructionrow").load('toothacheinstructionlist');
+                }, 1000);
             }
         });
     });
+}
 
+$(document).ready(function() {
+    $("#instructionrow").load('toothacheinstructionlist');
+});
+
+function edit(id) {
+    window.location = "edittoothache?id=" + id;
 }
 
 function closeconfirm() {
