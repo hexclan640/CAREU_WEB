@@ -32,6 +32,10 @@
         background-color: #FFBABA;
     }
     
+    .loading {
+        z-index: 90;
+    }
+    
     .hide {
         visibility: hidden;
     }

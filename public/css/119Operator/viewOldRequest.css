@@ -35,7 +35,7 @@ body {
 }
 
 .brief1 {
-    padding-top: 1rem;
+    padding-top: 0rem;
     color: black;
     float: left;
     width: 35%;
@@ -238,14 +238,21 @@ body {
     clear: both;
 }
 
-.fkbox {
-    width: 100%;
+.fbox {
+    width: 70%;
     float: left;
 }
 
 .ftime {
     width: 100%;
     float: left;
+}
+
+.frate {
+    width: 30%;
+    float: left;
+    text-align: right;
+    padding-top: 2rem;
 }
 
 .fbox p {
@@ -258,7 +265,6 @@ body {
 }
 
 .fdiv {
-    padding: 0.5rem;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -266,6 +272,32 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.outer-star {
+    position: relative;
+    display: inline-block
+}
+
+.inner-star {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    overflow: hidden
+}
+
+.outer-star::before {
+    content: '\f005 \f005 \f005 \f005 \f005';
+    font-family: 'Font Awesome 5 free';
+    font-weight: 900
+}
+
+.inner-star::before {
+    content: '\f005 \f005 \f005 \f005 \f005';
+    font-family: 'Font Awesome 5 free';
+    font-weight: 900;
+    color: red;
 }
 
 .reqDetails:after {
@@ -340,6 +372,13 @@ body {
     .reqInfomations {
         margin-top: 177px;
         margin-left: 0;
+    }
+    .fbox {
+        width: 100%;
+    }
+    .frate {
+        width: 100%;
+        padding-top: 0rem;
     }
 }
 

@@ -170,14 +170,14 @@
 
         public function getAllRequestAll($requestid)
         {
-            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }
 
         public function getFeedback($requestid)
         {
-            $this->db->query("SELECT feedback.comment,feedback.feedbackTime FROM give,feedback WHERE give.requestId={$requestid} AND give.feedbackId=feedback.feedbackId");
+            $this->db->query("SELECT feedback.comment,feedback.feedbackTime,feedback.ratings FROM give,feedback WHERE give.requestId={$requestid} AND give.feedbackId=feedback.feedbackId");
             $result = $this->db->resultSet();
             return $result;
         }

@@ -43,6 +43,7 @@
 					<?php } else if($requestInfo->flag==0){?>
 						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
 					<?php } ?>
+					<h3><?php echo $requestInfo->email; ?></h3>
 					<h3><?php echo $requestInfo->phoneNumber; ?></h3>
 				</div>
 				<div class="brief2">
@@ -95,7 +96,21 @@
 			<div class="feedback">
 				<div class="fdiv">
 					<div class="fbox">
-						<p><?php echo $feedbackInfo->comment ?></p>
+						<p><?php echo $feedbackInfo->comment; ?></p>
+					</div>
+					<div class="frate">
+						<div class="outer-star">
+							<div class="inner-star" id="inner-star">
+								<script>
+									var rating="<?php echo $feedbackInfo->ratings; ?>";
+									var ratingPercentage = rating / 5 * 100;
+									var ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
+									var star = document.getElementById("inner-star");
+									star.style.width = ratingRounded;
+								</script>
+							</div>
+						</div>
+						<span class="numberRating" id="numberRating">- <?php echo $feedbackInfo->ratings; ?></span>
 					</div>
 					<div class="ftime">
 						<hr>
@@ -107,6 +122,7 @@
 		<?php } ?>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script src="https://kit.fontawesome.com/a3a4c7c0c6.js"></script>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>

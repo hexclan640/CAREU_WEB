@@ -66,10 +66,12 @@
 						<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
 						<?php } ?>
 					</div>
-					<div class="column4">
+					<div class="column4" id="column4">
 						<p><strong>Note :</strong> When you click on "Accept" or "Reject" buttons, it will sends relevant acknowledgement messages to requesters.</p>
-						<button href="" class="accept" onclick="confirm1()">Accept</button>
-						<button href="" class="reject" onclick="confirm2()">Reject</button>
+						<?php if($userInfo->status==0) {?>
+							<button class="accept" onclick="confirm1()" id="acceptbtn">Accept</button>
+							<button class="reject" onclick="confirm2()" id="rejectbtn">Reject</button>
+						<?php }?>
 					</div>
 				</div>
 			</center>
@@ -88,7 +90,7 @@
 					<div class="clicks">
 						<div class="btns">
 							<?php foreach($data['userInfo'] as $userInfo){ ?>
-							<a href="accept?id=<?php echo $userInfo->userId; ?>" class="yes">Yes</a>
+							<a class="yes" onclick="accept(<?php echo $userInfo->userId; ?>)">Yes</a>
 							<?php } ?>
 						</div>
 						<div class="btns">
@@ -112,7 +114,7 @@
 					<div class="clicks">
 						<div class="btns">
 							<?php foreach($data['userInfo'] as $userInfo){ ?>
-							<a href="reject?id=<?php echo $userInfo->userId; ?>" class="yes">Yes</a>
+							<a class="yes" onclick="reject(<?php echo $userInfo->userId; ?>)">Yes</a>
 							<?php } ?>
 						</div>
 						<div class="btns">

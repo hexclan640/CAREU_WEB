@@ -288,24 +288,14 @@ class careuadmin extends Controller
 
     public function reject()
     {
-        $userId=$_GET['id'];
+        $userId=$_POST['id'];
         $result=$this->userModel->rejectRequest($userId);
-        if($result)
-        {
-            $_SESSION['rejectuser']=$userId;
-            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
-        }
     }
 
     public function accept()
     {
-        $userId=$_GET['id'];
+        $userId=$_POST['id'];
         $result=$this->userModel->acceptRequest($userId);
-        if($result)
-        {
-            $_SESSION['acceptuser']=$userId;
-            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
-        }
     }
 
     public function reports()

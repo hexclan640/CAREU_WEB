@@ -59,6 +59,31 @@ function closeconfirm2() {
     nav.style.display = "block";
     breadcrumb.style.display = "block";
 }
+
+function accept(id) {
+    $.ajax({
+        url: "accept",
+        type: "post",
+        data: { id: id },
+        success: function(data) {
+            closeconfirm1();
+            document.getElementById('column4').style.display = 'none';
+        },
+    });
+}
+
+function reject(id) {
+    $.ajax({
+        url: "reject",
+        type: "post",
+        data: { id: id },
+        success: function(data) {
+            closeconfirm2();
+            document.getElementById('column4').style.display = 'none';
+        },
+    });
+}
+
 var modal1 = document.getElementById('modal1');
 var modal2 = document.getElementById('modal2');
 
