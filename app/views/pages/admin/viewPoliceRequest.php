@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/jpg" href="../img/appLogo.png"/>
-	<link rel="stylesheet" type="text/css" href="../css/admin/viewRequest.css">
+	<link rel="stylesheet" type="text/css" href="../css/admin/viewPoliceRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminheader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
@@ -37,7 +37,14 @@
 					<?php } ?>
 				</div>
 				<div class="brief1">
-					<h1><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?></h1>
+					<?php if($requestInfo->flag==1){ ?>
+						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="acceptspan">Accepted</span></p>
+					<?php }else if($requestInfo->flag==2){ ?>
+						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="rejectspan">Rejected</span></p>
+					<?php } else if($requestInfo->flag==0){?>
+						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
+					<?php } ?>
+					<h3><?php echo $requestInfo->email; ?></h3>
 					<h3><?php echo $requestInfo->phoneNumber; ?></h3>
 				</div>
 				<div class="brief2">
@@ -86,9 +93,38 @@
 					</script>
 				</div>
 			</div>
+			<?php foreach($data['feedbackInfo'] as $feedbackInfo){ if($feedbackInfo->comment!="" && $feedbackInfo->feedbackTime!="") {?>
+			<div class="feedback">
+				<div class="fdiv">
+					<div class="fbox">
+						<p><?php echo $feedbackInfo->comment; ?></p>
+					</div>
+					<div class="frate">
+						<div class="outer-star">
+							<div class="inner-star" id="inner-star">
+								<script>
+									let rating="<?php echo $feedbackInfo->ratings; ?>";
+									console.log(rating);
+									let ratingPercentage = rating / 5 * 100;
+									let ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
+									let star = document.getElementById("inner-star");
+									star.style.width = ratingRounded;
+								</script>
+							</div>
+						</div>
+						<span class="numberRating" id="numberRating">- <?php echo $feedbackInfo->ratings; ?></span>
+					</div>
+					<div class="ftime">
+						<hr>
+						<p><?php echo $feedbackInfo->feedbackTime; ?></p>
+					</div>
+				</div>
+			</div>
+			<?php } }?>
 		<?php } ?>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script src="https://kit.fontawesome.com/a3a4c7c0c6.js"></script>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>

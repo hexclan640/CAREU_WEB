@@ -69,6 +69,32 @@
 				</div>
 			</div>
 			<div class="reqDetails">
+				<div col=column1>
+					<div class="photorow">
+						<?php if($data['evidenceInfo']){ ?>
+						<?php foreach($data['evidenceInfo'] as $evidenceinfo){ ?>
+						<div class="slideshow-container">
+							<center>
+								<div class="mySlides fade">
+									<img src="../../careu-php/evidence/<?php echo $requestInfo->requestId; ?>/<?php echo $evidenceinfo->name; ?>" class="idImg1" id="idImg1" onclick="zoom(this)">
+								</div>
+							</center>
+						</div>
+						<?php } ?>
+						<div class="nextprev">
+							<center>
+								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+								<a class="next" onclick="plusSlides(1)">&#10095;</a>
+							</center>
+						</div>
+						<?php }?>
+						<div id="zoomImg" class="zoomImg">
+							<span class="close">&times;</span>
+							<img class="idImg" id="img">
+						</div>
+					</div>
+				</div>
+				<hr>
 				<div class="description">
 					<p class="note">Special Notes</p>
 					<textarea name="specialnote" cols="30" rows="10" disabled><?php echo $requestInfo->description; ?></textarea>
@@ -110,7 +136,7 @@
 								</script>
 							</div>
 						</div>
-						<span class="numberRating" id="numberRating">- <?php echo $feedbackInfo->ratings; ?></span>
+						<span class="numberRating" id="numberRating"> <?php echo $feedbackInfo->ratings; ?></span>
 					</div>
 					<div class="ftime">
 						<hr>
@@ -127,6 +153,7 @@
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/viewOldRequest.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuUFIqw6r-ifKemRUTI9obFZghDIrcNHE&callback=myMap"></script>
 	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>

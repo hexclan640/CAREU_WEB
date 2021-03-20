@@ -110,7 +110,7 @@
 								</script>
 							</div>
 						</div>
-						<span class="numberRating" id="numberRating">- <?php echo $feedbackInfo->ratings; ?></span>
+						<span class="numberRating" id="numberRating"> <?php echo $feedbackInfo->ratings; ?></span>
 					</div>
 					<div class="ftime">
 						<hr>

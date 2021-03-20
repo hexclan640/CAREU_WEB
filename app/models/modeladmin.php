@@ -163,14 +163,22 @@
 
         public function getPoliceRequestAll($requestid)
         {
-            $this->db->query("SELECT request.requestId,request.userId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,description,latitude,longitude,flag FROM 119policerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 119policerequest.requestId='{$requestid}'");
+            $this->db->query("SELECT request.requestId,request.userId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,description,latitude,longitude,flag FROM 119policerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 119policerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }
 
+        public function getFeedback($requestid)
+        {
+            $this->db->query("SELECT feedback.comment,feedback.feedbackTime,feedback.ratings FROM give,feedback WHERE give.requestId={$requestid} AND give.feedbackId=feedback.feedbackId");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+
         public function getSuwasariyaRequestAll($requestid)
         {
-            $this->db->query("SELECT request.requestId,request.userId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            $this->db->query("SELECT request.requestId,request.userId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -189,7 +197,7 @@
 
         public function getFeedbackHistory($userid)
         {
-            $this->db->query("SELECT feedback.comment,feedback.feedbackTime FROM give,feedback WHERE give.userId={$userid} AND give.feedbackId=feedback.feedbackId");
+            $this->db->query("SELECT feedback.feedbackId,feedback.comment,feedback.feedbackTime,feedback.ratings FROM give,feedback WHERE give.userId={$userid} AND give.feedbackId=feedback.feedbackId");
             $result = $this->db->resultSet();
             return $result;
         }

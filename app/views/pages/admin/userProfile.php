@@ -121,6 +121,7 @@
 		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script src="https://kit.fontawesome.com/a3a4c7c0c6.js"></script>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/userProfile.js"></script>

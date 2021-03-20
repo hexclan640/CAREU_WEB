@@ -30,12 +30,18 @@
 					<div col=column1>
 						<div class="photorow">
 							<?php foreach($data['idphoto'] as $idphoto){ ?>
-							<div class="photo1col">
-								<center><img src="../../careu-php/upload/<?php echo $idphoto->idPhoto; ?>.jpg" class="idImg1" id="idImg1"></center>
+							<div class="slideshow-container">
+								<center>
+									<div class="mySlides fade">
+										<img src="../../careu-php/upload/<?php echo $idphoto->idPhoto; ?>.jpg" class="idImg1" id="idImg1">
+									</div>
+								</center>
 							</div>
 							<?php } ?>
+							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+							<a class="next" onclick="plusSlides(1)">&#10095;</a>
 							<div id="zoomImg" class="zoomImg">
-								<span class="close">&times;</span>
+								<span class="close" id="close">&times;</span>
 								<img class="idImg" id="img">
 							</div>
 						</div>
