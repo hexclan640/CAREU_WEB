@@ -43,6 +43,7 @@
 					<?php } else if($requestInfo->flag==0){?>
 						<p class="name"><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
 					<?php } ?>
+					<h3><?php echo $requestInfo->email; ?></h3>
 					<h3><?php echo $requestInfo->phoneNumber; ?></h3>
 				</div>
 				<div class="brief2">
@@ -68,6 +69,32 @@
 				</div>
 			</div>
 			<div class="reqDetails">
+				<div col=column1>
+					<div class="photorow">
+						<?php if($data['evidenceInfo']){ ?>
+						<?php foreach($data['evidenceInfo'] as $evidenceinfo){ ?>
+						<div class="slideshow-container">
+							<center>
+								<div class="mySlides fade">
+									<img src="../../careu-php/evidence/<?php echo $requestInfo->requestId; ?>/<?php echo $evidenceinfo->name; ?>" class="idImg1" id="idImg1" onclick="zoom(this)">
+								</div>
+							</center>
+						</div>
+						<?php } ?>
+						<div class="nextprev">
+							<center>
+								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+								<a class="next" onclick="plusSlides(1)">&#10095;</a>
+							</center>
+						</div>
+						<?php }?>
+						<div id="zoomImg" class="zoomImg">
+							<span class="close">&times;</span>
+							<img class="idImg" id="img">
+						</div>
+					</div>
+				</div>
+				<hr>
 				<div class="description">
 					<p class="note">Special Notes</p>
 					<textarea name="specialnote" cols="30" rows="10" disabled><?php echo $requestInfo->description; ?></textarea>
@@ -97,6 +124,20 @@
 					<div class="fbox">
 						<p><?php echo $feedbackInfo->comment ?></p>
 					</div>
+					<div class="frate">
+						<div class="outer-star">
+							<div class="inner-star" id="inner-star">
+								<script>
+									var rating="<?php echo $feedbackInfo->ratings; ?>";
+									var ratingPercentage = rating / 5 * 100;
+									var ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
+									var star = document.getElementById("inner-star");
+									star.style.width = ratingRounded;
+								</script>
+							</div>
+						</div>
+						<span class="numberRating" id="numberRating"> <?php echo $feedbackInfo->ratings; ?></span>
+					</div>
 					<div class="ftime">
 						<hr>
 						<p><?php echo $feedbackInfo->feedbackTime; ?></p>
@@ -107,10 +148,12 @@
 		<?php } ?>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script src="https://kit.fontawesome.com/a3a4c7c0c6.js"></script>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/viewOldRequest.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuUFIqw6r-ifKemRUTI9obFZghDIrcNHE&callback=myMap"></script>
 	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>

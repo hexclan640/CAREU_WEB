@@ -62,6 +62,31 @@
 				</div>
 			</div>
 			<div class="reqDetails">
+				<div col=column1>
+					<div class="photorow">
+						<?php if($data['evidenceInfo']){ ?>
+						<?php foreach($data['evidenceInfo'] as $evidenceinfo){ ?>
+						<div class="slideshow-container">
+							<center>
+								<div class="mySlides fade">
+									<img src="../../careu-php/evidence/<?php echo $requestInfo->requestId; ?>/<?php echo $evidenceinfo->name; ?>" class="idImg1" id="idImg1" onclick="zoom(this)">
+								</div>
+							</center>
+						</div>
+						<?php } ?>
+						<div class="nextprev">
+							<center>
+								<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+								<a class="next" onclick="plusSlides(1)">&#10095;</a>
+							</center>
+						</div>
+						<?php }?>
+						<div id="zoomImg" class="zoomImg">
+							<span class="close">&times;</span>
+							<img class="idImg" id="img">
+						</div>
+					</div>
+				</div>
 				<div class="description">
 					<p class="note">Special Notes</p>
 					<textarea name="specialnote" cols="30" rows="10" disabled><?php echo $requestInfo->description; ?></textarea>

@@ -117,7 +117,8 @@ class police extends Controller
     {
         $requestId=$_GET['id'];
         $requestInfo=$this->userModel->getRecentRequestAll($requestId);
-        $data = ['requestInfo' => $requestInfo];
+        $evidenceInfo=$this->userModel->getEvidence($requestId);
+        $data = ['requestInfo' => $requestInfo,'evidenceInfo'=>$evidenceInfo];
         if($requestInfo)
         {
             $this->view('pages/includes/119OperatorHeader');
@@ -131,7 +132,8 @@ class police extends Controller
         $requestId=$_GET['id'];
         $requestInfo=$this->userModel->getAllRequestAll($requestId);
         $feedbackInfo=$this->userModel->getFeedback($requestId);
-        $data = ['requestInfo' => $requestInfo,'feedbackInfo' => $feedbackInfo];
+        $evidenceInfo=$this->userModel->getEvidence($requestId);
+        $data = ['requestInfo' => $requestInfo,'feedbackInfo' => $feedbackInfo,'evidenceInfo'=>$evidenceInfo];
         if($requestInfo)
         {
             $this->view('pages/includes/119OperatorHeader');

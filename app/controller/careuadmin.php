@@ -195,7 +195,8 @@ class careuadmin extends Controller
     {
         $requestId=$_GET['id'];
         $requestInfo=$this->userModel->getPoliceRequestAll($requestId);
-        $data = ['requestInfo' => $requestInfo];
+        $feedbackInfo=$this->userModel->getFeedback($requestId);
+        $data = ['requestInfo' => $requestInfo,'feedbackInfo'=>$feedbackInfo];
         if($requestInfo)
         {
             $this->view('pages/includes/adminheader');
@@ -210,7 +211,8 @@ class careuadmin extends Controller
     {
         $requestId=$_GET['id'];
         $requestInfo=$this->userModel->getSuwasariyaRequestAll($requestId);
-        $data = ['requestInfo' => $requestInfo];
+        $feedbackInfo=$this->userModel->getFeedback($requestId);
+        $data = ['requestInfo' => $requestInfo,'feedbackInfo'=>$feedbackInfo];
         if($requestInfo)
         {
             $this->view('pages/includes/adminheader');
@@ -288,23 +290,21 @@ class careuadmin extends Controller
 
     public function reject()
     {
-        $userId=$_GET['id'];
+        $userId=$_POST['id'];
         $result=$this->userModel->rejectRequest($userId);
         if($result)
         {
-            $_SESSION['rejectuser']=$userId;
-            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
+            return true;
         }
     }
 
     public function accept()
     {
-        $userId=$_GET['id'];
+        $userId=$_POST['id'];
         $result=$this->userModel->acceptRequest($userId);
         if($result)
         {
-            $_SESSION['acceptuser']=$userId;
-            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
+            return true;
         }
     }
 

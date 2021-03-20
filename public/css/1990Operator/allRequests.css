@@ -47,6 +47,7 @@ body {
 .userPic {
     float: left;
     width: 15%;
+    padding-top: 1.75rem;
 }
 
 .alert {

@@ -30,6 +30,7 @@ body {
 .userPic {
     float: left;
     width: 15%;
+    padding-top: 1.75rem;
 }
 
 .brief1 {
@@ -37,20 +38,6 @@ body {
     color: black;
     float: left;
     width: 30%;
-}
-
-.brief1 p {
-    position: relative;
-}
-
-.notviewedspan {
-    top: -5px;
-    position: absolute;
-    font-size: 30%;
-    padding: 2px;
-    color: rgb(14, 13, 121);
-    background-color: rgba(34, 89, 192, 0.589);
-    border: 2px solid rgb(14, 13, 121)
 }
 
 .link {
@@ -75,7 +62,7 @@ body {
 }
 
 .requestrow {
-    background-color: rgb(245, 245, 255, 0.3);
+    background-color: rgb(245, 245, 255, 0.2);
     border: 3px solid rgb(255, 255, 255, 0.7);
     margin-top: 1rem;
     margin-bottom: 1rem;

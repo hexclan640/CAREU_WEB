@@ -59,6 +59,31 @@ function closeconfirm2() {
     nav.style.display = "block";
     breadcrumb.style.display = "block";
 }
+
+function accept(id) {
+    $.ajax({
+        url: "accept",
+        type: "post",
+        data: { id: id },
+        success: function(data) {
+            closeconfirm1();
+            document.getElementById('column4').style.display = 'none';
+        },
+    });
+}
+
+function reject(id) {
+    $.ajax({
+        url: "reject",
+        type: "post",
+        data: { id: id },
+        success: function(data) {
+            closeconfirm2();
+            document.getElementById('column4').style.display = 'none';
+        },
+    });
+}
+
 var modal1 = document.getElementById('modal1');
 var modal2 = document.getElementById('modal2');
 
@@ -82,4 +107,35 @@ window.onclick = function(event) {
         nav.style.display = "block";
         breadcrumb.style.display = "block";
     }
+}
+
+// -----------------------------------------------------
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 }
