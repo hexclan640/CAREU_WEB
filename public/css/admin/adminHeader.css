@@ -57,30 +57,24 @@
     color: white;
 }
 
-@media screen and (max-width: 660px) {
-    .datetime {
-        display: none;
-    }
-}
-
 
 /* ----------------------------------------------------------------------------------------------------------------------- */
 
 .datetime {
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-family: "Segoe UI", sans-serif;
-    width: 340px;
-    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.3));
-    transition: 0.5s;
-    transition-property: background, box-shadow;
+    width: 250px;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    background-color: white;
     float: left;
 }
 
 .date {
-    font-size: 15px;
+    font-size: 100%;
     font-weight: 600;
     text-align: center;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 
 .time {
@@ -88,24 +82,48 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    letter-spacing: 1px;
 }
 
 .time span:not(:last-child) {
     position: relative;
-    margin: 0 6px;
+    margin: 0 2px;
     font-weight: 600;
     text-align: center;
-    letter-spacing: 3px;
 }
 
 .time span:last-child {
-    /* background: #2E94E3; */
-    font-size: 15px;
+    font-size: 100%;
     font-weight: 600;
     text-transform: uppercase;
-    /* margin-top: 10px; */
-    padding: 0 5px;
-    border-radius: 3px;
+}
+
+@media screen and (max-width: 700px) {
+    .datetime {
+        width: 200px;
+    }
+    .date,
+    .time,
+    #period {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .datetime {
+        width: 150px;
+    }
+    .date,
+    .time,
+    #period {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .datetime {
+        display: none;
+    }
 }
 
 
