@@ -1,9 +1,22 @@
-function confirm() {
+function confirm(id) {
     document.getElementById('modal1').style.display = 'block';
     var nav = document.getElementById("navbar");
     var breadcrumb = document.getElementById("breadcrum");
     nav.style.display = "none";
     breadcrumb.style.display = "none";
+
+    document.getElementById("blockyes").onclick = function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "block",
+            method: "post",
+            data: { id: id },
+            success: function(data) {
+                document.getElementById("column4").style.display = "none";
+                closeconfirm();
+            }
+        });
+    }
 
 }
 

@@ -11,7 +11,7 @@
 					<span id="daynum">00</span>,
 					<span id="year">Year</span>
 				</div>
-				<div class="time">
+				<div class="timepart">
 					<span id="hour">00</span>:
 					<span id="minutes">00</span>:
 					<span id="seconds">00</span>
