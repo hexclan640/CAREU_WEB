@@ -4,6 +4,20 @@
 			<h1 id="service">ADMIN PANEL</h1>
 		</div>
   		<div id="navbar-right">
+		  	<div class="datetime">
+				<div class="date">
+					<span id="dayname">Day</span>,
+					<span id="month">Month</span>
+					<span id="daynum">00</span>,
+					<span id="year">Year</span>
+				</div>
+				<div class="time">
+					<span id="hour">00</span>:
+					<span id="minutes">00</span>:
+					<span id="seconds">00</span>
+					<span id="period">AM</span>
+				</div>
+    		</div>
     		<a href="usermanagement">
   				<span><img src="../img/header/users.png" alt=""></span>
   				<span class="badge" id="badge1">|</span>

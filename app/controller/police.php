@@ -217,7 +217,7 @@ class police extends Controller
     {
         $this->view('pages/includes/1990OperatorHeader');
         $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/1990Operator/reports');
+        $this->view('pages/119Operator/reports');
         $this->view('pages/includes/footer');
     }
 }

@@ -58,6 +58,74 @@
 }
 
 
+/* ----------------------------------------------------------------------------------------------------------------------- */
+
+.datetime {
+    color: rgb(0, 0, 0);
+    font-family: "Segoe UI", sans-serif;
+    width: 250px;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    background-color: white;
+}
+
+.date {
+    font-size: 100%;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.time {
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.time span:not(:last-child) {
+    position: relative;
+    margin: 0 2px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.time span:last-child {
+    font-size: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 700px) {
+    .datetime {
+        width: 200px;
+    }
+    .date,
+    .time,
+    #period {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .datetime {
+        width: 150px;
+    }
+    .date,
+    .time,
+    #period {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .datetime {
+        display: none;
+    }
+}
+
+
 /*-------------------------------------------------------------------------------------------------------------------------*/
 
 .notification {

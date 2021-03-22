@@ -27,43 +27,13 @@
 			<div class="column" >
 				<div class="category"><h1>Police Operators</h1></div>
 				<div class="col" id="col1">
-                    <?php foreach($data['operatorInfo119'] as $operatorInfo119){ ?>
-                        <div class="userrow">
-                            <div class="userPic">
-								<div class="userPic">
-									<img src="../img/operators/profile.svg">
-								</div>
-                            </div>
-                            <div class="column1">
-                                <h2><?php echo $operatorInfo119->firstName." ".$operatorInfo119->lastName; ?><img src="../img/userManagement/virified.svg" alt=""></h2>
-                                <p><img src="../img/operators/username.svg"/><?php echo $operatorInfo119->userName; ?></p>
-                                <p><img src="../img/operators/gender.svg"/><?php echo $operatorInfo119->gender; ?></p>
-							</div>
-							<div class="column2">
-								<button onclick="confirm1(<?php echo $operatorInfo119->userId; ?>)">Remove</button>
-							</div>
-                        </div>
-                    <?php } ?>
+                   
 				</div>
 			</div>
 			<div class="column" >
 				<div class="category"><h1>Suwasariya Operators</h1></div>
-				<div class="col" id="col1">
-                    <?php foreach($data['operatorInfo1990'] as $operatorInfo1990){ ?>
-                        <div class="userrow">
-                            <div class="userPic">
-								<img src="../img/operators/profile.svg">
-                            </div>
-                            <div class="column1">
-                                <h2><?php echo $operatorInfo1990->firstName." ".$operatorInfo1990->lastName; ?><img src="../img/userManagement/virified.svg" alt=""></h2>
-                        	    <p><img src="../img/operators/username.svg"/><?php echo $operatorInfo1990->userName; ?></p>
-                                <p><img src="../img/operators/gender.svg"/><?php echo $operatorInfo1990->gender; ?></p>
-							</div>
-							<div class="column2">
-								<button onclick="confirm2(<?php echo $operatorInfo1990->userId; ?>)">Remove</button>
-							</div>
-                        </div>
-                    <?php } ?>
+				<div class="col" id="col2">
+                    
 				</div>
 			</div>
 		</div>
@@ -80,7 +50,7 @@
 				<div class="clearfix">
 					<div class="clicks">
 						<div class="btns">
-							<a href="" class="yes" id="yes1">Yes</a>
+							<a href="" class="yes" id="yes1" onclick=>Yes</a>
 						</div>
 						<div class="btns">
 							<a onclick="closeconfirm1()" class="no">Cancel</a>

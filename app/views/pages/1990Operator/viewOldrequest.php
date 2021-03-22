@@ -111,6 +111,7 @@
 							</div>
 						</div>
 						<span class="numberRating" id="numberRating"> <?php echo $feedbackInfo->ratings; ?></span>
+						<p>Service Rating</p>
 					</div>
 					<div class="ftime">
 						<hr>
