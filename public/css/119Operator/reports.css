@@ -8,6 +8,19 @@ body {
     font-family: sans-serif;
 }
 
+.chartrow::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.report {
+    float: left;
+    background-color: white;
+    width: 50%;
+    padding: 1rem;
+}
+
 .breadcrum {
     color: white;
     background-color: rgb(128, 0, 0, 0.9);
