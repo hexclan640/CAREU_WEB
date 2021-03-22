@@ -29,6 +29,7 @@
 				<div class="row">
 					<div col=column1>
 						<div class="photorow">
+						<?php if(!empty($data['idphoto'])){ ?>
 							<?php foreach($data['idphoto'] as $idphoto){ ?>
 							<div class="slideshow-container">
 								<center>
@@ -40,6 +41,7 @@
 							<?php } ?>
 							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 							<a class="next" onclick="plusSlides(1)">&#10095;</a>
+							<?php } ?>
 							<div id="zoomImg" class="zoomImg">
 								<span class="close" id="close">&times;</span>
 								<img class="idImg" id="img">

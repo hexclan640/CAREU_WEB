@@ -240,23 +240,41 @@ class careuadmin extends Controller
         $this->view('pages/admin/feedbackHistory',$data);
     }
 
+    public function getrequesttype(){
+
+    }
+
     public function operators()
     {
+        $this->view('pages/includes/adminheader');
+        $this->view('pages/admin/adminSidebar');
+        $this->view('pages/admin/operators');
+        $this->view('pages/includes/footer'); 
+    }
+
+    public function getpoliceoperators()
+    {
         $operators119=$this->userModel->getOperator119();
-        $operators1990=$this->userModel->getOperator1990();
-        $data = ['operatorInfo119' => $operators119,'operatorInfo1990' => $operators1990];
+        $data = ['operatorInfo119' => $operators119];
         if(isset($data))
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/operators',$data);
-            $this->view('pages/includes/footer'); 
+            $this->view('pages/admin/policeOperators',$data);
+        }
+    }
+
+    public function getsuwasariyaoperators()
+    {
+        $operators1990=$this->userModel->getOperator1990();
+        $data = ['operatorInfo1990' => $operators1990];
+        if(isset($data))
+        {
+            $this->view('pages/admin/suwasariyaOperators',$data);
         }
     }
 
     public function romoveoperator119()
     {
-        $result=$this->userModel->removeOperator119($_GET['id']);
+        $result=$this->userModel->removeOperator119($_POST['id']);
         if($result)
         {
             $_SESSION['operators']="success";
@@ -266,7 +284,7 @@ class careuadmin extends Controller
 
     public function romoveoperator1990()
     {
-        $result=$this->userModel->removeOperator1990($_GET['id']);
+        $result=$this->userModel->removeOperator1990($_POST['id']);
         if($result)
         {
             $_SESSION['operators']="success";

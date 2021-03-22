@@ -33,8 +33,8 @@
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="../javascript/reports.js"></script>
-	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
 	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>
