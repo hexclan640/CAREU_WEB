@@ -6,13 +6,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin/home.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin/adminHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/calendar/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Home</title>
 </head>
-<body>
+<body onload="initClock()">
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
 	</div>
