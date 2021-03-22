@@ -167,7 +167,7 @@ class careuadmin extends Controller
 
     public function block()
     {
-        $userId=$_GET['id'];
+        $userId=$_POST['id'];
         $result=$this->userModel->blockUser($userId);
         if($result)
         {

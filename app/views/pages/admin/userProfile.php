@@ -52,9 +52,11 @@
 						<label>Address</label>
 						<input type="text" value="<?php echo $userInfo->address; ?>" disabled><br>
 					</div>
-					<div class="column4">
-						<button onclick="confirm()">Block</button>
+					<?php if($userInfo->status==1) {?>
+					<div class="column4" id="column4">
+						<button onclick="confirm(<?php echo $userInfo->userId; ?>)">Block</button>
 					</div>
+					<?php } ?>
 				</div>
 				<?php } ?>
 			</center>
@@ -109,7 +111,7 @@
 					<div class="clicks">
 						<div class="btns">
 						<?php foreach($data['userInfo'] as $userInfo){ ?>
-							<a href="block?id=<?php echo $userInfo->userId; ?>" class="yes">Yes</a>
+							<a id="blockyes" class="yes">Yes</a>
 							<?php } ?>
 						</div>
 						<div class="btns">
