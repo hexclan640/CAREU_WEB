@@ -8,11 +8,17 @@ class Controller{
     }
 
     public function view($view,$data =[]){
-        if(file_exists('../app/views/'.$view.'.php')){
-            require_once '../app/views/'.$view.'.php';
+        if(file_exists('../app/views/pages/'.$view.'.php')){
+            require_once '../app/views/pages/'.$view.'.php';
         }else{
             die("View does not exists.");
         }
+    }
+
+    public function PHPMailer(){
+        require_once '../app/PHPMailer/PHPMailerAutoload.php';
+		require_once '../app/PHPMailer/class.phpmailer.php';
+		require_once '../app/PHPMailer/class.smtp.php';
     }
 }
 ?>

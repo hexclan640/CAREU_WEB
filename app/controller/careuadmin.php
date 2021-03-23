@@ -19,26 +19,26 @@ class careuadmin extends Controller
 
     public function home()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/home');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/home');
+        $this->view('includes/footer');
     }
 
     public function new119()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/create119OperatorAccount');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/create119OperatorAccount');
+        $this->view('includes/footer');
     }
 
     public function new1990()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/create1990OperatorAccount');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/create1990OperatorAccount');
+        $this->view('includes/footer');
     }
 
     public function profile()
@@ -48,10 +48,10 @@ class careuadmin extends Controller
 
         if($adminInfo)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editProfileAdmin',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editProfileAdmin',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -68,10 +68,10 @@ class careuadmin extends Controller
 
     public function changePassword()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/changePassword');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/changePassword');
+        $this->view('includes/footer');
     }
 
     public function passwordchange()
@@ -101,10 +101,10 @@ class careuadmin extends Controller
 
     public function usermanagement()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/userManagement');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/userManagement');
+        $this->view('includes/footer');
     }
 
     public function searchunverified(){
@@ -114,7 +114,7 @@ class careuadmin extends Controller
         if(isset($search)){
             $requestInfo=$this->userModel->unverifiedSearch($search);
             $data = ['requestInfo' => $requestInfo];
-            $this->view('pages/admin/unverifiedSearch',$data);
+            $this->view('admin/unverifiedSearch',$data);
         }
     }
 
@@ -125,7 +125,7 @@ class careuadmin extends Controller
         if(isset($search)){
             $usersInfo=$this->userModel->verifiedSearch($search);
             $data = ['usersInfo' => $usersInfo];
-            $this->view('pages/admin/verifiedSearch',$data);
+            $this->view('admin/verifiedSearch',$data);
         }
     }
 
@@ -133,20 +133,20 @@ class careuadmin extends Controller
     {
         $requestInfo=$this->userModel->getRequestBrief();
         $data = ['requestInfo' => $requestInfo];
-        $this->view('pages/admin/userRequests',$data);
+        $this->view('admin/userRequests',$data);
     }
 
     public function userrequestscount(){
         $requestCount=$this->userModel->getRequestCount();
         $data = ['requestCount' => $requestCount];
-        $this->view('pages/includes/badge',$data);
+        $this->view('includes/badge',$data);
     }
 
     public function userbrief()
     {
         $users=$this->userModel->getUserBrief();
         $data = ['usersInfo' => $users];
-        $this->view('pages/admin/userBrief',$data);
+        $this->view('admin/userBrief',$data);
     }
 
     public function userprofile()
@@ -157,10 +157,10 @@ class careuadmin extends Controller
         $data = ['userInfo' => $user,'idphoto'=>$id];
         if($user)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/viewUserRequest',$data);
-            $this->view('pages/includes/footer'); 
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/viewUserRequest',$data);
+            $this->view('includes/footer'); 
         }
     }
 
@@ -178,10 +178,10 @@ class careuadmin extends Controller
         $data = ['userInfo' => $user];
         if($user)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/userProfile',$data);
-            $this->view('pages/includes/footer'); 
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/userProfile',$data);
+            $this->view('includes/footer'); 
         }
     }
 
@@ -193,10 +193,10 @@ class careuadmin extends Controller
         $data = ['requestInfo' => $requestInfo,'feedbackInfo'=>$feedbackInfo];
         if($requestInfo)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/viewPoliceRequest',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/viewPoliceRequest',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -209,10 +209,10 @@ class careuadmin extends Controller
         $data = ['requestInfo' => $requestInfo,'feedbackInfo'=>$feedbackInfo];
         if($requestInfo)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/viewSuwasariyaRequest',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/viewSuwasariyaRequest',$data);
+            $this->view('includes/footer');
         }
     }
     
@@ -224,14 +224,14 @@ class careuadmin extends Controller
             'policeInfo' => $policerequests,
             'suwasariyaInfo' => $suwasariyarequests
         ];
-        $this->view('pages/admin/requestHistory',$data);
+        $this->view('admin/requestHistory',$data);
     }
 
     public function getfeedbackhistory(){
         $userId=$_SESSION["id"];
         $feedbacks=$this->userModel->getFeedbackHistory($userId);
         $data = ['feedbackInfo' => $feedbacks];
-        $this->view('pages/admin/feedbackHistory',$data);
+        $this->view('admin/feedbackHistory',$data);
     }
 
     public function getrequesttype(){
@@ -240,10 +240,10 @@ class careuadmin extends Controller
 
     public function operators()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/operators');
-        $this->view('pages/includes/footer'); 
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/operators');
+        $this->view('includes/footer'); 
     }
 
     public function getpoliceoperators()
@@ -252,7 +252,7 @@ class careuadmin extends Controller
         $data = ['operatorInfo119' => $operators119];
         if(isset($data))
         {
-            $this->view('pages/admin/policeOperators',$data);
+            $this->view('admin/policeOperators',$data);
         }
     }
 
@@ -262,7 +262,7 @@ class careuadmin extends Controller
         $data = ['operatorInfo1990' => $operators1990];
         if(isset($data))
         {
-            $this->view('pages/admin/suwasariyaOperators',$data);
+            $this->view('admin/suwasariyaOperators',$data);
         }
     }
 
@@ -283,10 +283,10 @@ class careuadmin extends Controller
 
         if($requestInfo)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/viewUserRequest',$data);
-            $this->view('pages/includes/footer'); 
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/viewUserRequest',$data);
+            $this->view('includes/footer'); 
         }
     }
 
@@ -294,28 +294,69 @@ class careuadmin extends Controller
     {
         $userId=$_POST['id'];
         $result=$this->userModel->rejectRequest($userId);
-        if($result)
-        {
-            return true;
-        }
+        $result=$this->userModel->getEmail($userId);
+        $adminemail="hexclan640@gmail.com";
+        $password="Hex@1800clan";
+        $this->PHPMailer();
+        $email=$result[0]->email;
+        $mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->Username = $adminemail;
+		$mail->Password = $password;
+		$mail->SMTPSecure = 'TLS';
+		$mail->Port = 587;
+		$mail->setFrom($adminemail,'CARE-U ADMIN');
+		$mail->addAddress($email);
+		$mail->Subject = 'Account Activation Failed';
+    	$mail->Body    = "We are very sorry to inform that your account was unsuccesfull. The given details can't be accepted. Please re-check your given details and try again later. Thank you for conneting with us!";
+		if(!$mail->send()) {
+		    echo 'Message could not be sent.';
+		    echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {
+		    echo 'Reset link has been sent to your email';
+		}
     }
 
     public function accept()
     {
         $userId=$_POST['id'];
-        $result=$this->userModel->acceptRequest($userId);
-        if($result)
-        {
-            return true;
-        }
+        $this->userModel->acceptRequest($userId);
+        $result=$this->userModel->getEmail($userId);
+        $adminemail="hexclan640@gmail.com";
+        $password="Hex@1800clan";
+        $this->PHPMailer();
+
+        $email=$result[0]->email;
+        echo $result[0]->email;
+        
+        $mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->Username = $adminemail;
+		$mail->Password = $password;
+		$mail->SMTPSecure = 'TLS';
+		$mail->Port = 587;
+		$mail->setFrom($adminemail,'CARE-U ADMIN');
+		$mail->addAddress($email);
+		$mail->Subject = 'Welcome to CARE-U';
+    	$mail->Body    = "Your details were verified and the account is activated. Now you can log in to your account via the Care-U mobile appilication and keep in touch with us. We will be there for you to help you whenever your are facing to any emergency situation.Thank you conneting with us and stay with us in the future!";
+		if(!$mail->send()) {
+		    echo 'Message could not be sent.';
+		    echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {
+		    echo 'Reset link has been sent to your email';
+		}
     }
 
     public function reports()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/reports');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/reports');
+        $this->view('includes/footer');
     }
 
     public function newoperator119()
@@ -335,7 +376,7 @@ class careuadmin extends Controller
         if(isset($search)){
             $operatorInfo=$this->userModel->checkOperator119($search);
             $data = ['operatorInfo' => $operatorInfo];
-            $this->view('pages/admin/usernamelist',$data);
+            $this->view('admin/usernamelist',$data);
         }
     }
 
@@ -372,7 +413,7 @@ class careuadmin extends Controller
         if(isset($search)){
             $operatorInfo=$this->userModel->checkOperator1990($search);
             $data = ['operatorInfo' => $operatorInfo];
-            $this->view('pages/admin/usernamelist',$data);
+            $this->view('admin/usernamelist',$data);
         }
     }
 
@@ -394,25 +435,25 @@ class careuadmin extends Controller
 
     public function firstaids()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/addInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/addInstructions');
+        $this->view('includes/footer');
     }
 
     public function instructionform()
     {
-        // $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/instructionForm');
-        // $this->view('pages/includes/footer');
+        // $this->view('includes/adminheader');
+        $this->view('admin/instructionForm');
+        // $this->view('includes/footer');
     }
 
     public function cardiac()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/cardiacInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/cardiacInstructions');
+        $this->view('includes/footer');
     }
 
     public function cardiacinstructionlist()
@@ -420,7 +461,7 @@ class careuadmin extends Controller
         $instructions=$this->userModel->getCardiac();
         $data = ['instructions' => $instructions];
         if($instructions){
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
         }
     }
 
@@ -448,10 +489,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editCardiacInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editCardiacInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -467,10 +508,10 @@ class careuadmin extends Controller
 
     public function bleeding()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/bleedingInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/bleedingInstructions');
+        $this->view('includes/footer');
     }
 
     public function bleedinginstructionlist()
@@ -478,7 +519,7 @@ class careuadmin extends Controller
         $instructions=$this->userModel->getBleeding();
         $data = ['instructions' => $instructions];
         if($instructions){
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
         }
     }
 
@@ -506,10 +547,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editBleedingInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editBleedingInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -525,10 +566,10 @@ class careuadmin extends Controller
 
     public function burn()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/burnsInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/burnsInstructions');
+        $this->view('includes/footer');
     }
 
     public function burninstructionlist()
@@ -537,7 +578,7 @@ class careuadmin extends Controller
         $data = ['instructions' => $instructions];
         if($instructions)
         {
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
         }
     }
 
@@ -565,10 +606,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editBurnsInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editBurnsInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -584,10 +625,10 @@ class careuadmin extends Controller
 
     public function fracture()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/fractureInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/fractureInstructions');
+        $this->view('includes/footer');
     }
 
     public function fractureinstructionlist()
@@ -596,7 +637,7 @@ class careuadmin extends Controller
         $data = ['instructions' => $instructions];
         if($instructions)
         {
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
             
         }
     }
@@ -625,10 +666,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editFractureInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editFractureInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -644,10 +685,10 @@ class careuadmin extends Controller
 
     public function blister()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/blisterInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/blisterInstructions');
+        $this->view('includes/footer');
     }
 
     public function blisterinstructionlist()
@@ -656,7 +697,7 @@ class careuadmin extends Controller
         $data = ['instructions' => $instructions];
         if($instructions)
         {
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
         }
     }
 
@@ -684,10 +725,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editBlisterInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editBlisterInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -703,10 +744,10 @@ class careuadmin extends Controller
 
     public function sprain()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/sprainInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/sprainInstructions');
+        $this->view('includes/footer');
     }
 
     public function spraininstructionlist()
@@ -715,7 +756,7 @@ class careuadmin extends Controller
         $data = ['instructions' => $instructions];
         if($instructions)
         {
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
         }
     }
 
@@ -743,10 +784,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editSprainInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editSprainInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -762,10 +803,10 @@ class careuadmin extends Controller
 
     public function nosebleed()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/nosebleedInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/nosebleedInstructions');
+        $this->view('includes/footer');
     }
 
     public function nosebleedinstructionlist()
@@ -774,7 +815,7 @@ class careuadmin extends Controller
         $data = ['instructions' => $instructions];
         if($instructions)
         {
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
         }
     }
 
@@ -802,10 +843,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editNosebleedInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editNosebleedInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -821,10 +862,10 @@ class careuadmin extends Controller
 
     public function toothache()
     {
-        $this->view('pages/includes/adminheader');
-        $this->view('pages/admin/adminSidebar');
-        $this->view('pages/admin/toothacheInstructions');
-        $this->view('pages/includes/footer');
+        $this->view('includes/adminheader');
+        $this->view('admin/adminSidebar');
+        $this->view('admin/toothacheInstructions');
+        $this->view('includes/footer');
     }
 
     public function toothacheinstructionlist()
@@ -833,7 +874,7 @@ class careuadmin extends Controller
         $data = ['instructions' => $instructions];
         if($instructions)
         {
-            $this->view('pages/admin/instructionList',$data);
+            $this->view('admin/instructionList',$data);
         }
     }
 
@@ -861,10 +902,10 @@ class careuadmin extends Controller
         $data = ['instruction' => $instruction];
         if($instruction)
         {
-            $this->view('pages/includes/adminheader');
-            $this->view('pages/admin/adminSidebar');
-            $this->view('pages/admin/editToothacheInstructions',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/adminheader');
+            $this->view('admin/adminSidebar');
+            $this->view('admin/editToothacheInstructions',$data);
+            $this->view('includes/footer');
         }
     }
 

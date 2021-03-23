@@ -13,7 +13,7 @@ class careu extends Controller
         {
             session_destroy();
         }
-        $this->view('pages/index');
+        $this->view('index');
     }
 
     public function verify()
@@ -126,13 +126,13 @@ class careu extends Controller
     //     $userInfo=$this->userModel->getUserEmail($userName);
     //     $data=['userMail'=>$userInfo];
     //     if($userInfo){
-    //         $this->view('pages/emailSent',$data);
+    //         $this->view('emailSent',$data);
     //     }
     // }
 
     // public function forget()
     // {
-    //     $this->view('pages/getUsername');
+    //     $this->view('getUsername');
     // }
 }
 ?>

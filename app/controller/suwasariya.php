@@ -19,25 +19,25 @@ class suwasariya extends Controller
 
     public function home()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/home');
-        $this->view('pages/includes/footer');
+        $this->view('includes/1990OperatorHeader');
+        $this->view('1990Operator/suwasariyaSidebar');
+        $this->view('1990Operator/home');
+        $this->view('includes/footer');
     }
 
     public function recent()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/recentRequests');
-        $this->view('pages/includes/footer');
+        $this->view('includes/1990OperatorHeader');
+        $this->view('1990Operator/suwasariyaSidebar');
+        $this->view('1990Operator/recentRequests');
+        $this->view('includes/footer');
     }
 
     public function getrecent()
     {
         $requestsInfo=$this->userModel->getRecentRequests();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/1990Operator/request',$data);
+        $this->view('1990Operator/request',$data);
     }
 
     public function rejectrequest(){
@@ -71,19 +71,19 @@ class suwasariya extends Controller
         $data = ['requestInfo' => $requestInfo];
         if($requestInfo)
         {
-            $this->view('pages/includes/1990OperatorHeader');
-            $this->view('pages/1990Operator/suwasariyaSidebar');
-            $this->view('pages/1990Operator/viewRequest',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/1990OperatorHeader');
+            $this->view('1990Operator/suwasariyaSidebar');
+            $this->view('1990Operator/viewRequest',$data);
+            $this->view('includes/footer');
         }
     }
 
     public function all()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/allrequests');
-        $this->view('pages/includes/footer');
+        $this->view('includes/1990OperatorHeader');
+        $this->view('1990Operator/suwasariyaSidebar');
+        $this->view('1990Operator/allrequests');
+        $this->view('includes/footer');
     }
 
     public function searchrequests(){
@@ -93,26 +93,26 @@ class suwasariya extends Controller
         if(isset($search)){
             $requestsInfo=$this->userModel->requestsSearch($search);
             $data = ['requestsInfo' => $requestsInfo];
-            $this->view('pages/1990operator/searchRequests',$data);
+            $this->view('1990operator/searchRequests',$data);
         }
     }
 
     public function notviewed(){
         $requestsInfo=$this->userModel->notviewedSearch();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/1990operator/searchRequests',$data);
+        $this->view('1990operator/searchRequests',$data);
     }
 
     public function accepted(){
         $requestsInfo=$this->userModel->acceptedSearch();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/1990operator/searchRequests',$data);
+        $this->view('1990operator/searchRequests',$data);
     }
 
     public function rejected(){
         $requestsInfo=$this->userModel->rejectedSearch();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/1990operator/searchRequests',$data);
+        $this->view('1990operator/searchRequests',$data);
     }
 
     public function getall()
@@ -121,7 +121,7 @@ class suwasariya extends Controller
         $data = ['requestsInfo' => $requestsInfo];
         if($requestsInfo)
         {
-            $this->view('pages/1990Operator/oldrequest',$data);
+            $this->view('1990Operator/oldrequest',$data);
         }
     }
 
@@ -132,25 +132,25 @@ class suwasariya extends Controller
         $data = ['requestInfo' => $requestInfo,'feedbackInfo' => $feedbackInfo];
         if($requestInfo)
         {
-            $this->view('pages/includes/1990OperatorHeader');
-            $this->view('pages/1990Operator/suwasariyaSidebar');
-            $this->view('pages/1990Operator/viewOldRequest',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/1990OperatorHeader');
+            $this->view('1990Operator/suwasariyaSidebar');
+            $this->view('1990Operator/viewOldRequest',$data);
+            $this->view('includes/footer');
         }
     }
 
     public function viewrequest()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/viewRequest');
-        $this->view('pages/includes/footer');
+        $this->view('includes/1990OperatorHeader');
+        $this->view('1990Operator/suwasariyaSidebar');
+        $this->view('1990Operator/viewRequest');
+        $this->view('includes/footer');
     }
 
     public function requestscount(){
         $requestCount=$this->userModel->getRequestCount();
         $data = ['requestCount' => $requestCount];
-        $this->view('pages/includes/badge',$data);
+        $this->view('includes/badge',$data);
     }
 
     public function profile()
@@ -160,10 +160,10 @@ class suwasariya extends Controller
 
         if($operatorInfo)
         {
-            $this->view('pages/includes/1990OperatorHeader');
-            $this->view('pages/1990Operator/suwasariyaSidebar');
-            $this->view('pages/1990Operator/editProfileOperator1990',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/1990OperatorHeader');
+            $this->view('1990Operator/suwasariyaSidebar');
+            $this->view('1990Operator/editProfileOperator1990',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -179,10 +179,10 @@ class suwasariya extends Controller
 
     public function changePassword()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/changePassword');
-        $this->view('pages/includes/footer');
+        $this->view('includes/1990OperatorHeader');
+        $this->view('1990Operator/suwasariyaSidebar');
+        $this->view('1990Operator/changePassword');
+        $this->view('includes/footer');
     }
 
     public function passwordchange()
@@ -211,10 +211,10 @@ class suwasariya extends Controller
 
     public function reports()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/1990Operator/suwasariyaSidebar');
-        $this->view('pages/1990Operator/reports');
-        $this->view('pages/includes/footer');
+        $this->view('includes/1990OperatorHeader');
+        $this->view('1990Operator/suwasariyaSidebar');
+        $this->view('1990Operator/reports');
+        $this->view('includes/footer');
     } 
 }
 

@@ -19,26 +19,26 @@ class police extends Controller
 
     public function home()
     {
-        $this->view('pages/includes/119OperatorHeader');
-        $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/home');
-        $this->view('pages/includes/footer');
+        $this->view('includes/119OperatorHeader');
+        $this->view('119Operator/policeSidebar');
+        $this->view('119Operator/home');
+        $this->view('includes/footer');
     }
 
     public function recent()
     {
-        $this->view('pages/includes/119OperatorHeader');
-        $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/recentRequests');
-        $this->view('pages/includes/footer');
+        $this->view('includes/119OperatorHeader');
+        $this->view('119Operator/policeSidebar');
+        $this->view('119Operator/recentRequests');
+        $this->view('includes/footer');
     }
 
     public function all()
     {
-        $this->view('pages/includes/119OperatorHeader');
-        $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/allrequests');
-        $this->view('pages/includes/footer');
+        $this->view('includes/119OperatorHeader');
+        $this->view('119Operator/policeSidebar');
+        $this->view('119Operator/allrequests');
+        $this->view('includes/footer');
     }
 
     public function searchrequests(){
@@ -48,26 +48,26 @@ class police extends Controller
         if(isset($search)){
             $requestsInfo=$this->userModel->requestsSearch($search);
             $data = ['requestsInfo' => $requestsInfo];
-            $this->view('pages/119operator/searchRequests',$data);
+            $this->view('119operator/searchRequests',$data);
         }
     }
 
     public function notviewed(){
         $requestsInfo=$this->userModel->notviewedSearch();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/119operator/searchRequests',$data);
+        $this->view('119operator/searchRequests',$data);
     }
 
     public function accepted(){
         $requestsInfo=$this->userModel->acceptedSearch();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/119operator/searchRequests',$data);
+        $this->view('119operator/searchRequests',$data);
     }
 
     public function rejected(){
         $requestsInfo=$this->userModel->rejectedSearch();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/119operator/searchRequests',$data);
+        $this->view('119operator/searchRequests',$data);
     }
 
 
@@ -77,7 +77,7 @@ class police extends Controller
         $data = ['requestsInfo' => $requestsInfo];
         if($requestsInfo)
         {
-            $this->view('pages/119Operator/oldrequest',$data);
+            $this->view('119Operator/oldrequest',$data);
         }
     }
 
@@ -85,7 +85,7 @@ class police extends Controller
     {
         $requestsInfo=$this->userModel->getRecentRequests();
         $data = ['requestsInfo' => $requestsInfo];
-        $this->view('pages/119Operator/request',$data);
+        $this->view('119Operator/request',$data);
     }
 
     public function rejectrequest(){
@@ -120,10 +120,10 @@ class police extends Controller
         $data = ['requestInfo' => $requestInfo,'evidenceInfo'=>$evidenceInfo];
         if($requestInfo)
         {
-            $this->view('pages/includes/119OperatorHeader');
-            $this->view('pages/119Operator/policeSidebar');
-            $this->view('pages/119Operator/viewRequest',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/119OperatorHeader');
+            $this->view('119Operator/policeSidebar');
+            $this->view('119Operator/viewRequest',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -135,25 +135,25 @@ class police extends Controller
         $data = ['requestInfo' => $requestInfo,'feedbackInfo' => $feedbackInfo,'evidenceInfo'=>$evidenceInfo];
         if($requestInfo)
         {
-            $this->view('pages/includes/119OperatorHeader');
-            $this->view('pages/119Operator/policeSidebar');
-            $this->view('pages/119Operator/viewOldRequest',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/119OperatorHeader');
+            $this->view('119Operator/policeSidebar');
+            $this->view('119Operator/viewOldRequest',$data);
+            $this->view('includes/footer');
         }
     }
 
     public function requestscount(){
         $requestCount=$this->userModel->getRequestCount();
         $data = ['requestCount' => $requestCount];
-        $this->view('pages/includes/badge',$data);
+        $this->view('includes/badge',$data);
     }
 
     public function viewrequest()
     {
-        $this->view('pages/includes/119OperatorHeader');
-        $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/viewRequest');
-        $this->view('pages/includes/footer');
+        $this->view('includes/119OperatorHeader');
+        $this->view('119Operator/policeSidebar');
+        $this->view('119Operator/viewRequest');
+        $this->view('includes/footer');
     }
 
     public function profile()
@@ -163,10 +163,10 @@ class police extends Controller
 
         if($operatorInfo)
         {
-            $this->view('pages/includes/119OperatorHeader');
-            $this->view('pages/119Operator/policeSidebar');
-            $this->view('pages/119Operator/editProfileOperator119',$data);
-            $this->view('pages/includes/footer');
+            $this->view('includes/119OperatorHeader');
+            $this->view('119Operator/policeSidebar');
+            $this->view('119Operator/editProfileOperator119',$data);
+            $this->view('includes/footer');
         }
     }
 
@@ -182,10 +182,10 @@ class police extends Controller
 
     public function changePassword()
     {
-        $this->view('pages/includes/119OperatorHeader');
-        $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/changePassword');
-        $this->view('pages/includes/footer');
+        $this->view('includes/119OperatorHeader');
+        $this->view('119Operator/policeSidebar');
+        $this->view('119Operator/changePassword');
+        $this->view('includes/footer');
     }
 
     public function passwordchange()
@@ -214,10 +214,10 @@ class police extends Controller
 
     public function reports()
     {
-        $this->view('pages/includes/1990OperatorHeader');
-        $this->view('pages/119Operator/policeSidebar');
-        $this->view('pages/119Operator/reports');
-        $this->view('pages/includes/footer');
+        $this->view('includes/1990OperatorHeader');
+        $this->view('119Operator/policeSidebar');
+        $this->view('119Operator/reports');
+        $this->view('includes/footer');
     }
 }
 
