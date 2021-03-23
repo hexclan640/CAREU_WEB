@@ -42,7 +42,7 @@ $('#acceptform').click(function(event) {
             setTimeout(() => {
                 sendbtns.style.display = "none";
                 document.getElementById("accepted").style.display = "block";
-            }, 1500);
+            }, 1000);
         }
     });
 });
@@ -64,6 +64,27 @@ $('#rejectform').click(function(event) {
         }
     });
 });
+
+$("#send").click(function(event) {
+    event.preventDefault();
+    var requestId = document.getElementById("requestId3").value;
+    var message = document.getElementById("message").value;
+    if (message != "") {
+        $.ajax({
+            url: 'sendmessage',
+            method: 'post',
+            data: { message: message, requestId: requestId },
+            success: function(response) {
+                document.getElementById("messageForm").reset();
+                document.getElementById('modal2').style.display = 'block';
+                setTimeout(function() {
+                    document.getElementById('modal2').style.display = 'none';
+                }, 1000);
+            },
+        });
+    }
+});
+
 
 function confirm() {
     document.getElementById('modal1').style.display = 'block';
@@ -110,5 +131,4 @@ function showSlides(n) {
     }
 
     slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
 }

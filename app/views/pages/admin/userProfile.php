@@ -54,7 +54,7 @@
 					</div>
 					<?php if($userInfo->status==1) {?>
 					<div class="column4" id="column4">
-						<button onclick="confirm(<?php echo $userInfo->userId; ?>)">Block</button>
+						<button onclick="confirm(<?php echo $userInfo->userId; ?>)">BLOCK</button>
 					</div>
 					<?php } ?>
 				</div>

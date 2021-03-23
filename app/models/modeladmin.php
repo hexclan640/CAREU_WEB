@@ -250,6 +250,12 @@
             }
         }
 
+        public function getEmail($userid){
+            $this->db->query("SELECT * FROM servicerequester WHERE userId='{$userid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function createOperator119($username,$firstname,$lastname,$gender,$password)
         {
             $connection = mysqli_connect('localhost','root','','careu');

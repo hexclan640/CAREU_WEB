@@ -29,7 +29,7 @@
 				<form method="post" id="nosebleedForm" name="nosebleedForm" enctype="multipart/form-data">
 					<div class="row">
 						<div class="namediv">
-							<h1>Fracture Instructions</h1>
+							<h1>Nosebleed Instructions</h1>
 						</div>
 						<div class="column1">
 							<canvas class="picture" id="picture"></canvas><br>
@@ -41,7 +41,7 @@
 							<label >Add Description</label>
 							<textarea class="description" type="text" name="description" id="description"></textarea><br>
 							<center><p class="hide" id="err">Error</p></center>
-							<input type="submit" value="Add" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="ADD" name="submit" id="submit" onclick="return check()">
 						</div>
 					</div>
 				</form>

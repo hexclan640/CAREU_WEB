@@ -75,10 +75,10 @@
 						<?php } ?>
 					</div>
 					<div class="column4" id="column4">
-						<p><strong>Note :</strong> When you click on "Accept" or "Reject" buttons, it will sends relevant acknowledgement messages to requesters.</p>
+							<p class="note" id="note"></p>
 						<?php if($userInfo->status==0) {?>
-							<button class="accept" onclick="confirm1()" id="acceptbtn">Accept</button>
-							<button class="reject" onclick="confirm2()" id="rejectbtn">Reject</button>
+							<button class="accept" onclick="confirm1()" id="acceptbtn">ACCEPT</button>
+							<button class="reject" onclick="confirm2()" id="rejectbtn">REJECT</button>
 						<?php }?>
 					</div>
 				</div>

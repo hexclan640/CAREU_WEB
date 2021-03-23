@@ -45,7 +45,7 @@
 						</div>
 						<div class="column3">
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="Save" name="submit" id="submit">
+							<input type="submit" value="SAVE" name="submit" id="submit">
 						</div>
 					</form>
 				</div>

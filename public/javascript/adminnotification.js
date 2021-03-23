@@ -4,3 +4,13 @@ $(document).ready(function() {
         $("#badge2").load('userrequestscount')
     }, 2000);
 });
+
+function logout() {
+    $.ajax({
+        url: "logout",
+        method: "post",
+        success: function(data) {
+            window.location = "../careu";
+        }
+    });
+}

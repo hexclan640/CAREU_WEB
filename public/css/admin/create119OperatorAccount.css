@@ -14,7 +14,7 @@ body {
 
 #err {
     border: 1px solid;
-    width: 50%;
+    width: 100%;
     margin: 0px;
     padding: 5px 0px 5px 0px;
     background-repeat: no-repeat;
@@ -95,12 +95,18 @@ body {
     width: 100%;
     padding: 1px;
     background-color: rgba(189, 189, 189, 0.3);
-    border-radius: 3px;
+    border-radius: 10px;
     border-top: 2px solid rgb(255, 255, 255, 0.6);
+    text-align: left;
+    padding-left: 0.5rem;
+}
+
+#result {
+    z-index: 1;
 }
 
 .usernamelist p {
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .column1 {

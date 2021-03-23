@@ -53,7 +53,7 @@
 							<a href="changepassword" class="cpwd">Change Password ››</a>
 						</div>
 						<div class="column5">
-							<input type="submit" value="Save" name="submit" id="submit">
+							<input type="submit" value="SAVE" name="submit" id="submit">
 						</div>
 						<?php } ?>
 					</form>

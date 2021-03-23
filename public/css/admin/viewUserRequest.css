@@ -23,7 +23,7 @@
     
     #err {
         border: 1px solid;
-        width: 50%;
+        width: 100%;
         margin: 0px;
         padding: 5px 0px 5px 0px;
         background-repeat: no-repeat;
@@ -111,10 +111,6 @@
         border: 2px solid black;
     }
     
-    .column4 p {
-        color: rgb(71, 71, 71);
-    }
-    
     .column1 {
         float: left;
         width: 100%;
@@ -153,6 +149,13 @@
         width: 100%;
         padding: 1rem;
         display: none
+    }
+    
+    .note {
+        display: none;
+        padding: 0.5rem;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(255, 0, 0);
     }
     
     .column4 p {

@@ -66,10 +66,16 @@ function accept(id) {
         type: "post",
         data: { id: id },
         success: function(data) {
-            closeconfirm1();
-            document.getElementById('column4').style.display = 'none';
+            document.getElementById('note').innerText = 'Account activation successfull and confirmation email has been sent.';
+            document.getElementById('note').style.background = "rgba(139, 245, 112, 0.637)";
+            document.getElementById('note').style.border = "2px solid rgb(0, 122, 31)"
+            document.getElementById('note').style.color = "rgb(0, 122, 31)";
+            document.getElementById('note').style.display = "block";
         },
     });
+    closeconfirm1();
+    document.getElementById('acceptbtn').style.display = 'none';
+    document.getElementById('rejectbtn').style.display = 'none';
 }
 
 function reject(id) {
@@ -78,10 +84,16 @@ function reject(id) {
         type: "post",
         data: { id: id },
         success: function(data) {
-            closeconfirm2();
-            document.getElementById('column4').style.display = 'none';
+            document.getElementById('note').innerText = 'Account was not activated and informing email has been sent.';
+            document.getElementById('note').style.background = "rgba(192, 34, 34, 0.589)";
+            document.getElementById('note').style.border = "2px solid rgb(146, 0, 0)"
+            document.getElementById('note').style.color = "rgb(95, 3, 3)";
+            document.getElementById('note').style.display = "block";
         },
     });
+    closeconfirm2();
+    document.getElementById('acceptbtn').style.display = 'none';
+    document.getElementById('rejectbtn').style.display = 'none';
 }
 
 var modal1 = document.getElementById('modal1');
