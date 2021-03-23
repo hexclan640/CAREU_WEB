@@ -127,6 +127,12 @@ class police extends Controller
         }
     }
 
+    public function sendmessage(){
+        $requestId=$_POST["requestId"];
+        $message=$_POST["message"];
+        $this->userModel->updateSentMessage($requestId,$message,$_SESSION["userName"]);
+    }
+
     public function allrequests(){
         $requestId=$_GET['id'];
         $requestInfo=$this->userModel->getAllRequestAll($requestId);

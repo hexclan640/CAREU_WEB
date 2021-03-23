@@ -302,6 +302,7 @@ body {
     }
     .reject {
         margin-right: 0;
+        margin-top: 0.5rem;
     }
     .sendbtns p {
         padding-left: 0;
@@ -372,6 +373,11 @@ body {
 
 .confirm p {
     font-size: 150%;
+}
+
+.confirm img {
+    width: 3rem;
+    height: auto;
 }
 
 .clearfix {

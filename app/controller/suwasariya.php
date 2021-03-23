@@ -78,6 +78,12 @@ class suwasariya extends Controller
         }
     }
 
+    public function sendmessage(){
+        $requestId=$_POST["requestId"];
+        $message=$_POST["message"];
+        $this->userModel->updateSentMessage($requestId,$message,$_SESSION["userName"]);
+    }
+
     public function all()
     {
         $this->view('includes/1990OperatorHeader');

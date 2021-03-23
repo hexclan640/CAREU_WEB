@@ -187,5 +187,27 @@
             $result = $this->db->resultSet();
             return $result;
         }
+
+        public function updateSentMessage($requestId,$message,$username){
+            $this->db->query("SELECT * FROM request WHERE requestId='{$requestId}'");
+            $result1 = $this->db->resultSet();
+            $userId=$result1[0]->userId;
+
+            $connection = mysqli_connect('localhost','root','','careu');
+            $query1="INSERT INTO reply (message,userId,requestId) VALUES ('{$message}','{$userId}','{$requestId}');";
+            mysqli_query($connection,$query1);
+
+            $this->db->query("SELECT * FROM reply ORDER BY replyId DESC LIMIT 1;");
+            $result2 = $this->db->resultSet();
+            $replyId=$result2[0]->replyId;
+
+            $this->db->query("SELECT * FROM 119calloperator WHERE username='{$username}'");
+            $result3 = $this->db->resultSet();
+            $operatorId=$result3[0]->userId;
+
+            $query2="INSERT INTO send (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
+            mysqli_query($connection,$query2);
+            mysqli_close($connection);
+        }
     }
 ?>

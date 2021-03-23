@@ -112,10 +112,11 @@
 			</div>
 		<div class="reply">
 			<div class="cusmessage">
-				<p class="note">Send a Message</p>
-				<form action="" method="post">
-					<textarea name="specialnote" cols="30" rows="5"></textarea>
-					<input type="submit" value="SEND">
+				<p class="note">Send Message</p>
+				<form method="post" id="messageForm">
+					<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId3" hidden>
+					<textarea name="specialnote" cols="30" rows="5" id="message"></textarea>
+					<input type="submit" id="send" value="SEND">
 				</form>
 			</div>
 			<div class="sendbtns" id="sendbtns">
@@ -124,9 +125,9 @@
 					<p><strong>Note :</strong> When you click on "Accept" or "Reject" buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
 					<form action="" id="acceptform" method="post">
 						<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId1" hidden>
-						<input type="submit" id="accept" class="accept" value="Accept">
+						<input type="submit" id="accept" class="accept" value="ACCEPT">
 					</form>
-					<button class="reject" onclick="confirm()" id="rejectbtn">Reject</button>
+					<button class="reject" onclick="confirm()" id="rejectbtn">REJECT</button>
 				<?php }?>
 			</div>
 			<div class="accepted" id="accepted">
@@ -163,6 +164,19 @@
 		</div>
 	</div>
 	<?php } ?>
+	<div id="modal2" class="modal">
+		<div class="message">
+			<div class="container">
+				<div class="titleconfirm">
+					<h1>Saved!</h1>
+				</div>
+				<div class="confirm">
+					<img src="../img/modelicons/success.svg" alt="">
+					<p>Message Sent!</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>

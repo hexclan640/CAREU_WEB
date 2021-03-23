@@ -201,7 +201,6 @@ body {
 }
 
 .sendbtns p {
-    margin: 0.5rem;
     margin-left: 1rem;
     padding: 0.5rem;
     background-color: rgb(255, 255, 255);
@@ -222,7 +221,6 @@ body {
     color: white;
     font-size: 120%;
     float: right;
-    margin-top: 0.5rem;
     border: 2px solid rgb(0, 97, 0);
     text-decoration: none;
 }
@@ -302,9 +300,10 @@ body {
     }
     .reject {
         margin-right: 0;
+        margin-top: 0.5rem;
     }
     .sendbtns p {
-        padding-left: 0;
+        margin-left: 0;
     }
 }
 
@@ -513,6 +512,11 @@ body {
 
 .confirm p {
     font-size: 150%;
+}
+
+.confirm img {
+    width: 3rem;
+    height: auto;
 }
 
 .clearfix {

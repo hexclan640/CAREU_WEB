@@ -68,6 +68,5 @@ $(document).ready(function() {
         } else {
             $("#err").addClass("hide");
         }
-
     });
 });
