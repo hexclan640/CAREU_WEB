@@ -9,6 +9,10 @@ class careu extends Controller
 
     public function index()
     {
+        if(isset($_SESSION))
+        {
+            session_destroy();
+        }
         $this->view('pages/index');
     }
 

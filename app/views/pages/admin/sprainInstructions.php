@@ -29,7 +29,7 @@
 				<form action="updatesprain" method="post" id="sprainForm" name="sprainForm" enctype="multipart/form-data">
 					<div class="row">
 						<div class="namediv">
-							<h1>Blister Instructions</h1>
+							<h1>Sprain Instructions</h1>
 						</div>
 						<div class="column1">
 							<canvas class="picture" id="picture"></canvas><br>

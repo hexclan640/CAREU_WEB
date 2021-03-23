@@ -14,7 +14,6 @@ class suwasariya extends Controller
         if(isset($_SESSION))
         {
             session_destroy();
-            header("Location: http://localhost:8080/careu-web");
         }
     }
 

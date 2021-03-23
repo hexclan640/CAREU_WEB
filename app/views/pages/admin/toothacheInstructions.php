@@ -29,7 +29,7 @@
 				<form method="post" id="toothacheForm" name="toothacheForm" enctype="multipart/form-data">
 					<div class="row">
 						<div class="namediv">
-							<h1>Fracture Instructions</h1>
+							<h1>Toothache Instructions</h1>
 						</div>
 						<div class="column1">
 							<canvas class="picture" id="picture"></canvas><br>

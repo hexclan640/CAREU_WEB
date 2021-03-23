@@ -8,5 +8,5 @@
 	<a href="operators" class="links">Operators</a>
 	<a href="profile" class="profilelink2">Profile</a>
 	<a href="reports" class="links">Reports</a>
-	<a href="logout" class="links">Log Out</a>
+	<a href="logout" onclick="logout()" class="links">Log Out</a>
 </div>

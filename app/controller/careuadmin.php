@@ -14,7 +14,6 @@ class careuadmin extends Controller
         if(isset($_SESSION))
         {
             session_destroy();
-            header("Location: http://localhost:8080/careu-web");
         }
     }
 
@@ -168,12 +167,7 @@ class careuadmin extends Controller
     public function block()
     {
         $userId=$_POST['id'];
-        $result=$this->userModel->blockUser($userId);
-        if($result)
-        {
-            $_SESSION['blockuser']=$userId;
-            header("Location: http://localhost:8080/careu-web/careuadmin/usermanagement");
-        }
+        $this->userModel->blockUser($userId);
     }
 
     public function verifieduser()
@@ -274,22 +268,12 @@ class careuadmin extends Controller
 
     public function romoveoperator119()
     {
-        $result=$this->userModel->removeOperator119($_POST['id']);
-        if($result)
-        {
-            $_SESSION['operators']="success";
-            header("Location: http://localhost:8080/careu-web/careuadmin/operators");
-        }
+        $this->userModel->removeOperator119($_POST['id']);
     }
 
     public function romoveoperator1990()
     {
-        $result=$this->userModel->removeOperator1990($_POST['id']);
-        if($result)
-        {
-            $_SESSION['operators']="success";
-            header("Location: http://localhost:8080/careu-web/careuadmin/operators");
-        }
+        $this->userModel->removeOperator1990($_POST['id']);
     }
 
     public function viewuserrequest()
