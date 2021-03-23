@@ -30,13 +30,13 @@
 						<div class="namediv">
 							<h1>New Operator - 119</h1>
 						</div>
-						<div class="column1">
+						<!-- <div class="column1">
 							<input type="text" class="search" name="search" id="search" placeholder="Search by username..">
 							<div id="result"></div>
-						</div>
+						</div> -->
 						<div class="column2">
 							<label for="userName">User Name</label>
-							<input type="text" name="userName" id="userName"><br>
+							<input type="text" value="careu_119_" name="userName" id="userName"><br>
 							<label for="firstName">First Name</label>
 							<input type="text" name="firstName" id="firstName"><br>
 							<label for="lastName">Last Name</label>

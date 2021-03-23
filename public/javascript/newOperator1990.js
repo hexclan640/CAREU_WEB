@@ -78,23 +78,28 @@ $(document).ready(function() {
         }
     });
 
-    function load_data1(query) {
-        $.ajax({
-            url: "operatorchecker1990",
-            method: "post",
-            data: { query: query },
-            success: function(data) {
-                $('#result').html(data);
-            }
-        });
-    }
-
-    $('#search').keyup(function() {
+    $('#userName').keyup(function() {
         var search = $(this).val();
-        if (search != '') {
-            load_data1(search);
+        var error = document.getElementById("err");
+        if (search != 'careu_1990_' && search.length > 11) {
+            $.ajax({
+                url: "operatorchecker1990",
+                method: "post",
+                data: { query: search },
+                success: function(data) {
+                    // $('#result').html(data);
+                    if (data.includes("failed")) {
+                        document.getElementById("userName").style.color = "red";
+                        error.innerText = "Username already taken!";
+                        $("#err").removeClass("hide");
+                    } else {
+                        document.getElementById("userName").style.color = "black";
+                        $("#err").addClass("hide");
+                    }
+                }
+            });
         } else {
-            $("#result").empty();
+            $("#err").addClass("hide");
         }
     });
 });

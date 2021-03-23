@@ -13,31 +13,24 @@ $(document).ready(function() {
         if (username == "" && firstname == "" && lastname == "" && password1 == "" && password2 == "") {
             error.innerText = "Please, fill all the feilds!";
             $("#err").removeClass("hide");
-            return false;
         } else if (username == "") {
             error.innerText = "Please, give a username!";
             $("#err").removeClass("hide");
-            return false;
         } else if (firstname == "") {
             error.innerText = "Please, give a first name!";
             $("#err").removeClass("hide");
-            return false;
         } else if (lastname == "") {
             error.innerText = "Please, give a last name!";
             $("#err").removeClass("hide");
-            return false;
         } else if (gender == "") {
             error.innerText = "Please, give a gender!";
             $("#err").removeClass("hide");
-            return false;
         } else if (password1 == "" || password2 == "") {
             error.innerText = "Please, fill the password feilds!";
             $("#err").removeClass("hide");
-            return false;
         } else if (password1 != password2) {
             error.innerText = "Passwords do not match!";
             $("#err").removeClass("hide");
-            return false;
         } else if (username != "" && firstname != "" && lastname != "" && password1 != "" && password2 != "") {
             if (username.includes("careu_119_")) {
                 var formData = $("#formOperator119").serialize();
@@ -63,7 +56,7 @@ $(document).ready(function() {
                                     $("#err").addClass("hide");
                                     $("#formOperator119").trigger("reset");
                                     document.getElementById('modal1').style.display = 'block';
-                                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
+                                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 1000);
                                 }
                             });
                         }
@@ -78,23 +71,28 @@ $(document).ready(function() {
         }
     });
 
-    function load_data1(query) {
-        $.ajax({
-            url: "operatorchecker119",
-            method: "post",
-            data: { query: query },
-            success: function(data) {
-                $('#result').html(data);
-            }
-        });
-    }
-
-    $('#search').keyup(function() {
+    $('#userName').keyup(function() {
         var search = $(this).val();
-        if (search != '') {
-            load_data1(search);
+        var error = document.getElementById("err");
+        if (search != 'careu_119_' && search.length > 11) {
+            $.ajax({
+                url: "operatorchecker119",
+                method: "post",
+                data: { query: search },
+                success: function(data) {
+                    // $('#result').html(data);
+                    if (data.includes("failed")) {
+                        document.getElementById("userName").style.color = "red";
+                        error.innerText = "Username already taken!";
+                        $("#err").removeClass("hide");
+                    } else {
+                        document.getElementById("userName").style.color = "black";
+                        $("#err").addClass("hide");
+                    }
+                }
+            });
         } else {
-            $("#result").empty();
+            $("#err").addClass("hide");
         }
     });
 });

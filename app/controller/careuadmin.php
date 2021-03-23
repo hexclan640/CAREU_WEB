@@ -342,7 +342,7 @@ class careuadmin extends Controller
 		$mail->setFrom($adminemail,'CARE-U ADMIN');
 		$mail->addAddress($email);
 		$mail->Subject = 'Welcome to CARE-U';
-    	$mail->Body    = "Your details were verified and the account is activated. Now you can log in to your account via the Care-U mobile appilication and keep in touch with us. We will be there for you to help you whenever your are facing to any emergency situation.Thank you conneting with us and stay with us in the future!";
+    	$mail->Body    = "Your details were verified and the account is activated. Now you can log in to your account via the Care-U mobile appilication and keep in touch with us. We will be there for you to help you whenever your are facing to any emergency situation.Thank you conneting with us and stay with us in the future";
 		if(!$mail->send()) {
 		    echo 'Message could not be sent.';
 		    echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -375,8 +375,13 @@ class careuadmin extends Controller
         mysqli_close($connection);
         if(isset($search)){
             $operatorInfo=$this->userModel->checkOperator119($search);
-            $data = ['operatorInfo' => $operatorInfo];
-            $this->view('admin/usernamelist',$data);
+            if(empty($operatorInfo)){
+                echo "success";
+            }else{
+                echo "failed";
+            }
+            // $data = ['operatorInfo' => $operatorInfo];
+            // $this->view('admin/usernamelist',$data);
         }
     }
 
@@ -412,8 +417,11 @@ class careuadmin extends Controller
         mysqli_close($connection);
         if(isset($search)){
             $operatorInfo=$this->userModel->checkOperator1990($search);
-            $data = ['operatorInfo' => $operatorInfo];
-            $this->view('admin/usernamelist',$data);
+            if(empty($operatorInfo)){
+                echo "success";
+            }else{
+                echo "failed";
+            }
         }
     }
 
