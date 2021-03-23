@@ -9,7 +9,7 @@
             <p><img src="../img/operators/gender.svg"/><?php echo $operatorInfo1990->gender; ?></p>
 		</div>
 		<div class="column2">
-			<button onclick="confirm2(<?php echo $operatorInfo1990->userId; ?>)">Remove</button>
+			<button onclick="confirm2(<?php echo $operatorInfo1990->userId; ?>)">REMOVE</button>
 		</div>
     </div>
 <?php } ?>

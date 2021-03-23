@@ -41,7 +41,7 @@
 							<label >Add Description</label>
 							<textarea class="description" type="text" name="description" id="description"></textarea><br>
 							<center><p class="hide" id="err">Error</p></center>
-							<input type="submit" value="Add" name="submit" id="submit" onclick="return check()">
+							<input type="submit" value="ADD" name="submit" id="submit" onclick="return check()">
 						</div>
 					</div>
 				</form>

@@ -90,7 +90,7 @@
 				<p class="note">Send a Message</p>
 				<form action="" method="post">
 					<textarea name="specialnote" cols="30" rows="5"></textarea>
-					<input type="submit" value="Send">
+					<input type="submit" value="SEND">
 				</form>
 			</div>
 			<div class="sendbtns" id="sendbtns">

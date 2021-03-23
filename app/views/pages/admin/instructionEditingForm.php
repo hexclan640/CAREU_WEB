@@ -23,7 +23,7 @@
 					<textarea class="description" type="text" name="description" id="description"><?php echo $instruction->description; ?></textarea><br>
 					<?php } ?>
 					<p class="hide" id="err">Error</p>
-					<input type="submit" value="Save" name="submit" id="submit1">
+					<input type="submit" value="SAVE" name="submit" id="submit1">
 				</div>
     		</div>
     	</form>

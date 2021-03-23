@@ -56,7 +56,7 @@
 						</div>
 						<div class="column4">
 							<p class="hide" id="err">Error</p>
-							<input type="submit" value="Create" name="submit" id="submit">
+							<input type="submit" value="CREATE" name="submit" id="submit">
 						</div>
 					</form>
 				</div>
