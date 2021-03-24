@@ -1,3 +1,30 @@
+function timeoutchecker(requestId) {
+    var id = setInterval(() => {
+        $.ajax({
+            url: "requestflagchecker",
+            method: "post",
+            data: { requestId: requestId },
+            success: function(data) {
+                var dis = document.getElementById('rejectbtn').style.display;
+                if (data == 3 && dis != "none") {
+                    clearInterval(id);
+                    document.getElementById('loader-wrapper2').style.display = "block";
+                    setTimeout(function() {
+                        document.getElementById('acceptform').style.display = "none";
+                        document.getElementById('rejectbtn').style.display = "none";
+                        document.getElementById('note').innerText = 'Timeout';
+                        document.getElementById('note').style.background = "rgba(249, 253, 0, 0.418)";
+                        document.getElementById('note').style.border = "2px solid rgb(158, 142, 1)"
+                        document.getElementById('note').style.color = "rgb(158, 142, 1)";
+                        document.getElementById('note').style.display = "block";
+                        document.getElementById('loader-wrapper2').style.display = "none";
+                    }, 1000);
+                }
+            }
+        });
+    }, 100);
+}
+
 var modal = document.getElementById("zoomImg");
 var elements = document.getElementsByClassName("idImg1");
 var modalImg = document.getElementById("img");

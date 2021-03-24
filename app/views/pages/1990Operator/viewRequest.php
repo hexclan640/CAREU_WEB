@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Request Details</title>
 </head>
-<body>
+<body onload="timeoutchecker(<?php echo $_GET['id']?>)">
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
 	</div>

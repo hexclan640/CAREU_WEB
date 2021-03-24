@@ -176,6 +176,12 @@
             return $result;
         }
 
+        public function requestFlagCheck($requestid){
+            $this->db->query("SELECT flag FROM 1990ambulancerequest WHERE requestId='{$requestid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getAllRequestAll($requestid)
         {
             $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");

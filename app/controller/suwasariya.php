@@ -78,6 +78,12 @@ class suwasariya extends Controller
         }
     }
 
+    public function requestflagchecker(){
+        $requestId=$_POST["requestId"];
+        $requestInfo=$this->userModel->requestFlagCheck($requestId);
+        echo $requestInfo[0]->flag;
+    }
+
     public function sendmessage(){
         $requestId=$_POST["requestId"];
         $message=$_POST["message"];
