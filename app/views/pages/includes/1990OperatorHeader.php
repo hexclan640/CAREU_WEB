@@ -27,7 +27,7 @@
 	<div id="notification" class="notification">
 		<div class="modal-content">
    			<div class="modal-header">
-      			<span class="close">&times;</span>
+      			<span onclick="closenotification()" class="close">&times;</span>
       			<h2>Notification!</h2>
     		</div>
     		<a href="recent"><div class="modal-body">

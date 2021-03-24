@@ -24,6 +24,7 @@ $(document).ready(function() {
                             error.innerText = "Invalid username or password. Try again!";
                             $("#err").removeClass("hide");
                         } else if (data.includes("success") && status.includes("success")) {
+                            sessionStorage.setItem("count", 0);
                             if (userName.includes("admin")) {
                                 window.location = "careuadmin/home";
                             }

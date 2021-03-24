@@ -138,8 +138,7 @@ class careuadmin extends Controller
 
     public function userrequestscount(){
         $requestCount=$this->userModel->getRequestCount();
-        $data = ['requestCount' => $requestCount];
-        $this->view('includes/badge',$data);
+        echo count($requestCount);
     }
 
     public function userbrief()
