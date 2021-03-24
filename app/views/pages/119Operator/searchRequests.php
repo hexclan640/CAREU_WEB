@@ -18,7 +18,9 @@
                         <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?><span class="rejectspan">Rejected</span></p>
                     <?php } else if($requestsInfo->flag==0){?>
                         <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?><span class="notviewedspan">Not Viewed</span></p>
-                    <?php } ?>
+                    <?php } else if($requestsInfo->flag==3){?>
+                        <p class="name"><?php echo $requestsInfo->firstName." ".$requestsInfo->lastName; ?><span class="timeout">Timeout</span></p>
+                    <?php }?>
                     <p class="pNumber"><?php echo $requestsInfo->email; ?></p>
                     <p class="pNumber"><?php echo $requestsInfo->phoneNumber; ?></p>
                 </div>

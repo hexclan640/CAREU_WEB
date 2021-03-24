@@ -77,6 +77,7 @@ $('#rejectform').click(function(event) {
 
 $("#send").click(function(event) {
     event.preventDefault();
+    document.getElementById('loader-wrapper2').style.display = "block";
     var requestId = document.getElementById("requestId3").value;
     var message = document.getElementById("message").value;
     if (message != "") {
@@ -85,10 +86,13 @@ $("#send").click(function(event) {
             method: 'post',
             data: { message: message, requestId: requestId },
             success: function(response) {
-                document.getElementById("messageForm").reset();
-                document.getElementById('modal2').style.display = 'block';
                 setTimeout(function() {
-                    document.getElementById('modal2').style.display = 'none';
+                    document.getElementById("messageForm").reset();
+                    document.getElementById('modal2').style.display = 'block';
+                    document.getElementById('loader-wrapper2').style.display = "none";
+                    setTimeout(function() {
+                        document.getElementById('modal2').style.display = 'none';
+                    }, 1000);
                 }, 1000);
             },
         });

@@ -141,7 +141,7 @@
 		<div class="message">
 			<div class="container">
 				<div class="titleconfirm">
-					<h1>Saved!</h1>
+					<h1>Sent!</h1>
 				</div>
 				<div class="confirm">
 					<img src="../img/modelicons/success.svg" alt="">

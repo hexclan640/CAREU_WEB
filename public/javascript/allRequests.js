@@ -76,6 +76,19 @@ $(document).ready(function() {
         });
     }
 
+    function load_data_timeout() {
+        $.ajax({
+            url: "timeout",
+            method: "post",
+            data: {},
+            success: function(data) {
+                $("#result").empty();
+                $('#result').html(data);
+                $("#requestcol").hide();
+            }
+        });
+    }
+
     $('#option').change(function() {
         var search = $(this).val();
         if (search == "All") {
@@ -87,6 +100,8 @@ $(document).ready(function() {
             load_data_accepted();
         } else if (search == "Rejected") {
             load_data_rejected();
+        } else if (search == "Timeout") {
+            load_data_timeout();
         }
     });
 });

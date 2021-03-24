@@ -153,6 +153,14 @@
             return $result;
         }
 
+        public function timeoutSearch()
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE (request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId) AND flag=3");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getFeedback($requestid)
         {
             $this->db->query("SELECT feedback.comment,feedback.feedbackTime,feedback.ratings FROM give,feedback WHERE give.requestId={$requestid} AND give.feedbackId=feedback.feedbackId");

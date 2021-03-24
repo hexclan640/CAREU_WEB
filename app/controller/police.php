@@ -70,6 +70,12 @@ class police extends Controller
         $this->view('119operator/searchRequests',$data);
     }
 
+    public function timeout(){
+        $requestsInfo=$this->userModel->timeoutSearch();
+        $data = ['requestsInfo' => $requestsInfo];
+        $this->view('119operator/searchRequests',$data);
+    }
+
 
     public function getall()
     {

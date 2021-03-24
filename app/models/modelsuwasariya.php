@@ -147,6 +147,14 @@
             return $result;
         }
 
+        public function timeoutSearch()
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,flag FROM 1990ambulancerequest,request,servicerequester WHERE (request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId) AND flag=3");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getAllRequests()
         {
             $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
