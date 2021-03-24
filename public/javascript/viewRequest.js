@@ -28,22 +28,22 @@ window.onclick = function(event) {
 }
 
 
-$('#acceptform').click(function(event) {
+$('#accept').click(function(event) {
     event.preventDefault();
     var requestId = document.getElementById("requestId1").value;
-    var sendbtns = document.getElementById("sendbtns");
     $.ajax({
         url: 'acceptrequest',
         method: 'post',
         data: { requestId: requestId },
-        success: function() {
-            document.getElementById("loading").style.display = "block";
-            document.getElementById("sendbtns").style.opacity = "0.5";
-            setTimeout(() => {
-                sendbtns.style.display = "none";
-                document.getElementById("accepted").style.display = "block";
-            }, 1000);
-        }
+        success: function(response) {
+            document.getElementById('acceptform').style.display = "none";
+            document.getElementById('rejectbtn').style.display = "none";
+            document.getElementById('note').innerText = 'Accepted';
+            document.getElementById('note').style.background = "rgba(139, 245, 112, 0.637)";
+            document.getElementById('note').style.border = "2px solid rgb(0, 122, 31)"
+            document.getElementById('note').style.color = "rgb(0, 122, 31)";
+            document.getElementById('note').style.display = "block";
+        },
     });
 });
 
@@ -55,13 +55,16 @@ $('#rejectform').click(function(event) {
         url: 'rejectrequest',
         method: 'post',
         data: { requestId: requestId },
-        success: function() {
-            setTimeout(() => {
-                sendbtns.style.display = "none";
-                document.getElementById("rejected").style.display = "block";
-                closeconfirm();
-            }, 1500);
-        }
+        success: function(response) {
+            closeconfirm();
+            document.getElementById('acceptform').style.display = "none";
+            document.getElementById('rejectbtn').style.display = "none";
+            document.getElementById('note').innerText = 'Rejected';
+            document.getElementById('note').style.background = "rgba(192, 34, 34, 0.589)";
+            document.getElementById('note').style.border = "2px solid rgb(146, 0, 0)"
+            document.getElementById('note').style.color = "rgb(95, 3, 3)";
+            document.getElementById('note').style.display = "block";
+        },
     });
 });
 

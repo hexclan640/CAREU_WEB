@@ -37,6 +37,7 @@
 				</div>
 				<div class="brief1">
 					<h1><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?></h1>
+					<h3><?php echo $requestInfo->email; ?></h3>
 					<h3><?php echo $requestInfo->phoneNumber; ?></h3>
 				</div>
 				<div class="brief2">
@@ -61,10 +62,10 @@
 					</div>
 				</div>
 			</div>
+			<?php if($data['evidenceInfo']){ ?>
 			<div class="reqDetails">
-				<div col=column1>
+				<div class=column1>
 					<div class="photorow">
-						<?php if($data['evidenceInfo']){ ?>
 						<?php foreach($data['evidenceInfo'] as $evidenceinfo){ ?>
 						<div class="slideshow-container">
 							<center>
@@ -80,16 +81,18 @@
 								<a class="next" onclick="plusSlides(1)">&#10095;</a>
 							</center>
 						</div>
-						<?php }?>
 						<div id="zoomImg" class="zoomImg">
 							<span class="close">&times;</span>
 							<img class="idImg" id="img">
 						</div>
 					</div>
 				</div>
+			</div>
+			<?php }?>
+			<div class="reqDetails">
 				<div class="description">
-					<p class="note">Special Notes</p>
-					<textarea name="specialnote" cols="30" rows="10" disabled><?php echo $requestInfo->description; ?></textarea>
+					<p class="specialnote">Special Notes</p>
+					<textarea name="specialnote" cols="30" rows="16" disabled><?php echo $requestInfo->description; ?></textarea>
 				</div>
 				<div class="emergencylocation">
 					<div id="googleMap" style="width:100%;height:400px;"></div>
@@ -109,32 +112,25 @@
 						}
 					</script>
 				</div>
+				<div class="sendbtns" id="sendbtns">
+					<p class="note" id="note"></p>
+					<?php if($requestInfo->flag==0){?>
+						<form action="" id="acceptform" method="post">
+							<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId1" hidden>
+							<input type="submit" id="accept" class="accept" value="ACCEPT">
+						</form>
+						<button class="reject" onclick="confirm()" id="rejectbtn">REJECT</button>
+					<?php }?>
+				</div>
 			</div>
 		<div class="reply">
 			<div class="cusmessage">
-				<p class="note">Send Message</p>
+				<p class="specialnote">Send Message</p>
 				<form method="post" id="messageForm">
 					<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId3" hidden>
 					<textarea name="specialnote" cols="30" rows="5" id="message"></textarea>
 					<input type="submit" id="send" value="SEND">
 				</form>
-			</div>
-			<div class="sendbtns" id="sendbtns">
-				<?php if($requestInfo->flag==0){?>
-					<img src="../img/loading.svg" class="loading hide" id="loading">
-					<p><strong>Note :</strong> When you click on "Accept" or "Reject" buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
-					<form action="" id="acceptform" method="post">
-						<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId1" hidden>
-						<input type="submit" id="accept" class="accept" value="ACCEPT">
-					</form>
-					<button class="reject" onclick="confirm()" id="rejectbtn">REJECT</button>
-				<?php }?>
-			</div>
-			<div class="accepted" id="accepted">
-					<h1 id="status">Accepted</h1>
-			</div>
-			<div class="rejected" id="rejected">
-					<h1 id="status">Rejected</h1>
 			</div>
 		</div>
 	</div>

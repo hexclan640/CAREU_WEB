@@ -163,7 +163,7 @@
 
         public function getRecentRequestAll($requestid)
         {
-            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -195,7 +195,7 @@
             $result2 = $this->db->resultSet();
             $replyId=$result2[0]->replyId;
 
-            $this->db->query("SELECT * FROM 1990calloperator WHERE username='{$username}'");
+            $this->db->query("SELECT * FROM 1990 calloperator WHERE username='{$username}'");
             $result3 = $this->db->resultSet();
             $operatorId=$result3[0]->userId;
 

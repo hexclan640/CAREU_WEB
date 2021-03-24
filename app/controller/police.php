@@ -90,26 +90,12 @@ class police extends Controller
 
     public function rejectrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestReject($requestId);
-        if($rejectInfo){
-            echo "success";
-        }
-        else
-        {
-            echo "failed";
-        }
+        $this->userModel->requestReject($requestId);
     }
 
     public function acceptrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestAccept($requestId);
-        if($rejectInfo){
-            echo "success";
-        }
-        else
-        {
-            echo "failed";
-        }
+        $this->userModel->requestAccept($requestId);
     }
 
     public function viewtherequest()
