@@ -26,8 +26,8 @@
 	</nav>
 	<div id="notification" class="notification">
 		<div class="modal-content">
-   			<div class="modal-header">
-      			<span onclick="closenotification()" class="close">&times;</span>
+   			<div class="modal-header" onclick="closenotification()">
+      			<span class="close">&times;</span>
       			<h2>New Request</h2>
     		</div>
     		<a href="usermanagement"><div class="modal-body">
