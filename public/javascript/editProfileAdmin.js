@@ -58,6 +58,7 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
+                    $(".loader-wrapper").fadeOut("fast");
                     document.getElementById('headname').innerText = firstname + " " + lastname;
                     document.getElementById('modal1').style.display = 'block';
                     setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
