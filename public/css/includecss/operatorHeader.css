@@ -110,7 +110,7 @@
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 720px) {
     .datetime {
         width: 200px;
     }
@@ -121,7 +121,7 @@
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 680px) {
     .datetime {
         width: 150px;
     }
