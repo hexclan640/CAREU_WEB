@@ -11,6 +11,11 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/recentRequests.js"></script>
+	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Recenet Requests</title>
 </head>
 <body>
@@ -29,10 +34,5 @@
 		</center>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/recentRequests.js"></script>
-	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>
