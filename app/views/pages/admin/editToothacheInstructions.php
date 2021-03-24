@@ -10,22 +10,20 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
-	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/editToothacheInstructions.js"></script>
-	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Edit Instructions</title>
 </head>
 <body>
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
 	</div>
+	<div class="loader-wrapper2" id="loader-wrapper2">
+		<span class="loader2"><span class="loader-inner2"></span></span>
+	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
 			<li><a href="home">Home</a></li>
 			<li><a href="firstaids">First Aids</a></li>
-			<li><a href="bleeding">Toothache</a></li>
+			<li><a href="toothache">Toothache</a></li>
 			<li>Edit</li>
 		</ul>
 	</div>
@@ -76,5 +74,10 @@
 		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/editToothacheInstructions.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

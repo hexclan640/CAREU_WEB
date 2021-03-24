@@ -23,6 +23,7 @@ $(document).ready(function() {
             error.innerText = "Passwords doesn't match!";
             $("#err").removeClass("hide");
         } else if (userName != "" && currentPassword != "" && password1 != "" && password2 != "") {
+            $("#err").addClass("hide");
             var formData = $("#changePassword").serialize();
             $.post("passwordchange",
                 formData,
@@ -31,9 +32,15 @@ $(document).ready(function() {
                         error.innerText = "Invalid username or password. Try again!";
                         $("#err").removeClass("hide");
                     } else if (data.includes("success") && status.includes("success")) {
-                        document.getElementById('modal1').style.display = 'block';
-                        setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
-                        setTimeout(function() { window.location = "profile"; }, 2000);
+                        document.getElementById('loader-wrapper2').style.display = "block";
+                        setTimeout(function() {
+                            document.getElementById('loader-wrapper2').style.display = 'none';
+                            document.getElementById('modal1').style.display = 'block';
+                            setTimeout(function() {
+                                document.getElementById('modal1').style.display = 'none';
+                                window.location = "profile";
+                            }, 1000);
+                        }, 1000);
                     }
                 });
         }

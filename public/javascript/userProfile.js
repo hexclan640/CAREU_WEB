@@ -1,19 +1,22 @@
 function confirm(id) {
     document.getElementById('modal1').style.display = 'block';
-    var nav = document.getElementById("navbar");
-    var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
 
     document.getElementById("blockyes").onclick = function(e) {
         e.preventDefault();
+        document.getElementById('loader-wrapper2').style.display = "block";
+        closeconfirm();
         $.ajax({
             url: "block",
             method: "post",
             data: { id: id },
             success: function(data) {
-                document.getElementById("column4").style.display = "none";
-                closeconfirm();
+                document.getElementById("blockbtn").style.display = "none";
+                document.getElementById('note').innerText = 'User was blocked and informing email has been sent.';
+                document.getElementById('note').style.background = "rgba(192, 34, 34, 0.589)";
+                document.getElementById('note').style.border = "2px solid rgb(146, 0, 0)"
+                document.getElementById('note').style.color = "rgb(95, 3, 3)";
+                document.getElementById('note').style.display = "block";
+                document.getElementById('loader-wrapper2').style.display = "none";
             }
         });
     }
@@ -24,28 +27,34 @@ function closeconfirm() {
     document.getElementById('modal1').style.display = 'none';
     var nav = document.getElementById("navbar");
     var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "block";
-    breadcrumb.style.display = "block";
 }
 
 function viewrequests() {
+    document.getElementById('loader-wrapper2').style.display = "block";
     document.getElementById("requestHistory").style.display = "block";
     document.getElementById("requestHistory").innerHTML = "";
     document.getElementById("history2").style.border = "3px solid rgb(255, 255, 255, 0.6)";
     document.getElementById("history2").style.background = "rgb(245, 245, 255, 0.2)";
     document.getElementById("history1").style.border = "3px solid black";
     document.getElementById("history1").style.background = "rgb(245, 245, 255, 0.6)";
-    $("#requestHistory").load('getrequesthistory');
+    setTimeout(function() {
+        $("#requestHistory").load('getrequesthistory');
+        document.getElementById('loader-wrapper2').style.display = "none";
+    }, 1000);
 }
 
 function viewfeedback() {
+    document.getElementById('loader-wrapper2').style.display = "block";
     document.getElementById("requestHistory").style.display = "block";
     document.getElementById("requestHistory").innerHTML = "";
     document.getElementById("history1").style.border = "3px solid rgb(255, 255, 255, 0.6)";
     document.getElementById("history1").style.background = "rgb(245, 245, 255, 0.2)";
     document.getElementById("history2").style.border = "3px solid black";
     document.getElementById("history2").style.background = "rgb(245, 245, 255, 0.6)";
-    $("#requestHistory").load('getfeedbackhistory');
+    setTimeout(function() {
+        $("#requestHistory").load('getfeedbackhistory');
+        document.getElementById('loader-wrapper2').style.display = "none";
+    }, 1000);
 }
 
 var request = 0;

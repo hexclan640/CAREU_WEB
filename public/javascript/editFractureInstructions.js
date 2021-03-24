@@ -28,6 +28,7 @@ $(document).ready(function() {
 
     $("#submit").click(function(event) {
         event.preventDefault();
+        document.getElementById('loader-wrapper2').style.display = "block";
 
         var stepNumber = document.getElementById("stepNumber").value;
         var description = document.getElementById("description").value;
@@ -44,7 +45,6 @@ $(document).ready(function() {
         } else if (description == "") {
             error.innerText = "Please, fill description feild!";
             $("#err").removeClass("hide");
-            return false;
         } else if (stepNumber != "" && description != "") {
             var data = $("#fractureForm")[0];
             var formData = new FormData(data);
@@ -58,10 +58,10 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    document.getElementById('modal1').style.display = 'block';
                     setTimeout(function() {
-                        document.getElementById('modal1').style.display = 'none';
-                        window.location = "fracture";
+                        document.getElementById('loader-wrapper2').style.display = 'none';
+                        document.getElementById('modal1').style.display = 'block';
+                        setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 1000);
                     }, 1000);
                 },
             });

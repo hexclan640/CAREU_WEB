@@ -168,6 +168,29 @@ class careuadmin extends Controller
     {
         $userId=$_POST['id'];
         $this->userModel->blockUser($userId);
+        $result=$this->userModel->getEmail($userId);
+        $adminemail="hexclan640@gmail.com";
+        $password="Hex@1800clan";
+        $this->PHPMailer();
+        $email=$result[0]->email;
+        $mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->Username = $adminemail;
+		$mail->Password = $password;
+		$mail->SMTPSecure = 'TLS';
+		$mail->Port = 587;
+		$mail->setFrom($adminemail,'CARE-U ADMIN');
+		$mail->addAddress($email);
+		$mail->Subject = 'Account Activation Failed';
+    	$mail->Body    = "We are very sorry to inform that you, your account has been block due to some reason. Please contact our system administrators for more information. Thank you for beeing with us!";
+		if(!$mail->send()) {
+		    echo 'Message could not be sent.';
+		    echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {
+		    echo 'Reset link has been sent to your email';
+		}
     }
 
     public function verifieduser()

@@ -10,18 +10,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
-	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
-	<script type="text/javascript" src="../javascript/viewRequest.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuUFIqw6r-ifKemRUTI9obFZghDIrcNHE&callback=myMap"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Request Details</title>
 </head>
 <body>
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+	<div class="loader-wrapper2" id="loader-wrapper2">
+		<span class="loader2"><span class="loader-inner2"></span></span>
 	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
@@ -181,5 +177,12 @@
 		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
+	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
+	<script type="text/javascript" src="../javascript/viewRequest.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuUFIqw6r-ifKemRUTI9obFZghDIrcNHE&callback=myMap"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

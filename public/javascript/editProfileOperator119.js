@@ -46,6 +46,7 @@ $(document).ready(function() {
             $("#err").removeClass("hide");
             return false;
         } else if (firstname != "" && lastname != "") {
+            $("#err").addClass("hide");
             var data = $("#updateprofile")[0];
             var formData = new FormData(data);
             var files = $('#propic')[0].files;
@@ -58,9 +59,13 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
+                    document.getElementById('loader-wrapper2').style.display = "block";
                     document.getElementById('headname').innerText = firstname + " " + lastname;
-                    document.getElementById('modal1').style.display = 'block';
-                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
+                    setTimeout(function() {
+                        document.getElementById('loader-wrapper2').style.display = 'none';
+                        document.getElementById('modal1').style.display = 'block';
+                        setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 1000);
+                    }, 1000);
                 },
             });
         } else {

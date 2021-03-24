@@ -7,15 +7,15 @@ var breadcrumb = document.getElementById("breadcrum");
 elements[0].onclick = function() {
     modal.style.display = "block";
     modalImg.src = this.src;
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
+    // nav.style.display = "none";
+    // breadcrumb.style.display = "none";
 }
 
 elements[1].onclick = function() {
     modal.style.display = "block";
     modalImg.src = this.src;
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
+    // nav.style.display = "none";
+    // breadcrumb.style.display = "none";
 }
 
 var closeImg = document.getElementsByClassName("close")[0];
@@ -30,18 +30,12 @@ function confirm1() {
     document.getElementById('modal1').style.display = 'block';
     var nav = document.getElementById("navbar");
     var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
-
 }
 
 function confirm2() {
     document.getElementById('modal2').style.display = 'block';
     var nav = document.getElementById("navbar");
     var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
-
 }
 
 function closeconfirm1() {
@@ -61,6 +55,7 @@ function closeconfirm2() {
 }
 
 function accept(id) {
+    document.getElementById('loader-wrapper2').style.display = "block";
     $.ajax({
         url: "accept",
         type: "post",
@@ -71,6 +66,7 @@ function accept(id) {
             document.getElementById('note').style.border = "2px solid rgb(0, 122, 31)"
             document.getElementById('note').style.color = "rgb(0, 122, 31)";
             document.getElementById('note').style.display = "block";
+            document.getElementById('loader-wrapper2').style.display = "none";
         },
     });
     closeconfirm1();
@@ -79,6 +75,7 @@ function accept(id) {
 }
 
 function reject(id) {
+    document.getElementById('loader-wrapper2').style.display = "block";
     $.ajax({
         url: "reject",
         type: "post",
@@ -89,6 +86,7 @@ function reject(id) {
             document.getElementById('note').style.border = "2px solid rgb(146, 0, 0)"
             document.getElementById('note').style.color = "rgb(95, 3, 3)";
             document.getElementById('note').style.display = "block";
+            document.getElementById('loader-wrapper2').style.display = "none";
         },
     });
     closeconfirm2();

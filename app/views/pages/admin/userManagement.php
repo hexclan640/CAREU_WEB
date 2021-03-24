@@ -10,11 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
-	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../javascript/userManagement.js"></script>
-	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>User Management</title>
 </head>
 <body>
@@ -94,24 +89,11 @@
 			</div>
 		</div>
 	</div>
-	<?php if(isset($_SESSION['blockuser'])){?>
-		<script>
-			document.getElementById('modal1').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal1').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['blockuser']);} ?>
-	<?php if(isset($_SESSION['acceptuser'])){?>
-		<script>
-			document.getElementById('modal2').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal2').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['acceptuser']);} ?>
-	<?php if(isset($_SESSION['rejectuser'])){?>
-		<script>
-			document.getElementById('modal3').style.display = 'block';
-			setTimeout(function(){document.getElementById('modal3').style.display = 'none'; }, 2000);
-		</script>
-	<?php unset($_SESSION['rejectuser']);} ?>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="text/javascript" src="../javascript/topButton.js"></script>
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/userManagement.js"></script>
+	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>
