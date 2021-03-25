@@ -234,6 +234,301 @@ class police extends Controller
         $result=$this->userModel->countDistrict();
         echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3].' '.$result[4].' '.$result[5].' '.$result[6].' '.$result[7].' '.$result[8].' '.$result[9].' '.$result[10].' '.$result[11].' '.$result[12].' '.$result[13].' '.$result[14].' '.$result[15].' '.$result[16].' '.$result[17].' '.$result[18].' '.$result[19].' '.$result[20].' '.$result[21].' '.$result[22].' '.$result[23].' '.$result[24];
     }
+
+    public function report1(){
+        $result=$this->userModel->pdfDateDistrict();
+        $this->dompdf();
+        if($result){
+            $html='<style>
+                        #customers {
+                            font-family: Arial, Helvetica, sans-serif;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+
+                        #customers td, #customers th {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                        }
+
+                        #customers tr:nth-child(even) {
+                            background-color: #f2f2f2;
+                        }
+
+                        #customers tr:hover {
+                            background-color: #ddd;
+                        }
+
+                        #customers th {
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: rgba(0,0,0,0.7);
+                            color: white;
+                        }
+
+                        .title {
+                            width:100%;
+                            background-color: rgb(88, 0, 0);
+                            color:#FF8C00;
+                            text-align:center;
+                            margin-bottom:1rem;
+                        }
+			        </style>';
+            $html.='<div class="title">
+	    	            <h1 id="service">POLICE-119</h1>
+			            <p>Service Report - Group By Date And District</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Date</th><th>District</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		            $html.='<tr><td>'.$result[$i]->date.'</td><td>'.$result[$i]->district.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function report2(){
+        $result=$this->userModel->pdfDistrictCategory();
+        $this->dompdf();
+        if($result){
+            $html='<style>
+                        #customers {
+                            font-family: Arial, Helvetica, sans-serif;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+
+                        #customers td, #customers th {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                        }
+
+                        #customers tr:nth-child(even) {
+                            background-color: #f2f2f2;
+                        }
+
+                        #customers tr:hover {
+                            background-color: #ddd;
+                        }
+
+                        #customers th {
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: rgba(0,0,0,0.7);
+                            color: white;
+                        }
+
+                        .title {
+                            width:100%;
+                            background-color: rgb(88, 0, 0);
+                            color:#FF8C00;
+                            text-align:center;
+                            margin-bottom:1rem;
+                        }
+			        </style>';
+            $html.='<div class="title">
+	    	            <h1 id="service">POLICE-119</h1>
+			            <p>Service Report - Group By District And Complain Category</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>District</th><th>Complain Category</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		            $html.='<tr><td>'.$result[$i]->district.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function report3(){
+        $result=$this->userModel->pdfPoliceStationCategory();
+        $this->dompdf();
+        if($result){
+            $html='<style>
+                        #customers {
+                            font-family: Arial, Helvetica, sans-serif;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+
+                        #customers td, #customers th {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                        }
+
+                        #customers tr:nth-child(even) {
+                            background-color: #f2f2f2;
+                        }
+
+                        #customers tr:hover {
+                            background-color: #ddd;
+                        }
+
+                        #customers th {
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: rgba(0,0,0,0.7);
+                            color: white;
+                        }
+
+                        .title {
+                            width:100%;
+                            background-color: rgb(88, 0, 0);
+                            color:#FF8C00;
+                            text-align:center;
+                            margin-bottom:1rem;
+                        }
+			        </style>';
+            $html.='<div class="title">
+	    	            <h1 id="service">POLICE-119</h1>
+			            <p>Service Report - Group By Police Station And Complain Category</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Police Station</th><th>Complain Category</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		            $html.='<tr><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function report4(){
+        $result=$this->userModel->pdfDateCategory();
+        $this->dompdf();
+        if($result){
+            $html='<style>
+                        #customers {
+                            font-family: Arial, Helvetica, sans-serif;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+
+                        #customers td, #customers th {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                        }
+
+                        #customers tr:nth-child(even) {
+                            background-color: #f2f2f2;
+                        }
+
+                        #customers tr:hover {
+                            background-color: #ddd;
+                        }
+
+                        #customers th {
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: rgba(0,0,0,0.7);
+                            color: white;
+                        }
+
+                        .title {
+                            width:100%;
+                            background-color: rgb(88, 0, 0);
+                            color:#FF8C00;
+                            text-align:center;
+                            margin-bottom:1rem;
+                        }
+			        </style>';
+            $html.='<div class="title">
+	    	            <h1 id="service">POLICE-119</h1>
+			            <p>Service Report - Group By Date And Complain Category</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Date</th><th>Complain Category</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		            $html.='<tr><td>'.$result[$i]->date.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function report5(){
+        $result=$this->userModel->pdfDateCategory();
+        $this->dompdf();
+        if($result){
+            $html='<style>
+                        #customers {
+                            font-family: Arial, Helvetica, sans-serif;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+
+                        #customers td, #customers th {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                        }
+
+                        #customers tr:nth-child(even) {
+                            background-color: #f2f2f2;
+                        }
+
+                        #customers tr:hover {
+                            background-color: #ddd;
+                        }
+
+                        #customers th {
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: rgba(0,0,0,0.7);
+                            color: white;
+                        }
+
+                        .title {
+                            width:100%;
+                            background-color: rgb(88, 0, 0);
+                            color:#FF8C00;
+                            text-align:center;
+                            margin-bottom:1rem;
+                        }
+			        </style>';
+            $html.='<div class="title">
+	    	            <h1 id="service">POLICE-119</h1>
+			            <p>Service Report - Group By Date And Complain Category</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Date</th><th>Complain Category</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		            $html.='<tr><td>'.$result[$i]->date.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
 }
 
 ?>

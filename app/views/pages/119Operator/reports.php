@@ -38,13 +38,13 @@
 					</div>
 					<div class="chart">
 						<div class="chartdiv">
-							<p id="title2"></p>
+							<p id="title2">Category Wise</p>
 							<canvas id="myChart2"></canvas>
 						</div>
 					</div>
 					<div class="barchart">
 						<div class="chartdiv">
-							<p id="title3"></p>
+							<p id="title3">District Wise</p>
 							<canvas id="myChart3"></canvas>
 						</div>
 					</div>
@@ -55,19 +55,19 @@
 			<center>
 				<div class="row">
 					<div class="pdfoptions">
-						<select class="options" name="option" id="option">
-							<option value="All">-Select-</option>
-							<option value="NotViewed">Request counts with date and district</option>
-							<option value="Accepted">Accepted</option>
-							<option value="Rejected">Rejected</option>
-							<option value="Timeout">Timeout</option>
+						<select class="options" name="options" id="options">
+							<option value="select">-Select-</option>
+							<option value="report1">Group By Date And District</option>
+							<option value="report2">Group By District And Category</option>
+							<option value="report3">Group By Police Station And Category</option>
+							<option value="report4">Group By Date And Category</option>
 						</select>
 					</div>
 					<div class="pdf">
-						<button class="pdfbtn">Export PDF</button>
+						<a class="pdfbtn" id="pdfbtn" onclick="exportpdf()">Export PDF</a>
 					</div>
 					<div class="excel">
-						<button class="excelbtn">Export EXCEL</button>
+						<a class="excelbtn">Export EXCEL</a>
 					</div>
 				</div>
 			</center>
@@ -78,7 +78,7 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="../javascript/reports.js"></script>
+	<script type="text/javascript" src="../javascript/policeReports.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
 	<script type="text/javascript" src="../javascript/preloader.js"></script>

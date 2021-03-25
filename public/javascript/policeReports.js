@@ -48,7 +48,6 @@ $(document).ready(function() {
         method: 'post',
         success: function(data) {
             var dataset = data.split(" ");
-            document.getElementById("title2").innerHTML = "Category Wise Count";
             var ctx = document.getElementById('myChart2').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'pie',
@@ -91,7 +90,6 @@ $(document).ready(function() {
         success: function(data) {
             console.log(data);
             var dataset = data.split(" ");
-            document.getElementById("title2").innerHTML = "District Wise Count";
             var ctx = document.getElementById('myChart3').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -118,3 +116,10 @@ $(document).ready(function() {
         }
     });
 });
+
+function exportpdf() {
+    if (document.getElementById("options").value != "select") {
+        document.getElementById("pdfbtn").href = document.getElementById("options").value;
+        return true;
+    }
+}

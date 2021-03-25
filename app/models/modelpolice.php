@@ -233,19 +233,6 @@
         {
             $mydate=getdate(date("U"));
             $date=$mydate["year"].'-'.$mydate["mon"].'-'.$mydate["mday"];
-            // if($mydate["mon"]<10){
-            //     if($mydate["mday"]<10){
-            //         $date=$mydate["year"].'-0'.$mydate["mon"].'-0'.$mydate["mday"];
-            //     }else{
-            //         $date=$mydate["year"].'-0'.$mydate["mon"].'-'.$mydate["mday"];
-            //     }
-            // }else{
-            //     if($mydate["mday"]<10){
-            //         $date=$mydate["year"].'-'.$mydate["mon"].'-0'.$mydate["mday"];
-            //     }else{
-            //         $date=$mydate["year"].'-0'.$mydate["mon"].'-0'.$mydate["mday"];
-            //     }
-            // }
             return $date;
         }
 
@@ -333,6 +320,38 @@
             $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Vavuniya%' AND date BETWEEN '{$date1}' AND '{$date2}'");
             $result25 = $this->db->resultSet();
             $result=array($result1[0]->requestCount,$result2[0]->requestCount,$result3[0]->requestCount,$result4[0]->requestCount,$result5[0]->requestCount,$result6[0]->requestCount,$result7[0]->requestCount,$result8[0]->requestCount,$result9[0]->requestCount,$result10[0]->requestCount,$result11[0]->requestCount,$result12[0]->requestCount,$result13[0]->requestCount,$result14[0]->requestCount,$result15[0]->requestCount,$result16[0]->requestCount,$result17[0]->requestCount,$result18[0]->requestCount,$result19[0]->requestCount,$result20[0]->requestCount,$result21[0]->requestCount,$result22[0]->requestCount,$result23[0]->requestCount,$result24[0]->requestCount,$result25[0]->requestCount);
+            return $result;
+        }
+
+        public function pdfDateDistrict(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT date,district,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY date,district");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfDistrictCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT district,complainCategory,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY district,complainCategory");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfPoliceStationCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT policeStation,complainCategory,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY policeStation,complainCategory");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfDateCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT date,complainCategory,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY date,complainCategory");
+            $result = $this->db->resultSet();
             return $result;
         }
     }
