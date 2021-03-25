@@ -20,8 +20,6 @@
 	<div class="loader-wrapper2" id="loader-wrapper2">
 		<span class="loader2"><span class="loader-inner2"></span></span>
 	</div>
-	<div class="divloader" id="divloader">
-	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
   			<li><a href="home">Home</a></li>

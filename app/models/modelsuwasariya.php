@@ -205,15 +205,15 @@
             $query1="INSERT INTO reply (message,userId,requestId) VALUES ('{$message}','{$userId}','{$requestId}');";
             mysqli_query($connection,$query1);
 
-            $this->db->query("SELECT * FROM reply ORDER BY replyId DESC LIMIT 1;");
+            $this->db->query("SELECT * FROM reply WHERE userId='{$userId}' AND requestId='{$requestId}' ORDER BY replyId DESC LIMIT 1");
             $result2 = $this->db->resultSet();
             $replyId=$result2[0]->replyId;
 
-            $this->db->query("SELECT * FROM 1990 calloperator WHERE username='{$username}'");
+            $this->db->query("SELECT * FROM 1990calloperator WHERE username='{$username}'");
             $result3 = $this->db->resultSet();
             $operatorId=$result3[0]->userId;
 
-            $query2="INSERT INTO send (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
+            $query2="INSERT INTO 1990operatorsend (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
             mysqli_query($connection,$query2);
             mysqli_close($connection);
         }
