@@ -1,46 +1,120 @@
-google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.setOnLoadCallback(drawVisualization);
+$(document).ready(function() {
+    $.ajax({
+        url: 'flagcount',
+        method: 'post',
+        success: function(data) {
+            console.log(data);
+            var dataset = data.split(" ");
+            var count = parseInt(dataset[0]) + parseInt(dataset[1]) + parseInt(dataset[2]) + parseInt(dataset[3]);
+            document.getElementById("title1").innerHTML = "Total Requests - " + count;
+            var ctx = document.getElementById('myChart1').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Not Viewed', 'Accepted', 'Rejected', 'Timeout'],
+                    datasets: [{
+                        label: 'Requests',
+                        data: [dataset[0], dataset[1], dataset[2], dataset[3]],
+                        backgroundColor: [
+                            'rgba(54, 162, 235)',
+                            'rgba(75, 192, 192)',
+                            'rgba(255, 99, 132)',
+                            'rgba(255, 206, 86)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 255, 255)',
+                            'rgba(255, 255, 255)',
+                            'rgba(255, 255, 255)',
+                            'rgba(255, 255, 255)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    });
 
-function drawVisualization() {
-    // Some raw data (not necessarily accurate)
-    var data = google.visualization.arrayToDataTable([
-        ['Month', 'Rejected 119 Requests', 'Accepted 119 Requests', 'Rejected 1990 Requests', 'Accepted 1990 Requests', 'Total Requests'],
-        ['June', 100, 938, 23, 998, 2059],
-        ['July', 045, 1120, 87, 1268, 2520],
-        ['August', 98, 1167, 34, 807, 2106],
-        ['September', 113, 1110, 123, 968, 2314],
-        ['October', 35, 691, 94, 1146, 1966]
-    ]);
+    $.ajax({
+        url: 'categorycount',
+        method: 'post',
+        success: function(data) {
+            var dataset = data.split(" ");
+            document.getElementById("title2").innerHTML = "Category Wise Count";
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Accident', 'Crime', 'Robbery', 'Other'],
+                    datasets: [{
+                        label: 'Requests',
+                        data: [dataset[0], dataset[1], dataset[2], dataset[3]],
+                        backgroundColor: [
+                            'rgba(235, 52, 52)',
+                            'rgba(235, 214, 52)',
+                            'rgba(235, 52, 235)',
+                            'rgba(52, 235, 226)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 255, 255)',
+                            'rgba(255, 255, 255)',
+                            'rgba(255, 255, 255)',
+                            'rgba(255, 255, 255)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    });
 
-    var options = {
-        title: 'Monthly Service Statics',
-        vAxis: { title: 'Requests' },
-        hAxis: { title: 'Month' },
-        seriesType: 'bars',
-        series: { 4: { type: 'line' } }
-    };
-
-    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
-}
-
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-
-    var data = google.visualization.arrayToDataTable([
-        ['User Category', 'User Requests'],
-        ['Unverified users', 2245],
-        ['Blocked Users', 1134],
-        ['Rejected Users', 998],
-        ['Verified Users', 55690],
-    ]);
-
-    var options = {
-        title: 'User Satatics'
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-    chart.draw(data, options);
-}
+    $.ajax({
+        url: 'districtcount',
+        method: 'post',
+        success: function(data) {
+            console.log(data);
+            var dataset = data.split(" ");
+            document.getElementById("title2").innerHTML = "District Wise Count";
+            var ctx = document.getElementById('myChart3').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Ampara', 'Anuradhapura', 'Badulla', 'Batticola', 'Colombo', 'Galle', 'Gampaha', 'Hambanthota', 'Jaffna', 'Kaluthatra', 'Kandy', 'Kegalle', 'Kilinochchi', 'Kurunagala', 'Mannar', 'Mathale', 'Mathara', 'Monaragala', 'Mulathivu', 'Nuwara Eliya', 'Polonnaruwa', 'Puththalam', 'Rathnapura', 'Trincomalee', 'Vavuniya'],
+                    datasets: [{
+                        label: 'Requests',
+                        data: [dataset[0], dataset[1], dataset[2], dataset[3], dataset[4], dataset[5], dataset[6], dataset[7], dataset[8], dataset[9], dataset[10], dataset[11], dataset[12], dataset[13], dataset[14], dataset[15], dataset[16], dataset[17], dataset[18], dataset[19], dataset[20], dataset[21], dataset[22], dataset[23], dataset[24]],
+                        backgroundColor: 'rgba(245, 78, 78)',
+                        borderColor: 'rgba(237, 0, 0)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    });
+});

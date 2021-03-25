@@ -211,10 +211,28 @@ class police extends Controller
 
     public function reports()
     {
-        $this->view('includes/1990OperatorHeader');
+        $this->view('includes/119OperatorHeader');
         $this->view('119Operator/policeSidebar');
         $this->view('119Operator/reports');
         $this->view('includes/footer');
+    }
+
+    public function flagcount()
+    {
+        $result=$this->userModel->countFlags();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3];
+    }
+
+    public function categorycount()
+    {
+        $result=$this->userModel->countCategory();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3];
+    }
+
+    public function districtcount()
+    {
+        $result=$this->userModel->countDistrict();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3].' '.$result[4].' '.$result[5].' '.$result[6].' '.$result[7].' '.$result[8].' '.$result[9].' '.$result[10].' '.$result[11].' '.$result[12].' '.$result[13].' '.$result[14].' '.$result[15].' '.$result[16].' '.$result[17].' '.$result[18].' '.$result[19].' '.$result[20].' '.$result[21].' '.$result[22].' '.$result[23].' '.$result[24];
     }
 }
 
