@@ -9,12 +9,16 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Edit Profile</title>
 </head>
 <body>
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+	<div class="loader-wrapper2" id="loader-wrapper2">
+		<span class="loader2"><span class="loader-inner2"></span></span>
 	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">

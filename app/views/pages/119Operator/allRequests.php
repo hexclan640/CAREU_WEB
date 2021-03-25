@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>All Requests</title>
 </head>
@@ -32,6 +33,7 @@
  	 				<option value="NotViewed">Not Viewed</option>
   					<option value="Accepted">Accepted</option>
   					<option value="Rejected">Rejected</option>
+					<option value="Timeout">Timeout</option>
 				</select>
 			</div>
 		</div>

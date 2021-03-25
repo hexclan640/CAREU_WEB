@@ -78,6 +78,12 @@ class suwasariya extends Controller
         }
     }
 
+    public function requestflagchecker(){
+        $requestId=$_POST["requestId"];
+        $requestInfo=$this->userModel->requestFlagCheck($requestId);
+        echo $requestInfo[0]->flag;
+    }
+
     public function sendmessage(){
         $requestId=$_POST["requestId"];
         $message=$_POST["message"];
@@ -121,6 +127,12 @@ class suwasariya extends Controller
         $this->view('1990operator/searchRequests',$data);
     }
 
+    public function timeout(){
+        $requestsInfo=$this->userModel->timeoutSearch();
+        $data = ['requestsInfo' => $requestsInfo];
+        $this->view('1990operator/searchRequests',$data);
+    }
+
     public function getall()
     {
         $requestsInfo=$this->userModel->getAllRequests();
@@ -155,8 +167,7 @@ class suwasariya extends Controller
 
     public function requestscount(){
         $requestCount=$this->userModel->getRequestCount();
-        $data = ['requestCount' => $requestCount];
-        $this->view('includes/badge',$data);
+        echo count($requestCount);
     }
 
     public function profile()

@@ -140,7 +140,7 @@ body {
 .column4 {
     float: left;
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .column5 {
@@ -199,7 +199,7 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     left: 0;
     top: 0;
     width: 100%;

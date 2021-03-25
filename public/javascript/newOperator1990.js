@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $("#submit").click(function(event) {
         event.preventDefault();
+        document.getElementById('loader-wrapper2').style.display = "block";
 
         var username = $("#userName").val();
         var firstname = $("#firstName").val();
@@ -62,8 +63,11 @@ $(document).ready(function() {
                                     error.innerText = "";
                                     $("#err").addClass("hide");
                                     $("#formOperator1990").trigger("reset");
-                                    document.getElementById('modal1').style.display = 'block';
-                                    setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 2000);
+                                    setTimeout(function() {
+                                        document.getElementById('loader-wrapper2').style.display = 'none';
+                                        document.getElementById('modal1').style.display = 'block';
+                                        setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 1000);
+                                    }, 1000);
                                 }
                             });
                         }

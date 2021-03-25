@@ -26,11 +26,11 @@
 	</nav>
 	<div id="notification" class="notification">
 		<div class="modal-content">
-   			<div class="modal-header">
+   			<div class="modal-header" onclick="closenotification()">
       			<span class="close">&times;</span>
       			<h2>Notification!</h2>
     		</div>
-    		<a href="usermanagement"><div class="modal-body">
+    		<a href="recent"><div class="modal-body">
 				<p><span id="badge2">|</span> new requests</p>
     		</div></a>
   		</div>

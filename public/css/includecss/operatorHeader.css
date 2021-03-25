@@ -43,8 +43,18 @@
 }
 
 #navbar-right img {
-    width: 2rem;
+    position: absolute;
+    width: 3rem;
+    top: -2px;
+    right: 0;
     margin: 0;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255, 0.4);
+}
+
+#navbar-right img:hover {
+    background-color: rgb(255, 255, 255, 0.5);
 }
 
 #navbar-right .badge {
@@ -61,12 +71,14 @@
 /* ----------------------------------------------------------------------------------------------------------------------- */
 
 .datetime {
+    position: absolute;
     color: rgb(0, 0, 0);
     font-family: "Segoe UI", sans-serif;
+    right: 50px;
     width: 250px;
     border-radius: 5px;
     margin-right: 0.5rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.774);
     float: left;
 }
 
@@ -98,7 +110,7 @@
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 720px) {
     .datetime {
         width: 200px;
     }
@@ -109,7 +121,7 @@
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 680px) {
     .datetime {
         width: 150px;
     }

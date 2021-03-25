@@ -9,12 +9,16 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Verified User Profile</title>
 </head>
 <body>
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+	<div class="loader-wrapper2" id="loader-wrapper2">
+		<span class="loader2"><span class="loader-inner2"></span></span>
 	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
@@ -54,7 +58,8 @@
 					</div>
 					<?php if($userInfo->status==1) {?>
 					<div class="column4" id="column4">
-						<button onclick="confirm(<?php echo $userInfo->userId; ?>)">BLOCK</button>
+						<p class="note" id="note"></p>
+						<button id="blockbtn" onclick="confirm(<?php echo $userInfo->userId; ?>)">BLOCK</button>
 					</div>
 					<?php } ?>
 				</div>

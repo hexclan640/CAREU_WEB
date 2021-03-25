@@ -70,6 +70,12 @@ class police extends Controller
         $this->view('119operator/searchRequests',$data);
     }
 
+    public function timeout(){
+        $requestsInfo=$this->userModel->timeoutSearch();
+        $data = ['requestsInfo' => $requestsInfo];
+        $this->view('119operator/searchRequests',$data);
+    }
+
 
     public function getall()
     {
@@ -90,26 +96,12 @@ class police extends Controller
 
     public function rejectrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestReject($requestId);
-        if($rejectInfo){
-            echo "success";
-        }
-        else
-        {
-            echo "failed";
-        }
+        $this->userModel->requestReject($requestId);
     }
 
     public function acceptrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestAccept($requestId);
-        if($rejectInfo){
-            echo "success";
-        }
-        else
-        {
-            echo "failed";
-        }
+        $this->userModel->requestAccept($requestId);
     }
 
     public function viewtherequest()
@@ -150,8 +142,7 @@ class police extends Controller
 
     public function requestscount(){
         $requestCount=$this->userModel->getRequestCount();
-        $data = ['requestCount' => $requestCount];
-        $this->view('includes/badge',$data);
+        echo count($requestCount);
     }
 
     public function viewrequest()

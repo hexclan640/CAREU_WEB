@@ -29,6 +29,7 @@ $(document).ready(function() {
     $("#submit").click(function(event) {
         event.preventDefault();
 
+        document.getElementById('loader-wrapper2').style.display = "block";
         var stepNumber = document.getElementById("stepNumber").value;
         var description = document.getElementById("description").value;
         var error = document.getElementById("err");
@@ -36,16 +37,14 @@ $(document).ready(function() {
         if (stepNumber == "" && description == "") {
             error.innerText = "Please, fill all the feilds!";
             $("#err").removeClass("hide");
-            return false;
         } else if (stepNumber == "") {
             error.innerText = "Please, fill step number feild!";
             $("#err").removeClass("hide");
-            return false;
         } else if (description == "") {
             error.innerText = "Please, fill description feild!";
             $("#err").removeClass("hide");
-            return false;
         } else if (stepNumber != "" && description != "") {
+            $("#err").addClass("hide");
             var data = $("#bleedingForm")[0];
             var formData = new FormData(data);
             var files = $('#instructionPicture')[0].files;
@@ -58,11 +57,12 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    document.getElementById('modal2').style.display = 'block';
                     setTimeout(function() {
-                        document.getElementById('modal2').style.display = 'none';
                         $("#instructionrow").load('bleedinginstructionlist');
                         $("#bleedingForm").trigger("reset");
+                        document.getElementById('loader-wrapper2').style.display = 'none';
+                        document.getElementById('modal2').style.display = 'block';
+                        setTimeout(function() { document.getElementById('modal2').style.display = 'none'; }, 1000);
                     }, 1000);
                 },
             });
@@ -75,26 +75,24 @@ $(document).ready(function() {
 
 function confirm(id) {
     document.getElementById('modal3').style.display = 'block';
-    var nav = document.getElementById("navbar");
-    var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
 
     $("#yes").click(function(event) {
         event.preventDefault();
+        document.getElementById('loader-wrapper2').style.display = "block";
+        document.getElementById('modal3').style.display = 'none';
 
         $.ajax({
             url: "deletebleeding",
             method: "post",
             data: { id: id },
             success: function(data) {
-                document.getElementById('modal3').style.display = 'none';
-                document.getElementById('modal4').style.display = 'block';
-                nav.style.display = "block";
-                breadcrumb.style.display = "block";
                 setTimeout(function() {
-                    document.getElementById('modal4').style.display = 'none';
+                    document.getElementById('loader-wrapper2').style.display = "none";
                     $("#instructionrow").load('bleedinginstructionlist');
+                    document.getElementById('modal4').style.display = 'block';
+                    setTimeout(function() {
+                        document.getElementById('modal4').style.display = 'none';
+                    }, 1000);
                 }, 1000);
             }
         });

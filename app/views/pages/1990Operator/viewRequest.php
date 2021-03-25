@@ -3,18 +3,22 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/jpg" href="../img/appLogo.png"/>
-	<link rel="stylesheet" type="text/css" href="../css/1990Operator/viewRequest.css">
+	<link rel="stylesheet" type="text/css" href="../css/119Operator/viewRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/breadcrumb.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
+	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
 	<title>Request Details</title>
 </head>
-<body>
+<body onload="timeoutchecker(<?php echo $_GET['id']?>)">
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+	<div class="loader-wrapper2" id="loader-wrapper2">
+		<span class="loader2"><span class="loader-inner2"></span></span>
 	</div>
 	<div class="breadcrum" id="breadcrum">
 		<ul class="breadcrumb">
@@ -37,12 +41,13 @@
 				</div>
 				<div class="brief1">
 					<h1><?php echo $requestInfo->firstName." ".$requestInfo->lastName; ?></h1>
+					<h3><?php echo $requestInfo->email; ?></h3>
 					<h3><?php echo $requestInfo->phoneNumber; ?></h3>
 				</div>
 				<div class="brief2">
 					<div class="details">
 						<div class="patients">
-							<img src="../img/recentRequests/patients.svg" alt="">
+							<img src="../img/recentRequests/category.svg" alt="">
 							<p><?php echo $requestInfo->numberOfPatients; ?></p>
 						</div>
 						<div class="police">
@@ -63,8 +68,8 @@
 			</div>
 			<div class="reqDetails">
 				<div class="description">
-					<p class="note">Special Notes</p>
-					<textarea name="specialnote" cols="30" rows="10" disabled><?php echo $requestInfo->description; ?></textarea>
+					<p class="specialnote">Special Notes</p>
+					<textarea name="specialnote" cols="30" rows="16" disabled><?php echo $requestInfo->description; ?></textarea>
 				</div>
 				<div class="emergencylocation">
 					<div id="googleMap" style="width:100%;height:400px;"></div>
@@ -84,32 +89,25 @@
 						}
 					</script>
 				</div>
+				<div class="sendbtns" id="sendbtns">
+					<p class="note" id="note"></p>
+					<?php if($requestInfo->flag==0){?>
+						<form action="" id="acceptform" method="post">
+							<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId1" hidden>
+							<input type="submit" id="accept" class="accept" value="ACCEPT">
+						</form>
+						<button class="reject" onclick="confirm()" id="rejectbtn">REJECT</button>
+					<?php }?>
+				</div>
 			</div>
 		<div class="reply">
 			<div class="cusmessage">
-				<p class="note">Send Message</p>
+				<p class="specialnote">Send Message</p>
 				<form method="post" id="messageForm">
 					<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId3" hidden>
 					<textarea name="specialnote" cols="30" rows="5" id="message"></textarea>
 					<input type="submit" id="send" value="SEND">
 				</form>
-			</div>
-			<div class="sendbtns" id="sendbtns">
-				<?php if($requestInfo->flag==0){?>
-					<img src="../img/loading.svg" class="loading hide" id="loading">
-					<p><strong>Note :</strong> When you click on Accept or Reject buttons, it will sends relevant acknowledgement messages to requesters. If you want to send customized message use textarea provided in the right side.</p>
-					<form action="" id="acceptform" method="post">
-						<input type="text" value="<?php echo $requestInfo->requestId ?>" name="requestId" id="requestId1" hidden>
-						<input type="submit" id="accept" class="accept" value="ACCEPT">
-					</form>
-					<button class="reject" onclick="confirm()" id="rejectbtn">REJECT</button>
-				<?php }?>
-			</div>
-			<div class="accepted" id="accepted">
-					<h1 id="status">Accepted</h1>
-			</div>
-			<div class="rejected" id="rejected">
-					<h1 id="status">Rejected</h1>
 			</div>
 		</div>
 	</div>
@@ -143,7 +141,7 @@
 		<div class="message">
 			<div class="container">
 				<div class="titleconfirm">
-					<h1>Saved!</h1>
+					<h1>Sent!</h1>
 				</div>
 				<div class="confirm">
 					<img src="../img/modelicons/success.svg" alt="">

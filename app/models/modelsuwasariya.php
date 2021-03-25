@@ -147,6 +147,14 @@
             return $result;
         }
 
+        public function timeoutSearch()
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,flag FROM 1990ambulancerequest,request,servicerequester WHERE (request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId) AND flag=3");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getAllRequests()
         {
             $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId ORDER BY requestId DESC");
@@ -163,7 +171,13 @@
 
         public function getRecentRequestAll($requestid)
         {
-            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function requestFlagCheck($requestid){
+            $this->db->query("SELECT flag FROM 1990ambulancerequest WHERE requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -191,7 +205,7 @@
             $query1="INSERT INTO reply (message,userId,requestId) VALUES ('{$message}','{$userId}','{$requestId}');";
             mysqli_query($connection,$query1);
 
-            $this->db->query("SELECT * FROM reply ORDER BY replyId DESC LIMIT 1;");
+            $this->db->query("SELECT * FROM reply WHERE userId='{$userId}' AND requestId='{$requestId}' ORDER BY replyId DESC LIMIT 1");
             $result2 = $this->db->resultSet();
             $replyId=$result2[0]->replyId;
 
@@ -199,7 +213,7 @@
             $result3 = $this->db->resultSet();
             $operatorId=$result3[0]->userId;
 
-            $query2="INSERT INTO send (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
+            $query2="INSERT INTO 1990operatorsend (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
             mysqli_query($connection,$query2);
             mysqli_close($connection);
         }

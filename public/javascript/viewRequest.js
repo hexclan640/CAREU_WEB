@@ -1,3 +1,30 @@
+function timeoutchecker(requestId) {
+    var id = setInterval(() => {
+        $.ajax({
+            url: "requestflagchecker",
+            method: "post",
+            data: { requestId: requestId },
+            success: function(data) {
+                var dis = document.getElementById('rejectbtn').style.display;
+                if (data == 3 && dis != "none") {
+                    clearInterval(id);
+                    document.getElementById('loader-wrapper2').style.display = "block";
+                    setTimeout(function() {
+                        document.getElementById('acceptform').style.display = "none";
+                        document.getElementById('rejectbtn').style.display = "none";
+                        document.getElementById('note').innerText = 'Timeout';
+                        document.getElementById('note').style.background = "rgba(249, 253, 0, 0.418)";
+                        document.getElementById('note').style.border = "2px solid rgb(158, 142, 1)"
+                        document.getElementById('note').style.color = "rgb(158, 142, 1)";
+                        document.getElementById('note').style.display = "block";
+                        document.getElementById('loader-wrapper2').style.display = "none";
+                    }, 1000);
+                }
+            }
+        });
+    }, 100);
+}
+
 var modal = document.getElementById("zoomImg");
 var elements = document.getElementsByClassName("idImg1");
 var modalImg = document.getElementById("img");
@@ -28,45 +55,56 @@ window.onclick = function(event) {
 }
 
 
-$('#acceptform').click(function(event) {
+$('#accept').click(function(event) {
     event.preventDefault();
+    document.getElementById('loader-wrapper2').style.display = "block";
     var requestId = document.getElementById("requestId1").value;
-    var sendbtns = document.getElementById("sendbtns");
     $.ajax({
         url: 'acceptrequest',
         method: 'post',
         data: { requestId: requestId },
-        success: function() {
-            document.getElementById("loading").style.display = "block";
-            document.getElementById("sendbtns").style.opacity = "0.5";
-            setTimeout(() => {
-                sendbtns.style.display = "none";
-                document.getElementById("accepted").style.display = "block";
+        success: function(response) {
+            setTimeout(function() {
+                document.getElementById('acceptform').style.display = "none";
+                document.getElementById('rejectbtn').style.display = "none";
+                document.getElementById('note').innerText = 'Accepted';
+                document.getElementById('note').style.background = "rgba(139, 245, 112, 0.637)";
+                document.getElementById('note').style.border = "2px solid rgb(0, 122, 31)"
+                document.getElementById('note').style.color = "rgb(0, 122, 31)";
+                document.getElementById('note').style.display = "block";
+                document.getElementById('loader-wrapper2').style.display = "none";
             }, 1000);
-        }
+        },
     });
 });
 
 $('#rejectform').click(function(event) {
     event.preventDefault();
+    document.getElementById('loader-wrapper2').style.display = "block";
+    closeconfirm();
     var requestId = document.getElementById("requestId2").value;
-    var sendbtns = document.getElementById("sendbtns");
     $.ajax({
         url: 'rejectrequest',
         method: 'post',
         data: { requestId: requestId },
-        success: function() {
-            setTimeout(() => {
-                sendbtns.style.display = "none";
-                document.getElementById("rejected").style.display = "block";
-                closeconfirm();
-            }, 1500);
-        }
+        success: function(response) {
+            setTimeout(function() {
+                document.getElementById('acceptform').style.display = "none";
+                document.getElementById('rejectbtn').style.display = "none";
+                document.getElementById('note').innerText = 'Rejected';
+                document.getElementById('note').style.background = "rgba(192, 34, 34, 0.589)";
+                document.getElementById('note').style.border = "2px solid rgb(146, 0, 0)"
+                document.getElementById('note').style.color = "rgb(95, 3, 3)";
+                document.getElementById('note').style.display = "block";
+                document.getElementById('loader-wrapper2').style.display = "none";
+            }, 1000);
+        },
     });
 });
 
 $("#send").click(function(event) {
     event.preventDefault();
+    document.getElementById('loader-wrapper2').style.display = "block";
     var requestId = document.getElementById("requestId3").value;
     var message = document.getElementById("message").value;
     if (message != "") {
@@ -75,10 +113,13 @@ $("#send").click(function(event) {
             method: 'post',
             data: { message: message, requestId: requestId },
             success: function(response) {
-                document.getElementById("messageForm").reset();
-                document.getElementById('modal2').style.display = 'block';
                 setTimeout(function() {
-                    document.getElementById('modal2').style.display = 'none';
+                    document.getElementById("messageForm").reset();
+                    document.getElementById('modal2').style.display = 'block';
+                    document.getElementById('loader-wrapper2').style.display = "none";
+                    setTimeout(function() {
+                        document.getElementById('modal2').style.display = 'none';
+                    }, 1000);
                 }, 1000);
             },
         });
@@ -88,19 +129,10 @@ $("#send").click(function(event) {
 
 function confirm() {
     document.getElementById('modal1').style.display = 'block';
-    var nav = document.getElementById("navbar");
-    var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
-
 }
 
 function closeconfirm() {
     document.getElementById('modal1').style.display = 'none';
-    var nav = document.getElementById("navbar");
-    var breadcrumb = document.getElementById("breadcrum");
-    nav.style.display = "block";
-    breadcrumb.style.display = "block";
 }
 
 // -----------------------------------------------------

@@ -5,11 +5,15 @@
 	<link rel="shortcut icon" type="image/jpg" href="img/appLogo.png">
 	<link rel="stylesheet" type="text/css" href="css/login/login.css">
 	<link rel="stylesheet" type="text/css" href="css/includecss/preloader.css">
+	<link rel="stylesheet" type="text/css" href="css/includecss/loader.css">
 	<title>Log In</title>
 </head>
 <body>
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+	<div class="loader-wrapper2" id="loader-wrapper2">
+		<span class="loader2"><span class="loader-inner2"></span></span>
 	</div>
 	<div class="form">
 		<img src="img/AppLogo.png" class="logo">

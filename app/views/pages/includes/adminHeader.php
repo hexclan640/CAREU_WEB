@@ -26,7 +26,7 @@
 	</nav>
 	<div id="notification" class="notification">
 		<div class="modal-content">
-   			<div class="modal-header">
+   			<div class="modal-header" onclick="closenotification()">
       			<span class="close">&times;</span>
       			<h2>New Request</h2>
     		</div>

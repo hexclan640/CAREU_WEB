@@ -44,6 +44,12 @@ body {
     border: 2px solid rgb(14, 13, 121)
 }
 
+.timeout {
+    color: rgb(158, 142, 1);
+    background-color: rgba(249, 253, 0, 0.418);
+    border: 2px solid rgb(158, 142, 1);
+}
+
 .userPic {
     float: left;
     width: 15%;

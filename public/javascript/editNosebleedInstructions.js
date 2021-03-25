@@ -28,6 +28,7 @@ $(document).ready(function() {
 
     $("#submit").click(function(event) {
         event.preventDefault();
+        document.getElementById('loader-wrapper2').style.display = "block";
 
         var stepNumber = document.getElementById("stepNumber").value;
         var description = document.getElementById("description").value;
@@ -36,16 +37,14 @@ $(document).ready(function() {
         if (stepNumber == "" && description == "") {
             error.innerText = "Please, fill all the feilds!";
             $("#err").removeClass("hide");
-            return false;
         } else if (stepNumber == "") {
             error.innerText = "Please, fill step number feild!";
             $("#err").removeClass("hide");
-            return false;
         } else if (description == "") {
             error.innerText = "Please, fill description feild!";
             $("#err").removeClass("hide");
-            return false;
         } else if (stepNumber != "" && description != "") {
+            $("#err").addClass("hide");
             var data = $("#nosebleedForm")[0];
             var formData = new FormData(data);
             var files = $('#instructionPicture')[0].files;
@@ -58,10 +57,10 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    document.getElementById('modal1').style.display = 'block';
                     setTimeout(function() {
-                        document.getElementById('modal1').style.display = 'none';
-                        window.location = "nosebleed";
+                        document.getElementById('loader-wrapper2').style.display = 'none';
+                        document.getElementById('modal1').style.display = 'block';
+                        setTimeout(function() { document.getElementById('modal1').style.display = 'none'; }, 1000);
                     }, 1000);
                 },
             });

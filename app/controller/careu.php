@@ -19,7 +19,6 @@ class careu extends Controller
     public function verify()
     {
         session_start();
-        $_SESSION["count"]=0;
         $connection = mysqli_connect('localhost','root','','careu');
         $userName=mysqli_real_escape_string($connection,$_POST['username']);
         $password=md5(mysqli_real_escape_string($connection,$_POST['password']));

@@ -153,6 +153,14 @@
             return $result;
         }
 
+        public function timeoutSearch()
+        {
+           
+            $this->db->query("SELECT request.requestId,firstName,lastName,email,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,flag FROM 119policerequest,request,servicerequester WHERE (request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId) AND flag=3");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
         public function getFeedback($requestid)
         {
             $this->db->query("SELECT feedback.comment,feedback.feedbackTime,feedback.ratings FROM give,feedback WHERE give.requestId={$requestid} AND give.feedbackId=feedback.feedbackId");
@@ -169,7 +177,7 @@
 
         public function getRecentRequestAll($requestid)
         {
-            $this->db->query("SELECT request.requestId,firstName,lastName,gender,phoneNumber,request.time,request.date,complainCategory,policeStation,district,description,latitude,longitude,flag FROM 119policerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 119policerequest.requestId='{$requestid}'");
+            $this->db->query("SELECT request.requestId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,complainCategory,policeStation,district,description,latitude,longitude,flag FROM 119policerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 119policerequest.requestId='{$requestid}'");
             $result = $this->db->resultSet();
             return $result;
         }
@@ -197,7 +205,7 @@
             $query1="INSERT INTO reply (message,userId,requestId) VALUES ('{$message}','{$userId}','{$requestId}');";
             mysqli_query($connection,$query1);
 
-            $this->db->query("SELECT * FROM reply ORDER BY replyId DESC LIMIT 1;");
+            $this->db->query("SELECT * FROM reply WHERE userId='{$userId}' AND requestId='{$requestId}' ORDER BY replyId DESC LIMIT 1");
             $result2 = $this->db->resultSet();
             $replyId=$result2[0]->replyId;
 
@@ -205,7 +213,7 @@
             $result3 = $this->db->resultSet();
             $operatorId=$result3[0]->userId;
 
-            $query2="INSERT INTO send (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
+            $query2="INSERT INTO 119operatorsend (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
             mysqli_query($connection,$query2);
             mysqli_close($connection);
         }

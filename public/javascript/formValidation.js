@@ -16,14 +16,20 @@ $(document).ready(function() {
             $("#err").removeClass("hide");
         } else if (userName != "" && password != "") {
             if (userName.includes("careu_119") || userName.includes("careu_1990") || userName.includes("careu_admin")) {
+                $("#err").addClass("hide");
+                document.getElementById('loader-wrapper2').style.display = "block";
                 var formData = $("#logIn").serialize();
                 $.post("careu/verify",
                     formData,
                     function(data, status) {
                         if (data.includes("failed") && status.includes("success")) {
-                            error.innerText = "Invalid username or password. Try again!";
-                            $("#err").removeClass("hide");
+                            setTimeout(function() {
+                                document.getElementById('loader-wrapper2').style.display = "none";
+                                error.innerText = "Invalid username or password. Try again!";
+                                $("#err").removeClass("hide");
+                            }, 1000);
                         } else if (data.includes("success") && status.includes("success")) {
+                            sessionStorage.setItem("count", 0);
                             if (userName.includes("admin")) {
                                 window.location = "careuadmin/home";
                             }
