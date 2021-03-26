@@ -3,7 +3,6 @@ $(document).ready(function() {
         url: 'flagcount',
         method: 'post',
         success: function(data) {
-            console.log(data);
             var dataset = data.split(" ");
             var count = parseInt(dataset[0]) + parseInt(dataset[1]) + parseInt(dataset[2]) + parseInt(dataset[3]);
             document.getElementById("title1").innerHTML = "Total Requests - " + count;
@@ -88,7 +87,6 @@ $(document).ready(function() {
         url: 'districtcount',
         method: 'post',
         success: function(data) {
-            console.log(data);
             var dataset = data.split(" ");
             var ctx = document.getElementById('myChart3').getContext('2d');
             var myChart = new Chart(ctx, {
@@ -117,9 +115,57 @@ $(document).ready(function() {
     });
 });
 
+// function exportpdf() {
+//     if (document.getElementById("options").value != "select") {
+//         document.getElementById("pdfbtn").href = document.getElementById("options").value;
+//         return true;
+//     }
+// }
+
 function exportpdf() {
-    if (document.getElementById("options").value != "select") {
-        document.getElementById("pdfbtn").href = document.getElementById("options").value;
+    var selection = document.getElementById("options").value;
+    if (selection != "select") {
+        if (selection == 1) {
+            document.getElementById("pdfbtn").href = "pdfreport1";
+        } else if (selection == 2) {
+            document.getElementById("pdfbtn").href = "pdfreport2";
+        } else if (selection == 3) {
+            document.getElementById("pdfbtn").href = "pdfreport3";
+        } else if (selection == 4) {
+            document.getElementById("pdfbtn").href = "pdfreport4";
+        } else if (selection == 5) {
+            document.getElementById("pdfbtn").href = "pdfreport5";
+        } else if (selection == 6) {
+            document.getElementById("pdfbtn").href = "pdfreport6";
+        } else if (selection == 7) {
+            document.getElementById("pdfbtn").href = "pdfreport7";
+        } else if (selection == 8) {
+            document.getElementById("pdfbtn").href = "pdfreport8";
+        }
+        return true;
+    }
+}
+
+function exportexel() {
+    var selection = document.getElementById("options").value;
+    if (selection != "select") {
+        if (selection == 1) {
+            document.getElementById("excelbtn").href = "cxcelreport1";
+        } else if (selection == 2) {
+            document.getElementById("excelbtn").href = "cxcelreport2";
+        } else if (selection == 3) {
+            document.getElementById("excelbtn").href = "cxcelreport3";
+        } else if (selection == 4) {
+            document.getElementById("excelbtn").href = "cxcelreport4";
+        } else if (selection == 5) {
+            document.getElementById("excelbtn").href = "cxcelreport5";
+        } else if (selection == 6) {
+            document.getElementById("excelbtn").href = "cxcelreport6";
+        } else if (selection == 7) {
+            document.getElementById("excelbtn").href = "cxcelreport7";
+        } else if (selection == 8) {
+            document.getElementById("excelbtn").href = "cxcelreport8";
+        }
         return true;
     }
 }

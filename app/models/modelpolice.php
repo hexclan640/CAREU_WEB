@@ -354,5 +354,37 @@
             $result = $this->db->resultSet();
             return $result;
         }
+
+        public function pdfRequestFeedback(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT 119policerequest.requestId,119policerequest.date,119policerequest.time,119policerequest.policeStation,119policerequest.complainCategory,feedback.comment,feedback.ratings FROM 119policerequest,feedback,give WHERE give.feedbackId=feedback.feedbackId AND give.requestId=119policerequest.requestId AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfAllRequestFeedback(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT 119policerequest.requestId,119policerequest.date,119policerequest.time,119policerequest.policeStation,119policerequest.complainCategory,s.comment,s.ratings FROM 119policerequest LEFT JOIN (SELECT feedback.feedbackId,feedback.comment,feedback.ratings,give.requestId FROM feedback,give WHERE feedback.feedbackId=give.feedbackId) AS s  ON s.requestId=119policerequest.requestId WHERE 119policerequest.date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfAllRequestFeedbackUser(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT servicerequester.firstName,servicerequester.lastName,servicerequester.nicNumber,servicerequester.phoneNumber,servicerequester.email,servicerequester.address,119policerequest.date,119policerequest.time,119policerequest.district,119policerequest.policeStation,119policerequest.complainCategory FROM request,servicerequester,119policerequest WHERE request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId AND 119policerequest.date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfRequestkUser(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT servicerequester.firstName,servicerequester.lastName,servicerequester.gender,servicerequester.nicNumber,servicerequester.email,servicerequester.phoneNumber,servicerequester.address,COUNT(*) AS requestCount FROM servicerequester,request,119policerequest WHERE 119policerequest.requestId=request.requestId AND request.userId=servicerequester.userId AND 119policerequest.date BETWEEN '{$date1}' AND '{$date2}' GROUP BY servicerequester.userId");
+            $result = $this->db->resultSet();
+            return $result;
+        }
     }
 ?>

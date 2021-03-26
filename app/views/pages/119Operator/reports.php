@@ -57,17 +57,21 @@
 					<div class="pdfoptions">
 						<select class="options" name="options" id="options">
 							<option value="select">-Select-</option>
-							<option value="report1">Group By Date And District</option>
-							<option value="report2">Group By District And Category</option>
-							<option value="report3">Group By Police Station And Category</option>
-							<option value="report4">Group By Date And Category</option>
+							<option value="1">Group By Date And District</option>
+							<option value="2">Group By District And Category</option>
+							<option value="3">Group By Police Station And Category</option>
+							<option value="4">Group By Date And Category</option>
+							<option value="5">Group By Service Requester</option>
+							<option value="6">Service Ratings With Police Stations</option>
+							<option value="7">All Requests With Details</option>
+							<option value="8">Requests With User Details</option>
 						</select>
 					</div>
 					<div class="pdf">
-						<a class="pdfbtn" id="pdfbtn" onclick="exportpdf()">Export PDF</a>
+						<a class="pdfbtn" id="pdfbtn" onclick="exportpdf()" target = '_blank'>Export PDF</a>
 					</div>
 					<div class="excel">
-						<a class="excelbtn">Export EXCEL</a>
+						<a class="excelbtn" id="excelbtn" onclick="exportexel()">Download EXCEL</a>
 					</div>
 				</div>
 			</center>
