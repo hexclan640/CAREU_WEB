@@ -217,5 +217,178 @@
             mysqli_query($connection,$query2);
             mysqli_close($connection);
         }
+
+        public function getPreviousDate()
+        {
+            // $mydate=getdate(date("U"));
+            // if($mydate["mon"]-1<=0){
+            //     $date=($mydate["year"]-1).'-12-'.$mydate["mday"];
+            // }else{
+            //     $date=$mydate["year"].'-'.($mydate["mon"]-1).'-'.$mydate["mday"];
+            // }
+            return date('Y-m-d', strtotime('-1 months'));
+        }
+
+        public function getCurrentDate()
+        {
+            // $mydate=getdate(date("U"));
+            // $date=$mydate["year"].'-'.$mydate["mon"].'-'.$mydate["mday"];
+            return date("Y-m-d");
+        }
+
+        public function countFlags(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE flag=0 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result1 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE flag=1 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result2 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE flag=2 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result3 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE flag=3 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result4 = $this->db->resultSet();
+            $result=array($result1[0]->requestCount,$result2[0]->requestCount,$result3[0]->requestCount,$result4[0]->requestCount);
+            return $result;
+        }
+
+        public function countCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE numberOfPatients=1 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result1 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE numberOfPatients=2 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result2 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE numberOfPatients=3 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result3 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE numberOfPatients=4 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result4 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE numberOfPatients=5 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result5 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE numberOfPatients>5 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result6 = $this->db->resultSet();
+            $result=array($result1[0]->requestCount,$result2[0]->requestCount,$result3[0]->requestCount,$result4[0]->requestCount,$result5[0]->requestCount,$result6[0]->requestCount);
+            return $result;
+        }
+
+        public function countDistrict(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Ampara%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result1 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Anuradhapura%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result2 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Badulla%'AND date BETWEEN '{$date1}' AND '{$date2}'") ;
+            $result3 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Batticola%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result4 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Colombo%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result5 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Galle%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result6 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Gampaha%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result7 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Hambanthota%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result8 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Jaffna%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result9 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Kaluthatra%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result10 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Kandy%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result11 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Kegalle%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result12 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Kilinochchi%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result13 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Kurunagala%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result14 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Mannar%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result15 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Mathale%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result16 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Mathara%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result17 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Monaragala%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result18 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Mulathivu%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result19 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Nuwara Eliya%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result20 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Polonnaruwa%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result21 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Puththalam%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result22 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Rathnapura%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result23 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Trincomalee%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result24 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE district LIKE 'Vavuniya%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result25 = $this->db->resultSet();
+            $result=array($result1[0]->requestCount,$result2[0]->requestCount,$result3[0]->requestCount,$result4[0]->requestCount,$result5[0]->requestCount,$result6[0]->requestCount,$result7[0]->requestCount,$result8[0]->requestCount,$result9[0]->requestCount,$result10[0]->requestCount,$result11[0]->requestCount,$result12[0]->requestCount,$result13[0]->requestCount,$result14[0]->requestCount,$result15[0]->requestCount,$result16[0]->requestCount,$result17[0]->requestCount,$result18[0]->requestCount,$result19[0]->requestCount,$result20[0]->requestCount,$result21[0]->requestCount,$result22[0]->requestCount,$result23[0]->requestCount,$result24[0]->requestCount,$result25[0]->requestCount);
+            return $result;
+        }
+
+        public function pdfDateDistrict(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT date,district,COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY date,district");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfDistrictCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT district,numberOfPatients,COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY district,numberOfPatients");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfPoliceStationCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT policeStation,numberOfPatients,COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY policeStation,numberOfPatients");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfDateCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT date,numberOfPatients,COUNT(*) AS requestCount FROM 1990ambulancerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY date,numberOfPatients");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfRequestFeedback(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT 1990ambulancerequest.requestId,1990ambulancerequest.date,1990ambulancerequest.time,1990ambulancerequest.policeStation,1990ambulancerequest.numberOfPatients,feedback.comment,feedback.ratings FROM 1990ambulancerequest,feedback,give WHERE give.feedbackId=feedback.feedbackId AND give.requestId=1990ambulancerequest.requestId AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfAllRequestFeedback(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT 1990ambulancerequest.requestId,1990ambulancerequest.date,1990ambulancerequest.time,1990ambulancerequest.policeStation,1990ambulancerequest.numberOfPatients,s.comment,s.ratings FROM 1990ambulancerequest LEFT JOIN (SELECT feedback.feedbackId,feedback.comment,feedback.ratings,give.requestId FROM feedback,give WHERE feedback.feedbackId=give.feedbackId) AS s  ON s.requestId=1990ambulancerequest.requestId WHERE 1990ambulancerequest.date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfAllRequestFeedbackUser(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT servicerequester.firstName,servicerequester.lastName,servicerequester.nicNumber,servicerequester.phoneNumber,servicerequester.email,servicerequester.address,1990ambulancerequest.date,1990ambulancerequest.time,1990ambulancerequest.district,1990ambulancerequest.policeStation,1990ambulancerequest.numberOfPatients FROM request,servicerequester,1990ambulancerequest WHERE request.requestId=1990ambulancerequest.requestId AND request.userId=servicerequester.userId AND 1990ambulancerequest.date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfRequestkUser(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT servicerequester.firstName,servicerequester.lastName,servicerequester.gender,servicerequester.nicNumber,servicerequester.email,servicerequester.phoneNumber,servicerequester.address,COUNT(*) AS requestCount FROM servicerequester,request,1990ambulancerequest WHERE 1990ambulancerequest.requestId=request.requestId AND request.userId=servicerequester.userId AND 1990ambulancerequest.date BETWEEN '{$date1}' AND '{$date2}' GROUP BY servicerequester.userId");
+            $result = $this->db->resultSet();
+            return $result;
+        }
     }
 ?>
