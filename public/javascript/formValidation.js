@@ -29,16 +29,18 @@ $(document).ready(function() {
                                 $("#err").removeClass("hide");
                             }, 1000);
                         } else if (data.includes("success") && status.includes("success")) {
-                            sessionStorage.setItem("count", 0);
                             if (userName.includes("admin")) {
+                                sessionStorage.setItem("admincount", 0);
                                 window.location = "careuadmin/home";
                             }
 
                             if (userName.includes("119")) {
+                                sessionStorage.setItem("policecount", 0);
                                 window.location = "police/home";
                             }
 
                             if (userName.includes("1990")) {
+                                sessionStorage.setItem("suwasariyacount", 0);
                                 window.location = "suwasariya/home";
                             }
                         }

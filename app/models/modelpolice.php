@@ -89,11 +89,20 @@
             return $result;
         }
 
-        public function requestReject($requestid)
+        public function getOperatorId($operatorusername){
+            $this->db->query("SELECT * FROM 119calloperator WHERE userName='{$operatorusername}'");
+            $result = $this->db->resultSet();
+            return $result[0]->userId;
+        }
+
+        public function requestReject($requestid,$operatorusername)
         {
+            $operatorId=$this->getOperatorId($operatorusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="UPDATE 119policerequest SET flag=2 WHERE requestId='{$requestid}'";
-            $result=mysqli_query($connection,$query);
+            $query1="UPDATE 119policerequest SET flag=2 WHERE requestId='{$requestid}'";
+            mysqli_query($connection,$query1);
+            $query2="INSERT INTO 119requestoperator VALUES('{$requestid}','{$operatorId}')";
+            $result=mysqli_query($connection,$query2);
             mysqli_close($connection);
             if($result)
             {
@@ -105,11 +114,14 @@
             }
         }
 
-        public function requestAccept($requestid)
+        public function requestAccept($requestid,$operatorusername)
         {
+            $operatorId=$this->getOperatorId($operatorusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="UPDATE 119policerequest SET flag=1 WHERE requestId='{$requestid}'";
-            $result=mysqli_query($connection,$query);
+            $query1="UPDATE 119policerequest SET flag=1 WHERE requestId='{$requestid}'";
+            mysqli_query($connection,$query1);
+            $query2="INSERT INTO 119requestoperator VALUES('{$requestid}','{$operatorId}')";
+            $result=mysqli_query($connection,$query2);
             mysqli_close($connection);
             if($result)
             {

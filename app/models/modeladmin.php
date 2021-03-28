@@ -175,7 +175,6 @@
             return $result;
         }
 
-
         public function getSuwasariyaRequestAll($requestid)
         {
             $this->db->query("SELECT request.requestId,request.userId,firstName,lastName,gender,email,phoneNumber,request.time,request.date,numberOfPatients,policeStation,district,description,latitude,longitude,flag FROM 1990ambulancerequest,request,servicerequester WHERE request.userId=servicerequester.userId AND request.requestId='{$requestid}' AND 1990ambulancerequest.requestId='{$requestid}'");
@@ -256,12 +255,24 @@
             return $result;
         }
 
-        public function createOperator119($username,$firstname,$lastname,$gender,$password)
+        public function getAdminId($adminusername){
+            $this->db->query("SELECT * FROM admin WHERE userName='{$adminusername}'");
+            $result = $this->db->resultSet();
+            return $result[0]->userId;
+        }
+
+        public function createOperator119($username,$firstname,$lastname,$gender,$password,$adminusername)
         {
+            $adminId=$this->getAdminId($adminusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="INSERT INTO 119calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',1);";
-            $result=mysqli_query($connection,$query);
-            mysqli_close($connection);
+            $query1="INSERT INTO 119calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',1);";
+            mysqli_query($connection,$query1);
+            $this->db->query("SELECT userId FROM 119calloperator WHERE userName='{$username}'");
+            $result = $this->db->resultSet();
+            $userId=$result[0]->userId;
+            $query2="INSERT INTO 119operatormanage (adminId,userId,operation) VALUES ('{$adminId}','{$userId}','Add');";
+            mysqli_query($connection,$query2);
+            $result=mysqli_close($connection);
             if($result> 0)
             {   
                 return true;
@@ -272,12 +283,18 @@
             }
         }
 
-        public function createOperator1990($username,$firstname,$lastname,$gender,$password)
+        public function createOperator1990($username,$firstname,$lastname,$gender,$password,$adminusername)
         {
+            $adminId=$this->getAdminId($adminusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="INSERT INTO 1990calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',1);";
-            $result=mysqli_query($connection,$query);
-            mysqli_close($connection);
+            $query1="INSERT INTO 1990calloperator (userName,firstName,lastName,gender,password,flag) VALUES ('{$username}','{$firstname}','{$lastname}','{$gender}','{$password}',1);";
+            mysqli_query($connection,$query1);
+            $this->db->query("SELECT userId FROM 1990calloperator WHERE userName='{$username}'");
+            $result = $this->db->resultSet();
+            $userId=$result[0]->userId;
+            $query2="INSERT INTO 1990operatormanage (adminId,userId,operation) VALUES ('{$adminId}','{$userId}','Add');";
+            mysqli_query($connection,$query2);
+            $result=mysqli_close($connection);
             if($result> 0)
             {   
                 return true;
@@ -302,11 +319,14 @@
             return $result;
         }
 
-        public function removeOperator119($id)
+        public function removeOperator119($id,$adminusername)
         {
+            $adminId=$this->getAdminId($adminusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="UPDATE 119calloperator SET flag=0 WHERE userId='{$id}';";
-            $result=mysqli_query($connection,$query);
+            $query1="UPDATE 119calloperator SET flag=0 WHERE userId='{$id}';";
+            $result=mysqli_query($connection,$query1);
+            $query2="INSERT INTO 119operatormanage (adminId,userId,operation) VALUES('{$adminId}','{$id}','Remove');";
+            $result=mysqli_query($connection,$query2);
             mysqli_close($connection);
             if($result)
             {
@@ -318,11 +338,14 @@
             }
         }
 
-        public function removeOperator1990($id)
+        public function removeOperator1990($id,$adminusername)
         {
+            $adminId=$this->getAdminId($adminusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="UPDATE 1990calloperator SET flag=0 WHERE userId='{$id}';";
-            $result=mysqli_query($connection,$query);
+            $query1="UPDATE 1990calloperator SET flag=0 WHERE userId='{$id}';";
+            $result=mysqli_query($connection,$query1);
+            $query2="INSERT INTO 1990operatormanage (adminId,userId,operation) VALUES('{$adminId}','{$id}','Remove');";
+            $result=mysqli_query($connection,$query2);
             mysqli_close($connection);
             if($result)
             {

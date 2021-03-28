@@ -42,26 +42,12 @@ class suwasariya extends Controller
 
     public function rejectrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestReject($requestId);
-        if($rejectInfo){
-            echo "success";
-        }
-        else
-        {
-            echo "failed";
-        }
+        $rejectInfo=$this->userModel->requestReject($requestId,$_SESSION['suwasariyaUserName']);
     }
 
     public function acceptrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestAccept($requestId);
-        if($rejectInfo){
-            echo "success";
-        }
-        else
-        {
-            echo "failed";
-        }
+        $rejectInfo=$this->userModel->requestAccept($requestId,$_SESSION['suwasariyaUserName']);
     }
 
     public function viewtherequest()
@@ -87,7 +73,7 @@ class suwasariya extends Controller
     public function sendmessage(){
         $requestId=$_POST["requestId"];
         $message=$_POST["message"];
-        $this->userModel->updateSentMessage($requestId,$message,$_SESSION["userName"]);
+        $this->userModel->updateSentMessage($requestId,$message,$_SESSION['suwasariyaUserName']);
     }
 
     public function all()
@@ -172,7 +158,7 @@ class suwasariya extends Controller
 
     public function profile()
     {
-        $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
+        $operatorInfo=$this->userModel->getProfile($_SESSION['suwasariyaUserName']);
         $data = ['operatorInfo' => $operatorInfo];
 
         if($operatorInfo)
@@ -186,7 +172,7 @@ class suwasariya extends Controller
 
     public function updateprofile()
     {
-        $userName=$_SESSION['userName'];
+        $userName=$_SESSION['suwasariyaUserName'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
         $imageName=$_FILES['image']['name'];
@@ -208,7 +194,7 @@ class suwasariya extends Controller
         $currentpassword=md5($_POST['currentpassword']);
         $password=md5($_POST['password1']);
         
-        if($userName==$_SESSION['userName'])
+        if($userName==$_SESSION['suwasariyaUserName'])
         {
             $result=$this->userModel->changePassword($userName,$currentpassword,$password);
             if($result)

@@ -29,7 +29,7 @@ class careu extends Controller
             $userInfo=$this->userModel->getUserAdmin($userName,$password);
             if($userInfo)
             {
-                $_SESSION['userName']=$userName;
+                $_SESSION['adminUserName']=$userName;
                 echo "success";
             }
             else
@@ -42,7 +42,7 @@ class careu extends Controller
             $userInfo=$this->userModel->getUser119($userName,$password);
             if($userInfo)
             {
-                $_SESSION['userName']=$userName;
+                $_SESSION['policeUserName']=$userName;
                 echo "success";
             }
             else
@@ -56,7 +56,7 @@ class careu extends Controller
             $userInfo=$this->userModel->getUser1990($userName,$password);
             if($userInfo)
             {
-                $_SESSION['userName']=$userName;
+                $_SESSION['suwasariyaUserName']=$userName;
                 echo "success";
             }
             else

@@ -96,12 +96,12 @@ class police extends Controller
 
     public function rejectrequest(){
         $requestId=$_POST["requestId"];
-        $this->userModel->requestReject($requestId);
+        $this->userModel->requestReject($requestId,$_SESSION['policeUserName']);
     }
 
     public function acceptrequest(){
         $requestId=$_POST["requestId"];
-        $this->userModel->requestAccept($requestId);
+        $this->userModel->requestAccept($requestId,$_SESSION['policeUserName']);
     }
 
     public function viewtherequest()
@@ -122,7 +122,7 @@ class police extends Controller
     public function sendmessage(){
         $requestId=$_POST["requestId"];
         $message=$_POST["message"];
-        $this->userModel->updateSentMessage($requestId,$message,$_SESSION["userName"]);
+        $this->userModel->updateSentMessage($requestId,$message,$_SESSION['policeUserName']);
     }
 
     public function allrequests(){
@@ -155,7 +155,7 @@ class police extends Controller
 
     public function profile()
     {
-        $operatorInfo=$this->userModel->getProfile($_SESSION['userName']);
+        $operatorInfo=$this->userModel->getProfile($_SESSION['policeUserName']);
         $data = ['operatorInfo' => $operatorInfo];
 
         if($operatorInfo)
@@ -169,7 +169,7 @@ class police extends Controller
 
     public function updateprofile()
     {
-        $userName=$_SESSION['userName'];
+        $userName=$_SESSION['policeUserName'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
         $imageName=$_FILES['file']['name'];
@@ -191,7 +191,7 @@ class police extends Controller
         $currentpassword=md5($_POST['currentpassword']);
         $password=md5($_POST['password1']);
         
-        if($userName==$_SESSION['userName'])
+        if($userName==$_SESSION['policeUserName'])
         {
             $result=$this->userModel->changePassword($userName,$currentpassword,$password);
             if($result)

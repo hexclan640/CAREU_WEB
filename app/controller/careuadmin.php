@@ -43,7 +43,7 @@ class careuadmin extends Controller
 
     public function profile()
     {
-        $adminInfo=$this->userModel->getProfile($_SESSION['userName']);
+        $adminInfo=$this->userModel->getProfile($_SESSION['adminUserName']);
         $data = ['admin' => $adminInfo];
 
         if($adminInfo)
@@ -57,7 +57,7 @@ class careuadmin extends Controller
 
     public function updateprofile()
     {
-        $userName=$_SESSION['userName'];
+        $userName=$_SESSION['adminUserName'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
         $imageName=$_FILES['file']['name'];
@@ -80,7 +80,7 @@ class careuadmin extends Controller
         $currentpassword=md5($_POST['currentpassword']);
         $password=md5($_POST['password1']);
         
-        if($userName==$_SESSION['userName'])
+        if($userName==$_SESSION['adminUserName'])
         {
             $result=$this->userModel->changePassword($userName,$currentpassword,$password);
             if($result)
@@ -166,7 +166,7 @@ class careuadmin extends Controller
     public function block()
     {
         $userId=$_POST['id'];
-        $this->userModel->blockUser($userId,$_SESSION['userName']);
+        $this->userModel->blockUser($userId,$_SESSION['adminUserName']);
         $result=$this->userModel->getEmail($userId);
         $adminemail="hexclan640@gmail.com";
         $password="Hex@1800clan";
@@ -290,12 +290,12 @@ class careuadmin extends Controller
 
     public function romoveoperator119()
     {
-        $this->userModel->removeOperator119($_POST['id']);
+        $this->userModel->removeOperator119($_POST['id'],$_SESSION['adminUserName']);
     }
 
     public function romoveoperator1990()
     {
-        $this->userModel->removeOperator1990($_POST['id']);
+        $this->userModel->removeOperator1990($_POST['id'],$_SESSION['adminUserName']);
     }
 
     public function viewuserrequest()
@@ -388,7 +388,7 @@ class careuadmin extends Controller
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
         $password=md5($_POST['password1']);
-        $this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password);
+        $this->userModel->createOperator119($userName,$firstName,$lastName,$gender,$password,$_SESSION['adminUserName']);
     }
 
     public function operatorchecker119(){
@@ -430,7 +430,7 @@ class careuadmin extends Controller
         $lastName=$_POST['lastName'];
         $gender=$_POST['gender'];
         $password=md5($_POST['password1']);
-        $this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password);
+        $this->userModel->createOperator1990($userName,$firstName,$lastName,$gender,$password,$_SESSION['adminUserName']);
     }
 
     public function operatorchecker1990(){
