@@ -38,13 +38,13 @@
 					</div>
 					<div class="chart">
 						<div class="chartdiv">
-							<p id="title2">Amount Of Patients</p>
+							<p id="title2"></p>
 							<canvas id="myChart2"></canvas>
 						</div>
 					</div>
 					<div class="barchart">
 						<div class="chartdiv">
-							<p id="title3">District Wise</p>
+							<p>District Wise</p>
 							<canvas id="myChart3"></canvas>
 						</div>
 					</div>

@@ -115,13 +115,6 @@ $(document).ready(function() {
     });
 });
 
-// function exportpdf() {
-//     if (document.getElementById("options").value != "select") {
-//         document.getElementById("pdfbtn").href = document.getElementById("options").value;
-//         return true;
-//     }
-// }
-
 function exportpdf() {
     var selection = document.getElementById("options").value;
     if (selection != "select") {
@@ -150,21 +143,21 @@ function exportexel() {
     var selection = document.getElementById("options").value;
     if (selection != "select") {
         if (selection == 1) {
-            document.getElementById("excelbtn").href = "cxcelreport1";
+            document.getElementById("excelbtn").href = "excelreport1";
         } else if (selection == 2) {
-            document.getElementById("excelbtn").href = "cxcelreport2";
+            document.getElementById("excelbtn").href = "excelreport2";
         } else if (selection == 3) {
-            document.getElementById("excelbtn").href = "cxcelreport3";
+            document.getElementById("excelbtn").href = "excelreport3";
         } else if (selection == 4) {
-            document.getElementById("excelbtn").href = "cxcelreport4";
+            document.getElementById("excelbtn").href = "excelreport4";
         } else if (selection == 5) {
-            document.getElementById("excelbtn").href = "cxcelreport5";
+            document.getElementById("excelbtn").href = "excelreport5";
         } else if (selection == 6) {
-            document.getElementById("excelbtn").href = "cxcelreport6";
+            document.getElementById("excelbtn").href = "excelreport6";
         } else if (selection == 7) {
-            document.getElementById("excelbtn").href = "cxcelreport7";
+            document.getElementById("excelbtn").href = "excelreport7";
         } else if (selection == 8) {
-            document.getElementById("excelbtn").href = "cxcelreport8";
+            document.getElementById("excelbtn").href = "excelreport8";
         }
         return true;
     }

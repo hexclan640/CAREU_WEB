@@ -166,7 +166,7 @@ class careuadmin extends Controller
     public function block()
     {
         $userId=$_POST['id'];
-        $this->userModel->blockUser($userId);
+        $this->userModel->blockUser($userId,$_SESSION['userName']);
         $result=$this->userModel->getEmail($userId);
         $adminemail="hexclan640@gmail.com";
         $password="Hex@1800clan";
@@ -948,6 +948,1067 @@ class careuadmin extends Controller
         $tmpName=$_FILES['image']['tmp_name'];
         $this->userModel->saveToothache($id,$stepNumber,$description,$imageName,$tmpName);
     }
-}
 
+    public function tablecss(){
+        $html='<style>
+                    #customers {
+                        font-family: Arial, Helvetica, sans-serif;
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+
+                    #customers td, #customers th {
+                        border: 1px solid #ddd;
+                        padding: 8px;
+                    }
+
+                    #customers tr:nth-child(even) {
+                        background-color: #f2f2f2;
+                    }
+
+                    #customers tr:hover {
+                        background-color: #ddd;
+                    }
+
+                    #customers th {
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                        text-align: left;
+                        background-color: rgba(0,0,0,0.7);
+                        color: white;
+                    }
+
+                    .title {
+                        width:100%;
+                        background-color: rgb(88, 0, 0);
+                        color:#FF8C00;
+                        text-align:center;
+                        margin-bottom:1rem;
+                    }
+                </style>';
+                return $html;
+    }
+
+    public function flagcountadmin()
+    {
+        $result=$this->userModel->countFlagsAdmin();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3];
+    }
+
+    public function countofeachserviceadmin()
+    {
+        $result=$this->userModel->eachServiceCountAdmin();
+        echo $result[0].' '.$result[1];
+    }
+
+    public function weekbyweekservicerequests()
+    {
+        $result=$this->userModel->eachServiceCountFourWeekAdmin();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3].' '.$result[4].' '.$result[5].' '.$result[6].' '.$result[7];
+    }
+
+    public function adminpdfreport1(){
+        $result=$this->userModel->pdfWeekRequestAdmin();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT</h1>
+			            <p>Service Report - Group By Requested Week</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Week</th><th>Requests</th></tr>';
+            $keys=array_keys($result);
+            $values=array_values($result);
+            for($i=0;$i<count($result);$i++){
+                $html.='<tr><td>'.$keys[$i].'</td><td>'.$values[$i].'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function adminpdfreport2(){
+        $result=$this->userModel->pdfAcceptedRequestsAdmin();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT</h1>
+			            <p>Service Report - Verified User Requests</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>NIC</th><th>Gender</th><th>E-mail</th><th>Address</th><th>DOB</th><th>Phone Number</th><th>Registered Date</th></tr>';
+            for($i=0;$i<count($result);$i++){
+                $html.='<tr><td>'.$result[$i]->userId.'</td><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->nicNumber.'</td><td>'.$result[$i]->gender.'</td><td>'.$result[$i]->email.'</td><td>'.$result[$i]->address.'</td><td>'.$result[$i]->dateOfBirth.'</td><td>'.$result[$i]->phoneNumber.'</td><td>'.$result[$i]->date.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function adminpdfreport3(){
+        $result=$this->userModel->pdfRejectedRequestsAdmin();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT</h1>
+			            <p>Service Report - Rejected User Requests</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>NIC</th><th>Gender</th><th>E-mail</th><th>Address</th><th>DOB</th><th>Phone Number</th><th>Registered Date</th></tr>';
+            for($i=0;$i<count($result);$i++){
+                $html.='<tr><td>'.$result[$i]->userId.'</td><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->nicNumber.'</td><td>'.$result[$i]->gender.'</td><td>'.$result[$i]->email.'</td><td>'.$result[$i]->address.'</td><td>'.$result[$i]->dateOfBirth.'</td><td>'.$result[$i]->phoneNumber.'</td><td>'.$result[$i]->date.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function adminpdfreport4(){
+        $result=$this->userModel->pdfBlockedRequestsAdmin();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT</h1>
+			            <p>Service Report - Blocked User Requests</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>NIC</th><th>Gender</th><th>E-mail</th><th>Address</th><th>DOB</th><th>Phone Number</th><th>Registered Date</th></tr>';
+            for($i=0;$i<count($result);$i++){
+                $html.='<tr><td>'.$result[$i]->userId.'</td><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->nicNumber.'</td><td>'.$result[$i]->gender.'</td><td>'.$result[$i]->email.'</td><td>'.$result[$i]->address.'</td><td>'.$result[$i]->dateOfBirth.'</td><td>'.$result[$i]->phoneNumber.'</td><td>'.$result[$i]->date.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function adminpdfreport5(){
+        $result=$this->userModel->pdfPoliceOperatorsAdmin();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT</h1>
+			            <p>Service Report - Police Operators-119</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Operator ID</th><th>User Name</th><th>First Name</th><th>Last Name</th><th>Gender</th></tr>';
+            for($i=0;$i<count($result);$i++){
+                $html.='<tr><td>'.$result[$i]->userId.'</td><td>'.$result[$i]->userName.'</td><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->gender.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function adminpdfreport6(){
+        $result=$this->userModel->pdfSuwasariyaOperatorsAdmin();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT</h1>
+			            <p>Service Report - Suwasariya Operators-1990</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Operator ID</th><th>User Name</th><th>First Name</th><th>Last Name</th><th>Gender</th></tr>';
+            for($i=0;$i<count($result);$i++){
+                $html.='<tr><td>'.$result[$i]->userId.'</td><td>'.$result[$i]->userName.'</td><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->gender.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function adminexcelreport1(){
+        $result=$this->userModel->pdfWeekRequestAdmin();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                if (! $isPrintHeader) {
+                    echo implode("\t", array_keys($result)) . "\n";
+                    $isPrintHeader = true;
+                }
+                echo implode("\t", array_values($result)) . "\n";
+            }
+            exit();
+        }
+    }
+
+    public function adminexcelreport2(){
+        $result=$this->userModel->pdfAcceptedRequestsAdmin();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function adminexcelreport3(){
+        $result=$this->userModel->pdfRejectedRequestsAdmin();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function adminexcelreport4(){
+        $result=$this->userModel->pdfBlockedRequestsAdmin();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function adminexcelreport5(){
+        $result=$this->userModel->pdfPoliceOperatorsAdmin();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function adminexcelreport6(){
+        $result=$this->userModel->pdfSuwasariyaOperatorsAdmin();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function flagcountpolice()
+    {
+        $result=$this->userModel->countFlagsPolice();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3];
+    }
+
+    public function categorycountpolice()
+    {
+        $result=$this->userModel->countCategoryPolice();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3];
+    }
+
+    public function districtcountpolice()
+    {
+        $result=$this->userModel->countDistrictPolice();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3].' '.$result[4].' '.$result[5].' '.$result[6].' '.$result[7].' '.$result[8].' '.$result[9].' '.$result[10].' '.$result[11].' '.$result[12].' '.$result[13].' '.$result[14].' '.$result[15].' '.$result[16].' '.$result[17].' '.$result[18].' '.$result[19].' '.$result[20].' '.$result[21].' '.$result[22].' '.$result[23].' '.$result[24];
+    }
+
+    public function policepdfreport1(){
+        $result=$this->userModel->pdfDateDistrictPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Group By Date And District</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Date</th><th>District</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->date.'</td><td>'.$result[$i]->district.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policepdfreport2(){
+        $result=$this->userModel->pdfDistrictCategoryPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Group By District And Complain Category</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>District</th><th>Complain Category</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->district.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policepdfreport3(){
+        $result=$this->userModel->pdfPoliceStationCategoryPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Group By Police Station And Complain Category</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Police Station</th><th>Complain Category</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policepdfreport4(){
+        $result=$this->userModel->pdfDateCategoryPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Group By Date And Complain Category</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Date</th><th>Complain Category</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->date.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policepdfreport5(){
+        $result=$this->userModel->pdfRequestkUserPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>First Name</th><th>Last Name</th><th>Gender</th><th>NIC</th><th>E-mail</th><th>Phone</th><th>Address</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->gender.'</td><td>'.$result[$i]->nicNumber.'</td><td>'.$result[$i]->email.'</td><td>'.$result[$i]->phoneNumber.'</td><td>'.$result[$i]->address.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policepdfreport6(){
+        $result=$this->userModel->pdfRequestFeedbackPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Request ID</th><th>Date</th><th>Time</th><th>Police Station</th><th>Complain Category</th><th>Feedback</th><th>Rating</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->requestId.'</td><td>'.$result[$i]->date.'</td><td>'.$result[$i]->time.'</td><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->comment.'</td><td>'.$result[$i]->ratings.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policepdfreport7(){
+        $result=$this->userModel->pdfAllRequestFeedbackPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Request ID</th><th>Date</th><th>Time</th><th>Police Station</th><th>Complain Category</th><th>Feedback</th><th>Rating</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->requestId.'</td><td>'.$result[$i]->date.'</td><td>'.$result[$i]->time.'</td><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->complainCategory.'</td><td>'.$result[$i]->comment.'</td><td>'.$result[$i]->ratings.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policepdfreport8(){
+        $result=$this->userModel->pdfAllRequestFeedbackUserPolice();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-POLICE-119</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>First Name</th><th>Last Name</th><th>NIC</th><th>Phone</th><th>E-mail</th><th>Address</th><th>Date</th><th>Time</th><th>District</th><th>Police Statin</th><th>Complain Category</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->nicNumber.'</td><td>'.$result[$i]->phoneNumber.'</td><td>'.$result[$i]->email.'</td><td>'.$result[$i]->address.'</td><td>'.$result[$i]->date.'</td><td>'.$result[$i]->time.'</td><td>'.$result[$i]->district.'</td><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->complainCategory.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function policeexcelreport1(){
+        $result=$this->userModel->pdfDateDistrictPolice();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function policeexcelreport2(){
+        $result=$this->userModel->pdfDistrictCategoryPolice();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function policeexcelreport3(){
+        $result=$this->userModel->pdfPoliceStationCategoryPolice();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function policeexcelreport4(){
+        $result=$this->userModel->pdfDateCategoryPolice();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function policeexcelreport5(){
+        $result=$this->userModel->pdfRequestkUserPolice();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function policeexcelreport6(){
+        $result=$this->userModel->pdfRequestFeedbackPolice();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function policeexcelreport7(){
+        $result=$this->userModel->pdfAllRequestFeedbackPolice();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function policeexcelreport8(){
+        $result=$this->userModel->pdfAllRequestFeedbackUserPolice();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+
+    public function flagcountsuwasariya()
+    {
+        $result=$this->userModel->countFlagsSuwasariya();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3];
+    }
+
+    public function patientcountsuwasariya()
+    {
+        $result=$this->userModel->countCategorySuwasariya();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3].' '.$result[4].' '.$result[5];
+    }
+
+    public function districtcountsuwasariya()
+    {
+        $result=$this->userModel->countDistrictSuwasariya();
+        echo $result[0].' '.$result[1].' '.$result[2].' '.$result[3].' '.$result[4].' '.$result[5].' '.$result[6].' '.$result[7].' '.$result[8].' '.$result[9].' '.$result[10].' '.$result[11].' '.$result[12].' '.$result[13].' '.$result[14].' '.$result[15].' '.$result[16].' '.$result[17].' '.$result[18].' '.$result[19].' '.$result[20].' '.$result[21].' '.$result[22].' '.$result[23].' '.$result[24];
+    }
+
+    public function suwasariyapdfreport1(){
+        $result=$this->userModel->pdfDateDistrictSuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Group By Date And District</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Date</th><th>District</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->date.'</td><td>'.$result[$i]->district.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyapdfreport2(){
+        $result=$this->userModel->pdfDistrictCategorySuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Group By District And Number Of Patients</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>District</th><th>Number Of Patients</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->district.'</td><td>'.$result[$i]->numberOfPatients.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyapdfreport3(){
+        $result=$this->userModel->pdfPoliceStationCategorySuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Group By Police Station And Number Of Patients</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Police Station</th><th>Number Of Patients</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->numberOfPatients.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyapdfreport4(){
+        $result=$this->userModel->pdfDateCategorySuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Group By Date And Number Of Patients</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Date</th><th>Number Of Patients</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->date.'</td><td>'.$result[$i]->numberOfPatients.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyapdfreport5(){
+        $result=$this->userModel->pdfRequestkUserSuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>First Name</th><th>Last Name</th><th>Gender</th><th>NIC</th><th>E-mail</th><th>Phone</th><th>Address</th><th>Requests</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->gender.'</td><td>'.$result[$i]->nicNumber.'</td><td>'.$result[$i]->email.'</td><td>'.$result[$i]->phoneNumber.'</td><td>'.$result[$i]->address.'</td><td>'.$result[$i]->requestCount.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyapdfreport6(){
+        $result=$this->userModel->pdfRequestFeedbackSuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Request ID</th><th>Date</th><th>Time</th><th>Police Station</th><th>Number Of Patients</th><th>Feedback</th><th>Rating</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->requestId.'</td><td>'.$result[$i]->date.'</td><td>'.$result[$i]->time.'</td><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->numberOfPatients.'</td><td>'.$result[$i]->comment.'</td><td>'.$result[$i]->ratings.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyapdfreport7(){
+        $result=$this->userModel->pdfAllRequestFeedbackSuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>Request ID</th><th>Date</th><th>Time</th><th>Police Station</th><th>Number Of Patients</th><th>Feedback</th><th>Rating</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->requestId.'</td><td>'.$result[$i]->date.'</td><td>'.$result[$i]->time.'</td><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->numberOfPatients.'</td><td>'.$result[$i]->comment.'</td><td>'.$result[$i]->ratings.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyapdfreport8(){
+        $result=$this->userModel->pdfAllRequestFeedbackUserSuwasariya();
+        $this->dompdf();
+        if($result){
+            $html=$this->tablecss();
+            $html.='<div class="title">
+	    	            <h1 id="service">ADMIN REPORT-SUWASARIYA-1990</h1>
+			            <p>Service Report - Service Ratings With Police Stations</p>
+		            </div>';
+	        $html.='<table id="customers">';
+	        $html.='<tr><th>First Name</th><th>Last Name</th><th>NIC</th><th>Phone</th><th>E-mail</th><th>Address</th><th>Date</th><th>Time</th><th>District</th><th>Police Statin</th><th>Number Of Patients</th></tr>';
+            for($i=0;$i<count($result);$i++){
+		        $html.='<tr><td>'.$result[$i]->firstName.'</td><td>'.$result[$i]->lastName.'</td><td>'.$result[$i]->nicNumber.'</td><td>'.$result[$i]->phoneNumber.'</td><td>'.$result[$i]->email.'</td><td>'.$result[$i]->address.'</td><td>'.$result[$i]->date.'</td><td>'.$result[$i]->time.'</td><td>'.$result[$i]->district.'</td><td>'.$result[$i]->policeStation.'</td><td>'.$result[$i]->numberOfPatients.'</td></tr>';
+            }
+	        $html.='</table>';
+        }else{
+	        $html="Data not found";
+        }
+        $mpdf=new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $file='report.pdf';
+        $mpdf->output($file,'I');
+    }
+
+    public function suwasariyaexcelreport1(){
+        $result=$this->userModel->pdfDateDistrictSuwasariya();
+        if($result){
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function suwasariyaexcelreport2(){
+        $result=$this->userModel->pdfDistrictCategorySuwasariya();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function suwasariyaexcelreport3(){
+        $result=$this->userModel->pdfPoliceStationCategorySuwasariya();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function suwasariyaexcelreport4(){
+        $result=$this->userModel->pdfDateCategorySuwasariya();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function suwasariyaexcelreport5(){
+        $result=$this->userModel->pdfRequestkUserSuwasariya();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function suwasariyaexcelreport6(){
+        $result=$this->userModel->pdfRequestFeedbackSuwasariya();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function suwasariyaexcelreport7(){
+        $result=$this->userModel->pdfAllRequestFeedbackSuwasariya();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+
+    public function suwasariyaexcelreport8(){
+        $result=$this->userModel->pdfAllRequestFeedbackUserSuwasariya();
+        if($result){
+	        header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment; filename=download.xls');
+            $isPrintHeader = false;
+            if (! empty($result)) {
+                foreach ($result as $row) {
+                    $obj=(array)$row;
+                    if (! $isPrintHeader) {
+                        echo implode("\t", array_keys($obj)) . "\n";
+                        $isPrintHeader = true;
+                    }
+                    echo implode("\t", array_values($obj)) . "\n";
+                }
+            }
+            exit();
+        }
+    }
+}
 ?>

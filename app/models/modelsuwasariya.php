@@ -220,19 +220,11 @@
 
         public function getPreviousDate()
         {
-            // $mydate=getdate(date("U"));
-            // if($mydate["mon"]-1<=0){
-            //     $date=($mydate["year"]-1).'-12-'.$mydate["mday"];
-            // }else{
-            //     $date=$mydate["year"].'-'.($mydate["mon"]-1).'-'.$mydate["mday"];
-            // }
             return date('Y-m-d', strtotime('-1 months'));
         }
 
         public function getCurrentDate()
         {
-            // $mydate=getdate(date("U"));
-            // $date=$mydate["year"].'-'.$mydate["mon"].'-'.$mydate["mday"];
             return date("Y-m-d");
         }
 

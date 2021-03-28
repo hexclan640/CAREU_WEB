@@ -484,7 +484,7 @@ class suwasariya extends Controller
         $mpdf->output($file,'I');
     }
 
-    public function cxcelreport1(){
+    public function excelreport1(){
         $result=$this->userModel->pdfDateDistrict();
         if($result){
             header('Content-Type: application/vnd.ms-excel');
@@ -504,7 +504,7 @@ class suwasariya extends Controller
         }
     }
 
-    public function cxcelreport2(){
+    public function excelreport2(){
         $result=$this->userModel->pdfDistrictCategory();
         if($result){
 	        header('Content-Type: application/vnd.ms-excel');
@@ -524,7 +524,7 @@ class suwasariya extends Controller
         }
     }
 
-    public function cxcelreport3(){
+    public function excelreport3(){
         $result=$this->userModel->pdfPoliceStationCategory();
         if($result){
 	        header('Content-Type: application/vnd.ms-excel');
@@ -544,7 +544,7 @@ class suwasariya extends Controller
         }
     }
 
-    public function cxcelreport4(){
+    public function excelreport4(){
         $result=$this->userModel->pdfDateCategory();
         if($result){
 	        header('Content-Type: application/vnd.ms-excel');
@@ -564,7 +564,7 @@ class suwasariya extends Controller
         }
     }
 
-    public function cxcelreport5(){
+    public function excelreport5(){
         $result=$this->userModel->pdfRequestkUser();
         if($result){
 	        header('Content-Type: application/vnd.ms-excel');
@@ -584,7 +584,7 @@ class suwasariya extends Controller
         }
     }
 
-    public function cxcelreport6(){
+    public function excelreport6(){
         $result=$this->userModel->pdfRequestFeedback();
         if($result){
 	        header('Content-Type: application/vnd.ms-excel');
@@ -604,7 +604,7 @@ class suwasariya extends Controller
         }
     }
 
-    public function cxcelreport7(){
+    public function excelreport7(){
         $result=$this->userModel->pdfAllRequestFeedback();
         if($result){
 	        header('Content-Type: application/vnd.ms-excel');
@@ -624,7 +624,7 @@ class suwasariya extends Controller
         }
     }
 
-    public function cxcelreport8(){
+    public function excelreport8(){
         $result=$this->userModel->pdfAllRequestFeedbackUser();
         if($result){
 	        header('Content-Type: application/vnd.ms-excel');

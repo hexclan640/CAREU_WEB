@@ -46,13 +46,14 @@ $(document).ready(function() {
         url: 'patientcount',
         method: 'post',
         success: function(data) {
-            console.log(data);
             var dataset = data.split(" ");
+            var count = parseInt(dataset[0]) + parseInt(dataset[1]) + parseInt(dataset[2]) + parseInt(dataset[3]) + parseInt(dataset[4]) + parseInt(dataset[5]);
+            document.getElementById("title2").innerHTML = "Number of Patients - " + count;
             var ctx = document.getElementById('myChart2').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: ['1 Patients', '2 Patients', '3 Patients', '4 Patients', '5 Patients', 'More Than 5 Patients'],
+                    labels: ['1', '2', '3', '4', '5', 'More Than 5'],
                     datasets: [{
                         label: 'Requests',
                         data: [dataset[0], dataset[1], dataset[2], dataset[3], dataset[4], dataset[5]],
@@ -113,13 +114,6 @@ $(document).ready(function() {
     });
 });
 
-// function exportpdf() {
-//     if (document.getElementById("options").value != "select") {
-//         document.getElementById("pdfbtn").href = document.getElementById("options").value;
-//         return true;
-//     }
-// }
-
 function exportpdf() {
     var selection = document.getElementById("options").value;
     if (selection != "select") {
@@ -148,21 +142,21 @@ function exportexel() {
     var selection = document.getElementById("options").value;
     if (selection != "select") {
         if (selection == 1) {
-            document.getElementById("excelbtn").href = "cxcelreport1";
+            document.getElementById("excelbtn").href = "excelreport1";
         } else if (selection == 2) {
-            document.getElementById("excelbtn").href = "cxcelreport2";
+            document.getElementById("excelbtn").href = "excelreport2";
         } else if (selection == 3) {
-            document.getElementById("excelbtn").href = "cxcelreport3";
+            document.getElementById("excelbtn").href = "excelreport3";
         } else if (selection == 4) {
-            document.getElementById("excelbtn").href = "cxcelreport4";
+            document.getElementById("excelbtn").href = "excelreport4";
         } else if (selection == 5) {
-            document.getElementById("excelbtn").href = "cxcelreport5";
+            document.getElementById("excelbtn").href = "excelreport5";
         } else if (selection == 6) {
-            document.getElementById("excelbtn").href = "cxcelreport6";
+            document.getElementById("excelbtn").href = "excelreport6";
         } else if (selection == 7) {
-            document.getElementById("excelbtn").href = "cxcelreport7";
+            document.getElementById("excelbtn").href = "excelreport7";
         } else if (selection == 8) {
-            document.getElementById("excelbtn").href = "cxcelreport8";
+            document.getElementById("excelbtn").href = "excelreport8";
         }
         return true;
     }
