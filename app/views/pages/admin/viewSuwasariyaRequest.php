@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Request Details</title>
 </head>
 <body>
@@ -127,10 +129,8 @@
 	<script src="https://kit.fontawesome.com/a3a4c7c0c6.js"></script>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/adminNotification.js"></script>
 	<script type="text/javascript" src="../javascript/viewRequest.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuUFIqw6r-ifKemRUTI9obFZghDIrcNHE&callback=myMap"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

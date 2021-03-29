@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Change Password</title>
 </head>
 <body>
@@ -43,7 +45,7 @@
 						</div>
 						<div class="column2">
 							<label>New Password</label>
-							<input type="password" name="password1" id="password1"value=""><br>
+							<input onkeyup="trigger()" type="password" name="password1" id="password1" value=""><br>
 							<label>Re-enter Password</label>
 							<input type="password" name="password2" id="password2" value=""><br>
 						</div>
@@ -71,9 +73,7 @@
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/changePasswordPolice.js"></script>
 	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

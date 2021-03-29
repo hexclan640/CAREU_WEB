@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Edit Profile</title>
 </head>
 <body>
@@ -93,9 +95,7 @@
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/editProfileAdmin.js"></script>
 	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>

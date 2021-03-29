@@ -97,6 +97,7 @@ $(document).ready(function() {
                 }
             });
         } else {
+            document.getElementById("userName").style.color = "black";
             $("#err").addClass("hide");
         }
     });

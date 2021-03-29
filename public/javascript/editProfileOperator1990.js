@@ -36,15 +36,12 @@ $(document).ready(function() {
         if (firstname == "" && lastname == "") {
             error.innerText = "Please, fill all the feilds!";
             $("#err").removeClass("hide");
-            return false;
         } else if (firstname == "") {
             error.innerText = "Please, give a first name!";
             $("#err").removeClass("hide");
-            return false;
         } else if (lastname == "") {
             error.innerText = "Please, give a last name!";
             $("#err").removeClass("hide");
-            return false;
         } else if (firstname != "" && lastname != "") {
             $("#err").addClass("hide");
             var data = $("#updateprofile")[0];
@@ -72,5 +69,4 @@ $(document).ready(function() {
             $("#err").addClass("hide");
         }
     });
-
 });

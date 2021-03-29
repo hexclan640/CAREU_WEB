@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Reports</title>
 </head>
 <body>
@@ -82,9 +84,7 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/suwasariyaReports.js"></script>
 	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>
