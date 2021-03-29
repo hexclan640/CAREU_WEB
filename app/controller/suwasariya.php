@@ -42,12 +42,12 @@ class suwasariya extends Controller
 
     public function rejectrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestReject($requestId,$_SESSION['suwasariyaUserName']);
+        $this->userModel->requestReject($requestId,$_SESSION['suwasariyaUserName']);
     }
 
     public function acceptrequest(){
         $requestId=$_POST["requestId"];
-        $rejectInfo=$this->userModel->requestAccept($requestId,$_SESSION['suwasariyaUserName']);
+        $this->userModel->requestAccept($requestId,$_SESSION['suwasariyaUserName']);
     }
 
     public function viewtherequest()

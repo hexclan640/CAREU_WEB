@@ -34,13 +34,13 @@ body {
 
 .column2 button {
     width: 100%;
-    background-color: #d9534f;
+    background-color: #c20c06;
     padding: 11px 20px;
     cursor: pointer;
     color: white;
     font-size: 100%;
     float: right;
-    border: 2px solid #d9534f;
+    border: 2px solid #c20c06;
 }
 
 .column2 button:hover {
