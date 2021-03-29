@@ -53,6 +53,7 @@ $(document).ready(function() {
                                 contentType: false,
                                 processData: false,
                                 success: function(data) {
+                                    console.log(data);
                                     error.innerText = "";
                                     $("#err").addClass("hide");
                                     $("#formOperator119").trigger("reset");

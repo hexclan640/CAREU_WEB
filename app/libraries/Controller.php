@@ -20,5 +20,9 @@ class Controller{
 		require_once '../app/PHPMailer/class.phpmailer.php';
 		require_once '../app/PHPMailer/class.smtp.php';
     }
+
+    public function dompdf(){
+        require_once '../app/vendor/autoload.php';
+    }
 }
 ?>

@@ -4,15 +4,15 @@ $(document).ready(function() {
             url: "requestscount",
             method: "post",
             success: function(data) {
-                if (sessionStorage.getItem("count") < data) {
-                    sessionStorage.setItem("count", data);
+                if (sessionStorage.getItem("policecount") < data) {
+                    sessionStorage.setItem("policecount", data);
                     document.getElementById("notification").style.display = "block";
                     document.getElementById("badge1").innerText = data;
                     document.getElementById("badge2").innerText = data;
                     var audio = new Audio("../audio/bell.mp3");
                     audio.play();
                 } else {
-                    sessionStorage.setItem("count", data);
+                    sessionStorage.setItem("policecount", data);
                     document.getElementById("badge1").innerText = data;
                 }
             }

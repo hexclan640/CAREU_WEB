@@ -89,11 +89,20 @@
             return $result;
         }
 
-        public function requestReject($requestid)
+        public function getOperatorId($operatorusername){
+            $this->db->query("SELECT * FROM 119calloperator WHERE userName='{$operatorusername}'");
+            $result = $this->db->resultSet();
+            return $result[0]->userId;
+        }
+
+        public function requestReject($requestid,$operatorusername)
         {
+            $operatorId=$this->getOperatorId($operatorusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="UPDATE 119policerequest SET flag=2 WHERE requestId='{$requestid}'";
-            $result=mysqli_query($connection,$query);
+            $query1="UPDATE 119policerequest SET flag=2 WHERE requestId='{$requestid}'";
+            mysqli_query($connection,$query1);
+            $query2="INSERT INTO 119requestoperator VALUES('{$requestid}','{$operatorId}')";
+            $result=mysqli_query($connection,$query2);
             mysqli_close($connection);
             if($result)
             {
@@ -105,11 +114,14 @@
             }
         }
 
-        public function requestAccept($requestid)
+        public function requestAccept($requestid,$operatorusername)
         {
+            $operatorId=$this->getOperatorId($operatorusername);
             $connection = mysqli_connect('localhost','root','','careu');
-            $query="UPDATE 119policerequest SET flag=1 WHERE requestId='{$requestid}'";
-            $result=mysqli_query($connection,$query);
+            $query1="UPDATE 119policerequest SET flag=1 WHERE requestId='{$requestid}'";
+            mysqli_query($connection,$query1);
+            $query2="INSERT INTO 119requestoperator VALUES('{$requestid}','{$operatorId}')";
+            $result=mysqli_query($connection,$query2);
             mysqli_close($connection);
             if($result)
             {
@@ -216,6 +228,167 @@
             $query2="INSERT INTO 119operatorsend (replyId,userId) VALUES ('{$replyId}','{$operatorId}');";
             mysqli_query($connection,$query2);
             mysqli_close($connection);
+        }
+
+        public function getPreviousDate()
+        {
+            return date('Y-m-d', strtotime('-1 months'));
+        }
+
+        public function getCurrentDate()
+        {
+            return date("Y-m-d");
+        }
+
+        public function countFlags(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE flag=0 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result1 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE flag=1 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result2 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE flag=2 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result3 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE flag=3 AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result4 = $this->db->resultSet();
+            $result=array($result1[0]->requestCount,$result2[0]->requestCount,$result3[0]->requestCount,$result4[0]->requestCount);
+            return $result;
+        }
+
+        public function countCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE complainCategory='Accident' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result1 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE complainCategory='Crime' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result2 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE complainCategory='Robbery' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result3 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE complainCategory='Other' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result4 = $this->db->resultSet();
+            $result=array($result1[0]->requestCount,$result2[0]->requestCount,$result3[0]->requestCount,$result4[0]->requestCount);
+            return $result;
+        }
+
+        public function countDistrict(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Ampara%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result1 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Anuradhapura%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result2 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Badulla%'AND date BETWEEN '{$date1}' AND '{$date2}'") ;
+            $result3 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Batticola%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result4 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Colombo%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result5 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Galle%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result6 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Gampaha%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result7 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Hambanthota%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result8 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Jaffna%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result9 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Kaluthatra%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result10 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Kandy%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result11 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Kegalle%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result12 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Kilinochchi%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result13 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Kurunagala%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result14 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Mannar%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result15 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Mathale%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result16 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Mathara%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result17 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Monaragala%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result18 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Mulathivu%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result19 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Nuwara Eliya%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result20 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Polonnaruwa%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result21 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Puththalam%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result22 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Rathnapura%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result23 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Trincomalee%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result24 = $this->db->resultSet();
+            $this->db->query("SELECT COUNT(*) AS requestCount FROM 119policerequest WHERE district LIKE 'Vavuniya%' AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result25 = $this->db->resultSet();
+            $result=array($result1[0]->requestCount,$result2[0]->requestCount,$result3[0]->requestCount,$result4[0]->requestCount,$result5[0]->requestCount,$result6[0]->requestCount,$result7[0]->requestCount,$result8[0]->requestCount,$result9[0]->requestCount,$result10[0]->requestCount,$result11[0]->requestCount,$result12[0]->requestCount,$result13[0]->requestCount,$result14[0]->requestCount,$result15[0]->requestCount,$result16[0]->requestCount,$result17[0]->requestCount,$result18[0]->requestCount,$result19[0]->requestCount,$result20[0]->requestCount,$result21[0]->requestCount,$result22[0]->requestCount,$result23[0]->requestCount,$result24[0]->requestCount,$result25[0]->requestCount);
+            return $result;
+        }
+
+        public function pdfDateDistrict(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT date,district,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY date,district");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfDistrictCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT district,complainCategory,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY district,complainCategory");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfPoliceStationCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT policeStation,complainCategory,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY policeStation,complainCategory");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfDateCategory(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT date,complainCategory,COUNT(*) AS requestCount FROM 119policerequest WHERE date BETWEEN '{$date1}' AND '{$date2}' GROUP BY date,complainCategory");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfRequestFeedback(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT 119policerequest.requestId,119policerequest.date,119policerequest.time,119policerequest.policeStation,119policerequest.complainCategory,feedback.comment,feedback.ratings FROM 119policerequest,feedback,give WHERE give.feedbackId=feedback.feedbackId AND give.requestId=119policerequest.requestId AND date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfAllRequestFeedback(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT 119policerequest.requestId,119policerequest.date,119policerequest.time,119policerequest.policeStation,119policerequest.complainCategory,s.comment,s.ratings FROM 119policerequest LEFT JOIN (SELECT feedback.feedbackId,feedback.comment,feedback.ratings,give.requestId FROM feedback,give WHERE feedback.feedbackId=give.feedbackId) AS s  ON s.requestId=119policerequest.requestId WHERE 119policerequest.date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfAllRequestFeedbackUser(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT servicerequester.firstName,servicerequester.lastName,servicerequester.nicNumber,servicerequester.phoneNumber,servicerequester.email,servicerequester.address,119policerequest.date,119policerequest.time,119policerequest.district,119policerequest.policeStation,119policerequest.complainCategory FROM request,servicerequester,119policerequest WHERE request.requestId=119policerequest.requestId AND request.userId=servicerequester.userId AND 119policerequest.date BETWEEN '{$date1}' AND '{$date2}'");
+            $result = $this->db->resultSet();
+            return $result;
+        }
+
+        public function pdfRequestkUser(){
+            $date1=$this->getPreviousDate();
+            $date2=$this->getCurrentDate();
+            $this->db->query("SELECT servicerequester.firstName,servicerequester.lastName,servicerequester.gender,servicerequester.nicNumber,servicerequester.email,servicerequester.phoneNumber,servicerequester.address,COUNT(*) AS requestCount FROM servicerequester,request,119policerequest WHERE 119policerequest.requestId=request.requestId AND request.userId=servicerequester.userId AND 119policerequest.date BETWEEN '{$date1}' AND '{$date2}' GROUP BY servicerequester.userId");
+            $result = $this->db->resultSet();
+            return $result;
         }
     }
 ?>

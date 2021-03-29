@@ -24,10 +24,57 @@
 		</ul>
 	</div>
 	<div class="form">
-		<div class="chartrow">
-			<div class="report">
-				<canvas id="myChart1" width="400" height="400"></canvas>
-			</div>
+		<div class="frame">
+			<center>
+				<div class="row">
+					<div class="namediv">
+						<h1>Reports</h1>
+					</div>
+					<div class="chart">
+						<div class="chartdiv">
+							<p id="title1"></p>
+							<canvas id="myChart1"></canvas>
+						</div>
+					</div>
+					<div class="chart">
+						<div class="chartdiv">
+							<p id="title2">Category Wise</p>
+							<canvas id="myChart2"></canvas>
+						</div>
+					</div>
+					<div class="barchart">
+						<div class="chartdiv">
+							<p id="title3">District Wise</p>
+							<canvas id="myChart3"></canvas>
+						</div>
+					</div>
+				</div>
+			</center>
+		</div>
+		<div class="frame1">
+			<center>
+				<div class="row">
+					<div class="pdfoptions">
+						<select class="options" name="options" id="options">
+							<option value="select">-Select-</option>
+							<option value="1">Group By Date And District</option>
+							<option value="2">Group By District And Category</option>
+							<option value="3">Group By Police Station And Category</option>
+							<option value="4">Group By Date And Category</option>
+							<option value="5">Group By Service Requester</option>
+							<option value="6">Service Ratings With Police Stations</option>
+							<option value="7">All Requests With Details</option>
+							<option value="8">Requests With User Details</option>
+						</select>
+					</div>
+					<div class="pdf">
+						<a class="pdfbtn" id="pdfbtn" onclick="exportpdf()" target = '_blank'>Export PDF</a>
+					</div>
+					<div class="excel">
+						<a class="excelbtn" id="excelbtn" onclick="exportexel()">Download EXCEL</a>
+					</div>
+				</div>
+			</center>
 		</div>
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
@@ -35,7 +82,7 @@
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="../javascript/reports.js"></script>
+	<script type="text/javascript" src="../javascript/policeReports.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/policeNotification.js"></script>
 	<script type="text/javascript" src="../javascript/preloader.js"></script>
