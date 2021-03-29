@@ -46,3 +46,29 @@ $(document).ready(function() {
         }
     });
 });
+
+function trigger() {
+    var input = document.getElementById("password1");
+    var error = document.getElementById("err1");
+    console.log(input.value);
+    let regExpWeak = /[a-z]/;
+    let regExpMedium = /\d+/;
+    let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+    if (input.value != "") {
+
+        if (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
+        if (input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) no = 2;
+        if (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
+        if (no == 1) {
+            input.style.color = "#ff4757";
+        }
+        if (no == 2) {
+            input.style.color = "orange";
+        }
+        if (no == 3) {
+            input.style.color = "#23ad5c";
+        }
+    } else {
+        input.style.color = "black";
+    }
+}

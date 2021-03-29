@@ -43,7 +43,7 @@
 						</div>
 						<div class="column2">
 							<label>New Password</label>
-							<input type="password" name="password1" id="password1"value=""><br>
+							<input onkeyup="trigger()" type="password" name="password1" id="password1" value=""><br>
 							<label>Re-enter Password</label>
 							<input type="password" name="password2" id="password2" value=""><br>
 						</div>
