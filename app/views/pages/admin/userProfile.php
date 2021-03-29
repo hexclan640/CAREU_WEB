@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/includecss/preloader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/loader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/topButton.css">
+	<script type="text/javascript" src="../javascript/jquery.js"></script>
+	<script type="text/javascript" src="../javascript/preloader.js"></script>
 	<title>Verified User Profile</title>
 </head>
 <body>
@@ -130,9 +132,7 @@
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script src="https://kit.fontawesome.com/a3a4c7c0c6.js"></script>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/jquery.js"></script>
 	<script type="text/javascript" src="../javascript/userProfile.js"></script>
 	<script type="text/javascript" src="../javascript/adminnotification.js"></script>
-	<script type="text/javascript" src="../javascript/preloader.js"></script>
 </body>
 </html>
