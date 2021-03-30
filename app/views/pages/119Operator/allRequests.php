@@ -35,7 +35,6 @@
  	 				<option value="NotViewed">Not Viewed</option>
   					<option value="Accepted">Accepted</option>
   					<option value="Rejected">Rejected</option>
-					<option value="Timeout">Timeout</option>
 				</select>
 			</div>
 		</div>
