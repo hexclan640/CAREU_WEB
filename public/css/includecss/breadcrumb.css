@@ -11,12 +11,6 @@
     top: 88px;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%
-}
-
 .breadcrumb {
     list-style: none;
     margin: 0.5rem;
