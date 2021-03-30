@@ -12,10 +12,33 @@ class Core {
         $url = $this->getUrl();
         if(isset($url[0]))
         {
-            if(file_exists('../app/controller/'.ucwords($url[0]).'.php'))
-            {
-                $this->currentController = ucwords($url[0]);
-                unset($url[0]);
+            session_start();
+            if($url[0]=="careu"){
+                if(file_exists('../app/controller/'.ucwords($url[0]).'.php'))
+                {
+                    $this->currentController = ucwords($url[0]);
+                    unset($url[0]);
+                }
+            }else if(isset($_SESSION["adminUserName"]) && $url[0]=="careuadmin" ){
+                if(file_exists('../app/controller/'.ucwords($url[0]).'.php'))
+                {
+                    $this->currentController = ucwords($url[0]);
+                    unset($url[0]);
+                }
+            }else if(isset($_SESSION["policeUserName"]) && $url[0]=="police" ){
+                if(file_exists('../app/controller/'.ucwords($url[0]).'.php'))
+                {
+                    $this->currentController = ucwords($url[0]);
+                    unset($url[0]);
+                }
+            }else if(isset($_SESSION["suwasariyaUserName"]) && $url[0]=="suwasariya"){
+                if(file_exists('../app/controller/'.ucwords($url[0]).'.php'))
+                {
+                    $this->currentController = ucwords($url[0]);
+                    unset($url[0]);
+                }
+            }else{
+                $_SESSION["notallowed"]="true";
             }
         }
 

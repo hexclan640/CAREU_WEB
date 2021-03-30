@@ -9,16 +9,22 @@ class careu extends Controller
 
     public function index()
     {
-        if(isset($_SESSION))
+
+        if(isset($_SESSION["adminUserName"]) || isset($_SESSION["policeUserName"]) || isset($_SESSION["suwasariyaUserName"]))
         {
             session_destroy();
         }
-        $this->view('index');
+        if(isset($_SESSION["notallowed"])){
+            $this->view('accessdenied');
+            session_destroy();
+        }else{
+            $this->view('index');
+        }
     }
 
     public function verify()
     {
-        session_start();
+        // session_start();
         $connection = mysqli_connect('localhost','root','','careu');
         $userName=mysqli_real_escape_string($connection,$_POST['username']);
         $password=md5(mysqli_real_escape_string($connection,$_POST['password']));

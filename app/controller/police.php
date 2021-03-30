@@ -1,12 +1,14 @@
 <?php
-    session_start();
-?>
-<?php
 class police extends Controller
 {
     public function __construct()
     {
         $this->userModel = $this->model('modelpolice');
+    }
+
+    public function index()
+    {
+        $this->view('accessdenied');
     }
 
     public function logout()
