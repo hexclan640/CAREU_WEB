@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/jpg" href="../img/appLogo.png"/>
-	<link rel="stylesheet" type="text/css" href="../css/119Operator/viewRequest.css">
+	<link rel="stylesheet" type="text/css" href="../css/1990Operator/viewRequest.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/operatorHeader.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/includecss/sidebar.css">
@@ -154,7 +154,6 @@
 	</div>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	<script type="text/javascript" src="../javascript/topButton.js"></script>
-	<script type="text/javascript" src="../javascript/headerSuwasariya.js"></script>
 	<script type="text/javascript" src="../javascript/suwasariyaNotification.js"></script>
 	<script type="text/javascript" src="../javascript/viewRequest.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuUFIqw6r-ifKemRUTI9obFZghDIrcNHE&callback=myMap"></script>

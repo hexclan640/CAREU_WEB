@@ -28,29 +28,21 @@ function timeoutchecker(requestId) {
 var modal = document.getElementById("zoomImg");
 var elements = document.getElementsByClassName("idImg1");
 var modalImg = document.getElementById("img");
-var nav = document.getElementById("navbar");
-var breadcrumb = document.getElementById("breadcrum");
 
 function zoom(e) {
     modal.style.display = "block";
     modalImg.src = e.src;
-    nav.style.display = "none";
-    breadcrumb.style.display = "none";
 }
 
 var closeImg = document.getElementsByClassName("close")[0];
 
 closeImg.onclick = function() {
     modal.style.display = "none";
-    nav.style.display = "block";
-    breadcrumb.style.display = "block";
 }
 
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-        nav.style.display = "block";
-        breadcrumb.style.display = "block";
     }
 }
 
