@@ -4,6 +4,7 @@ $(document).ready(function() {
             url: "userrequestscount",
             method: "post",
             success: function(data) {
+                console.log(data);
                 if (sessionStorage.getItem("admincount") < data) {
                     sessionStorage.setItem("admincount", data);
                     document.getElementById("notification").style.display = "block";
